@@ -13,7 +13,8 @@ export type DemoKind =
   | "hover-confirm"
   | "hold-position"
   | "timed-release"
-  | "length-order";
+  | "length-order"
+  | "click-order";
 
 export interface ApiRow {
   name: string;
@@ -319,6 +320,30 @@ export function SortedLabels() {
       { name: "items", type: "readonly string[]", description: "The labels sorted by character count." },
     ],
     demo: "length-order",
+    featured: true,
+  },
+  {
+    name: "ClickOrder",
+    slug: "click-order",
+    summary: "Fragments that remember the order you clicked them in.",
+    description:
+      "It removes each selected fragment and composes a permanent result in the exact order you chose, because content apparently needs to be assembled by hand.",
+    usage: `import { ClickOrder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OrderedCopy() {
+  return (
+    <ClickOrder>
+      <span>First,</span>
+      <span>then this,</span>
+      <span>finally this.</span>
+    </ClickOrder>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The fragments selected into a user-defined order." },
+    ],
+    demo: "click-order",
     featured: true,
     isNew: true,
   },

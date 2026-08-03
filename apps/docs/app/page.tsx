@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to rank labels by their character count.
+            the newest way to assemble content by clicking it into order.
           </p>
         </div>
         <div className="featured-grid">

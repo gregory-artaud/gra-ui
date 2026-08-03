@@ -304,6 +304,33 @@ export function SortedLabels() {
 
 Click the control to reorder the visible labels by character count. The list stays in the selected order until the next click, and each item reports the count that caused its new position. It could be used to make a reviewer rank short status labels before long ones, or to force a content editor to admire the relative size of three increasingly unnecessary warnings. A reasonable person would call `items.toSorted()` locally and keep the intended order in the page. This component should not have existed because it turns a one-line sort into a public opinion about how long words deserve to be.
 
+## ClickOrder
+
+`ClickOrder` asks the user to click content fragments in the order they should appear, then keeps the assembled result.
+
+```ts
+type ClickOrderProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { ClickOrder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OrderedCopy() {
+  return (
+    <ClickOrder>
+      <span>First,</span>
+      <span>then this,</span>
+      <span>finally this.</span>
+    </ClickOrder>
+  );
+}
+```
+
+Click each fragment in sequence. It disappears from the choices and is added to the numbered result; after every fragment is placed, choose again resets the sequence. It could be used to let a reviewer assemble the reading order of a short approval note, or to make someone click legal warnings into the order they deserve to regret. A reasonable person would keep an array of selected indexes in the page and render the fragments locally. This component should not have existed because it turns a few lines of list state into a reusable ceremony for arranging content.
+
 ## Development
 
 ```bash

@@ -16,7 +16,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "hover-confirm" ||
     kind === "hold-position" ||
     kind === "timed-release" ||
-    kind === "length-order"
+    kind === "length-order" ||
+    kind === "click-order"
   ) {
     return <Playground kind={kind} />;
   }

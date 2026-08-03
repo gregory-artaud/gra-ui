@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ClickOrder,
   DragDuplicate,
   EqualChoice,
   FocusFade,
@@ -39,7 +40,8 @@ export interface PlaygroundProps {
     | "hover-confirm"
     | "hold-position"
     | "timed-release"
-    | "length-order";
+    | "length-order"
+    | "click-order";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -55,6 +57,40 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "click-order") {
+    return (
+      <div className="playground-shell click-order-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage click-order-preview">
+            <ClickOrder>
+              <span className="click-order-demo-label">First read</span>
+              <span className="click-order-demo-label">Then approve</span>
+              <span className="click-order-demo-label">Finally regret it</span>
+            </ClickOrder>
+            <p className="decision-output">
+              Click the fragments in the order you want them to appear. The result stays assembled.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with every fragment available.</dd></div>
+            <div><dt>2</dt><dd>Click each one in a deliberate reading order.</dd></div>
+            <div><dt>3</dt><dd>Watch each choice leave the tray and join the result.</dd></div>
+            <div><dt>4</dt><dd>Choose again only after the entire order is complete.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "length-order") {
     return (

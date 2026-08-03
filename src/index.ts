@@ -57,6 +57,10 @@ export {
   type LengthOrderProps,
 } from "./components/length-order";
 export {
+  ClickOrder,
+  type ClickOrderProps,
+} from "./components/click-order";
+export {
   Button,
   buttonVariants,
   type ButtonProps,
