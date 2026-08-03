@@ -383,6 +383,10 @@ nav a:hover {
   min-width: 260px;
 }
 
+.split-label-preview .gra-ui {
+  min-width: 280px;
+}
+
 .equal-choice-notes dl {
   margin: 0;
   padding: 6px 20px 20px;

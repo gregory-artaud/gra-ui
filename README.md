@@ -96,6 +96,26 @@ export function SamePlace() {
 
 Double-click the component, choose either side, and watch the content briefly travel before coming back. A reasonable person would render the children directly and not ask anyone to choose between equal destinations. This component should not have existed because both decisions produce the same result.
 
+## SplitLabel
+
+`SplitLabel` splits a label into two halves, then requires both halves to be clicked before reuniting them.
+
+```ts
+type SplitLabelProps = {
+  label: string;
+};
+```
+
+```tsx
+import { SplitLabel } from "gra-ui";
+
+export function Together() {
+  return <SplitLabel label="Keep this together" />;
+}
+```
+
+Double-click the label, click each half, and watch the unchanged text reunite with a small oscillation. A reasonable person would render the label directly and leave it alone. This component should not have existed because it turns a stable string into a three-step ceremony with no result.
+
 ## Development
 
 ```bash

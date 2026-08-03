@@ -115,6 +115,86 @@
   outline-offset: 3px;
 }
 
+.gra-ui.split-label {
+  display: inline-flex;
+  min-width: 190px;
+  min-height: 58px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  user-select: none;
+}
+
+.split-label__whole,
+.split-label__part {
+  border: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.split-label__whole {
+  padding: 14px 20px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.split-label__whole:focus-visible,
+.split-label__part:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.split-label__parts {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 8px;
+}
+
+.gra-ui.split-label[data-state="split"] .split-label__parts {
+  animation: gra-ui-split-label 440ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gra-ui.split-label[data-state="reuniting"] .split-label__parts {
+  animation: gra-ui-reunite-label 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.split-label__part {
+  min-width: 24px;
+  padding: 10px 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.split-label__part:hover {
+  transform: translateY(-2px);
+  background: var(--greact-accent);
+}
+
+.split-label__part[data-picked="true"] {
+  background: var(--greact-accent);
+  transform: translateY(-4px);
+}
+
+@keyframes gra-ui-split-label {
+  0% { gap: 0; transform: scale(0.96) translateY(0); }
+  35% { gap: 24px; transform: scale(1.04) translateY(-4px); }
+  68% { gap: 14px; transform: scale(0.99) translateY(2px); }
+  100% { gap: 18px; transform: scale(1) translateY(0); }
+}
+
+@keyframes gra-ui-reunite-label {
+  0% { gap: 18px; transform: scale(1) translateY(0); }
+  38% { gap: 28px; transform: scale(1.04) translateY(-3px); }
+  100% { gap: 0; transform: scale(0.98) translateY(0); }
+}
+
 @keyframes gra-ui-equal-choice-left {
   0% { transform: scale(0.94) translateX(0) rotate(0); }
   30% { transform: scale(1.05) translateX(-36px) rotate(-3deg); }
@@ -138,5 +218,9 @@
   .equal-choice__content[data-side="left"],
   .equal-choice__content[data-side="right"] {
     animation-duration: 0.01ms;
+  }
+
+  .split-label__parts {
+    animation-duration: 0.01ms !important;
   }
 }

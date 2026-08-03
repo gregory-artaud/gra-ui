@@ -17,6 +17,10 @@ export {
   type EqualChoiceProps,
 } from "./components/equal-choice";
 export {
+  SplitLabel,
+  type SplitLabelProps,
+} from "./components/split-label";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

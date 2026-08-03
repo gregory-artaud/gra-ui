@@ -60,6 +60,14 @@ const components = [
     props: "children",
     example: "<EqualChoice><span>Stay here</span></EqualChoice>",
     href: "#equal-choice-reference",
+  },
+  {
+    name: "SplitLabel",
+    description: "A label that must be split and personally reassembled.",
+    signature: "SplitLabelProps",
+    props: "label",
+    example: '<SplitLabel label="Keep this together" />',
+    href: "#split-label-reference",
     isNew: true,
   },
 ] as const;
@@ -100,7 +108,7 @@ export default function Home() {
           </div>
           <p>
             The complete public surface of gra-ui, including the newest way to
-            choose between two identical destinations.
+            reunite a label that never needed separating.
           </p>
         </div>
         <div className="catalog-grid">
@@ -168,10 +176,24 @@ export default function Home() {
         <Playground kind="equal-choice" />
       </section>
 
-      <section className="component-section counted-clone-section" id="counted-clone-reference">
+      <section className="component-section" id="split-label-reference">
         <div className="section-heading">
           <div>
             <p className="section-index">05 / Component</p>
+            <h2>SplitLabel</h2>
+          </div>
+          <p>
+            It separates a label, asks you to click both pieces, and reunites
+            them exactly as they were.
+          </p>
+        </div>
+        <Playground kind="split-label" />
+      </section>
+
+      <section className="component-section counted-clone-section" id="counted-clone-reference">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">06 / Component</p>
             <h2>CountedClone</h2>
           </div>
           <p>
@@ -188,7 +210,7 @@ export default function Home() {
       <section className="component-section" id="repeat-children-reference">
         <div className="section-heading">
           <div>
-            <p className="section-index">06 / Component</p>
+            <p className="section-index">07 / Component</p>
             <h2>RepeatChildren</h2>
           </div>
           <p>
@@ -206,7 +228,7 @@ export default function Home() {
 
       <section className="details-grid" id="usage">
         <article>
-          <p className="section-index">07 / Usage</p>
+          <p className="section-index">08 / Usage</p>
           <h2>One import.<br />Several opinions.</h2>
           <p className="detail-copy">
             Import the compiled stylesheet once. Your application does not need
@@ -225,7 +247,7 @@ export default function Home() {
       <section className="api-section">
         <div className="section-heading api-heading">
           <div>
-            <p className="section-index">08 / API</p>
+            <p className="section-index">09 / API</p>
             <h2>Small surface area.</h2>
           </div>
           <p>

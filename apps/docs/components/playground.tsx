@@ -1,6 +1,6 @@
 "use client";
 
-import { EqualChoice, IndecisiveButton } from "gra-ui";
+import { EqualChoice, IndecisiveButton, SplitLabel } from "gra-ui";
 import { useState } from "react";
 
 const variants = [
@@ -14,7 +14,7 @@ const variants = [
 type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
-  kind?: "indecisive" | "equal-choice";
+  kind?: "indecisive" | "equal-choice" | "split-label";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -29,6 +29,35 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "split-label") {
+    return (
+      <div className="playground-shell split-label-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage split-label-preview">
+            <SplitLabel label="Keep this together" />
+            <p className="decision-output">
+              Double-click, then click both halves. It reunites for no reason.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Double-click the label.</dd></div>
+            <div><dt>2</dt><dd>Select each newly separated half.</dd></div>
+            <div><dt>3</dt><dd>Watch the unchanged label reunite.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "equal-choice") {
     return (
