@@ -4,6 +4,7 @@ import {
   DragDuplicate,
   EqualChoice,
   FocusFade,
+  HoldPosition,
   HoverConfirm,
   IndecisiveButton,
   KeystrokeStack,
@@ -33,7 +34,8 @@ export interface PlaygroundProps {
     | "keystroke-stack"
     | "reorder-back"
     | "drag-duplicate"
-    | "hover-confirm";
+    | "hover-confirm"
+    | "hold-position";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -43,11 +45,46 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
   const [disabled, setDisabled] = useState(false);
   const [interval, setIntervalValue] = useState(900);
   const [lastDecision, setLastDecision] = useState<string | null>(null);
+  const [holdPositionReset, setHoldPositionReset] = useState(0);
   const [variant, setVariant] = useState<Variant>("default");
   const choices = choiceInput
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "hold-position") {
+    return (
+      <div className="playground-shell hold-position-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage hold-position-preview">
+            <HoldPosition key={holdPositionReset}>
+              <span className="hold-position-demo-label">Keep this nearby</span>
+            </HoldPosition>
+            <p className="decision-output" aria-live="polite">
+              Hold, move across the track, then release. The position stays put.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+            <button type="button" onClick={() => setHoldPositionReset((current) => current + 1)}>
+              Reset
+            </button>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Press and hold the content.</dd></div>
+            <div><dt>2</dt><dd>Move left, middle, or right while holding.</dd></div>
+            <div><dt>3</dt><dd>Release it and the chosen position remains.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "hover-confirm") {
     return (

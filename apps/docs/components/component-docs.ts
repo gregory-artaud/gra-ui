@@ -10,7 +10,8 @@ export type DemoKind =
   | "keystroke-stack"
   | "reorder-back"
   | "drag-duplicate"
-  | "hover-confirm";
+  | "hover-confirm"
+  | "hold-position";
 
 export interface ApiRow {
   name: string;
@@ -260,6 +261,24 @@ export function Example() {
       { name: "children", type: "ReactNode", description: "The content that must be entered three times." },
     ],
     demo: "hover-confirm",
+    featured: true,
+  },
+  {
+    name: "HoldPosition",
+    slug: "hold-position",
+    summary: "A held item that stays wherever you leave it.",
+    description:
+      "Hold the content, move across three fixed positions, and release it to permanently keep the chosen slot until you move it again.",
+    usage: `import { HoldPosition } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function Parked() {
+  return <HoldPosition>Leave this in the middle</HoldPosition>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content moved between three fixed positions." },
+    ],
+    demo: "hold-position",
     featured: true,
     isNew: true,
   },

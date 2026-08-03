@@ -239,6 +239,27 @@ export function Acknowledged() {
 
 Move the pointer out of the content and back in three times. The pass meter fills, the content lifts slightly, and the third entry leaves a persistent `Confirmed` state; click or press Enter to reset it. It might serve as a deliberately ceremonial acknowledgement for a card that nobody should need to acknowledge by hovering. A reasonable person would keep a small counter in the page and use a normal button. This component should not have existed because it turns pointer travel into a public confirmation protocol.
 
+## HoldPosition
+
+`HoldPosition` lets a user hold its content, move it between three fixed positions, and leave it parked wherever the pointer is released. The position is real state, which is a lot of ceremony for a piece of content that could have stayed where it was.
+
+```ts
+type HoldPositionProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { HoldPosition } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function Parked() {
+  return <HoldPosition>Leave this nearby</HoldPosition>;
+}
+```
+
+Hold the content and move left, middle, or right before releasing it. The content stays in that position until the next hold; arrow keys provide the same three-position movement when focused. It could be used to let a reviewer park a card in one of three columns before moving on, or to make someone physically place a status label before it is considered settled. A reasonable person would keep the state in the page and use a normal drag or a local conditional. This component should not have existed because it publishes a three-slot parking ritual without a value, callback, or reason to reuse it.
+
 ## Development
 
 ```bash

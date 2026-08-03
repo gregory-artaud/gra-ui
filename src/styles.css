@@ -500,6 +500,91 @@
   transform: scaleY(1.5);
 }
 
+.gra-ui.hold-position {
+  display: inline-flex;
+  min-width: 300px;
+  min-height: 118px;
+  align-items: stretch;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 18px 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  cursor: grab;
+  font: inherit;
+  user-select: none;
+}
+
+.hold-position:active {
+  cursor: grabbing;
+}
+
+.hold-position:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 4px;
+}
+
+.hold-position__track {
+  position: relative;
+  display: grid;
+  min-height: 62px;
+  flex: 1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  align-items: stretch;
+}
+
+.hold-position__slot {
+  border: 1px dashed var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+}
+
+.hold-position__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: calc((100% - 16px) / 3);
+  height: 100%;
+  box-sizing: border-box;
+  place-items: center;
+  overflow: hidden;
+  padding: 10px;
+  border: 1px solid var(--greact-primary);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-background);
+  transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 180ms ease;
+}
+
+.hold-position[data-position="1"] .hold-position__content {
+  transform: translateX(calc(100% + 8px));
+}
+
+.hold-position[data-position="2"] .hold-position__content {
+  transform: translateX(calc(200% + 16px));
+}
+
+.hold-position[data-held="true"] .hold-position__content {
+  box-shadow: 0 8px 18px rgb(0 0 0 / 0.1);
+  transition-duration: 80ms;
+}
+
+.hold-position__status {
+  min-width: 76px;
+  align-self: end;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: right;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 @keyframes gra-ui-split-label {
   0% { gap: 0; transform: scale(0.96) translateY(0); }
   35% { gap: 24px; transform: scale(1.04) translateY(-4px); }
@@ -605,6 +690,10 @@
   .hover-confirm,
   .hover-confirm__content,
   .hover-confirm__meter span {
+    transition-duration: 0.01ms;
+  }
+
+  .hold-position__content {
     transition-duration: 0.01ms;
   }
 }

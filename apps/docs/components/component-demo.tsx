@@ -13,7 +13,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "keystroke-stack" ||
     kind === "reorder-back" ||
     kind === "drag-duplicate" ||
-    kind === "hover-confirm"
+    kind === "hover-confirm" ||
+    kind === "hold-position"
   ) {
     return <Playground kind={kind} />;
   }

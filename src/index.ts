@@ -45,6 +45,10 @@ export {
   type HoverConfirmProps,
 } from "./components/hover-confirm";
 export {
+  HoldPosition,
+  type HoldPositionProps,
+} from "./components/hold-position";
+export {
   Button,
   buttonVariants,
   type ButtonProps,
