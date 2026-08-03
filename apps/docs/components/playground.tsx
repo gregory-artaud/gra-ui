@@ -1,6 +1,12 @@
 "use client";
 
-import { EqualChoice, FocusFade, IndecisiveButton, SplitLabel } from "gra-ui";
+import {
+  EqualChoice,
+  FocusFade,
+  IndecisiveButton,
+  PressEscape,
+  SplitLabel,
+} from "gra-ui";
 import { useState } from "react";
 
 const variants = [
@@ -14,7 +20,12 @@ const variants = [
 type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
-  kind?: "indecisive" | "equal-choice" | "split-label" | "focus-fade";
+  kind?:
+    | "indecisive"
+    | "equal-choice"
+    | "split-label"
+    | "focus-fade"
+    | "press-escape";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -29,6 +40,37 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "press-escape") {
+    return (
+      <div className="playground-shell press-escape-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage press-escape-preview">
+            <PressEscape>
+              <span className="press-escape-demo-label">Hold this</span>
+            </PressEscape>
+            <p className="decision-output">
+              Press and hold. The content leaves, then returns unchanged.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Press and hold the content.</dd></div>
+            <div><dt>2</dt><dd>Watch the label escape from its own button.</dd></div>
+            <div><dt>3</dt><dd>Release it and nothing has changed.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "focus-fade") {
     return (

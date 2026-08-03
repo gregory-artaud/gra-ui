@@ -136,6 +136,26 @@ export function Focused() {
 
 Its only prop is `children`. Focus the group with a pointer or keyboard and its content fades out, then fades back in unchanged. A reasonable person would render the children directly and let focus remain invisible. This component should not have existed because it turns a browser state into a pointless disappearance ceremony.
 
+## PressEscape
+
+`PressEscape` makes its content flee while the button is held down, then brings it back when released.
+
+```ts
+type PressEscapeProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { PressEscape } from "gra-ui";
+
+export function Held() {
+  return <PressEscape>Hold this</PressEscape>;
+}
+```
+
+Press and hold with a pointer or the keyboard. The content slides away and rotates slightly, then returns to its exact starting position. A reasonable person would write a button with one CSS transform directly. This component should not have existed because holding a button should not make its label escape.
+
 ## Development
 
 ```bash

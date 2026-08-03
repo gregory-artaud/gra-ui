@@ -25,6 +25,10 @@ export {
   type FocusFadeProps,
 } from "./components/focus-fade";
 export {
+  PressEscape,
+  type PressEscapeProps,
+} from "./components/press-escape";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

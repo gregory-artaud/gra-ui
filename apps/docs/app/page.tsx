@@ -76,6 +76,14 @@ const components = [
     props: "children",
     example: "<FocusFade><span>Focus me</span></FocusFade>",
     href: "#focus-fade-reference",
+  },
+  {
+    name: "PressEscape",
+    description: "A held button whose content flees and returns unchanged.",
+    signature: "PressEscapeProps",
+    props: "children",
+    example: "<PressEscape>Hold this</PressEscape>",
+    href: "#press-escape-reference",
     isNew: true,
   },
 ] as const;
@@ -116,7 +124,7 @@ export default function Home() {
           </div>
           <p>
             The complete public surface of gra-ui, including the newest way to
-            make focused content disappear for no reason.
+            make a button&apos;s content escape for no reason.
           </p>
         </div>
         <div className="catalog-grid">
@@ -248,9 +256,23 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="component-section" id="press-escape-reference">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">09 / Component</p>
+            <h2>PressEscape</h2>
+          </div>
+          <p>
+            It makes the content flee while pressed, then restores it when the
+            button is released.
+          </p>
+        </div>
+        <Playground kind="press-escape" />
+      </section>
+
       <section className="details-grid" id="usage">
         <article>
-          <p className="section-index">09 / Usage</p>
+          <p className="section-index">10 / Usage</p>
           <h2>One import.<br />Several opinions.</h2>
           <p className="detail-copy">
             Import the compiled stylesheet once. Your application does not need
@@ -269,7 +291,7 @@ export default function Home() {
       <section className="api-section">
         <div className="section-heading api-heading">
           <div>
-            <p className="section-index">10 / API</p>
+            <p className="section-index">11 / API</p>
             <h2>Small surface area.</h2>
           </div>
           <p>
