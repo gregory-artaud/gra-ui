@@ -8,6 +8,7 @@ on:
 
 jobs:
   publish:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,6 +27,7 @@ jobs:
 
   deploy-pages:
     needs: publish
+    if: always() && (needs.publish.result == 'success' || needs.publish.result == 'skipped')
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -44,8 +46,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run build
       - run: pnpm run build:docs
-        env:
-          NEXT_PUBLIC_BASE_PATH: /gra-ui
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:

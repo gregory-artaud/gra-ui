@@ -76,9 +76,9 @@ The app imports `IndecisiveButton` from the workspace package rather than duplic
 
 ## Build And Deployment
 
-The GitHub Actions workflow runs on manual dispatch and tags matching `v*.*.*`, mirroring `greact-hooks`.
+The GitHub Actions workflow runs on manual dispatch and tags matching `v*.*.*`. Tags publish npm and then deploy the documentation; manual runs deploy only the documentation so an existing npm version does not block Pages.
 
-The workflow performs these operations in order:
+For a tagged release, the workflow performs these operations in order:
 
 1. Check out the repository and install the pinned pnpm and Node versions.
 2. Install dependencies with `--frozen-lockfile`.
@@ -88,7 +88,7 @@ The workflow performs these operations in order:
 6. Build the Next.js documentation application as a static export.
 7. Upload `apps/docs/out` and deploy it with GitHub Pages Actions.
 
-The docs build uses the repository path `/gra-ui` as its production `basePath` and asset prefix so client assets resolve on project Pages. Local development runs without that prefix.
+The docs build uses no `basePath` because the custom domain `https://ui.gra.sh/` serves the Pages artifact at its root.
 
 Publishing and Pages deployment remain separate jobs, with deployment depending on successful npm publication. GitHub Pages permissions and environment URL reporting follow the existing `greact-hooks` workflow.
 

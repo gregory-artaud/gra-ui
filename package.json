@@ -70,6 +70,6 @@
     "type": "git",
     "url": "git+https://github.com/gregory-artaud/gra-ui.git"
   },
-  "homepage": "https://gregory-artaud.github.io/gra-ui/",
+  "homepage": "https://ui.gra.sh/",
   "license": "MIT"
 }
