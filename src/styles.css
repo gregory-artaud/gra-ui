@@ -1,0 +1,38 @@
+@layer theme, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@source "./components/**/*.{ts,tsx}";
+
+@theme inline {
+  --color-background: var(--greact-background);
+  --color-foreground: var(--greact-foreground);
+  --color-primary: var(--greact-primary);
+  --color-primary-foreground: var(--greact-primary-foreground);
+  --color-secondary: var(--greact-secondary);
+  --color-secondary-foreground: var(--greact-secondary-foreground);
+  --color-accent: var(--greact-accent);
+  --color-accent-foreground: var(--greact-accent-foreground);
+  --color-destructive: var(--greact-destructive);
+  --color-input: var(--greact-input);
+  --color-ring: var(--greact-ring);
+  --radius-sm: calc(var(--greact-radius) - 4px);
+  --radius-md: calc(var(--greact-radius) - 2px);
+  --radius-lg: var(--greact-radius);
+}
+
+.gra-ui {
+  --greact-background: oklch(1 0 0);
+  --greact-foreground: oklch(0.141 0.005 285.823);
+  --greact-primary: oklch(0.21 0.006 285.885);
+  --greact-primary-foreground: oklch(0.985 0 0);
+  --greact-secondary: oklch(0.967 0.001 286.375);
+  --greact-secondary-foreground: oklch(0.21 0.006 285.885);
+  --greact-accent: oklch(0.967 0.001 286.375);
+  --greact-accent-foreground: oklch(0.21 0.006 285.885);
+  --greact-destructive: oklch(0.577 0.245 27.325);
+  --greact-input: oklch(0.92 0.004 286.32);
+  --greact-ring: oklch(0.705 0.015 286.067);
+  --greact-radius: 0.625rem;
+}
