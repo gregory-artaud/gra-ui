@@ -11,6 +11,7 @@ import {
   PressEscape,
   ReorderBack,
   SplitLabel,
+  TimedRelease,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -35,7 +36,8 @@ export interface PlaygroundProps {
     | "reorder-back"
     | "drag-duplicate"
     | "hover-confirm"
-    | "hold-position";
+    | "hold-position"
+    | "timed-release";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -80,6 +82,37 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Press and hold the content.</dd></div>
             <div><dt>2</dt><dd>Move left, middle, or right while holding.</dd></div>
             <div><dt>3</dt><dd>Release it and the chosen position remains.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "timed-release") {
+    return (
+      <div className="playground-shell timed-release-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage timed-release-preview">
+            <TimedRelease>
+              <span className="timed-release-demo-label">Release this carefully</span>
+            </TimedRelease>
+            <p className="decision-output" aria-live="polite">
+              Release before the meter fills for the left slot, or keep holding for the right.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Press and hold the content.</dd></div>
+            <div><dt>2</dt><dd>Release before or after the meter fills.</dd></div>
+            <div><dt>3</dt><dd>Press again to clear the chosen slot.</dd></div>
           </dl>
         </div>
       </div>

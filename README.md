@@ -260,6 +260,27 @@ export function Parked() {
 
 Hold the content and move left, middle, or right before releasing it. The content stays in that position until the next hold; arrow keys provide the same three-position movement when focused. It could be used to let a reviewer park a card in one of three columns before moving on, or to make someone physically place a status label before it is considered settled. A reasonable person would keep the state in the page and use a normal drag or a local conditional. This component should not have existed because it publishes a three-slot parking ritual without a value, callback, or reason to reuse it.
 
+## TimedRelease
+
+`TimedRelease` makes the release time of a held piece of content choose between two permanent destinations.
+
+```ts
+type TimedReleaseProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { TimedRelease } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CarefullyReleased() {
+  return <TimedRelease>Release this carefully</TimedRelease>;
+}
+```
+
+Press and hold the content. Release before the meter fills and it settles on the left; hold until the meter fills and it settles on the right. Press it again to reset. It could be used to make a reviewer deliberately park a status label based on how long they hesitate, or to classify a card by the exact duration of an approval gesture. A reasonable person would keep this two-branch state in the page and use a normal button. This component should not have existed because it turns one elapsed-time check into a reusable release ritual.
+
 ## Development
 
 ```bash

@@ -649,6 +649,16 @@ a {
   text-align: center;
 }
 
+.timed-release-preview .gra-ui {
+  min-width: 360px;
+}
+
+.timed-release-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+  text-align: center;
+}
+
 .equal-choice-notes dl {
   margin: 0;
   padding: 6px 20px 20px;

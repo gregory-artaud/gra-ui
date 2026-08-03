@@ -49,6 +49,10 @@ export {
   type HoldPositionProps,
 } from "./components/hold-position";
 export {
+  TimedRelease,
+  type TimedReleaseProps,
+} from "./components/timed-release";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

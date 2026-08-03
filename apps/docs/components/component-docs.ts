@@ -11,7 +11,8 @@ export type DemoKind =
   | "reorder-back"
   | "drag-duplicate"
   | "hover-confirm"
-  | "hold-position";
+  | "hold-position"
+  | "timed-release";
 
 export interface ApiRow {
   name: string;
@@ -279,6 +280,24 @@ export function Parked() {
       { name: "children", type: "ReactNode", description: "The content moved between three fixed positions." },
     ],
     demo: "hold-position",
+    featured: true,
+  },
+  {
+    name: "TimedRelease",
+    slug: "timed-release",
+    summary: "A hold whose release time chooses where the content lands.",
+    description:
+      "Release it before the meter fills and the content settles on the left; keep holding until it fills and it settles on the right.",
+    usage: `import { TimedRelease } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CarefullyReleased() {
+  return <TimedRelease>Release this carefully</TimedRelease>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content parked by the release timing." },
+    ],
+    demo: "timed-release",
     featured: true,
     isNew: true,
   },
