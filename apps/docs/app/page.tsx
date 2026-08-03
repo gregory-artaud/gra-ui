@@ -68,6 +68,14 @@ const components = [
     props: "label",
     example: '<SplitLabel label="Keep this together" />',
     href: "#split-label-reference",
+  },
+  {
+    name: "FocusFade",
+    description: "A focusable group that fades away and returns to confirm focus.",
+    signature: "FocusFadeProps",
+    props: "children",
+    example: "<FocusFade><span>Focus me</span></FocusFade>",
+    href: "#focus-fade-reference",
     isNew: true,
   },
 ] as const;
@@ -108,7 +116,7 @@ export default function Home() {
           </div>
           <p>
             The complete public surface of gra-ui, including the newest way to
-            reunite a label that never needed separating.
+            make focused content disappear for no reason.
           </p>
         </div>
         <div className="catalog-grid">
@@ -190,10 +198,24 @@ export default function Home() {
         <Playground kind="split-label" />
       </section>
 
-      <section className="component-section counted-clone-section" id="counted-clone-reference">
+      <section className="component-section" id="focus-fade-reference">
         <div className="section-heading">
           <div>
             <p className="section-index">06 / Component</p>
+            <h2>FocusFade</h2>
+          </div>
+          <p>
+            It fades focused content away, waits for the browser to notice, and
+            restores the exact same content.
+          </p>
+        </div>
+        <Playground kind="focus-fade" />
+      </section>
+
+      <section className="component-section counted-clone-section" id="counted-clone-reference">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">07 / Component</p>
             <h2>CountedClone</h2>
           </div>
           <p>
@@ -210,7 +232,7 @@ export default function Home() {
       <section className="component-section" id="repeat-children-reference">
         <div className="section-heading">
           <div>
-            <p className="section-index">07 / Component</p>
+            <p className="section-index">08 / Component</p>
             <h2>RepeatChildren</h2>
           </div>
           <p>
@@ -228,7 +250,7 @@ export default function Home() {
 
       <section className="details-grid" id="usage">
         <article>
-          <p className="section-index">08 / Usage</p>
+          <p className="section-index">09 / Usage</p>
           <h2>One import.<br />Several opinions.</h2>
           <p className="detail-copy">
             Import the compiled stylesheet once. Your application does not need
@@ -247,7 +269,7 @@ export default function Home() {
       <section className="api-section">
         <div className="section-heading api-heading">
           <div>
-            <p className="section-index">09 / API</p>
+            <p className="section-index">10 / API</p>
             <h2>Small surface area.</h2>
           </div>
           <p>

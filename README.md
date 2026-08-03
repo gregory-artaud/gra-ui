@@ -116,6 +116,26 @@ export function Together() {
 
 Double-click the label, click each half, and watch the unchanged text reunite with a small oscillation. A reasonable person would render the label directly and leave it alone. This component should not have existed because it turns a stable string into a three-step ceremony with no result.
 
+## FocusFade
+
+`FocusFade` makes its content disappear and return when it receives focus, confirming an event the browser already made obvious.
+
+```ts
+type FocusFadeProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { FocusFade } from "gra-ui";
+
+export function Focused() {
+  return <FocusFade><span>Still here</span></FocusFade>;
+}
+```
+
+Its only prop is `children`. Focus the group with a pointer or keyboard and its content fades out, then fades back in unchanged. A reasonable person would render the children directly and let focus remain invisible. This component should not have existed because it turns a browser state into a pointless disappearance ceremony.
+
 ## Development
 
 ```bash

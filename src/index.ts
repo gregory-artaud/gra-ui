@@ -21,6 +21,10 @@ export {
   type SplitLabelProps,
 } from "./components/split-label";
 export {
+  FocusFade,
+  type FocusFadeProps,
+} from "./components/focus-fade";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

@@ -1,6 +1,6 @@
 "use client";
 
-import { EqualChoice, IndecisiveButton, SplitLabel } from "gra-ui";
+import { EqualChoice, FocusFade, IndecisiveButton, SplitLabel } from "gra-ui";
 import { useState } from "react";
 
 const variants = [
@@ -14,7 +14,7 @@ const variants = [
 type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
-  kind?: "indecisive" | "equal-choice" | "split-label";
+  kind?: "indecisive" | "equal-choice" | "split-label" | "focus-fade";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -29,6 +29,37 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "focus-fade") {
+    return (
+      <div className="playground-shell focus-fade-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage focus-fade-preview">
+            <FocusFade>
+              <span className="focus-fade-demo-label">Focus me</span>
+            </FocusFade>
+            <p className="decision-output">
+              Focus it once. The content disappears, then returns unchanged.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Focus the content by clicking or tabbing.</dd></div>
+            <div><dt>2</dt><dd>Wait for the unnecessary disappearance.</dd></div>
+            <div><dt>3</dt><dd>It returns exactly as it was.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "split-label") {
     return (
