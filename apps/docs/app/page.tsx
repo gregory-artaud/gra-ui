@@ -84,6 +84,14 @@ const components = [
     props: "children",
     example: "<PressEscape>Hold this</PressEscape>",
     href: "#press-escape-reference",
+  },
+  {
+    name: "KeystrokeStack",
+    description: "A label that stacks one character at a time when you type.",
+    signature: "KeystrokeStackProps",
+    props: "label",
+    example: '<KeystrokeStack label="Leave this alone" />',
+    href: "#keystroke-stack-reference",
     isNew: true,
   },
 ] as const;
@@ -124,7 +132,7 @@ export default function Home() {
           </div>
           <p>
             The complete public surface of gra-ui, including the newest way to
-            make a button&apos;s content escape for no reason.
+            make a label stack one keystroke at a time for no reason.
           </p>
         </div>
         <div className="catalog-grid">
@@ -270,9 +278,23 @@ export default function Home() {
         <Playground kind="press-escape" />
       </section>
 
+      <section className="component-section" id="keystroke-stack-reference">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">10 / Component</p>
+            <h2>KeystrokeStack</h2>
+          </div>
+          <p>
+            It counts your keystrokes, stacks the label one character at a time,
+            and flattens it again after one extra key.
+          </p>
+        </div>
+        <Playground kind="keystroke-stack" />
+      </section>
+
       <section className="details-grid" id="usage">
         <article>
-          <p className="section-index">10 / Usage</p>
+          <p className="section-index">11 / Usage</p>
           <h2>One import.<br />Several opinions.</h2>
           <p className="detail-copy">
             Import the compiled stylesheet once. Your application does not need
@@ -291,7 +313,7 @@ export default function Home() {
       <section className="api-section">
         <div className="section-heading api-heading">
           <div>
-            <p className="section-index">11 / API</p>
+            <p className="section-index">12 / API</p>
             <h2>Small surface area.</h2>
           </div>
           <p>

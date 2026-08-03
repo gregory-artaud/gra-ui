@@ -29,6 +29,10 @@ export {
   type PressEscapeProps,
 } from "./components/press-escape";
 export {
+  KeystrokeStack,
+  type KeystrokeStackProps,
+} from "./components/keystroke-stack";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

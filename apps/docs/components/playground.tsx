@@ -4,6 +4,7 @@ import {
   EqualChoice,
   FocusFade,
   IndecisiveButton,
+  KeystrokeStack,
   PressEscape,
   SplitLabel,
 } from "gra-ui";
@@ -25,7 +26,8 @@ export interface PlaygroundProps {
     | "equal-choice"
     | "split-label"
     | "focus-fade"
-    | "press-escape";
+    | "press-escape"
+    | "keystroke-stack";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -66,6 +68,35 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Press and hold the content.</dd></div>
             <div><dt>2</dt><dd>Watch the label escape from its own button.</dd></div>
             <div><dt>3</dt><dd>Release it and nothing has changed.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "keystroke-stack") {
+    return (
+      <div className="playground-shell keystroke-stack-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage keystroke-stack-preview">
+            <KeystrokeStack label="Leave this alone" />
+            <p className="decision-output">
+              Focus it, then press one character key per letter. One extra key flattens it.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Focus the label and type any character.</dd></div>
+            <div><dt>2</dt><dd>Repeat until every character is in its own row.</dd></div>
+            <div><dt>3</dt><dd>Press once more to restore the line.</dd></div>
           </dl>
         </div>
       </div>

@@ -156,6 +156,26 @@ export function Held() {
 
 Press and hold with a pointer or the keyboard. The content slides away and rotates slightly, then returns to its exact starting position. A reasonable person would write a button with one CSS transform directly. This component should not have existed because holding a button should not make its label escape.
 
+## KeystrokeStack
+
+`KeystrokeStack` makes you press one character key per character before stacking the label into separate rows, then asks for one more key to flatten it again.
+
+```ts
+type KeystrokeStackProps = {
+  label: string;
+};
+```
+
+```tsx
+import { KeystrokeStack } from "gra-ui";
+
+export function Stacked() {
+  return <KeystrokeStack label="Leave this alone" />;
+}
+```
+
+Focus the button and press character keys. Each key lifts one character into its own row; after the whole label is stacked, the next key restores the original line. A reasonable person would render the label and use no keyboard ceremony at all. This component should not have existed because it makes displaying a string depend on counting keystrokes.
+
 ## Development
 
 ```bash

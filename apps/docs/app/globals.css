@@ -409,6 +409,15 @@ nav a:hover {
   font-weight: 650;
 }
 
+.keystroke-stack-preview .gra-ui {
+  min-width: 280px;
+}
+
+.keystroke-stack-preview .keystroke-stack__row {
+  font-size: 15px;
+  font-weight: 650;
+}
+
 .equal-choice-notes dl {
   margin: 0;
   padding: 6px 20px 20px;
