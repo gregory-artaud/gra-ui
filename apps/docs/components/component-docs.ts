@@ -16,7 +16,8 @@ export type DemoKind =
   | "length-order"
   | "click-order"
   | "corner-fold"
-  | "pairwise-merge";
+  | "pairwise-merge"
+  | "average-position";
 
 export interface ApiRow {
   name: string;
@@ -389,6 +390,24 @@ export function MergeFields() {
       { name: "children", type: "ReactNode", description: "The groups reduced two at a time." },
     ],
     demo: "pairwise-merge",
+    featured: true,
+  },
+  {
+    name: "AveragePosition",
+    slug: "average-position",
+    summary: "A label that settles at the average of three clicks.",
+    description:
+      "It records three locations on a track, calculates their arithmetic mean, and parks the content there until someone resets the exercise.",
+    usage: `import { AveragePosition } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SettledLabel() {
+  return <AveragePosition>Place this carefully</AveragePosition>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content parked at the average of three marked positions." },
+    ],
+    demo: "average-position",
     featured: true,
     isNew: true,
   },

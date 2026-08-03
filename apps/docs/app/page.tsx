@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to reduce content by joining it in pairs.
+            the newest way to settle content at the average of three clicks.
           </p>
         </div>
         <div className="featured-grid">

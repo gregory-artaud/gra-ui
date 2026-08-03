@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  AveragePosition,
+  type AveragePositionProps,
+} from "./components/average-position";
+export {
   CountedClone,
   type CountedCloneProps,
 } from "./components/counted-clone";

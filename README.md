@@ -56,6 +56,26 @@ export function Counted() {
 
 Its only prop is `element`. The returned element is otherwise identical, with `data-child-count="1"` attached to it. A reasonable person would write `React.cloneElement(element, { "data-child-count": React.Children.count(element.props.children) })` directly, or keep the original element. This component should not have existed because it turns an obvious count into a public abstraction.
 
+## AveragePosition
+
+`AveragePosition` asks for three points on a track, calculates their arithmetic mean, and parks its content at that average.
+
+```ts
+type AveragePositionProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { AveragePosition } from "gra-ui";
+
+export function SettledLabel() {
+  return <AveragePosition>Place this carefully</AveragePosition>;
+}
+```
+
+Click three locations, or use Enter and the arrow keys. Each point remains visible and the content moves to the calculated average; `Reset` starts another round. It could be used to place a label halfway between three design-review comments, although a reasonable person would keep those coordinates in local state and write the average directly. This component should not have existed because publishing a three-click averaging ritual is more specific than the problem it pretends to solve.
+
 ## RepeatChildren
 
 `RepeatChildren` renders the same child twice because one copy was apparently not enough.
