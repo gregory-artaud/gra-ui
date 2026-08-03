@@ -352,6 +352,34 @@ export function FoldedCard() {
 
 Enter each visible corner with the pointer, or focus the corner controls with the keyboard. Each visit stays counted; the fourth folds the content and reveals a reset. It could be used to force a reviewer to inspect all four corners of a compliance card before compacting it, or to make a status label earn the privilege of becoming smaller. A reasonable person would keep one counter and one conditional class in the page. This component should not have existed because it turns visiting four fixed points into a reusable folding protocol.
 
+## PairwiseMerge
+
+`PairwiseMerge` makes the user merge content two groups at a time until only one group remains.
+
+```ts
+type PairwiseMergeProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { PairwiseMerge } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MergeFields() {
+  return (
+    <PairwiseMerge>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </PairwiseMerge>
+  );
+}
+```
+
+Double-click one group, then another. The two are joined in their existing order, the merged result stays visible, and the process can be repeated until one group remains. It could serve as a deliberately ceremonial way to collapse a short field list before a compact review card, or as an unnecessarily strict exercise for deciding which two labels deserve to share a line. A reasonable person would keep an array of groups in the page and merge them locally. This component should not have existed because it turns a few lines of state into a reusable ceremony for combining content that was already allowed to sit next to itself.
+
 ## Development
 
 ```bash

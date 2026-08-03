@@ -690,6 +690,15 @@ a {
   font-weight: 650;
 }
 
+.pairwise-merge-preview .gra-ui {
+  min-width: 360px;
+}
+
+.pairwise-merge-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .equal-choice-notes dl {
   margin: 0;
   padding: 6px 20px 20px;

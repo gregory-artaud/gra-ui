@@ -65,6 +65,10 @@ export {
   type CornerFoldProps,
 } from "./components/corner-fold";
 export {
+  PairwiseMerge,
+  type PairwiseMergeProps,
+} from "./components/pairwise-merge";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

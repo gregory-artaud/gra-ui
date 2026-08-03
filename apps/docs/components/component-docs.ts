@@ -15,7 +15,8 @@ export type DemoKind =
   | "timed-release"
   | "length-order"
   | "click-order"
-  | "corner-fold";
+  | "corner-fold"
+  | "pairwise-merge";
 
 export interface ApiRow {
   name: string;
@@ -363,6 +364,31 @@ export function FoldedCard() {
       { name: "children", type: "ReactNode", description: "The content folded after all four corners are visited." },
     ],
     demo: "corner-fold",
+    featured: true,
+  },
+  {
+    name: "PairwiseMerge",
+    slug: "pairwise-merge",
+    summary: "Groups that can only be reduced two at a time.",
+    description:
+      "It makes you double-click two groups at a time, joins their content, and keeps reducing the list until one group remains.",
+    usage: `import { PairwiseMerge } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MergeFields() {
+  return (
+    <PairwiseMerge>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </PairwiseMerge>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The groups reduced two at a time." },
+    ],
+    demo: "pairwise-merge",
     featured: true,
     isNew: true,
   },
