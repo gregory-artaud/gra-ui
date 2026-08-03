@@ -12,7 +12,6 @@ export default defineConfig([
     "apps/docs/.next/**",
     "apps/docs/out/**",
     "apps/docs/next-env.d.ts",
-    ".opencode/**",
   ]),
   {
     files: ["src/**/*.{ts,tsx}", "vite.config.ts"],
