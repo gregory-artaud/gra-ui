@@ -176,6 +176,27 @@ export function Stacked() {
 
 Focus the button and press character keys. Each key lifts one character into its own row; after the whole label is stacked, the next key restores the original line. A reasonable person would render the label and use no keyboard ceremony at all. This component should not have existed because it makes displaying a string depend on counting keystrokes.
 
+## ReorderBack
+
+`ReorderBack` swaps two pieces of content when clicked, then swaps them back on the next click.
+
+```ts
+type ReorderBackProps = {
+  first: React.ReactNode;
+  second: React.ReactNode;
+};
+```
+
+```tsx
+import { ReorderBack } from "gra-ui";
+
+export function Rearranged() {
+  return <ReorderBack first="First" second="Second" />;
+}
+```
+
+Its `first` and `second` props are shown in two slots. Click or focus it and press Enter or Space to watch the slots exchange their contents, then do it again to restore the starting order. A reasonable person would render the two pieces in their final order directly. This component should not have existed because it turns an already settled arrangement into a reversible errand.
+
 ## Development
 
 ```bash

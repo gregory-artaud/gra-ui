@@ -10,7 +10,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "split-label" ||
     kind === "focus-fade" ||
     kind === "press-escape" ||
-    kind === "keystroke-stack"
+    kind === "keystroke-stack" ||
+    kind === "reorder-back"
   ) {
     return <Playground kind={kind} />;
   }

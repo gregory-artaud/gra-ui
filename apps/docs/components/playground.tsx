@@ -6,6 +6,7 @@ import {
   IndecisiveButton,
   KeystrokeStack,
   PressEscape,
+  ReorderBack,
   SplitLabel,
 } from "gra-ui";
 import { useState } from "react";
@@ -27,7 +28,8 @@ export interface PlaygroundProps {
     | "split-label"
     | "focus-fade"
     | "press-escape"
-    | "keystroke-stack";
+    | "keystroke-stack"
+    | "reorder-back";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -97,6 +99,38 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Focus the label and type any character.</dd></div>
             <div><dt>2</dt><dd>Repeat until every character is in its own row.</dd></div>
             <div><dt>3</dt><dd>Press once more to restore the line.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "reorder-back") {
+    return (
+      <div className="playground-shell reorder-back-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage reorder-back-preview">
+            <ReorderBack
+              first={<span className="reorder-back-demo-label">First</span>}
+              second={<span className="reorder-back-demo-label">Second</span>}
+            />
+            <p className="decision-output">
+              Click once to swap the slots. Click again to undo the swap.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Click the two-item arrangement.</dd></div>
+            <div><dt>2</dt><dd>Watch both pieces trade places.</dd></div>
+            <div><dt>3</dt><dd>Click again to undo your work.</dd></div>
           </dl>
         </div>
       </div>

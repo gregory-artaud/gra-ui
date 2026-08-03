@@ -33,6 +33,10 @@ export {
   type KeystrokeStackProps,
 } from "./components/keystroke-stack";
 export {
+  ReorderBack,
+  type ReorderBackProps,
+} from "./components/reorder-back";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

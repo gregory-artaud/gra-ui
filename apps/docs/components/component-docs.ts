@@ -7,7 +7,8 @@ export type DemoKind =
   | "split-label"
   | "focus-fade"
   | "press-escape"
-  | "keystroke-stack";
+  | "keystroke-stack"
+  | "reorder-back";
 
 export interface ApiRow {
   name: string;
@@ -203,6 +204,24 @@ export function Example() {
       { name: "label", type: "string", description: "The text stacked one character at a time." },
     ],
     demo: "keystroke-stack",
+  },
+  {
+    name: "ReorderBack",
+    slug: "reorder-back",
+    summary: "Two items that swap places and immediately regret it.",
+    description:
+      "It moves two pieces of content into each other’s slots on click, then requires another click to restore the original order.",
+    usage: `import { ReorderBack } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function Example() {
+  return <ReorderBack first="First" second="Second" />;
+}`,
+    api: [
+      { name: "first", type: "ReactNode", description: "The content in the first slot." },
+      { name: "second", type: "ReactNode", description: "The content in the second slot." },
+    ],
+    demo: "reorder-back",
     featured: true,
     isNew: true,
   },

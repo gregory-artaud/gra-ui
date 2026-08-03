@@ -31,7 +31,7 @@ export default function Home() {
           </div>
           <p>
             Start with three unnecessarily opinionated interactions, including
-            the newest way to stack a label one keystroke at a time.
+            the newest way to swap two settled pieces of content.
           </p>
         </div>
         <div className="featured-grid">
