@@ -56,6 +56,26 @@ export function Counted() {
 
 Its only prop is `element`. The returned element is otherwise identical, with `data-child-count="1"` attached to it. A reasonable person would write `React.cloneElement(element, { "data-child-count": React.Children.count(element.props.children) })` directly, or keep the original element. This component should not have existed because it turns an obvious count into a public abstraction.
 
+## RepeatChildren
+
+`RepeatChildren` renders the same child twice because one copy was apparently not enough.
+
+```ts
+type RepeatChildrenProps = {
+  children: React.ReactElement;
+};
+```
+
+```tsx
+import { RepeatChildren } from "gra-ui";
+
+export function Repeated() {
+  return <RepeatChildren><span>Again</span></RepeatChildren>;
+}
+```
+
+Its only prop is `children`. The result contains two identical child elements. A reasonable person would write `{children}{children}` directly inside a Fragment. This component should not have existed because it gives a public API to pressing copy and paste twice.
+
 ## Development
 
 ```bash

@@ -1,5 +1,5 @@
 import { Playground } from "@/components/playground";
-import { CountedClone } from "gra-ui";
+import { CountedClone, RepeatChildren } from "gra-ui";
 
 const usageCode = `import { IndecisiveButton } from "gra-ui";
 import "gra-ui/styles.css";
@@ -44,6 +44,14 @@ const components = [
     props: "element",
     example: '<CountedClone element={<span>One child</span>} />',
     href: "#counted-clone-reference",
+  },
+  {
+    name: "RepeatChildren",
+    description: "A component that renders one child twice for no useful reason.",
+    signature: "RepeatChildrenProps",
+    props: "children",
+    example: "<RepeatChildren><span>Again</span></RepeatChildren>",
+    href: "#repeat-children-reference",
     isNew: true,
   },
 ] as const;
@@ -84,7 +92,7 @@ export default function Home() {
           </div>
           <p>
             The complete public surface of gra-ui, including the newest way to
-            make an element explain its own children.
+            render one child twice.
           </p>
         </div>
         <div className="catalog-grid">
@@ -143,9 +151,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="component-section" id="repeat-children-reference">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">04 / Component</p>
+            <h2>RepeatChildren</h2>
+          </div>
+          <p>
+            It renders the same child twice, a task JSX already handles without
+            a component.
+          </p>
+        </div>
+        <div className="clone-demo">
+          <RepeatChildren>
+            <span className="clone-target">Again</span>
+          </RepeatChildren>
+          <code>child + child</code>
+        </div>
+      </section>
+
       <section className="details-grid" id="usage">
         <article>
-          <p className="section-index">04 / Usage</p>
+          <p className="section-index">05 / Usage</p>
           <h2>One import.<br />Several opinions.</h2>
           <p className="detail-copy">
             Import the compiled stylesheet once. Your application does not need
@@ -164,7 +191,7 @@ export default function Home() {
       <section className="api-section">
         <div className="section-heading api-heading">
           <div>
-            <p className="section-index">05 / API</p>
+            <p className="section-index">06 / API</p>
             <h2>Small surface area.</h2>
           </div>
           <p>

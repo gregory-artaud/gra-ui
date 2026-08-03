@@ -9,6 +9,10 @@ export {
   type IndecisiveButtonProps,
 } from "./components/indecisive-button";
 export {
+  RepeatChildren,
+  type RepeatChildrenProps,
+} from "./components/repeat-children";
+export {
   Button,
   buttonVariants,
   type ButtonProps,
