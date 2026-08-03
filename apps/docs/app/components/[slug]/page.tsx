@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -42,7 +43,7 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
       <header className="component-page-header">
         <nav className="breadcrumb" aria-label="Breadcrumb">
           <Link href="/components">Components</Link>
-          <span aria-hidden="true">/</span>
+          <ChevronRight className="breadcrumb-separator" aria-hidden="true" size={14} />
           <span>{component.name}</span>
         </nav>
         <div className="component-title-row">

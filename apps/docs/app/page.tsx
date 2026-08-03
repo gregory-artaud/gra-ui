@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { componentDocs } from "@/components/component-docs";
 
@@ -42,12 +43,12 @@ export default function Home() {
                 <h3>{component.name}</h3>
                 <p>{component.summary}</p>
               </div>
-              <span className="card-arrow" aria-hidden="true">-&gt;</span>
+              <ArrowRight className="card-arrow" aria-hidden="true" size={15} />
             </Link>
           ))}
         </div>
         <Link className="catalog-cta" href="/components">
-          View all {componentDocs.length} components <span aria-hidden="true">-&gt;</span>
+          View all {componentDocs.length} components <ArrowRight aria-hidden="true" size={15} />
         </Link>
       </section>
     </main>

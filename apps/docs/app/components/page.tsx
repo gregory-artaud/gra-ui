@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { componentDocs } from "@/components/component-docs";
 
@@ -29,7 +30,10 @@ export default function ComponentsPage() {
             </div>
             <h2>{component.name}</h2>
             <p>{component.summary}</p>
-            <span className="component-card-link">View component <span aria-hidden="true">-&gt;</span></span>
+            <span className="component-card-link">
+              <span>View component</span>
+              <ArrowRight aria-hidden="true" size={15} />
+            </span>
           </Link>
         ))}
       </div>

@@ -79,6 +79,12 @@ a {
   font-size: 13px;
 }
 
+.primary-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .primary-nav a:hover,
 .primary-nav a:focus-visible {
   color: var(--ink);
@@ -268,9 +274,7 @@ a {
 
 .card-arrow {
   margin-top: 24px;
-  font-family: "SFMono-Regular", Consolas, monospace;
-  font-size: 12px;
-  text-align: right;
+  justify-self: end;
 }
 
 .catalog-cta {
@@ -283,8 +287,10 @@ a {
   font-weight: 650;
 }
 
-.catalog-cta span {
-  font-family: "SFMono-Regular", Consolas, monospace;
+.catalog-cta svg,
+.component-card-link svg,
+.primary-nav svg {
+  flex-shrink: 0;
 }
 
 .docs-shell {
@@ -448,7 +454,8 @@ a {
   color: var(--ink);
 }
 
-.breadcrumb span[aria-hidden="true"] {
+.breadcrumb-separator {
+  flex-shrink: 0;
   color: #d4d4d8;
 }
 
