@@ -61,6 +61,10 @@ export {
   type ClickOrderProps,
 } from "./components/click-order";
 export {
+  CornerFold,
+  type CornerFoldProps,
+} from "./components/corner-fold";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

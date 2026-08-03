@@ -2,6 +2,7 @@
 
 import {
   ClickOrder,
+  CornerFold,
   DragDuplicate,
   EqualChoice,
   FocusFade,
@@ -41,7 +42,8 @@ export interface PlaygroundProps {
     | "hold-position"
     | "timed-release"
     | "length-order"
-    | "click-order";
+    | "click-order"
+    | "corner-fold";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -86,6 +88,38 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Click each one in a deliberate reading order.</dd></div>
             <div><dt>3</dt><dd>Watch each choice leave the tray and join the result.</dd></div>
             <div><dt>4</dt><dd>Choose again only after the entire order is complete.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "corner-fold") {
+    return (
+      <div className="playground-shell corner-fold-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage corner-fold-preview">
+            <CornerFold>
+              <span className="corner-fold-demo-label">Visit every corner first</span>
+            </CornerFold>
+            <p className="decision-output" aria-live="polite">
+              Enter all four corners. Each visit stays counted until the card folds.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the card open and four unvisited corners.</dd></div>
+            <div><dt>2</dt><dd>Move into each corner in any order.</dd></div>
+            <div><dt>3</dt><dd>Watch the content fold only after the fourth visit.</dd></div>
+            <div><dt>4</dt><dd>Use the reset inside the folded card to begin again.</dd></div>
           </dl>
         </div>
       </div>

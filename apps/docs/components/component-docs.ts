@@ -14,7 +14,8 @@ export type DemoKind =
   | "hold-position"
   | "timed-release"
   | "length-order"
-  | "click-order";
+  | "click-order"
+  | "corner-fold";
 
 export interface ApiRow {
   name: string;
@@ -344,6 +345,24 @@ export function OrderedCopy() {
       { name: "children", type: "ReactNode", description: "The fragments selected into a user-defined order." },
     ],
     demo: "click-order",
+    featured: true,
+  },
+  {
+    name: "CornerFold",
+    slug: "corner-fold",
+    summary: "A card that folds only after every corner has been visited.",
+    description:
+      "It records four separate corner visits, then compresses the content into a folded state that remains until you start over.",
+    usage: `import { CornerFold } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FoldedCard() {
+  return <CornerFold>Visit every corner first</CornerFold>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content folded after all four corners are visited." },
+    ],
+    demo: "corner-fold",
     featured: true,
     isNew: true,
   },

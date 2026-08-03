@@ -331,6 +331,27 @@ export function OrderedCopy() {
 
 Click each fragment in sequence. It disappears from the choices and is added to the numbered result; after every fragment is placed, choose again resets the sequence. It could be used to let a reviewer assemble the reading order of a short approval note, or to make someone click legal warnings into the order they deserve to regret. A reasonable person would keep an array of selected indexes in the page and render the fragments locally. This component should not have existed because it turns a few lines of list state into a reusable ceremony for arranging content.
 
+## CornerFold
+
+`CornerFold` records four separate corner visits, then folds its content into a smaller permanent state.
+
+```ts
+type CornerFoldProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { CornerFold } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FoldedCard() {
+  return <CornerFold>Visit every corner first</CornerFold>;
+}
+```
+
+Enter each visible corner with the pointer, or focus the corner controls with the keyboard. Each visit stays counted; the fourth folds the content and reveals a reset. It could be used to force a reviewer to inspect all four corners of a compliance card before compacting it, or to make a status label earn the privilege of becoming smaller. A reasonable person would keep one counter and one conditional class in the page. This component should not have existed because it turns visiting four fixed points into a reusable folding protocol.
+
 ## Development
 
 ```bash

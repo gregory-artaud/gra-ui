@@ -17,7 +17,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "hold-position" ||
     kind === "timed-release" ||
     kind === "length-order" ||
-    kind === "click-order"
+    kind === "click-order" ||
+    kind === "corner-fold"
   ) {
     return <Playground kind={kind} />;
   }
