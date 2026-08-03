@@ -281,6 +281,29 @@ export function CarefullyReleased() {
 
 Press and hold the content. Release before the meter fills and it settles on the left; hold until the meter fills and it settles on the right. Press it again to reset. It could be used to make a reviewer deliberately park a status label based on how long they hesitate, or to classify a card by the exact duration of an approval gesture. A reasonable person would keep this two-branch state in the page and use a normal button. This component should not have existed because it turns one elapsed-time check into a reusable release ritual.
 
+## LengthOrder
+
+`LengthOrder` cycles a list through its original order, shortest label first, and longest label first.
+
+```ts
+type LengthOrderProps = {
+  items: readonly string[];
+};
+```
+
+```tsx
+import { LengthOrder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SortedLabels() {
+  return (
+    <LengthOrder items={["Keep", "Maybe later", "Definitely not"]} />
+  );
+}
+```
+
+Click the control to reorder the visible labels by character count. The list stays in the selected order until the next click, and each item reports the count that caused its new position. It could be used to make a reviewer rank short status labels before long ones, or to force a content editor to admire the relative size of three increasingly unnecessary warnings. A reasonable person would call `items.toSorted()` locally and keep the intended order in the page. This component should not have existed because it turns a one-line sort into a public opinion about how long words deserve to be.
+
 ## Development
 
 ```bash

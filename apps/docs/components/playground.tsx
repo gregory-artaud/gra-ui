@@ -8,6 +8,7 @@ import {
   HoverConfirm,
   IndecisiveButton,
   KeystrokeStack,
+  LengthOrder,
   PressEscape,
   ReorderBack,
   SplitLabel,
@@ -37,7 +38,8 @@ export interface PlaygroundProps {
     | "drag-duplicate"
     | "hover-confirm"
     | "hold-position"
-    | "timed-release";
+    | "timed-release"
+    | "length-order";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -53,6 +55,35 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "length-order") {
+    return (
+      <div className="playground-shell length-order-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage length-order-preview">
+            <LengthOrder items={["Keep", "Maybe later", "Definitely not", "No"]} />
+            <p className="decision-output" aria-live="polite">
+              Click the order control. The list will rank its own labels by character count.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the labels in their supplied order.</dd></div>
+            <div><dt>2</dt><dd>Click to put the shortest label first.</dd></div>
+            <div><dt>3</dt><dd>Click again for longest first, then return to the beginning.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "hold-position") {
     return (

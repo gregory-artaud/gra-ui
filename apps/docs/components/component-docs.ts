@@ -12,7 +12,8 @@ export type DemoKind =
   | "drag-duplicate"
   | "hover-confirm"
   | "hold-position"
-  | "timed-release";
+  | "timed-release"
+  | "length-order";
 
 export interface ApiRow {
   name: string;
@@ -298,6 +299,26 @@ export function CarefullyReleased() {
       { name: "children", type: "ReactNode", description: "The content parked by the release timing." },
     ],
     demo: "timed-release",
+    featured: true,
+  },
+  {
+    name: "LengthOrder",
+    slug: "length-order",
+    summary: "A list that sorts itself by the length of its labels.",
+    description:
+      "It cycles through the original order, shortest label first, and longest label first, because visible copy apparently needs a ranking system.",
+    usage: `import { LengthOrder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SortedLabels() {
+  return (
+    <LengthOrder items={["Keep", "Maybe later", "Definitely not"]} />
+  );
+}`,
+    api: [
+      { name: "items", type: "readonly string[]", description: "The labels sorted by character count." },
+    ],
+    demo: "length-order",
     featured: true,
     isNew: true,
   },

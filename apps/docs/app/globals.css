@@ -659,6 +659,19 @@ a {
   text-align: center;
 }
 
+.length-order-preview .gra-ui {
+  min-width: 340px;
+}
+
+.length-order-preview .length-order__control-label {
+  font-size: 9px;
+}
+
+.length-order-preview .length-order__item {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .equal-choice-notes dl {
   margin: 0;
   padding: 6px 20px 20px;

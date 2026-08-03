@@ -15,7 +15,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "drag-duplicate" ||
     kind === "hover-confirm" ||
     kind === "hold-position" ||
-    kind === "timed-release"
+    kind === "timed-release" ||
+    kind === "length-order"
   ) {
     return <Playground kind={kind} />;
   }

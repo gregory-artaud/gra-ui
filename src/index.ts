@@ -53,6 +53,10 @@ export {
   type TimedReleaseProps,
 } from "./components/timed-release";
 export {
+  LengthOrder,
+  type LengthOrderProps,
+} from "./components/length-order";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

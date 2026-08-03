@@ -31,8 +31,8 @@ export default function Home() {
             <h2 id="featured-title">A few bad ideas.</h2>
           </div>
           <p>
-            Start with five unnecessarily opinionated interactions, including
-            the newest way to let release timing choose a destination.
+            Start with unnecessarily opinionated interactions, including
+            the newest way to rank labels by their character count.
           </p>
         </div>
         <div className="featured-grid">
