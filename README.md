@@ -2,18 +2,18 @@
 
 React components for interfaces that need a little more personality than strictly necessary.
 
-`@gregory-artaud/gra-ui` is a React 19 component library built by composing shadcn/ui primitives. It ships typed ESM and CommonJS bundles with a standalone compiled stylesheet, so consuming applications do not need Tailwind CSS.
+`gra-ui` is a React 19 component library built by composing shadcn/ui primitives. It ships typed ESM and CommonJS bundles with a standalone compiled stylesheet, so consuming applications do not need Tailwind CSS.
 
 ## Installation
 
 ```bash
-pnpm add @gregory-artaud/gra-ui
+pnpm add gra-ui
 ```
 
 Import the component styles once in your application:
 
 ```tsx
-import "@gregory-artaud/gra-ui/styles.css";
+import "gra-ui/styles.css";
 ```
 
 ## IndecisiveButton
@@ -21,8 +21,8 @@ import "@gregory-artaud/gra-ui/styles.css";
 `IndecisiveButton` cycles through possible decisions while it is hovered or focused, then reports whichever option was visible when it was clicked.
 
 ```tsx
-import { IndecisiveButton } from "@gregory-artaud/gra-ui";
-import "@gregory-artaud/gra-ui/styles.css";
+import { IndecisiveButton } from "gra-ui";
+import "gra-ui/styles.css";
 
 export function Decision() {
   return (
