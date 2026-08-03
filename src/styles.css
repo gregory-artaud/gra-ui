@@ -36,3 +36,107 @@
   --greact-ring: oklch(0.705 0.015 286.067);
   --greact-radius: 0.625rem;
 }
+
+.gra-ui.equal-choice {
+  position: relative;
+  display: grid;
+  min-width: 180px;
+  min-height: 76px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  cursor: pointer;
+  user-select: none;
+}
+
+.gra-ui.equal-choice[data-state="choose"] {
+  cursor: default;
+}
+
+.equal-choice__content {
+  position: relative;
+  z-index: 1;
+  transition: transform 160ms ease;
+}
+
+.equal-choice[data-state="choose"] .equal-choice__content {
+  transform: scale(0.94);
+}
+
+.equal-choice__content[data-side="left"] {
+  animation: gra-ui-equal-choice-left 440ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.equal-choice__content[data-side="right"] {
+  animation: gra-ui-equal-choice-right 440ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.equal-choice__choices {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  pointer-events: none;
+}
+
+.equal-choice__side {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--greact-input);
+  border-radius: 999px;
+  background: var(--greact-secondary);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.equal-choice__side::after {
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin: auto;
+  border-radius: 999px;
+  background: var(--greact-foreground);
+  content: "";
+}
+
+.equal-choice__side:hover {
+  transform: scale(1.12);
+  background: var(--greact-accent);
+}
+
+.equal-choice__side:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+@keyframes gra-ui-equal-choice-left {
+  0% { transform: scale(0.94) translateX(0) rotate(0); }
+  30% { transform: scale(1.05) translateX(-36px) rotate(-3deg); }
+  62% { transform: scale(0.98) translateX(-62px) rotate(-5deg); }
+  100% { transform: scale(1) translateX(0) rotate(0); }
+}
+
+@keyframes gra-ui-equal-choice-right {
+  0% { transform: scale(0.94) translateX(0) rotate(0); }
+  30% { transform: scale(1.05) translateX(36px) rotate(3deg); }
+  62% { transform: scale(0.98) translateX(62px) rotate(5deg); }
+  100% { transform: scale(1) translateX(0) rotate(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .equal-choice__content,
+  .equal-choice__side {
+    transition-duration: 0.01ms;
+  }
+
+  .equal-choice__content[data-side="left"],
+  .equal-choice__content[data-side="right"] {
+    animation-duration: 0.01ms;
+  }
+}

@@ -13,6 +13,10 @@ export {
   type RepeatChildrenProps,
 } from "./components/repeat-children";
 export {
+  EqualChoice,
+  type EqualChoiceProps,
+} from "./components/equal-choice";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

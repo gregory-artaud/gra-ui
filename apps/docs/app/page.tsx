@@ -1,5 +1,5 @@
 import { Playground } from "@/components/playground";
-import { CountedClone, RepeatChildren } from "gra-ui";
+import { Button, CountedClone, RepeatChildren } from "gra-ui";
 
 const usageCode = `import { IndecisiveButton } from "gra-ui";
 import "gra-ui/styles.css";
@@ -52,6 +52,14 @@ const components = [
     props: "children",
     example: "<RepeatChildren><span>Again</span></RepeatChildren>",
     href: "#repeat-children-reference",
+  },
+  {
+    name: "EqualChoice",
+    description: "A double-click choice whose two destinations end in the same place.",
+    signature: "EqualChoiceProps",
+    props: "children",
+    example: "<EqualChoice><span>Stay here</span></EqualChoice>",
+    href: "#equal-choice-reference",
     isNew: true,
   },
 ] as const;
@@ -92,14 +100,13 @@ export default function Home() {
           </div>
           <p>
             The complete public surface of gra-ui, including the newest way to
-            render one child twice.
+            choose between two identical destinations.
           </p>
         </div>
         <div className="catalog-grid">
           {components.map((component) => (
             <article
               className="catalog-card"
-              id={component.name === "Button" ? "button-reference" : undefined}
               key={component.name}
             >
               <div className="catalog-card-heading">
@@ -134,10 +141,37 @@ export default function Home() {
         <Playground />
       </section>
 
-      <section className="component-section counted-clone-section" id="counted-clone-reference">
+      <section className="component-section" id="button-reference">
         <div className="section-heading">
           <div>
             <p className="section-index">03 / Component</p>
+            <h2>Button</h2>
+          </div>
+          <p>A normal button, included so the unreasonable ones have something to use.</p>
+        </div>
+        <div className="clone-demo">
+          <Button variant="outline">A regular button</Button>
+        </div>
+      </section>
+
+      <section className="component-section" id="equal-choice-reference">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">04 / Component</p>
+            <h2>EqualChoice</h2>
+          </div>
+          <p>
+            It asks you to choose a side, moves the content there, and restores
+            the original position immediately afterward.
+          </p>
+        </div>
+        <Playground kind="equal-choice" />
+      </section>
+
+      <section className="component-section counted-clone-section" id="counted-clone-reference">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">05 / Component</p>
             <h2>CountedClone</h2>
           </div>
           <p>
@@ -154,7 +188,7 @@ export default function Home() {
       <section className="component-section" id="repeat-children-reference">
         <div className="section-heading">
           <div>
-            <p className="section-index">04 / Component</p>
+            <p className="section-index">06 / Component</p>
             <h2>RepeatChildren</h2>
           </div>
           <p>
@@ -172,7 +206,7 @@ export default function Home() {
 
       <section className="details-grid" id="usage">
         <article>
-          <p className="section-index">05 / Usage</p>
+          <p className="section-index">07 / Usage</p>
           <h2>One import.<br />Several opinions.</h2>
           <p className="detail-copy">
             Import the compiled stylesheet once. Your application does not need
@@ -191,7 +225,7 @@ export default function Home() {
       <section className="api-section">
         <div className="section-heading api-heading">
           <div>
-            <p className="section-index">06 / API</p>
+            <p className="section-index">08 / API</p>
             <h2>Small surface area.</h2>
           </div>
           <p>

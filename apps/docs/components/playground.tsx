@@ -1,6 +1,6 @@
 "use client";
 
-import { IndecisiveButton } from "gra-ui";
+import { EqualChoice, IndecisiveButton } from "gra-ui";
 import { useState } from "react";
 
 const variants = [
@@ -13,7 +13,11 @@ const variants = [
 
 type Variant = (typeof variants)[number];
 
-export function Playground() {
+export interface PlaygroundProps {
+  kind?: "indecisive" | "equal-choice";
+}
+
+export function Playground({ kind = "indecisive" }: PlaygroundProps) {
   const [choiceInput, setChoiceInput] = useState(
     "Ship it, Wait a minute, Ship it anyway",
   );
@@ -25,6 +29,37 @@ export function Playground() {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "equal-choice") {
+    return (
+      <div className="playground-shell equal-choice-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage equal-choice-preview">
+            <EqualChoice>
+              <span className="equal-choice-demo-label">Stay here</span>
+            </EqualChoice>
+            <p className="decision-output">
+              Double-click, pick either side, and watch it return.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Double-click the content.</dd></div>
+            <div><dt>2</dt><dd>Choose either identical destination.</dd></div>
+            <div><dt>3</dt><dd>It returns to where it started.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="playground-shell">

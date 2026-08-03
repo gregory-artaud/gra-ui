@@ -76,6 +76,26 @@ export function Repeated() {
 
 Its only prop is `children`. The result contains two identical child elements. A reasonable person would write `{children}{children}` directly inside a Fragment. This component should not have existed because it gives a public API to pressing copy and paste twice.
 
+## EqualChoice
+
+`EqualChoice` waits for a double-click, offers two visually equivalent sides, animates toward the selected side, then returns to the exact starting position.
+
+```ts
+type EqualChoiceProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { EqualChoice } from "gra-ui";
+
+export function SamePlace() {
+  return <EqualChoice><span>Stay here</span></EqualChoice>;
+}
+```
+
+Double-click the component, choose either side, and watch the content briefly travel before coming back. A reasonable person would render the children directly and not ask anyone to choose between equal destinations. This component should not have existed because both decisions produce the same result.
+
 ## Development
 
 ```bash

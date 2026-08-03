@@ -370,6 +370,45 @@ nav a:hover {
   font-size: 11px;
 }
 
+.equal-choice-demo-label {
+  display: block;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--soft);
+  font-size: 13px;
+}
+
+.equal-choice-preview .gra-ui {
+  min-width: 260px;
+}
+
+.equal-choice-notes dl {
+  margin: 0;
+  padding: 6px 20px 20px;
+}
+
+.equal-choice-notes dl > div {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.equal-choice-notes dt {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+}
+
+.equal-choice-notes dd {
+  margin: 0;
+}
+
 .controls-panel {
   padding-bottom: 20px;
 }
