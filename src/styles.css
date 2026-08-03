@@ -421,6 +421,85 @@
     cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.gra-ui.hover-confirm {
+  display: inline-grid;
+  min-width: 260px;
+  min-height: 92px;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  column-gap: 18px;
+  padding: 16px 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 180ms ease, background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.hover-confirm:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 4px;
+}
+
+.hover-confirm__content {
+  min-width: 0;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hover-confirm[data-count="1"] .hover-confirm__content {
+  transform: translateY(-2px);
+}
+
+.hover-confirm[data-count="2"] .hover-confirm__content {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.hover-confirm[data-state="confirmed"] {
+  border-color: var(--greact-ring);
+  background: var(--greact-secondary);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.07);
+}
+
+.hover-confirm[data-state="confirmed"] .hover-confirm__content {
+  transform: translateY(-3px) scale(1.03);
+}
+
+.hover-confirm__status {
+  justify-self: end;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hover-confirm__meter {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: 5px;
+  width: 100%;
+  padding-top: 14px;
+}
+
+.hover-confirm__meter span {
+  display: block;
+  height: 4px;
+  flex: 1;
+  border-radius: 999px;
+  background: var(--greact-secondary);
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.hover-confirm__meter span[data-filled="true"] {
+  background: var(--greact-primary);
+  transform: scaleY(1.5);
+}
+
 @keyframes gra-ui-split-label {
   0% { gap: 0; transform: scale(0.96) translateY(0); }
   35% { gap: 24px; transform: scale(1.04) translateY(-4px); }
@@ -521,5 +600,11 @@
   .drag-duplicate__original,
   .drag-duplicate__copy {
     animation-duration: 0.01ms !important;
+  }
+
+  .hover-confirm,
+  .hover-confirm__content,
+  .hover-confirm__meter span {
+    transition-duration: 0.01ms;
   }
 }

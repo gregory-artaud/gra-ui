@@ -4,6 +4,7 @@ import {
   DragDuplicate,
   EqualChoice,
   FocusFade,
+  HoverConfirm,
   IndecisiveButton,
   KeystrokeStack,
   PressEscape,
@@ -31,7 +32,8 @@ export interface PlaygroundProps {
     | "press-escape"
     | "keystroke-stack"
     | "reorder-back"
-    | "drag-duplicate";
+    | "drag-duplicate"
+    | "hover-confirm";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -46,6 +48,37 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "hover-confirm") {
+    return (
+      <div className="playground-shell hover-confirm-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage hover-confirm-preview">
+            <HoverConfirm>
+              <span className="hover-confirm-demo-label">Approve this card</span>
+            </HoverConfirm>
+            <p className="decision-output" aria-live="polite">
+              Enter the card three separate times. It confirms only after the third pass.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Move the pointer out of the card.</dd></div>
+            <div><dt>2</dt><dd>Re-enter it to record one pass.</dd></div>
+            <div><dt>3</dt><dd>Repeat three times, then click to reset.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "drag-duplicate") {
     return (

@@ -9,7 +9,8 @@ export type DemoKind =
   | "press-escape"
   | "keystroke-stack"
   | "reorder-back"
-  | "drag-duplicate";
+  | "drag-duplicate"
+  | "hover-confirm";
 
 export interface ApiRow {
   name: string;
@@ -241,6 +242,24 @@ export function Example() {
       { name: "children", type: "ReactNode", description: "The content duplicated during a drag." },
     ],
     demo: "drag-duplicate",
+    featured: true,
+  },
+  {
+    name: "HoverConfirm",
+    slug: "hover-confirm",
+    summary: "A card that needs three separate hover entries before confirmation.",
+    description:
+      "It counts each time the pointer leaves and re-enters its content, then locks the card in a confirmed state after the third pass.",
+    usage: `import { HoverConfirm } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function Example() {
+  return <HoverConfirm>Approve this card</HoverConfirm>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content that must be entered three times." },
+    ],
+    demo: "hover-confirm",
     featured: true,
     isNew: true,
   },

@@ -218,6 +218,27 @@ export function Duplicated() {
 
 Its only prop is `children`. Drag the content anywhere to see two offset copies, then release to watch them fold back into one. A reasonable person would render `{children}` directly and skip dragging it. This component should not have existed because it turns a single piece of content into a temporary two-copy problem.
 
+## HoverConfirm
+
+`HoverConfirm` requires three separate pointer entries before it considers its content confirmed.
+
+```ts
+type HoverConfirmProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { HoverConfirm } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function Acknowledged() {
+  return <HoverConfirm>Approve this card</HoverConfirm>;
+}
+```
+
+Move the pointer out of the content and back in three times. The pass meter fills, the content lifts slightly, and the third entry leaves a persistent `Confirmed` state; click or press Enter to reset it. It might serve as a deliberately ceremonial acknowledgement for a card that nobody should need to acknowledge by hovering. A reasonable person would keep a small counter in the page and use a normal button. This component should not have existed because it turns pointer travel into a public confirmation protocol.
+
 ## Development
 
 ```bash

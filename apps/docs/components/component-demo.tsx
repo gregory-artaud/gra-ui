@@ -12,7 +12,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "press-escape" ||
     kind === "keystroke-stack" ||
     kind === "reorder-back" ||
-    kind === "drag-duplicate"
+    kind === "drag-duplicate" ||
+    kind === "hover-confirm"
   ) {
     return <Playground kind={kind} />;
   }

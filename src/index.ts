@@ -41,6 +41,10 @@ export {
   type DragDuplicateProps,
 } from "./components/drag-duplicate";
 export {
+  HoverConfirm,
+  type HoverConfirmProps,
+} from "./components/hover-confirm";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

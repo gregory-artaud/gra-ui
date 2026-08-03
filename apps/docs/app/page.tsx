@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with four unnecessarily opinionated interactions, including
-            the newest way to give one piece of content a temporary duplicate.
+            the newest way to make a card earn its own confirmation.
           </p>
         </div>
         <div className="featured-grid">
