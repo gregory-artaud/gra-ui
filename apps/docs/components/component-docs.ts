@@ -8,7 +8,8 @@ export type DemoKind =
   | "focus-fade"
   | "press-escape"
   | "keystroke-stack"
-  | "reorder-back";
+  | "reorder-back"
+  | "drag-duplicate";
 
 export interface ApiRow {
   name: string;
@@ -222,6 +223,24 @@ export function Example() {
       { name: "second", type: "ReactNode", description: "The content in the second slot." },
     ],
     demo: "reorder-back",
+    featured: true,
+  },
+  {
+    name: "DragDuplicate",
+    slug: "drag-duplicate",
+    summary: "A draggable child that makes a second copy of itself.",
+    description:
+      "It duplicates the content while being dragged, then folds both copies together when the drag ends.",
+    usage: `import { DragDuplicate } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function Example() {
+  return <DragDuplicate>One copy is enough</DragDuplicate>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content duplicated during a drag." },
+    ],
+    demo: "drag-duplicate",
     featured: true,
     isNew: true,
   },

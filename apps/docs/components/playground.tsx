@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  DragDuplicate,
   EqualChoice,
   FocusFade,
   IndecisiveButton,
@@ -29,7 +30,8 @@ export interface PlaygroundProps {
     | "focus-fade"
     | "press-escape"
     | "keystroke-stack"
-    | "reorder-back";
+    | "reorder-back"
+    | "drag-duplicate";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -44,6 +46,37 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "drag-duplicate") {
+    return (
+      <div className="playground-shell drag-duplicate-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage drag-duplicate-preview">
+            <DragDuplicate>
+              <span className="drag-duplicate-demo-label">One copy is enough</span>
+            </DragDuplicate>
+            <p className="decision-output">
+              Drag it anywhere. It makes a copy, then merges back when released.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the content away from its starting point.</dd></div>
+            <div><dt>2</dt><dd>Watch a second copy travel alongside it.</dd></div>
+            <div><dt>3</dt><dd>Release it and both copies merge again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "press-escape") {
     return (

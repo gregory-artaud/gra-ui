@@ -197,6 +197,27 @@ export function Rearranged() {
 
 Its `first` and `second` props are shown in two slots. Click or focus it and press Enter or Space to watch the slots exchange their contents, then do it again to restore the starting order. A reasonable person would render the two pieces in their final order directly. This component should not have existed because it turns an already settled arrangement into a reversible errand.
 
+## DragDuplicate
+
+`DragDuplicate` makes a second copy of its content while you drag it, then merges both copies when you release it.
+
+```ts
+type DragDuplicateProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { DragDuplicate } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function Duplicated() {
+  return <DragDuplicate>One copy is enough</DragDuplicate>;
+}
+```
+
+Its only prop is `children`. Drag the content anywhere to see two offset copies, then release to watch them fold back into one. A reasonable person would render `{children}` directly and skip dragging it. This component should not have existed because it turns a single piece of content into a temporary two-copy problem.
+
 ## Development
 
 ```bash

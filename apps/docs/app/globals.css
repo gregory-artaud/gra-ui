@@ -614,6 +614,15 @@ a {
   font-weight: 650;
 }
 
+.drag-duplicate-preview .gra-ui {
+  min-width: 300px;
+}
+
+.drag-duplicate-demo-label {
+  font-size: 15px;
+  font-weight: 650;
+}
+
 .equal-choice-notes dl {
   margin: 0;
   padding: 6px 20px 20px;

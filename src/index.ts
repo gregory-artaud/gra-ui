@@ -37,6 +37,10 @@ export {
   type ReorderBackProps,
 } from "./components/reorder-back";
 export {
+  DragDuplicate,
+  type DragDuplicateProps,
+} from "./components/drag-duplicate";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

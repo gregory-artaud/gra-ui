@@ -357,6 +357,70 @@
   transform: translateX(calc(-100% - 12px));
 }
 
+.gra-ui.drag-duplicate {
+  position: relative;
+  display: inline-grid;
+  min-width: 240px;
+  min-height: 78px;
+  place-items: center;
+  cursor: grab;
+  user-select: none;
+}
+
+.drag-duplicate:active {
+  cursor: grabbing;
+}
+
+.drag-duplicate:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 5px;
+}
+
+.drag-duplicate__original,
+.drag-duplicate__copy {
+  display: grid;
+  min-width: 100%;
+  min-height: 78px;
+  box-sizing: border-box;
+  grid-area: 1 / 1;
+  place-items: center;
+  padding: 16px 22px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.drag-duplicate__original {
+  position: relative;
+  z-index: 1;
+}
+
+.drag-duplicate__copy {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.drag-duplicate[data-state="duplicating"] .drag-duplicate__original {
+  animation: gra-ui-drag-duplicate-open-original 360ms
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.drag-duplicate[data-state="duplicating"] .drag-duplicate__copy {
+  animation: gra-ui-drag-duplicate-open-copy 360ms
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.drag-duplicate[data-state="returning"] .drag-duplicate__original {
+  animation: gra-ui-drag-duplicate-return-original 360ms
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.drag-duplicate[data-state="returning"] .drag-duplicate__copy {
+  animation: gra-ui-drag-duplicate-return-copy 360ms
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
 @keyframes gra-ui-split-label {
   0% { gap: 0; transform: scale(0.96) translateY(0); }
   35% { gap: 24px; transform: scale(1.04) translateY(-4px); }
@@ -399,6 +463,26 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+@keyframes gra-ui-drag-duplicate-open-original {
+  from { opacity: 1; transform: translateX(0) rotate(0); }
+  to { opacity: 1; transform: translateX(-44px) rotate(-2deg); }
+}
+
+@keyframes gra-ui-drag-duplicate-open-copy {
+  from { opacity: 0; transform: translateX(0) rotate(0); }
+  to { opacity: 1; transform: translateX(44px) rotate(2deg); }
+}
+
+@keyframes gra-ui-drag-duplicate-return-original {
+  from { opacity: 1; transform: translateX(-44px) rotate(-2deg); }
+  to { opacity: 1; transform: translateX(0) rotate(0); }
+}
+
+@keyframes gra-ui-drag-duplicate-return-copy {
+  from { opacity: 1; transform: translateX(44px) rotate(2deg); }
+  to { opacity: 0; transform: translateX(0) rotate(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .equal-choice__content,
   .equal-choice__side {
@@ -432,5 +516,10 @@
 
   .reorder-back__item {
     transition-duration: 0.01ms;
+  }
+
+  .drag-duplicate__original,
+  .drag-duplicate__copy {
+    animation-duration: 0.01ms !important;
   }
 }

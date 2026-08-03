@@ -11,7 +11,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "focus-fade" ||
     kind === "press-escape" ||
     kind === "keystroke-stack" ||
-    kind === "reorder-back"
+    kind === "reorder-back" ||
+    kind === "drag-duplicate"
   ) {
     return <Playground kind={kind} />;
   }

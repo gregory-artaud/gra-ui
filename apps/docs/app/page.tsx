@@ -30,8 +30,8 @@ export default function Home() {
             <h2 id="featured-title">A few bad ideas.</h2>
           </div>
           <p>
-            Start with three unnecessarily opinionated interactions, including
-            the newest way to swap two settled pieces of content.
+            Start with four unnecessarily opinionated interactions, including
+            the newest way to give one piece of content a temporary duplicate.
           </p>
         </div>
         <div className="featured-grid">
