@@ -78,7 +78,7 @@ importers:
 
   apps/docs:
     dependencies:
-      gra-ui:
+      '@gregory-artaud/gra-ui':
         specifier: workspace:*
         version: link:../..
       next:

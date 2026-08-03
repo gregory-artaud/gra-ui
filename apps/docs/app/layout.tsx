@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import "gra-ui/styles.css";
+import "@gregory-artaud/gra-ui/styles.css";
 import "./globals.css";
 
 export const metadata: Metadata = {

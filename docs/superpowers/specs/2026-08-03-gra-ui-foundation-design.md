@@ -2,7 +2,7 @@
 
 ## Goal
 
-Initialize `gra-ui` as a React 19 component library that composes shadcn/ui primitives, publishes to npm, and ships a statically exported Next.js documentation site to GitHub Pages. The first release contains one original component, `IndecisiveButton`, and no test infrastructure or test files.
+Initialize `@gregory-artaud/gra-ui` as a React 19 component library that composes shadcn/ui primitives, publishes to npm, and ships a statically exported Next.js documentation site to GitHub Pages. The first release contains one original component, `IndecisiveButton`, and no test infrastructure or test files.
 
 ## Workspace Structure
 
@@ -33,10 +33,10 @@ Turborepo is intentionally excluded. Root scripts coordinate the two builds dire
 
 ## Package Contract
 
-The package name is `gra-ui`. Vite produces tree-shakeable ESM and CommonJS bundles, source maps, TypeScript declarations, and a compiled stylesheet. The public exports are:
+The package name is `@gregory-artaud/gra-ui`. Vite produces tree-shakeable ESM and CommonJS bundles, source maps, TypeScript declarations, and a compiled stylesheet. The public exports are:
 
-- `gra-ui` for React components and their types.
-- `gra-ui/styles.css` for the compiled component styles.
+- `@gregory-artaud/gra-ui` for React components and their types.
+- `@gregory-artaud/gra-ui/styles.css` for the compiled component styles.
 
 React and React DOM are peer dependencies requiring React 19 or newer. Runtime dependencies required by the shadcn/ui `Button` primitive, such as Slot and class-variance helpers, are regular package dependencies.
 
@@ -84,11 +84,11 @@ The workflow performs these operations in order:
 2. Install dependencies with `--frozen-lockfile`.
 3. Run lint and TypeScript checks.
 4. Build the root npm package.
-5. Publish `gra-ui` to npm using `NPM_TOKEN` and `--no-git-checks`.
+5. Publish `@gregory-artaud/gra-ui` to npm using `NPM_TOKEN` and `--no-git-checks`.
 6. Build the Next.js documentation application as a static export.
 7. Upload `apps/docs/out` and deploy it with GitHub Pages Actions.
 
-The docs build uses the repository path `/greact-ui` as its production `basePath` and asset prefix so client assets resolve on project Pages. Local development runs without that prefix.
+The docs build uses the repository path `/gra-ui` as its production `basePath` and asset prefix so client assets resolve on project Pages. Local development runs without that prefix.
 
 Publishing and Pages deployment remain separate jobs, with deployment depending on successful npm publication. GitHub Pages permissions and environment URL reporting follow the existing `greact-hooks` workflow.
 

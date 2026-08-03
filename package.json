@@ -1,5 +1,5 @@
 {
-  "name": "gra-ui",
+  "name": "@gregory-artaud/gra-ui",
   "version": "0.1.0",
   "description": "React components composed with shadcn/ui, for interfaces with unnecessary personality.",
   "packageManager": "pnpm@10.26.1",
@@ -68,8 +68,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gregory-artaud/greact-ui.git"
+    "url": "git+https://github.com/gregory-artaud/gra-ui.git"
   },
-  "homepage": "https://gregory-artaud.github.io/greact-ui/",
+  "homepage": "https://gregory-artaud.github.io/gra-ui/",
   "license": "MIT"
 }

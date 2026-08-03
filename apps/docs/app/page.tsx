@@ -1,7 +1,7 @@
 import { Playground } from "@/components/playground";
 
-const usageCode = `import { IndecisiveButton } from "gra-ui";
-import "gra-ui/styles.css";
+const usageCode = `import { IndecisiveButton } from "@gregory-artaud/gra-ui";
+import "@gregory-artaud/gra-ui/styles.css";
 
 <IndecisiveButton
   choices={["Ship it", "Wait", "Ship it anyway"]}
@@ -30,7 +30,7 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           <a href="#playground">Component</a>
           <a href="#usage">Usage</a>
-          <a href="https://github.com/gregory-artaud/greact-ui">GitHub</a>
+          <a href="https://github.com/gregory-artaud/gra-ui">GitHub</a>
         </nav>
       </header>
 
@@ -43,7 +43,7 @@ export default function Home() {
         </p>
         <div className="install-command" aria-label="Installation command">
           <span>$</span>
-          <code>pnpm add gra-ui</code>
+          <code>pnpm add @gregory-artaud/gra-ui</code>
         </div>
       </section>
 

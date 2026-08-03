@@ -1,6 +1,6 @@
 "use client";
 
-import { IndecisiveButton } from "gra-ui";
+import { IndecisiveButton } from "@gregory-artaud/gra-ui";
 import { useState } from "react";
 
 const variants = [
