@@ -1,4 +1,5 @@
 import { Playground } from "@/components/playground";
+import { CountedClone } from "gra-ui";
 
 const usageCode = `import { IndecisiveButton } from "gra-ui";
 import "gra-ui/styles.css";
@@ -17,6 +18,34 @@ const api = [
   ["interval", "number", "Delay between choices. Defaults to 900 ms."],
   ["onDecision", "(choice, index, event) => void", "Called with the visible choice on click."],
   ["variant", "Button variant", "Any shadcn Button visual variant."],
+] as const;
+
+const components = [
+  {
+    name: "Button",
+    description: "A conventional button with the usual variants.",
+    signature: "ButtonProps extends ComponentPropsWithoutRef<\"button\">",
+    props: "variant, size, asChild, native button props",
+    example: '<Button>Click</Button>',
+    href: "#button-reference",
+  },
+  {
+    name: "IndecisiveButton",
+    description: "A button that cycles through labels before accepting a decision.",
+    signature: "IndecisiveButtonProps",
+    props: "children, choices, interval, onDecision, Button props",
+    example: '<IndecisiveButton>Decide</IndecisiveButton>',
+    href: "#playground",
+  },
+  {
+    name: "CountedClone",
+    description: "A clone that reports how many children its element already has.",
+    signature: "CountedCloneProps",
+    props: "element",
+    example: '<CountedClone element={<span>One child</span>} />',
+    href: "#counted-clone-reference",
+    isNew: true,
+  },
 ] as const;
 
 export default function Home() {
@@ -47,10 +76,46 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="catalog-section" id="components">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">01 / Components</p>
+            <h2>All of them.<br />For some reason.</h2>
+          </div>
+          <p>
+            The complete public surface of gra-ui, including the newest way to
+            make an element explain its own children.
+          </p>
+        </div>
+        <div className="catalog-grid">
+          {components.map((component) => (
+            <article
+              className="catalog-card"
+              id={component.name === "Button" ? "button-reference" : undefined}
+              key={component.name}
+            >
+              <div className="catalog-card-heading">
+                <h3>{component.name}</h3>
+                {"isNew" in component && component.isNew ? (
+                  <span className="new-badge">New</span>
+                ) : null}
+              </div>
+              <p>{component.description}</p>
+              <a href={component.href}>Read the example →</a>
+              <dl>
+                <div><dt>Signature</dt><dd><code>{component.signature}</code></dd></div>
+                <div><dt>Props</dt><dd>{component.props}</dd></div>
+                <div><dt>Example</dt><dd><code>{component.example}</code></dd></div>
+              </dl>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="component-section" id="playground">
         <div className="section-heading">
           <div>
-            <p className="section-index">01 / Component</p>
+            <p className="section-index">02 / Component</p>
             <h2>IndecisiveButton</h2>
           </div>
           <p>
@@ -61,9 +126,26 @@ export default function Home() {
         <Playground />
       </section>
 
+      <section className="component-section counted-clone-section" id="counted-clone-reference">
+        <div className="section-heading">
+          <div>
+            <p className="section-index">03 / Component</p>
+            <h2>CountedClone</h2>
+          </div>
+          <p>
+            It counts an element&apos;s children and stores the answer on the
+            element, where it will help nobody.
+          </p>
+        </div>
+        <div className="clone-demo">
+          <CountedClone element={<span className="clone-target">One child</span>} />
+          <code>data-child-count=&quot;1&quot;</code>
+        </div>
+      </section>
+
       <section className="details-grid" id="usage">
         <article>
-          <p className="section-index">02 / Usage</p>
+          <p className="section-index">04 / Usage</p>
           <h2>One import.<br />Several opinions.</h2>
           <p className="detail-copy">
             Import the compiled stylesheet once. Your application does not need
@@ -82,7 +164,7 @@ export default function Home() {
       <section className="api-section">
         <div className="section-heading api-heading">
           <div>
-            <p className="section-index">03 / API</p>
+            <p className="section-index">05 / API</p>
             <h2>Small surface area.</h2>
           </div>
           <p>
