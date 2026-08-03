@@ -36,6 +36,26 @@ export function Decision() {
 }
 ```
 
+## CountedClone
+
+`CountedClone` clones an HTML element solely to add a `data-child-count` attribute containing the number of its children. The element already knew this, technically.
+
+```ts
+type CountedCloneProps = {
+  element: React.ReactElement<React.HTMLAttributes<HTMLElement>>;
+};
+```
+
+```tsx
+import { CountedClone } from "gra-ui";
+
+export function Counted() {
+  return <CountedClone element={<span>One child</span>} />;
+}
+```
+
+Its only prop is `element`. The returned element is otherwise identical, with `data-child-count="1"` attached to it. A reasonable person would write `React.cloneElement(element, { "data-child-count": React.Children.count(element.props.children) })` directly, or keep the original element. This component should not have existed because it turns an obvious count into a public abstraction.
+
 ## Development
 
 ```bash
