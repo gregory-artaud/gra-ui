@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## ScrollRedact
+
+`ScrollRedact` covers its children with one opaque band per wheel notch until the content is fully redacted. Scrolling back removes the bands, which is a disproportionate amount of ceremony for hiding a label.
+
+```ts
+type ScrollRedactProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { ScrollRedact } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ClassifiedLabel() {
+  return <ScrollRedact>Release candidate 2.7</ScrollRedact>;
+}
+```
+
+Scroll over the content to add five horizontal redaction bands; scroll back, use the arrow keys, or choose `Remove bands` to uncover it. Each band is real DOM that hides part of the content, and the newest band slides in with a short transition. It could be used to make a reviewer classify a status label before a handoff, or to ceremonially hide a small detail during a presentation. A reasonable local alternative is a boolean or small number in the page with one overlay. This component should not have existed because scrolling a censorship layer into place is not a reusable UI need.
+
 ## CopyEcho
 
 `CopyEcho` listens to the browser's real copy event and leaves a visible replica of a label behind every time it is copied. After three copies, the source receives an unnecessarily official shadow.

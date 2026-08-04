@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "scroll-redact"
   | "copy-echo"
   | "word-relay"
   | "index-sum"
@@ -55,6 +56,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "ScrollRedact",
+    slug: "scroll-redact",
+    summary: "A label that gets redacted one wheel notch at a time.",
+    description:
+      "It covers its children with five opaque bands as you scroll over them, turning a harmless label into a gradually classified document and preserving the blackout until you scroll back or remove the bands.",
+    usage: `import { ScrollRedact } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ClassifiedLabel() {
+  return <ScrollRedact>Release candidate 2.7</ScrollRedact>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content covered by one redaction band per wheel step." },
+    ],
+    demo: "scroll-redact",
+    useCase:
+      "It could be used to make a reviewer scroll five notches before a status label becomes properly classified, or to ceremonially hide a small piece of content during a live presentation.",
+    alternative:
+      "A reasonable local alternative is a boolean or small number in the page with one overlay. Publishing a wheel-operated censorship ritual is difficult to defend when CSS can hide content directly.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "CopyEcho",
     slug: "copy-echo",
     summary: "A copied label that leaves visible souvenirs behind.",
@@ -75,7 +99,6 @@ export function OverDocumentedLabel() {
     alternative:
       "A reasonable local alternative is a read-only input with one onCopy handler and a small array rendered beside it. Publishing that ceremony as a reusable component remains difficult to defend.",
     featured: true,
-    isNew: true,
   },
   {
     name: "WordRelay",

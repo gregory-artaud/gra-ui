@@ -26,6 +26,7 @@ import {
   PairwiseMerge,
   PressEscape,
   ReorderBack,
+  ScrollRedact,
   SideSplit,
   SplitLabel,
   TimedRelease,
@@ -46,6 +47,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "scroll-redact"
     | "copy-echo"
     | "word-relay"
     | "index-sum"
@@ -119,6 +121,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Press Ctrl+C or Cmd+C; the browser still copies the value normally.</dd></div>
             <div><dt>3</dt><dd>Each copy adds a permanent visible echo underneath the source.</dd></div>
             <div><dt>4</dt><dd>After three copies, the source receives an official shadow for no useful reason.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "scroll-redact") {
+    return (
+      <div className="playground-shell scroll-redact-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage scroll-redact-preview">
+            <ScrollRedact>Release candidate 2.7</ScrollRedact>
+            <p className="decision-output" aria-live="polite">
+              Scroll over the label to cover it one band at a time. Scroll back to make it visible again.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Place the pointer over the ordinary label.</dd></div>
+            <div><dt>2</dt><dd>Scroll down; one opaque band covers one fifth of the content.</dd></div>
+            <div><dt>3</dt><dd>Continue for five bands until the label is fully classified.</dd></div>
+            <div><dt>4</dt><dd>Scroll up or remove the bands when the ceremony is complete.</dd></div>
           </dl>
         </div>
       </div>

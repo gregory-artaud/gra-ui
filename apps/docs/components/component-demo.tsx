@@ -5,6 +5,7 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "scroll-redact" ||
     kind === "word-relay" ||
     kind === "copy-echo" ||
     kind === "index-sum" ||

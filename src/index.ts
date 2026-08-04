@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  ScrollRedact,
+  type ScrollRedactProps,
+} from "./components/scroll-redact";
+export {
   CopyEcho,
   type CopyEchoProps,
 } from "./components/copy-echo";
