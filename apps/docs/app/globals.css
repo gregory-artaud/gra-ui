@@ -811,6 +811,15 @@ a {
   font-weight: 650;
 }
 
+.scale-sweep-preview .gra-ui {
+  width: min(100%, 430px);
+}
+
+.scale-sweep-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .case-gate-preview .gra-ui {
   width: min(100%, 380px);
 }

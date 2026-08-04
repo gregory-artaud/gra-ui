@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  ScaleSweep,
+  type ScaleSweepProps,
+} from "./components/scale-sweep";
+export {
   ScrollRedact,
   type ScrollRedactProps,
 } from "./components/scroll-redact";

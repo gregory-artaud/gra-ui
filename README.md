@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## ScaleSweep
+
+`ScaleSweep` turns a row of children into a sizing ritual. Drag its handle across the items and every child crossed by the sweep remains visibly enlarged until the sweep is reset.
+
+```ts
+type ScaleSweepProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { ScaleSweep } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EarnedLabels() {
+  return (
+    <ScaleSweep>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ScaleSweep>
+  );
+}
+```
+
+Drag the handle across every item, or focus the track and use the arrow keys. The touched items stay scaled up, the meter records the sweep, and `Shrink everything` returns the row to its initial state. A short transform transition makes each item grow into place, with reduced-motion users receiving the same state changes without the long transition. It could be used to make a reviewer sweep across the fields that deserve extra space on a summary card, or to let a presenter ceremonially enlarge the labels they plan to discuss. A reasonable local alternative is a small visited-index set and one conditional class in the page. This component should not have existed because the layout already knows its own priorities and does not need a drag-operated sizing ritual.
+
 ## ScrollRedact
 
 `ScrollRedact` covers its children with one opaque band per wheel notch until the content is fully redacted. Scrolling back removes the bands, which is a disproportionate amount of ceremony for hiding a label.

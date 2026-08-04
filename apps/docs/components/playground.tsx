@@ -26,6 +26,7 @@ import {
   PairwiseMerge,
   PressEscape,
   ReorderBack,
+  ScaleSweep,
   ScrollRedact,
   SideSplit,
   SplitLabel,
@@ -47,6 +48,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "scale-sweep"
     | "scroll-redact"
     | "copy-echo"
     | "word-relay"
@@ -151,6 +153,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Scroll down; one opaque band covers one fifth of the content.</dd></div>
             <div><dt>3</dt><dd>Continue for five bands until the label is fully classified.</dd></div>
             <div><dt>4</dt><dd>Scroll up or remove the bands when the ceremony is complete.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "scale-sweep") {
+    return (
+      <div className="playground-shell scale-sweep-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage scale-sweep-preview">
+            <ScaleSweep>
+              <span className="scale-sweep-demo-label">Title</span>
+              <span className="scale-sweep-demo-label">Status</span>
+              <span className="scale-sweep-demo-label">Owner</span>
+              <span className="scale-sweep-demo-label">Date</span>
+            </ScaleSweep>
+            <p className="decision-output" aria-live="polite">
+              Drag the handle across every field. Each one stays larger after the sweep passes.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Grab the handle or focus the track with the keyboard.</dd></div>
+            <div><dt>2</dt><dd>Drag across a field; the handle records every field it crosses.</dd></div>
+            <div><dt>3</dt><dd>Visited fields remain visibly enlarged instead of returning to normal.</dd></div>
+            <div><dt>4</dt><dd>Sweep the whole row, then shrink everything when the ceremony is complete.</dd></div>
           </dl>
         </div>
       </div>

@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "scale-sweep"
   | "scroll-redact"
   | "copy-echo"
   | "word-relay"
@@ -56,6 +57,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "ScaleSweep",
+    slug: "scale-sweep",
+    summary: "Children that stay enlarged after a pointer sweeps across them.",
+    description:
+      "It turns a row of children into a size-earning track: drag the handle across each item, and every item it crosses remains visibly enlarged until you shrink everything again.",
+    usage: `import { ScaleSweep } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EarnedLabels() {
+  return (
+    <ScaleSweep>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ScaleSweep>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The items enlarged and marked as the sweep passes over them." },
+    ],
+    demo: "scale-sweep",
+    useCase:
+      "It could be used to make a reviewer sweep across the fields that deserve extra space on a summary card, or to let a presenter ceremonially enlarge the labels they plan to discuss.",
+    alternative:
+      "A reasonable local alternative is a small visited-index set and one conditional class in the page. Publishing a drag-operated sizing ritual is difficult to defend when the layout already knows its own priorities.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "ScrollRedact",
     slug: "scroll-redact",
     summary: "A label that gets redacted one wheel notch at a time.",
@@ -76,7 +107,6 @@ export function ClassifiedLabel() {
     alternative:
       "A reasonable local alternative is a boolean or small number in the page with one overlay. Publishing a wheel-operated censorship ritual is difficult to defend when CSS can hide content directly.",
     featured: true,
-    isNew: true,
   },
   {
     name: "CopyEcho",
