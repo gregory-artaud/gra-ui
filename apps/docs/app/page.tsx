@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to eliminate content until one option remains.
+            the newest way to keep deleted characters around for review.
           </p>
         </div>
         <div className="featured-grid">

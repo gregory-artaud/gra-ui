@@ -9,6 +9,10 @@ export {
   type LastRemainingProps,
 } from "./components/last-remaining";
 export {
+  BackspaceArchive,
+  type BackspaceArchiveProps,
+} from "./components/backspace-archive";
+export {
   CountedClone,
   type CountedCloneProps,
 } from "./components/counted-clone";

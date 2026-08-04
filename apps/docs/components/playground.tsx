@@ -2,6 +2,7 @@
 
 import {
   AveragePosition,
+  BackspaceArchive,
   ClickOrder,
   CornerFold,
   DragDuplicate,
@@ -49,7 +50,8 @@ export interface PlaygroundProps {
     | "corner-fold"
     | "pairwise-merge"
     | "average-position"
-    | "last-remaining";
+    | "last-remaining"
+    | "backspace-archive";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -225,6 +227,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Click a field to remove it from consideration.</dd></div>
             <div><dt>3</dt><dd>Removed fields stay visible as evidence.</dd></div>
             <div><dt>4</dt><dd>The last field is promoted and the list can restart.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "backspace-archive") {
+    return (
+      <div className="playground-shell backspace-archive-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage backspace-archive-preview">
+            <BackspaceArchive label="Keep this sentence" />
+            <p className="decision-output" aria-live="polite">
+              Edit the sentence, then use Backspace. Every removed character stays on record.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Focus the pre-filled sentence.</dd></div>
+            <div><dt>2</dt><dd>Press Backspace one character at a time.</dd></div>
+            <div><dt>3</dt><dd>Watch each deletion become a permanent chip.</dd></div>
+            <div><dt>4</dt><dd>Restore the sentence when the archive has done enough.</dd></div>
           </dl>
         </div>
       </div>

@@ -18,7 +18,8 @@ export type DemoKind =
   | "corner-fold"
   | "pairwise-merge"
   | "average-position"
-  | "last-remaining";
+  | "last-remaining"
+  | "backspace-archive";
 
 export interface ApiRow {
   name: string;
@@ -431,6 +432,24 @@ export function ChooseOne() {
       { name: "items", type: "readonly string[]", description: "The options eliminated one at a time until one remains." },
     ],
     demo: "last-remaining",
+    featured: true,
+  },
+  {
+    name: "BackspaceArchive",
+    slug: "backspace-archive",
+    summary: "An input that archives every character removed with Backspace.",
+    description:
+      "It lets you edit a label normally, except each Backspace deletion is copied into a permanent little tray for inspection.",
+    usage: `import { BackspaceArchive } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ReviewedText() {
+  return <BackspaceArchive label="Keep this sentence" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The starting text placed in the editable field." },
+    ],
+    demo: "backspace-archive",
     featured: true,
     isNew: true,
   },

@@ -101,6 +101,27 @@ export function ChooseOne() {
 
 Click an option to eliminate it. Eliminated options remain visible but disabled, and the last remaining option is marked as the winner; `Start over` restores the full list. It could be used to make a reviewer reduce the fields on a tiny summary card one rejection at a time. A reasonable person would keep an array of remaining indexes in the page and filter it locally. This component should not have existed because it turns choosing one option into a public elimination ceremony.
 
+## BackspaceArchive
+
+`BackspaceArchive` is an editable label that keeps every character removed with Backspace in a visible archive.
+
+```ts
+type BackspaceArchiveProps = {
+  label: string;
+};
+```
+
+```tsx
+import { BackspaceArchive } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ReviewedText() {
+  return <BackspaceArchive label="Keep this sentence" />;
+}
+```
+
+Edit the starting text and press Backspace. Each removed character is copied into the archive in deletion order; `Restore text` clears the archive and starts again. It could be used for a review field where someone must visibly account for every deleted character. A reasonable person would keep an input and a small `onKeyDown` handler in the page. This component should not have existed because it makes ordinary text editing preserve the evidence of every backspace.
+
 ## RepeatChildren
 
 `RepeatChildren` renders the same child twice because one copy was apparently not enough.

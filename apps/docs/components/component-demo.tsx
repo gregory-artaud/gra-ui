@@ -21,7 +21,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "corner-fold" ||
     kind === "pairwise-merge" ||
     kind === "average-position" ||
-    kind === "last-remaining"
+    kind === "last-remaining" ||
+    kind === "backspace-archive"
   ) {
     return <Playground kind={kind} />;
   }
