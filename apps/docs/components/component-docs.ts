@@ -1,5 +1,6 @@
 export type DemoKind =
   | "button"
+  | "duration-scale"
   | "mixed-click"
   | "weight-vote"
   | "case-gate"
@@ -68,6 +69,25 @@ export function Example() {
     demo: "button",
   },
   {
+    name: "DurationScale",
+    slug: "duration-scale",
+    summary: "Content scaled by the average time you hold it.",
+    description:
+      "It records three press-and-hold durations, calculates their average, and keeps the content at the resulting scale until you measure it again.",
+    usage: `import { DurationScale } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MeasuredContent() {
+  return <DurationScale>Hold this carefully</DurationScale>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content scaled by the average of three hold durations." },
+    ],
+    demo: "duration-scale",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "MixedClick",
     slug: "mixed-click",
     summary: "Content that releases only after left-right-left clicking.",
@@ -84,7 +104,6 @@ export function CeremonialRelease() {
     ],
     demo: "mixed-click",
     featured: true,
-    isNew: true,
   },
   {
     name: "WeightVote",

@@ -5,6 +5,10 @@ export {
   type MixedClickProps,
 } from "./components/mixed-click";
 export {
+  DurationScale,
+  type DurationScaleProps,
+} from "./components/duration-scale";
+export {
   AveragePosition,
   type AveragePositionProps,
 } from "./components/average-position";

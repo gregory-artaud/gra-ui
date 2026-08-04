@@ -590,6 +590,27 @@ export function MergeFields() {
 
 Double-click one group, then another. The two are joined in their existing order, the merged result stays visible, and the process can be repeated until one group remains. It could serve as a deliberately ceremonial way to collapse a short field list before a compact review card, or as an unnecessarily strict exercise for deciding which two labels deserve to share a line. A reasonable person would keep an array of groups in the page and merge them locally. This component should not have existed because it turns a few lines of state into a reusable ceremony for combining content that was already allowed to sit next to itself.
 
+## DurationScale
+
+`DurationScale` measures how long its content is held three times, then scales the content according to the average duration.
+
+```ts
+type DurationScaleProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { DurationScale } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MeasuredContent() {
+  return <DurationScale>Hold this carefully</DurationScale>;
+}
+```
+
+Its only prop is `children`. Press and hold the content three times; each release is recorded, the average is calculated, and the content keeps the resulting scale. It could be used to make the size of a review label reflect how long somebody hesitated before releasing it. A reasonable person would keep three durations in the page and calculate the scale locally. This component should not have existed because turning a few pointer events and an average into a reusable hold-measuring ritual is excessive.
+
 ## Development
 
 ```bash

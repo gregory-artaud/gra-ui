@@ -764,6 +764,16 @@ a {
   width: min(100%, 380px);
 }
 
+.duration-scale-preview .gra-ui {
+  width: min(100%, 300px);
+}
+
+.duration-scale-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+  text-align: center;
+}
+
 .mixed-click-demo-label {
   font-size: 13px;
   font-weight: 650;

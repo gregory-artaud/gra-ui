@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make one finished field move across three slots with two mouse buttons.
+            the newest way to make finished content remember how long you held it.
           </p>
         </div>
         <div className="featured-grid">
