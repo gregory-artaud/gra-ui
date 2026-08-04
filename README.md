@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## WeekdayLedger
+
+`WeekdayLedger` asks for a starting date, then files each child into the next weekday in order. The date is real, the calendar is real, and the reason to put interface labels on a weekly ledger is not.
+
+```ts
+type WeekdayLedgerProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { WeekdayLedger } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ScheduledFields() {
+  return (
+    <WeekdayLedger>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </WeekdayLedger>
+  );
+}
+```
+
+Choose a date and press `File the week`. The date's weekday becomes the first column, and every child moves into the next weekday in sequence. `Clear the ledger` restores the waiting row. It could be used to assign the fields of a handoff card to the days of a review sprint, or to make a presenter schedule four agenda labels across a week. A reasonable local alternative is an array of labels and a small calendar grid, or simply rendering the labels together. This component should not have existed because a date that does not schedule anything is only a calendar-shaped excuse to move children around.
+
 ## LayoutReferendum
 
 `LayoutReferendum` submits its children to a tiny layout referendum. Double-click one of three genuinely different arrangements and the chosen disposition persists until the ballot is reopened.

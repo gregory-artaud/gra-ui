@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  WeekdayLedger,
+  type WeekdayLedgerProps,
+} from "./components/weekday-ledger";
+export {
   ChildGravity,
   type ChildGravityProps,
 } from "./components/child-gravity";

@@ -4341,3 +4341,235 @@
     transition-duration: 0.01ms;
   }
 }
+
+.gra-ui.weekday-ledger {
+  display: inline-flex;
+  width: min(100%, 520px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.weekday-ledger__header,
+.weekday-ledger__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.weekday-ledger__header {
+  color: var(--greact-ring);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.weekday-ledger__header output {
+  color: var(--greact-foreground);
+  letter-spacing: 0;
+}
+
+.weekday-ledger__board {
+  min-width: 0;
+  padding: 10px;
+  overflow-x: auto;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+}
+
+.weekday-ledger__waiting {
+  display: flex;
+  min-height: 152px;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.weekday-ledger__waiting-item,
+.weekday-ledger__item {
+  display: flex;
+  min-width: 0;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.weekday-ledger__waiting-item {
+  animation: gra-ui-weekday-ledger-wait 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.weekday-ledger__empty {
+  align-self: center;
+  color: var(--greact-ring);
+  font-size: 11px;
+}
+
+.weekday-ledger__grid {
+  display: grid;
+  min-width: 410px;
+  grid-template-columns: repeat(7, minmax(48px, 1fr));
+  gap: 5px;
+}
+
+.weekday-ledger__day {
+  display: flex;
+  min-height: 152px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 5px;
+  border: 1px dashed var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 4px);
+  background: color-mix(in srgb, var(--greact-background) 55%, transparent);
+}
+
+.weekday-ledger__day[data-filled="true"] {
+  border-style: solid;
+}
+
+.weekday-ledger__day-label {
+  color: var(--greact-ring);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.weekday-ledger__slots {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.weekday-ledger__item {
+  min-height: 34px;
+  padding: 6px 4px;
+  font-size: 10px;
+  animation: gra-ui-weekday-ledger-file 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.weekday-ledger__day:nth-child(2) .weekday-ledger__item { animation-delay: 35ms; }
+.weekday-ledger__day:nth-child(3) .weekday-ledger__item { animation-delay: 70ms; }
+.weekday-ledger__day:nth-child(4) .weekday-ledger__item { animation-delay: 105ms; }
+.weekday-ledger__day:nth-child(5) .weekday-ledger__item { animation-delay: 140ms; }
+.weekday-ledger__day:nth-child(6) .weekday-ledger__item { animation-delay: 175ms; }
+.weekday-ledger__day:nth-child(7) .weekday-ledger__item { animation-delay: 210ms; }
+
+.weekday-ledger__form {
+  align-items: flex-end;
+}
+
+.weekday-ledger__date-label {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+  color: var(--greact-ring);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.weekday-ledger__date-label input,
+.weekday-ledger__form button {
+  min-height: 36px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  font: inherit;
+}
+
+.weekday-ledger__date-label input {
+  width: 100%;
+  min-width: 0;
+  padding: 7px 9px;
+  color-scheme: light;
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.weekday-ledger__form button {
+  padding: 7px 11px;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.weekday-ledger__form button:hover:not(:disabled),
+.weekday-ledger__form button:focus-visible,
+.weekday-ledger__date-label input:focus-visible {
+  border-color: var(--greact-ring);
+}
+
+.weekday-ledger__form button:focus-visible,
+.weekday-ledger__date-label input:focus-visible,
+.weekday-ledger__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.weekday-ledger__form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+.weekday-ledger__reset {
+  align-self: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.weekday-ledger__status {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+@keyframes gra-ui-weekday-ledger-wait {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gra-ui-weekday-ledger-file {
+  from { opacity: 0; transform: translateY(-8px) rotate(-1deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weekday-ledger__waiting-item,
+  .weekday-ledger__item {
+    animation: none;
+  }
+}

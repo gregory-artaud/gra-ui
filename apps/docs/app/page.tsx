@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make one child push its siblings apart.
+            the newest way to file ordinary labels into an unnecessary week.
           </p>
         </div>
         <div className="featured-grid">

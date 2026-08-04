@@ -34,6 +34,7 @@ import {
   SplitLabel,
   TimedRelease,
   WeightVote,
+  WeekdayLedger,
   WordRelay,
 } from "gra-ui";
 import { useState } from "react";
@@ -83,7 +84,8 @@ export interface PlaygroundProps {
     | "backspace-archive"
     | "hover-route"
     | "nest-children"
-    | "drag-threshold";
+    | "drag-threshold"
+    | "weekday-ledger";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -102,6 +104,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "weekday-ledger") {
+    return (
+      <div className="playground-shell weekday-ledger-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage weekday-ledger-preview">
+            <WeekdayLedger>
+              <span className="weekday-ledger-demo-label">Title</span>
+              <span className="weekday-ledger-demo-label">Status</span>
+              <span className="weekday-ledger-demo-label">Owner</span>
+              <span className="weekday-ledger-demo-label">Date</span>
+            </WeekdayLedger>
+            <p className="decision-output" aria-live="polite">
+              Choose any date, file the labels, and watch them receive consecutive weekdays.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Choose an ordinary starting date.</dd></div>
+            <div><dt>2</dt><dd>File the week; the date&apos;s weekday becomes the first column.</dd></div>
+            <div><dt>3</dt><dd>Each child moves into the next weekday in sequence.</dd></div>
+            <div><dt>4</dt><dd>Clear the ledger to return the labels to their waiting row.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "layout-referendum") {
     return (

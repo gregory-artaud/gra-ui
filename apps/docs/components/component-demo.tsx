@@ -37,7 +37,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "backspace-archive" ||
     kind === "hover-route" ||
     kind === "nest-children" ||
-    kind === "drag-threshold"
+    kind === "drag-threshold" ||
+    kind === "weekday-ledger"
   ) {
     return <Playground kind={kind} />;
   }

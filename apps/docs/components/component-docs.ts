@@ -35,7 +35,8 @@ export type DemoKind =
   | "focus-unpack"
   | "backspace-archive"
   | "hover-route"
-  | "nest-children";
+  | "nest-children"
+  | "weekday-ledger";
 
 export interface ApiRow {
   name: string;
@@ -58,6 +59,36 @@ export interface ComponentDoc {
 }
 
 export const componentDocs: readonly ComponentDoc[] = [
+  {
+    name: "WeekdayLedger",
+    slug: "weekday-ledger",
+    summary: "A date that files ordinary children into an unnecessary week.",
+    description:
+      "It asks for a starting date, then files each child into the next weekday in order. The date is real, the calendar is real, and the reason to put interface labels on a weekly ledger is not.",
+    usage: `import { WeekdayLedger } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ScheduledFields() {
+  return (
+    <WeekdayLedger>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </WeekdayLedger>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content filed into consecutive weekdays after a date is submitted." },
+    ],
+    demo: "weekday-ledger",
+    useCase:
+      "It could be used to assign the fields of a handoff card to the days of a review sprint, or to make a presenter schedule four agenda labels across a week before discussing any of them.",
+    alternative:
+      "A reasonable local alternative is an array of labels and a small calendar grid, or simply rendering the labels together. Publishing a weekday filing ceremony is difficult to defend when the date is not actually scheduling anything.",
+    featured: true,
+    isNew: true,
+  },
   {
     name: "LayoutReferendum",
     slug: "layout-referendum",
@@ -86,7 +117,6 @@ export function RefiledFields() {
     alternative:
       "A reasonable local alternative is one layout class and an ordinary select or button group. Publishing a binding referendum for a few fields remains difficult to defend when CSS already knows how to arrange them.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ChildGravity",
