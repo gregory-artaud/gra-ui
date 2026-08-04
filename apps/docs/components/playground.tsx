@@ -30,6 +30,7 @@ import {
   PressEscape,
   ReorderBack,
   ScaleSweep,
+  SeamFold,
   SelectionSeal,
   ScrollRedact,
   SideSplit,
@@ -54,6 +55,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "seam-fold"
     | "selection-seal"
     | "checkpoint-queue"
     | "alphabet-treadmill"
@@ -110,6 +112,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "seam-fold") {
+    return (
+      <div className="playground-shell seam-fold-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage seam-fold-preview">
+            <SeamFold>
+              <span className="seam-fold-demo-label">Title</span>
+              <span className="seam-fold-demo-label">Status</span>
+              <span className="seam-fold-demo-label">Owner</span>
+              <span className="seam-fold-demo-label">Date</span>
+            </SeamFold>
+            <p className="decision-output" aria-live="polite">
+              Drag the crease. The lower half returns in reverse, as paperwork apparently does.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary fields in one row.</dd></div>
+            <div><dt>2</dt><dd>Move the native crease slider with a pointer or arrow keys.</dd></div>
+            <div><dt>3</dt><dd>The fields split at that position and the lower half reverses.</dd></div>
+            <div><dt>4</dt><dd>Flatten the paperwork to return the row to its original order.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "selection-seal") {
     return (

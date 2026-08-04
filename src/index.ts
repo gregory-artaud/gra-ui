@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  SeamFold,
+  type SeamFoldProps,
+} from "./components/seam-fold";
+export {
   AlphabetTreadmill,
   type AlphabetTreadmillProps,
 } from "./components/alphabet-treadmill";

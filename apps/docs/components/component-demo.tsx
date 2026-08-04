@@ -6,6 +6,7 @@ import { Playground } from "@/components/playground";
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
     kind === "checkpoint-queue" ||
+    kind === "seam-fold" ||
     kind === "selection-seal" ||
     kind === "alphabet-treadmill" ||
     kind === "layout-referendum" ||

@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "seam-fold"
   | "selection-seal"
   | "checkpoint-queue"
   | "alphabet-treadmill"
@@ -63,6 +64,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "SeamFold",
+    slug: "seam-fold",
+    summary: "A row that folds its lower half backwards around a movable seam.",
+    description:
+      "It gives an ordinary row of children a physical crease. Move the seam with a native range control and the children split into two rows, with the lower half returning in reverse order.",
+    usage: `import { SeamFold } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FoldedFields() {
+  return (
+    <SeamFold>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </SeamFold>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content split around the movable seam and reversed below it." },
+    ],
+    demo: "seam-fold",
+    useCase:
+      "It could be used to let a reviewer fold the fields of a handoff card at the exact point where the discussion changes topic, or to make a presenter physically crease an agenda before reading its second half.",
+    alternative:
+      "A reasonable local alternative is a small CSS grid with one breakpoint or an array slice in the page. Publishing a range-controlled paper fold is difficult to defend because the fields never needed folding.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "SelectionSeal",
     slug: "selection-seal",
     summary: "An excerpt that needs three identical selections before it can be sealed.",
@@ -83,7 +114,6 @@ export function CeremonialApproval() {
     alternative:
       "A reasonable local alternative is a text selection plus one boolean or range in the page. Publishing a three-selection seal is difficult to defend because selecting a sentence does not make it more approved.",
     featured: true,
-    isNew: true,
   },
   {
     name: "CheckpointQueue",

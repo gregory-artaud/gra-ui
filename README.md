@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## SeamFold
+
+`SeamFold` gives a row of children a movable crease. Move the native range control and the children split at that seam; the lower half returns in reverse order, creating a real folded state for content that did not request one.
+
+```ts
+type SeamFoldProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { SeamFold } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FoldedFields() {
+  return (
+    <SeamFold>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </SeamFold>
+  );
+}
+```
+
+Drag the crease, or focus the range and use the arrow keys. The children move into an upper row and a reversed lower row at the selected position; `Flatten the paperwork` returns the original row. It could be used to let a reviewer fold the fields of a handoff card where the discussion changes topic, or to make a presenter crease an agenda before reading its second half. A reasonable local alternative is a small CSS grid with one breakpoint or an array slice in the page. This component should not have existed because ordinary fields do not need to be folded by a slider.
+
 ## SelectionSeal
 
 `SelectionSeal` asks you to select the exact same excerpt three times before it is allowed to leave the sentence. Each selection creates a visible impression that bounces into the seal row; the third selection locks the excerpt into a raised mark and changes the rendered sentence.

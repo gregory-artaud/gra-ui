@@ -569,6 +569,15 @@ a {
   min-width: 168px;
 }
 
+.seam-fold-preview .gra-ui {
+  width: min(100%, 460px);
+}
+
+.seam-fold-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .layout-referendum-preview .gra-ui {
   width: min(100%, 430px);
 }
