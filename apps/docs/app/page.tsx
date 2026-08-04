@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make finished content pass an arithmetic entrance exam.
+            the newest way to make finished content clear three increasingly long drag thresholds.
           </p>
         </div>
         <div className="featured-grid">

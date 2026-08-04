@@ -769,6 +769,15 @@ a {
   font-weight: 650;
 }
 
+.drag-threshold-preview .gra-ui {
+  width: min(100%, 380px);
+}
+
+.drag-threshold-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .case-gate-preview .gra-ui {
   width: min(100%, 380px);
 }

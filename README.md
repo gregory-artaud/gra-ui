@@ -16,6 +16,40 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## Button
+
+`Button` is the one conventional component in the package: a typed shadcn-style button with standard visual variants. It exists so the questionable components can be demonstrated without inventing a questionable button too.
+
+```ts
+type ButtonProps = {
+  variant?: "default" | "secondary" | "outline" | "ghost" | "destructive" | "link";
+  size?: "default" | "sm" | "lg" | "icon";
+  asChild?: boolean;
+  // plus les attributs natifs d'un bouton
+};
+```
+
+## DragThreshold
+
+`DragThreshold` requires three successful drags, each released farther than the previous one. A short release resets the progression; the third success leaves the content raised under an unnecessarily official shadow.
+
+```ts
+type DragThresholdProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { DragThreshold } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CarefullyCommitted() {
+  return <DragThreshold>Drag this farther</DragThreshold>;
+}
+```
+
+Drag the content past each marker and release. The cleared markers remain lit, a short release returns the component to zero, and the final state stays locked until `Start over`. It could be used to make a reviewer demonstrate increasing confidence before committing a tiny label. A reasonable person would keep one local progress value and a pointer handler in the page. This component should not have existed because three fixed drag distances are a ceremony, not a reusable abstraction.
+
 ## IndexSum
 
 `IndexSum` assigns each child the value of its position and asks the user to select a combination that reaches the component's calculated target. The chosen items remain selected, overshooting is a recoverable state, and an exact sum freezes the result.

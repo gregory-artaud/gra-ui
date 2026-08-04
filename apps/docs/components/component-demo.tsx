@@ -30,7 +30,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "focus-unpack" ||
     kind === "backspace-archive" ||
     kind === "hover-route" ||
-    kind === "nest-children"
+    kind === "nest-children" ||
+    kind === "drag-threshold"
   ) {
     return <Playground kind={kind} />;
   }

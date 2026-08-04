@@ -5,6 +5,10 @@ export {
   type IndexSumProps,
 } from "./components/index-sum";
 export {
+  DragThreshold,
+  type DragThresholdProps,
+} from "./components/drag-threshold";
+export {
   SideSplit,
   type SideSplitProps,
 } from "./components/side-split";

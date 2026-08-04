@@ -3159,3 +3159,204 @@
     transition-duration: 0.01ms;
   }
 }
+
+.gra-ui.drag-threshold {
+  display: inline-flex;
+  width: min(100%, 360px);
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.drag-threshold__track {
+  position: relative;
+  display: flex;
+  min-height: 132px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 10px 44px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.drag-threshold[data-dragging="true"] .drag-threshold__track {
+  cursor: grabbing;
+}
+
+.drag-threshold__track:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.drag-threshold__rail {
+  position: absolute;
+  right: 9%;
+  bottom: 27px;
+  left: 9%;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--greact-input);
+}
+
+.drag-threshold__marker {
+  position: absolute;
+  bottom: 19px;
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border: 1px solid var(--greact-input);
+  border-radius: 999px;
+  background: var(--greact-background);
+  color: var(--greact-ring);
+  font-size: 9px;
+  font-weight: 700;
+  transform: translateX(-50%);
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease,
+    transform 180ms ease;
+}
+
+.drag-threshold__marker[data-reached="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: translateX(-50%) scale(1.12);
+}
+
+.drag-threshold__handle {
+  position: absolute;
+  bottom: 20px;
+  width: 18px;
+  height: 18px;
+  border: 3px solid var(--greact-background);
+  border-radius: 999px;
+  background: var(--greact-foreground);
+  box-shadow: 0 0 0 1px var(--greact-foreground);
+  transform: translateX(-50%);
+  transition: left 180ms cubic-bezier(0.22, 1, 0.36, 1), transform 180ms ease;
+  pointer-events: none;
+}
+
+.drag-threshold[data-dragging="true"] .drag-threshold__handle {
+  transform: translateX(-50%) scale(1.2);
+}
+
+.drag-threshold__content {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 12px 16px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  font-size: 13px;
+  font-weight: 650;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 180ms ease, box-shadow 180ms ease;
+  pointer-events: none;
+}
+
+.drag-threshold[data-stage="1"] .drag-threshold__content {
+  transform: translateY(-2px) scale(0.98);
+}
+
+.drag-threshold[data-stage="2"] .drag-threshold__content {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.drag-threshold[data-state="complete"] .drag-threshold__content {
+  border-color: var(--greact-foreground);
+  box-shadow: 0 8px 0 var(--greact-foreground);
+  transform: translateY(-7px) scale(1.04);
+  animation: gra-ui-drag-threshold-complete 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.drag-threshold__meter {
+  display: flex;
+  gap: 5px;
+}
+
+.drag-threshold__meter span {
+  height: 4px;
+  flex: 1;
+  border-radius: 999px;
+  background: var(--greact-input);
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.drag-threshold__meter span[data-filled="true"] {
+  background: var(--greact-foreground);
+  transform: scaleY(1.5);
+}
+
+.drag-threshold__status {
+  min-height: 30px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.drag-threshold__reset {
+  align-self: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.drag-threshold__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+@keyframes gra-ui-drag-threshold-complete {
+  0% {
+    opacity: 0.65;
+    transform: translateY(0) scale(0.97);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-9px) scale(1.06);
+  }
+
+  100% {
+    transform: translateY(-7px) scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drag-threshold__track,
+  .drag-threshold__marker,
+  .drag-threshold__handle,
+  .drag-threshold__content,
+  .drag-threshold__meter span,
+  .drag-threshold__reset {
+    transition-duration: 0.01ms;
+  }
+
+  .drag-threshold[data-state="complete"] .drag-threshold__content {
+    animation-duration: 0.01ms;
+  }
+}

@@ -7,6 +7,7 @@ import {
   ClickOrder,
   CornerFold,
   DragDuplicate,
+  DragThreshold,
   DurationScale,
   EqualChoice,
   FocusFade,
@@ -69,7 +70,8 @@ export interface PlaygroundProps {
     | "last-remaining"
     | "backspace-archive"
     | "hover-route"
-    | "nest-children";
+    | "nest-children"
+    | "drag-threshold";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -82,6 +84,7 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
   const [mixedClickReset, setMixedClickReset] = useState(0);
   const [sideSplitReset, setSideSplitReset] = useState(0);
   const [holdPositionReset, setHoldPositionReset] = useState(0);
+  const [dragThresholdReset, setDragThresholdReset] = useState(0);
   const [variant, setVariant] = useState<Variant>("default");
   const choices = choiceInput
     .split(",")
@@ -117,6 +120,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Select any combination and watch the sum persist.</dd></div>
             <div><dt>3</dt><dd>Overshoot the target, then remove a position to recover.</dd></div>
             <div><dt>4</dt><dd>Hit the exact total and the selected combination freezes.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "drag-threshold") {
+    return (
+      <div className="playground-shell drag-threshold-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage drag-threshold-preview">
+            <DragThreshold key={dragThresholdReset}>
+              <span className="drag-threshold-demo-label">Drag this farther</span>
+            </DragThreshold>
+            <p className="decision-output" aria-live="polite">
+              Release past three marks in order. A short release sends the whole ceremony back to zero.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+            <button type="button" onClick={() => setDragThresholdReset((current) => current + 1)}>
+              Reset
+            </button>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the content and release beyond the first marker.</dd></div>
+            <div><dt>2</dt><dd>Each success keeps its marker lit and moves the next one farther away.</dd></div>
+            <div><dt>3</dt><dd>Release too early and every cleared marker goes dark again.</dd></div>
+            <div><dt>4</dt><dd>Clear all three to give one label an unnecessarily official shadow.</dd></div>
           </dl>
         </div>
       </div>

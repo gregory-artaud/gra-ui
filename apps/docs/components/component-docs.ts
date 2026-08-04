@@ -1,5 +1,6 @@
 export type DemoKind =
   | "index-sum"
+  | "drag-threshold"
   | "button"
   | "side-split"
   | "duration-scale"
@@ -72,6 +73,24 @@ export function ChooseFieldsByArithmetic() {
       { name: "children", type: "ReactNode", description: "The items assigned ascending values by their position." },
     ],
     demo: "index-sum",
+    featured: true,
+  },
+  {
+    name: "DragThreshold",
+    slug: "drag-threshold",
+    summary: "Content that unlocks after three increasingly long drags.",
+    description:
+      "It asks you to release the content past three marks in order, resets the whole progression when you release too early, and locks the final state after the last threshold.",
+    usage: `import { DragThreshold } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CarefullyCommitted() {
+  return <DragThreshold>Drag this farther</DragThreshold>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content dragged through three increasing thresholds." },
+    ],
+    demo: "drag-threshold",
     featured: true,
     isNew: true,
   },
