@@ -4573,3 +4573,133 @@
     animation: none;
   }
 }
+
+.gra-ui.alphabet-treadmill {
+  display: inline-flex;
+  width: min(100%, 430px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.alphabet-treadmill__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--greact-ring);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.alphabet-treadmill__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.alphabet-treadmill__display {
+  display: flex;
+  min-height: 112px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  text-align: center;
+}
+
+.alphabet-treadmill__label {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: clamp(21px, 5vw, 30px);
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+
+.alphabet-treadmill[data-shift="0"] .alphabet-treadmill__label {
+  color: var(--greact-foreground);
+}
+
+.alphabet-treadmill[data-shift="12"] .alphabet-treadmill__label {
+  color: var(--greact-ring);
+  letter-spacing: 0.12em;
+}
+
+.alphabet-treadmill__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.alphabet-treadmill__advance,
+.alphabet-treadmill__reset {
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.alphabet-treadmill__advance {
+  flex: 1 1 180px;
+  padding: 9px 12px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+}
+
+.alphabet-treadmill__reset {
+  padding: 9px 12px;
+}
+
+.alphabet-treadmill__advance:hover:not(:disabled),
+.alphabet-treadmill__advance:focus-visible,
+.alphabet-treadmill__reset:hover,
+.alphabet-treadmill__reset:focus-visible {
+  border-color: var(--greact-ring);
+}
+
+.alphabet-treadmill__advance:focus-visible,
+.alphabet-treadmill__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.alphabet-treadmill__advance:disabled {
+  cursor: default;
+  opacity: 0.52;
+}
+
+.alphabet-treadmill__status {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+@keyframes gra-ui-alphabet-treadmill-step {
+  from { opacity: 0; transform: translateY(7px) rotate(-1deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.alphabet-treadmill__label {
+  animation: gra-ui-alphabet-treadmill-step 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .alphabet-treadmill__label {
+    animation: none;
+  }
+}

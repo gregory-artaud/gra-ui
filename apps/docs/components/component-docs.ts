@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "alphabet-treadmill"
   | "layout-referendum"
   | "child-gravity"
   | "scale-sweep"
@@ -60,6 +61,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "AlphabetTreadmill",
+    slug: "alphabet-treadmill",
+    summary: "A label that walks twelve letters forward one click at a time.",
+    description:
+      "It advances every alphabetic character in a label by one place per activation, changing the content itself until twelve unnecessary turns have been completed.",
+    usage: `import { AlphabetTreadmill } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EscalatedLabel() {
+  return <AlphabetTreadmill label="Ready for review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text whose alphabetic characters move one place per turn." },
+    ],
+    demo: "alphabet-treadmill",
+    useCase:
+      "It could be used to make a reviewer escalate a status label through twelve editorial revisions before a handoff, or to let a presenter ceremonially age a small heading one letter at a time.",
+    alternative:
+      "A reasonable local alternative is the original string plus one small character-mapping function, or no transformation at all. Publishing an alphabet treadmill is difficult to defend because a label does not need to earn its final spelling.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "WeekdayLedger",
     slug: "weekday-ledger",
     summary: "A date that files ordinary children into an unnecessary week.",
@@ -87,7 +111,6 @@ export function ScheduledFields() {
     alternative:
       "A reasonable local alternative is an array of labels and a small calendar grid, or simply rendering the labels together. Publishing a weekday filing ceremony is difficult to defend when the date is not actually scheduling anything.",
     featured: true,
-    isNew: true,
   },
   {
     name: "LayoutReferendum",

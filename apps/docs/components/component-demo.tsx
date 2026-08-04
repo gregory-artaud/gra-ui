@@ -5,6 +5,7 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "alphabet-treadmill" ||
     kind === "layout-referendum" ||
     kind === "child-gravity" ||
     kind === "scale-sweep" ||

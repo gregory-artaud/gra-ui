@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  AlphabetTreadmill,
+  type AlphabetTreadmillProps,
+} from "./components/alphabet-treadmill";
+export {
   WeekdayLedger,
   type WeekdayLedgerProps,
 } from "./components/weekday-ledger";

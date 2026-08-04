@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AlphabetTreadmill,
   AveragePosition,
   BackspaceArchive,
   CaseGate,
@@ -51,6 +52,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "alphabet-treadmill"
     | "layout-referendum"
     | "child-gravity"
     | "scale-sweep"
@@ -104,6 +106,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "alphabet-treadmill") {
+    return (
+      <div className="playground-shell alphabet-treadmill-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage alphabet-treadmill-preview">
+            <AlphabetTreadmill label="Ready for review" />
+            <p className="decision-output" aria-live="polite">
+              Advance the label one letter at a time. The spelling really changes.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary status label.</dd></div>
+            <div><dt>2</dt><dd>Advance one letter; every alphabetic character moves forward together.</dd></div>
+            <div><dt>3</dt><dd>Repeat until twelve turns have changed the actual text.</dd></div>
+            <div><dt>4</dt><dd>Restore the original when the label has walked far enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "weekday-ledger") {
     return (

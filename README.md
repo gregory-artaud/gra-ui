@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## AlphabetTreadmill
+
+`AlphabetTreadmill` advances every alphabetic character in a label by one place per click, then stops after twelve turns. The text itself changes, which is a disproportionate response to a button press.
+
+```ts
+type AlphabetTreadmillProps = {
+  label: string;
+};
+```
+
+```tsx
+import { AlphabetTreadmill } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EscalatedLabel() {
+  return <AlphabetTreadmill label="Ready for review" />;
+}
+```
+
+Click `Advance one letter` to move every letter forward together; spaces and punctuation stay in place. After twelve turns the transformed label rests in its final state, and `Restore original` returns it to the starting text. It could be used to make a reviewer escalate a status label through twelve editorial revisions before a handoff, or to let a presenter ceremonially age a small heading during a talk. A reasonable local alternative is the original string plus one character-mapping function, or no transformation at all. This component should not have existed because a label does not need to earn its final spelling.
+
 ## WeekdayLedger
 
 `WeekdayLedger` asks for a starting date, then files each child into the next weekday in order. The date is real, the calendar is real, and the reason to put interface labels on a weekly ledger is not.
