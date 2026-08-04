@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## CheckpointQueue
+
+`CheckpointQueue` makes a row of children pass through three drag checkpoints. Each checkpoint moves the first child to the back of the queue, so the content itself is genuinely reordered by the filing ceremony.
+
+```ts
+type CheckpointQueueProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { CheckpointQueue } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledFields() {
+  return (
+    <CheckpointQueue>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </CheckpointQueue>
+  );
+}
+```
+
+Drag the seal through all three marks, or focus the track and use the arrow keys. Every reached checkpoint rotates the first child to the end; after the third checkpoint the changed order stays visible. `Restore the queue` returns the original order. It could be used to make a reviewer file the fields of a handoff card one checkpoint at a time, or to force a presenter to rotate an agenda before discussing it. A reasonable local alternative is an array with one queue rotation per button click, or simply rendering the intended order. This component should not have existed because it makes already ordered content earn the right to remain ordered.
+
 ## AlphabetTreadmill
 
 `AlphabetTreadmill` advances every alphabetic character in a label by one place per click, then stops after twelve turns. The text itself changes, which is a disproportionate response to a button press.

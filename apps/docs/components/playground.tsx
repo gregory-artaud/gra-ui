@@ -37,6 +37,7 @@ import {
   WeightVote,
   WeekdayLedger,
   WordRelay,
+  CheckpointQueue,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -52,6 +53,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "checkpoint-queue"
     | "alphabet-treadmill"
     | "layout-referendum"
     | "child-gravity"
@@ -106,6 +108,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "checkpoint-queue") {
+    return (
+      <div className="playground-shell checkpoint-queue-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage checkpoint-queue-preview">
+            <CheckpointQueue>
+              <span className="checkpoint-queue-demo-label">Title</span>
+              <span className="checkpoint-queue-demo-label">Status</span>
+              <span className="checkpoint-queue-demo-label">Owner</span>
+              <span className="checkpoint-queue-demo-label">Date</span>
+            </CheckpointQueue>
+            <p className="decision-output" aria-live="polite">
+              Drag the seal through three marks. Each mark sends the first field to the back.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary fields waiting in a queue.</dd></div>
+            <div><dt>2</dt><dd>Drag the seal past the first mark, or use the arrow keys on the track.</dd></div>
+            <div><dt>3</dt><dd>Each reached checkpoint moves the first field to the end of the queue.</dd></div>
+            <div><dt>4</dt><dd>Restore the queue when the three-checkpoint filing is complete.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "alphabet-treadmill") {
     return (

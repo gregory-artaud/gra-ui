@@ -824,6 +824,15 @@ a {
   width: min(100%, 430px);
 }
 
+.checkpoint-queue-preview .gra-ui {
+  width: min(100%, 460px);
+}
+
+.checkpoint-queue-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .child-gravity-preview .gra-ui {
   width: min(100%, 430px);
 }

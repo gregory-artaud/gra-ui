@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "checkpoint-queue"
   | "alphabet-treadmill"
   | "layout-referendum"
   | "child-gravity"
@@ -61,6 +62,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "CheckpointQueue",
+    slug: "checkpoint-queue",
+    summary: "A queue that reorders itself at three drag checkpoints.",
+    description:
+      "It makes you drag a seal through three checkpoints. Each checkpoint moves the first child to the back of the queue, leaving the content in a new order when the filing is complete.",
+    usage: `import { CheckpointQueue } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledFields() {
+  return (
+    <CheckpointQueue>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </CheckpointQueue>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content rotated through the queue as checkpoints are reached." },
+    ],
+    demo: "checkpoint-queue",
+    useCase:
+      "It could be used to make a reviewer file the fields of a handoff card one checkpoint at a time, or to force a presenter to ceremonially rotate an agenda before discussing it.",
+    alternative:
+      "A reasonable local alternative is an array and one queue rotation per button click, or simply rendering the intended order. Publishing a drag-operated filing queue is difficult to defend when the items already had an order.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "AlphabetTreadmill",
     slug: "alphabet-treadmill",
     summary: "A label that walks twelve letters forward one click at a time.",
@@ -81,7 +112,6 @@ export function EscalatedLabel() {
     alternative:
       "A reasonable local alternative is the original string plus one small character-mapping function, or no transformation at all. Publishing an alphabet treadmill is difficult to defend because a label does not need to earn its final spelling.",
     featured: true,
-    isNew: true,
   },
   {
     name: "WeekdayLedger",

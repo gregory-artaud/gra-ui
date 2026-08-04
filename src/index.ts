@@ -9,6 +9,10 @@ export {
   type WeekdayLedgerProps,
 } from "./components/weekday-ledger";
 export {
+  CheckpointQueue,
+  type CheckpointQueueProps,
+} from "./components/checkpoint-queue";
+export {
   ChildGravity,
   type ChildGravityProps,
 } from "./components/child-gravity";
