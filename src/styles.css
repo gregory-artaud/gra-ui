@@ -1999,6 +1999,131 @@
   100% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
 }
 
+.gra-ui.nest-children {
+  display: grid;
+  width: min(100%, 390px);
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.nest-children__stage {
+  display: grid;
+  min-height: 164px;
+  place-items: center;
+  padding: 18px;
+  border: 1px dashed var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  overflow: hidden;
+}
+
+.nest-children__empty {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  opacity: 0.62;
+}
+
+.nest-children__layer {
+  display: grid;
+  width: min(100%, 290px);
+  gap: 8px;
+  justify-items: center;
+  padding: 9px;
+  border: 1px solid color-mix(in oklab, var(--greact-ring) 68%, var(--greact-background));
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: color-mix(in oklab, var(--greact-background) 86%, var(--greact-accent));
+  animation: gra-ui-nest-children 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.nest-children__piece {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: 999px;
+  background: var(--greact-background);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.nest-children__choices {
+  display: flex;
+  min-height: 42px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+}
+
+.nest-children__choice,
+.nest-children__reset {
+  border: 1px solid var(--greact-input);
+  border-radius: 999px;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 160ms ease, border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.nest-children__choice {
+  padding: 8px 12px;
+  background: var(--greact-background);
+  font-size: 11px;
+}
+
+.nest-children__choice:hover,
+.nest-children__choice:focus-visible {
+  border-color: var(--greact-ring);
+  background: var(--greact-accent);
+  transform: translateY(-2px);
+}
+
+.nest-children__reset {
+  justify-self: center;
+  padding: 7px 12px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.nest-children__reset:hover {
+  background: var(--greact-primary);
+  transform: translateY(-1px);
+}
+
+.nest-children__choice:focus-visible,
+.nest-children__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.nest-children__status {
+  min-height: 16px;
+  margin: 0;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  text-align: center;
+  opacity: 0.68;
+}
+
+.nest-children[data-state="complete"] .nest-children__stage {
+  border-style: solid;
+  border-color: var(--greact-ring);
+}
+
+@keyframes gra-ui-nest-children {
+  from { opacity: 0.2; transform: translateY(8px) scale(0.86); }
+  60% { opacity: 1; transform: translateY(-2px) scale(1.03); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .equal-choice__content,
   .equal-choice__side {
@@ -2138,6 +2263,15 @@
   }
 
   .hover-route[data-state="complete"] .hover-route__traveler {
+    animation-duration: 0.01ms;
+  }
+
+  .nest-children__choice,
+  .nest-children__reset {
+    transition-duration: 0.01ms;
+  }
+
+  .nest-children__layer {
     animation-duration: 0.01ms;
   }
 }

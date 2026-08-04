@@ -21,7 +21,8 @@ export type DemoKind =
   | "last-remaining"
   | "focus-unpack"
   | "backspace-archive"
-  | "hover-route";
+  | "hover-route"
+  | "nest-children";
 
 export interface ApiRow {
   name: string;
@@ -494,6 +495,30 @@ export function DeliberateRelease() {
       { name: "children", type: "ReactNode", description: "The content moved along the fixed four-step route." },
     ],
     demo: "hover-route",
+    featured: true,
+  },
+  {
+    name: "NestChildren",
+    slug: "nest-children",
+    summary: "A stack that makes you nest every child by hand.",
+    description:
+      "It removes one child at a time from a menu and wraps the growing stack with it, turning a finished tree into an activity.",
+    usage: `import { NestChildren } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NestedFields() {
+  return (
+    <NestChildren>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </NestChildren>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The children nested one at a time into a visible stack." },
+    ],
+    demo: "nest-children",
     featured: true,
     isNew: true,
   },

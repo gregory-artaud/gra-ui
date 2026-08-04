@@ -16,6 +16,7 @@ import {
   KeystrokeStack,
   LastRemaining,
   LengthOrder,
+  NestChildren,
   PairwiseMerge,
   PressEscape,
   ReorderBack,
@@ -55,7 +56,8 @@ export interface PlaygroundProps {
     | "average-position"
     | "last-remaining"
     | "backspace-archive"
-    | "hover-route";
+    | "hover-route"
+    | "nest-children";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -98,6 +100,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Hover each numbered zone in sequence.</dd></div>
             <div><dt>3</dt><dd>Skip ahead and the progress returns to zero.</dd></div>
             <div><dt>4</dt><dd>Complete the route and the content settles in the middle.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "nest-children") {
+    return (
+      <div className="playground-shell nest-children-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage nest-children-preview">
+            <NestChildren>
+              <span className="nest-children-demo-label">Title</span>
+              <span className="nest-children-demo-label">Status</span>
+              <span className="nest-children-demo-label">Owner</span>
+              <span className="nest-children-demo-label">Date</span>
+            </NestChildren>
+            <p className="decision-output" aria-live="polite">
+              Click each child. Every choice becomes a new layer around the stack.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary pieces of content.</dd></div>
+            <div><dt>2</dt><dd>Click any available child to place it around the current stack.</dd></div>
+            <div><dt>3</dt><dd>The order of your clicks becomes the nesting order.</dd></div>
+            <div><dt>4</dt><dd>Unnest everything when the hierarchy is sufficiently ceremonial.</dd></div>
           </dl>
         </div>
       </div>

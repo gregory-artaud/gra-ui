@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make a simple hover path responsible for where content ends up.
+            the newest way to make a finished content tree require manual assembly.
           </p>
         </div>
         <div className="featured-grid">

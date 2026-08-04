@@ -170,6 +170,33 @@ export function DeliberateRelease() {
 
 Hover steps 1 through 4 in order. Skipping ahead resets the progress; completing the route moves the content to the center and keeps it there until `Start over`. It could be used to make someone follow a cursor path before releasing a carefully positioned control. A reasonable person would keep four event handlers and a number in the page. This component should not have existed because a fixed hover route is not a reusable interaction so much as a small obstacle.
 
+## NestChildren
+
+`NestChildren` makes you choose the order in which its children wrap one another.
+
+```ts
+type NestChildrenProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { NestChildren } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NestedFields() {
+  return (
+    <NestChildren>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </NestChildren>
+  );
+}
+```
+
+Click the available children in any order. Each choice becomes a new outer layer around the existing stack; `Unnest everything` clears the ritual. It could be used to let someone assemble the hierarchy of a compact review card by hand. A reasonable person would render the desired nesting directly in the page. This component should not have existed because turning a finished child tree into a click-by-click construction project is not a reusable UI need.
+
 ## RepeatChildren
 
 `RepeatChildren` renders the same child twice because one copy was apparently not enough.

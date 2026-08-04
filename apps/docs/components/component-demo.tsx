@@ -24,7 +24,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "last-remaining" ||
     kind === "focus-unpack" ||
     kind === "backspace-archive" ||
-    kind === "hover-route"
+    kind === "hover-route" ||
+    kind === "nest-children"
   ) {
     return <Playground kind={kind} />;
   }

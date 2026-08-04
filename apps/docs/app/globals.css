@@ -742,6 +742,15 @@ a {
   font-weight: 650;
 }
 
+.nest-children-preview .gra-ui {
+  width: min(100%, 430px);
+}
+
+.nest-children-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .equal-choice-notes dl {
   margin: 0;
   padding: 6px 20px 20px;

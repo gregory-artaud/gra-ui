@@ -21,6 +21,10 @@ export {
   type HoverRouteProps,
 } from "./components/hover-route";
 export {
+  NestChildren,
+  type NestChildrenProps,
+} from "./components/nest-children";
+export {
   CountedClone,
   type CountedCloneProps,
 } from "./components/counted-clone";
