@@ -2628,6 +2628,186 @@
   70% { transform: translateX(6px); }
 }
 
+.gra-ui.side-split {
+  display: grid;
+  width: min(100%, 420px);
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.side-split__heading,
+.side-split__lane-heading,
+.side-split__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.side-split__heading {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.side-split__heading output,
+.side-split__lane-heading > span {
+  color: var(--greact-ring);
+  font-variant-numeric: tabular-nums;
+}
+
+.side-split__incoming {
+  display: grid;
+  min-height: 72px;
+  place-items: center;
+  gap: 7px;
+  padding: 12px;
+  border: 1px dashed var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  text-align: center;
+}
+
+.side-split__incoming-label {
+  color: var(--greact-ring);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.side-split__incoming-piece {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: 999px;
+  background: var(--greact-background);
+  font-size: 12px;
+  font-weight: 650;
+  animation: gra-ui-side-split-incoming 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.side-split__lanes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.side-split__lane {
+  display: flex;
+  min-width: 0;
+  min-height: 170px;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-background);
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.side-split__lane:hover {
+  border-color: var(--greact-ring);
+  background: var(--greact-accent);
+}
+
+.side-split__lane-heading h3 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.side-split__items {
+  display: grid;
+  min-height: 68px;
+  align-content: start;
+  gap: 5px;
+}
+
+.side-split__item {
+  display: block;
+  overflow: hidden;
+  padding: 7px 8px;
+  border-radius: 5px;
+  background: var(--greact-secondary);
+  font-size: 11px;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  animation: gra-ui-side-split-place 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.side-split__lane button,
+.side-split__footer button {
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.side-split__lane button {
+  margin-top: auto;
+  padding: 8px 6px;
+  border: 1px solid var(--greact-input);
+  border-radius: 5px;
+  background: var(--greact-secondary);
+  transition: border-color 160ms ease, background-color 160ms ease,
+    transform 160ms ease;
+}
+
+.side-split__lane button:hover:not(:disabled),
+.side-split__lane button:focus-visible {
+  border-color: var(--greact-ring);
+  background: var(--greact-background);
+  transform: translateY(-2px);
+}
+
+.side-split__lane button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.side-split__lane button:focus-visible,
+.side-split__footer button:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.side-split__footer {
+  min-height: 18px;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  opacity: 0.72;
+}
+
+.side-split__footer button {
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes gra-ui-side-split-incoming {
+  from { opacity: 0; transform: translateY(7px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gra-ui-side-split-place {
+  from { opacity: 0; transform: translateY(-5px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .equal-choice__content,
   .equal-choice__side {
@@ -2800,5 +2980,13 @@
 
   .mixed-click[data-state="released"] .mixed-click__content {
     animation-duration: 0.01ms;
+  }
+
+  .side-split__incoming-piece,
+  .side-split__item,
+  .side-split__lane,
+  .side-split__lane button {
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
   }
 }

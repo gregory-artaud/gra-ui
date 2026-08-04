@@ -16,6 +16,33 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## SideSplit
+
+`SideSplit` makes you route each child into a left or right side, one decision at a time. The split remains visible after the last choice, which is a surprisingly formal way to make two lists.
+
+```ts
+type SideSplitProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { SideSplit } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SortFields() {
+  return (
+    <SideSplit>
+      <span>Keep visible</span>
+      <span>Review later</span>
+      <span>Ask the owner</span>
+    </SideSplit>
+  );
+}
+```
+
+Choose `Place next here` on either side for each child. The waiting child leaves the queue and stays in the selected column until `Start over`. It could be used to sort fields into “keep” and “later” during a tiny review. A reasonable person would keep an array of destinations and render two local lists. This component should not have existed because a fixed two-sided sorting ceremony is too specific to justify a reusable abstraction.
+
 ## MixedClick
 
 `MixedClick` releases its children only after a left click, a right click, and another left click. The content visibly walks through three slots; using the wrong button resets the sequence.

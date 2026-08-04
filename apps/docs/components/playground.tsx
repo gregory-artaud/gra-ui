@@ -23,6 +23,7 @@ import {
   PairwiseMerge,
   PressEscape,
   ReorderBack,
+  SideSplit,
   SplitLabel,
   TimedRelease,
   WeightVote,
@@ -41,6 +42,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "side-split"
     | "duration-scale"
     | "indecisive"
     | "mixed-click"
@@ -76,12 +78,51 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
   const [interval, setIntervalValue] = useState(900);
   const [lastDecision, setLastDecision] = useState<string | null>(null);
   const [mixedClickReset, setMixedClickReset] = useState(0);
+  const [sideSplitReset, setSideSplitReset] = useState(0);
   const [holdPositionReset, setHoldPositionReset] = useState(0);
   const [variant, setVariant] = useState<Variant>("default");
   const choices = choiceInput
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "side-split") {
+    return (
+      <div className="playground-shell side-split-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage side-split-preview">
+            <SideSplit key={sideSplitReset}>
+              <span className="side-split-demo-label">Keep visible</span>
+              <span className="side-split-demo-label">Review later</span>
+              <span className="side-split-demo-label">Ask the owner</span>
+              <span className="side-split-demo-label">Archive quietly</span>
+            </SideSplit>
+            <p className="decision-output" aria-live="polite">
+              Send each field left or right. The two lists stay split after the final choice.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+            <button type="button" onClick={() => setSideSplitReset((current) => current + 1)}>
+              Reset
+            </button>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one field waiting for a destination.</dd></div>
+            <div><dt>2</dt><dd>Place the next field on the left or right.</dd></div>
+            <div><dt>3</dt><dd>Each choice removes the field from the queue and keeps it in its side.</dd></div>
+            <div><dt>4</dt><dd>Finish the split, then wonder why the parent could not do this.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "duration-scale") {
     return (

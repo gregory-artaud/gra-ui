@@ -1,5 +1,6 @@
 export type DemoKind =
   | "button"
+  | "side-split"
   | "duration-scale"
   | "mixed-click"
   | "weight-vote"
@@ -48,6 +49,31 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "SideSplit",
+    slug: "side-split",
+    summary: "Children routed into two permanent sides one choice at a time.",
+    description:
+      "It presents one child at a time and makes you send each one left or right, preserving the resulting split after the final decision.",
+    usage: `import { SideSplit } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SortFields() {
+  return (
+    <SideSplit>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </SideSplit>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces routed one at a time into the two sides." },
+    ],
+    demo: "side-split",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "Button",
     slug: "button",
     summary: "A conventional button with the usual variants.",
@@ -85,7 +111,6 @@ export function MeasuredContent() {
     ],
     demo: "duration-scale",
     featured: true,
-    isNew: true,
   },
   {
     name: "MixedClick",

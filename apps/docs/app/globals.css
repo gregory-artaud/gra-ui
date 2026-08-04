@@ -548,6 +548,15 @@ a {
   min-width: 168px;
 }
 
+.side-split-preview .gra-ui {
+  width: min(100%, 420px);
+}
+
+.side-split-demo-label {
+  font-size: 12px;
+  font-weight: 650;
+}
+
 .decision-output {
   min-height: 20px;
   margin: 18px 0 0;

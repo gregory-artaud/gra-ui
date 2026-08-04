@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  SideSplit,
+  type SideSplitProps,
+} from "./components/side-split";
+export {
   MixedClick,
   type MixedClickProps,
 } from "./components/mixed-click";
