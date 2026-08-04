@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## MixedClick
+
+`MixedClick` releases its children only after a left click, a right click, and another left click. The content visibly walks through three slots; using the wrong button resets the sequence.
+
+```ts
+type MixedClickProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { MixedClick } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CeremonialRelease() {
+  return <MixedClick>Approve this card</MixedClick>;
+}
+```
+
+Left-click once, right-click once, then left-click again. Keyboard users can use `Enter`, `Shift+Enter`, and `Enter` for the same sequence. It could be used to make someone perform a mouse-button ritual before releasing a review card. A reasonable person would keep one local state value and two handlers in the page. This component should not have existed because a fixed three-click ceremony is not a reusable interaction.
+
 ## WeightVote
 
 `WeightVote` lets each child collect three clicks of weight. Every partial choice grows, and the first one to reach three clicks wins while the others become visually smaller and inert.

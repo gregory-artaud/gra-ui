@@ -2414,6 +2414,123 @@
   outline-offset: 3px;
 }
 
+.gra-ui.mixed-click {
+  display: grid;
+  width: min(100%, 360px);
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.mixed-click__button {
+  position: relative;
+  display: grid;
+  min-height: 142px;
+  place-items: center;
+  overflow: hidden;
+  padding: 18px;
+  border: 1px dashed var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.mixed-click__button:hover {
+  background: var(--greact-accent);
+}
+
+.mixed-click__button:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.mixed-click__lane {
+  position: absolute;
+  inset: 18px 20px 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: end;
+  gap: 8px;
+}
+
+.mixed-click__slot {
+  display: block;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--greact-input);
+  opacity: 0.48;
+  transition: background-color 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+
+.mixed-click__slot[data-active="true"] {
+  background: var(--greact-foreground);
+  opacity: 1;
+  transform: scaleY(1.5);
+}
+
+.mixed-click__slot[data-current="true"] {
+  background: var(--greact-ring);
+  opacity: 1;
+  transform: scaleY(2);
+}
+
+.mixed-click__content {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  min-width: 96px;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.06);
+  font-size: 13px;
+  font-weight: 650;
+  text-align: center;
+  transition: box-shadow 360ms ease, transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mixed-click[data-state="ready"] .mixed-click__content {
+  transform: translateX(-76px);
+}
+
+.mixed-click[data-state="armed"] .mixed-click__content {
+  transform: translateX(0);
+}
+
+.mixed-click[data-state="verified"] .mixed-click__content {
+  transform: translateX(76px);
+}
+
+.mixed-click[data-state="released"] .mixed-click__content {
+  animation: gra-ui-mixed-click-release 440ms cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 14px 30px rgb(0 0 0 / 0.1);
+  transform: translateX(0) scale(1.02);
+}
+
+.mixed-click__status {
+  min-height: 16px;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 650;
+  text-align: center;
+  opacity: 0.7;
+}
+
+@keyframes gra-ui-mixed-click-release {
+  0% { opacity: 0.72; transform: translateX(76px) scale(0.96); }
+  68% { opacity: 1; transform: translateX(-6px) scale(1.08); }
+  100% { opacity: 1; transform: translateX(0) scale(1.02); }
+}
+
 @keyframes gra-ui-case-gate-open {
   0% { opacity: 0.45; transform: scale(0.88); }
   65% { opacity: 1; transform: scale(1.06); }
@@ -2587,6 +2704,16 @@
 
   .case-gate[data-state="unlocked"] .case-gate__content,
   .case-gate[data-state="rejected"] .case-gate__stage {
+    animation-duration: 0.01ms;
+  }
+
+  .mixed-click__button,
+  .mixed-click__content,
+  .mixed-click__slot {
+    transition-duration: 0.01ms;
+  }
+
+  .mixed-click[data-state="released"] .mixed-click__content {
     animation-duration: 0.01ms;
   }
 }

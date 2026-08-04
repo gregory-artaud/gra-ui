@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  MixedClick,
+  type MixedClickProps,
+} from "./components/mixed-click";
+export {
   AveragePosition,
   type AveragePositionProps,
 } from "./components/average-position";

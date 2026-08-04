@@ -17,6 +17,7 @@ import {
   KeystrokeStack,
   LastRemaining,
   LengthOrder,
+  MixedClick,
   NestChildren,
   PairwiseMerge,
   PressEscape,
@@ -40,6 +41,7 @@ type Variant = (typeof variants)[number];
 export interface PlaygroundProps {
   kind?:
     | "indecisive"
+    | "mixed-click"
     | "weight-vote"
     | "case-gate"
     | "equal-choice"
@@ -71,12 +73,48 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
   const [disabled, setDisabled] = useState(false);
   const [interval, setIntervalValue] = useState(900);
   const [lastDecision, setLastDecision] = useState<string | null>(null);
+  const [mixedClickReset, setMixedClickReset] = useState(0);
   const [holdPositionReset, setHoldPositionReset] = useState(0);
   const [variant, setVariant] = useState<Variant>("default");
   const choices = choiceInput
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "mixed-click") {
+    return (
+      <div className="playground-shell mixed-click-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage mixed-click-preview">
+            <MixedClick key={mixedClickReset}>
+              <span className="mixed-click-demo-label">Approve this card</span>
+            </MixedClick>
+            <p className="decision-output" aria-live="polite">
+              Left-click, right-click, then left-click. Use the wrong button and the ritual starts over.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+            <button type="button" onClick={() => setMixedClickReset((current) => current + 1)}>
+              Reset
+            </button>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Left-click the content once to arm it.</dd></div>
+            <div><dt>2</dt><dd>Right-click the same content to verify it.</dd></div>
+            <div><dt>3</dt><dd>Left-click again to release it.</dd></div>
+            <div><dt>4</dt><dd>Any wrong button resets the three-step sequence.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "weight-vote") {
     return (

@@ -1,5 +1,6 @@
 export type DemoKind =
   | "button"
+  | "mixed-click"
   | "weight-vote"
   | "case-gate"
   | "indecisive"
@@ -67,6 +68,25 @@ export function Example() {
     demo: "button",
   },
   {
+    name: "MixedClick",
+    slug: "mixed-click",
+    summary: "Content that releases only after left-right-left clicking.",
+    description:
+      "It requires a primary click, a context click, and another primary click; a wrong button resets the sequence before the content is released.",
+    usage: `import { MixedClick } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CeremonialRelease() {
+  return <MixedClick>Approve this card</MixedClick>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content moved through the three-click sequence." },
+    ],
+    demo: "mixed-click",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "WeightVote",
     slug: "weight-vote",
     summary: "Children that grow toward a winner one click at a time.",
@@ -89,7 +109,6 @@ export function EmphasizedField() {
     ],
     demo: "weight-vote",
     featured: true,
-    isNew: true,
   },
   {
     name: "CaseGate",

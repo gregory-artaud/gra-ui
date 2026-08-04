@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make one finished field visually win by clicking it three times.
+            the newest way to make one finished field move across three slots with two mouse buttons.
           </p>
         </div>
         <div className="featured-grid">

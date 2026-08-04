@@ -6,6 +6,7 @@ import { Playground } from "@/components/playground";
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
     kind === "indecisive" ||
+    kind === "mixed-click" ||
     kind === "weight-vote" ||
     kind === "case-gate" ||
     kind === "equal-choice" ||
