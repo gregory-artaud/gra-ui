@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make a copied label leave visible souvenirs behind.
+            the newest way to make one child push its siblings apart.
           </p>
         </div>
         <div className="featured-grid">

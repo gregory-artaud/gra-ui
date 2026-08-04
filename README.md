@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## ChildGravity
+
+`ChildGravity` turns its children into a tiny gravity experiment. Click one child to make it the anchor; every sibling moves away by a gap calculated from the total child count.
+
+```ts
+type ChildGravityProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { ChildGravity } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SeparatedFields() {
+  return (
+    <ChildGravity>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ChildGravity>
+  );
+}
+```
+
+Click any child to choose the temporary anchor. Its siblings visibly retreat by their ordinal distance multiplied by a child-count-based gap; the selected child is marked as the anchor. `Release gravity` returns the children to their initial positions, with a short transform transition and the same state change under reduced motion. It could be used to make a reviewer create space around the field they are discussing, or to let a presenter ceremonially separate the labels surrounding a selected topic. A reasonable local alternative is a selected index and one conditional transform in the page. This component should not have existed because ordinary spacing does not need a gravity calculation.
+
 ## ScaleSweep
 
 `ScaleSweep` turns a row of children into a sizing ritual. Drag its handle across the items and every child crossed by the sweep remains visibly enlarged until the sweep is reset.

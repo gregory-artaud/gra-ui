@@ -4,6 +4,7 @@ import {
   AveragePosition,
   BackspaceArchive,
   CaseGate,
+  ChildGravity,
   ClickOrder,
   CornerFold,
   CopyEcho,
@@ -48,6 +49,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "child-gravity"
     | "scale-sweep"
     | "scroll-redact"
     | "copy-echo"
@@ -98,6 +100,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "child-gravity") {
+    return (
+      <div className="playground-shell child-gravity-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage child-gravity-preview">
+            <ChildGravity>
+              <span className="child-gravity-demo-label">Title</span>
+              <span className="child-gravity-demo-label">Status</span>
+              <span className="child-gravity-demo-label">Owner</span>
+              <span className="child-gravity-demo-label">Date</span>
+            </ChildGravity>
+            <p className="decision-output" aria-live="polite">
+              Click one field. Its siblings retreat by the same calculated gap.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Click the child you want to make the temporary anchor.</dd></div>
+            <div><dt>2</dt><dd>The gap is calculated from the number of children.</dd></div>
+            <div><dt>3</dt><dd>Every sibling moves away according to its ordinal distance.</dd></div>
+            <div><dt>4</dt><dd>Release gravity to return every child to its starting position.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "copy-echo") {
     return (

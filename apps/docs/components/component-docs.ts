@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "child-gravity"
   | "scale-sweep"
   | "scroll-redact"
   | "copy-echo"
@@ -57,6 +58,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "ChildGravity",
+    slug: "child-gravity",
+    summary: "One chosen child that pushes its siblings apart by calculation.",
+    description:
+      "It turns children into a gravity experiment: click one fragment to make it the anchor, then moves every sibling away by a gap calculated from the total child count.",
+    usage: `import { ChildGravity } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SeparatedFields() {
+  return (
+    <ChildGravity>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ChildGravity>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The fragments that move away from the clicked anchor." },
+    ],
+    demo: "child-gravity",
+    useCase:
+      "It could be used to let a reviewer nominate one field as the center of a card and ceremonially push every other field away, or to make a presenter create space around the label they are discussing.",
+    alternative:
+      "A reasonable local alternative is a selected index and one conditional transform in the page. Publishing a child-count gravity calculation is difficult to defend when ordinary spacing is already enough.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "ScaleSweep",
     slug: "scale-sweep",
     summary: "Children that stay enlarged after a pointer sweeps across them.",
@@ -84,7 +115,6 @@ export function EarnedLabels() {
     alternative:
       "A reasonable local alternative is a small visited-index set and one conditional class in the page. Publishing a drag-operated sizing ritual is difficult to defend when the layout already knows its own priorities.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ScrollRedact",

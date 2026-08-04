@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  ChildGravity,
+  type ChildGravityProps,
+} from "./components/child-gravity";
+export {
   ScaleSweep,
   type ScaleSweepProps,
 } from "./components/scale-sweep";
