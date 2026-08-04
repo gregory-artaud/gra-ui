@@ -76,6 +76,31 @@ export function SettledLabel() {
 
 Click three locations, or use Enter and the arrow keys. Each point remains visible and the content moves to the calculated average; `Reset` starts another round. It could be used to place a label halfway between three design-review comments, although a reasonable person would keep those coordinates in local state and write the average directly. This component should not have existed because publishing a three-click averaging ritual is more specific than the problem it pretends to solve.
 
+## LastRemaining
+
+`LastRemaining` removes one option at a time until a single survivor is promoted.
+
+```ts
+type LastRemainingProps = {
+  items: readonly string[];
+};
+```
+
+```tsx
+import { LastRemaining } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ChooseOne() {
+  return (
+    <LastRemaining
+      items={["Keep the title", "Keep the status", "Keep the owner"]}
+    />
+  );
+}
+```
+
+Click an option to eliminate it. Eliminated options remain visible but disabled, and the last remaining option is marked as the winner; `Start over` restores the full list. It could be used to make a reviewer reduce the fields on a tiny summary card one rejection at a time. A reasonable person would keep an array of remaining indexes in the page and filter it locally. This component should not have existed because it turns choosing one option into a public elimination ceremony.
+
 ## RepeatChildren
 
 `RepeatChildren` renders the same child twice because one copy was apparently not enough.

@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to settle content at the average of three clicks.
+            the newest way to eliminate content until one option remains.
           </p>
         </div>
         <div className="featured-grid">

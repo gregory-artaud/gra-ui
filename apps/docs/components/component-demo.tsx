@@ -20,7 +20,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "click-order" ||
     kind === "corner-fold" ||
     kind === "pairwise-merge" ||
-    kind === "average-position"
+    kind === "average-position" ||
+    kind === "last-remaining"
   ) {
     return <Playground kind={kind} />;
   }

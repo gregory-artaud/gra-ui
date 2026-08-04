@@ -5,6 +5,10 @@ export {
   type AveragePositionProps,
 } from "./components/average-position";
 export {
+  LastRemaining,
+  type LastRemainingProps,
+} from "./components/last-remaining";
+export {
   CountedClone,
   type CountedCloneProps,
 } from "./components/counted-clone";

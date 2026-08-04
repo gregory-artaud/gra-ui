@@ -17,7 +17,8 @@ export type DemoKind =
   | "click-order"
   | "corner-fold"
   | "pairwise-merge"
-  | "average-position";
+  | "average-position"
+  | "last-remaining";
 
 export interface ApiRow {
   name: string;
@@ -408,6 +409,28 @@ export function SettledLabel() {
       { name: "children", type: "ReactNode", description: "The content parked at the average of three marked positions." },
     ],
     demo: "average-position",
+    featured: true,
+  },
+  {
+    name: "LastRemaining",
+    slug: "last-remaining",
+    summary: "An option list that removes choices until one remains.",
+    description:
+      "It lets you eliminate each option one at a time, preserves the casualties, and promotes the final survivor as though a list needed a tournament bracket.",
+    usage: `import { LastRemaining } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ChooseOne() {
+  return (
+    <LastRemaining
+      items={["Keep the title", "Keep the status", "Keep the owner"]}
+    />
+  );
+}`,
+    api: [
+      { name: "items", type: "readonly string[]", description: "The options eliminated one at a time until one remains." },
+    ],
+    demo: "last-remaining",
     featured: true,
     isNew: true,
   },

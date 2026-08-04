@@ -11,6 +11,7 @@ import {
   HoverConfirm,
   IndecisiveButton,
   KeystrokeStack,
+  LastRemaining,
   LengthOrder,
   PairwiseMerge,
   PressEscape,
@@ -47,7 +48,8 @@ export interface PlaygroundProps {
     | "click-order"
     | "corner-fold"
     | "pairwise-merge"
-    | "average-position";
+    | "average-position"
+    | "last-remaining";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -191,6 +193,38 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Watch every mark remain visible.</dd></div>
             <div><dt>3</dt><dd>The label moves to the arithmetic average.</dd></div>
             <div><dt>4</dt><dd>Reset it when the average has served its purpose.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "last-remaining") {
+    return (
+      <div className="playground-shell last-remaining-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage last-remaining-preview">
+            <LastRemaining
+              items={["Keep the title", "Keep the status", "Keep the owner", "Keep the date"]}
+            />
+            <p className="decision-output" aria-live="polite">
+              Eliminate the fields one by one. The last survivor becomes the winner.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four available fields.</dd></div>
+            <div><dt>2</dt><dd>Click a field to remove it from consideration.</dd></div>
+            <div><dt>3</dt><dd>Removed fields stay visible as evidence.</dd></div>
+            <div><dt>4</dt><dd>The last field is promoted and the list can restart.</dd></div>
           </dl>
         </div>
       </div>

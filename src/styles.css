@@ -1358,6 +1358,142 @@
   outline-offset: 3px;
 }
 
+.gra-ui.last-remaining {
+  display: grid;
+  width: min(100%, 390px);
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.last-remaining__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.last-remaining__count {
+  color: var(--greact-ring);
+  font-variant-numeric: tabular-nums;
+}
+
+.last-remaining__list {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.last-remaining__item {
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.last-remaining__option,
+.last-remaining__reset {
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 180ms ease, border-color 180ms ease,
+    background-color 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+
+.last-remaining__option {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 11px 12px 11px 14px;
+  background: var(--greact-background);
+  text-align: left;
+}
+
+.last-remaining__option:hover:not(:disabled),
+.last-remaining__option:focus-visible {
+  border-color: var(--greact-ring);
+  background: var(--greact-accent);
+  transform: translateX(3px);
+}
+
+.last-remaining__option:focus-visible,
+.last-remaining__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.last-remaining__action {
+  color: var(--greact-foreground);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.last-remaining__item[data-eliminated="true"] {
+  opacity: 0.42;
+  transform: scale(0.96);
+}
+
+.last-remaining__item[data-eliminated="true"] .last-remaining__option {
+  cursor: default;
+  text-decoration: line-through;
+}
+
+.last-remaining__item[data-winner="true"] .last-remaining__option {
+  border-color: var(--greact-ring);
+  background: var(--greact-secondary);
+  box-shadow: 0 8px 22px rgb(0 0 0 / 0.08);
+  animation: gra-ui-last-remaining-win 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1.02);
+}
+
+.last-remaining__item[data-winner="true"] .last-remaining__action {
+  color: var(--greact-ring);
+  opacity: 1;
+}
+
+.last-remaining__option:disabled {
+  color: inherit;
+  opacity: 1;
+}
+
+.last-remaining__status {
+  min-height: 16px;
+  margin: 0;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  text-align: center;
+  opacity: 0.68;
+}
+
+.last-remaining__reset {
+  justify-self: center;
+  padding: 7px 12px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.last-remaining__reset:hover {
+  background: var(--greact-primary);
+  transform: translateY(-1px);
+}
+
 @keyframes gra-ui-split-label {
   0% { gap: 0; transform: scale(0.96) translateY(0); }
   35% { gap: 24px; transform: scale(1.04) translateY(-4px); }
@@ -1445,6 +1581,12 @@
   0% { opacity: 0.2; transform: scale(0.72) translateY(8px); }
   55% { opacity: 1; transform: scale(1.08) translateY(-3px); }
   100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes gra-ui-last-remaining-win {
+  0% { opacity: 0.45; transform: scale(0.94); }
+  60% { opacity: 1; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1.02); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1552,6 +1694,16 @@
   .average-position__content,
   .average-position__reset {
     transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+  }
+
+  .last-remaining__item,
+  .last-remaining__option,
+  .last-remaining__reset {
+    transition-duration: 0.01ms;
+  }
+
+  .last-remaining__item[data-winner="true"] .last-remaining__option {
     animation-duration: 0.01ms;
   }
 }
