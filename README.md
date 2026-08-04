@@ -16,6 +16,33 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## WeightVote
+
+`WeightVote` lets each child collect three clicks of weight. Every partial choice grows, and the first one to reach three clicks wins while the others become visually smaller and inert.
+
+```ts
+type WeightVoteProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { WeightVote } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EmphasizedField() {
+  return (
+    <WeightVote>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </WeightVote>
+  );
+}
+```
+
+Click any child to add one weight. The chosen child scales up as its three-part meter fills; the first child to reach three clicks stays enlarged and locks the rest until `Reset`. It could be used to let a reviewer choose which field deserves oversized treatment on a tiny summary card. A reasonable person would keep an array of counts and a conditional class in the page. This component should not have existed because a fixed three-click visual vote is too specific to justify a reusable abstraction.
+
 ## CaseGate
 
 `CaseGate` keeps its children visually locked until six typed letters alternate between uppercase and lowercase. A wrong case erases the attempt, which is a lot of ceremony for a small reveal.

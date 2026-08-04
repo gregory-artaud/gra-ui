@@ -2135,6 +2135,125 @@
   color: var(--greact-foreground);
 }
 
+.gra-ui.weight-vote {
+  display: grid;
+  width: min(100%, 430px);
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.weight-vote__choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(92px, 1fr));
+  align-items: center;
+  gap: 8px;
+  min-height: 128px;
+}
+
+.weight-vote__choice {
+  display: grid;
+  min-height: 92px;
+  place-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  transition: background-color 180ms ease, border-color 180ms ease,
+    opacity 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.weight-vote__choice:hover {
+  border-color: var(--greact-ring);
+  background: var(--greact-accent);
+}
+
+.weight-vote__choice:focus-visible,
+.weight-vote__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.weight-vote__choice[data-weight="1"] {
+  transform: scale(1.04);
+}
+
+.weight-vote__choice[data-weight="2"] {
+  transform: scale(1.09);
+}
+
+.weight-vote__choice[data-winner="true"] {
+  border-color: var(--greact-ring);
+  background: var(--greact-accent);
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.08);
+  transform: scale(1.16);
+}
+
+.weight-vote[data-state="settled"] .weight-vote__choice[data-winner="false"] {
+  opacity: 0.42;
+  transform: scale(0.92);
+}
+
+.weight-vote__content {
+  font-size: 13px;
+  font-weight: 650;
+  text-align: center;
+}
+
+.weight-vote__meter {
+  display: flex;
+  gap: 4px;
+}
+
+.weight-vote__meter span {
+  width: 18px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--greact-input);
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.weight-vote__meter span[data-filled="true"] {
+  background: var(--greact-foreground);
+  transform: scaleY(1.4);
+}
+
+.weight-vote__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 24px;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.weight-vote__reset {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weight-vote__choice,
+  .weight-vote__meter span {
+    transition: none;
+  }
+}
+
 .case-gate__stage {
   position: relative;
   display: grid;

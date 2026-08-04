@@ -1,5 +1,6 @@
 export type DemoKind =
   | "button"
+  | "weight-vote"
   | "case-gate"
   | "indecisive"
   | "counted-clone"
@@ -66,6 +67,31 @@ export function Example() {
     demo: "button",
   },
   {
+    name: "WeightVote",
+    slug: "weight-vote",
+    summary: "Children that grow toward a winner one click at a time.",
+    description:
+      "It lets each child collect three clicks of weight, enlarges every partial choice, and locks the first one to reach the arbitrary limit.",
+    usage: `import { WeightVote } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EmphasizedField() {
+  return (
+    <WeightVote>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </WeightVote>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The choices that accumulate weight through clicks." },
+    ],
+    demo: "weight-vote",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "CaseGate",
     slug: "case-gate",
     summary: "Content that unlocks after six alternating letter cases.",
@@ -82,7 +108,6 @@ export function CarefullyHidden() {
     ],
     demo: "case-gate",
     featured: true,
-    isNew: true,
   },
   {
     name: "IndecisiveButton",

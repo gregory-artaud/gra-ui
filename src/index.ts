@@ -29,6 +29,10 @@ export {
   type CaseGateProps,
 } from "./components/case-gate";
 export {
+  WeightVote,
+  type WeightVoteProps,
+} from "./components/weight-vote";
+export {
   CountedClone,
   type CountedCloneProps,
 } from "./components/counted-clone";

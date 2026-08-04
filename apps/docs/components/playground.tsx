@@ -23,6 +23,7 @@ import {
   ReorderBack,
   SplitLabel,
   TimedRelease,
+  WeightVote,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -39,6 +40,7 @@ type Variant = (typeof variants)[number];
 export interface PlaygroundProps {
   kind?:
     | "indecisive"
+    | "weight-vote"
     | "case-gate"
     | "equal-choice"
     | "split-label"
@@ -75,6 +77,40 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "weight-vote") {
+    return (
+      <div className="playground-shell weight-vote-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage weight-vote-preview">
+            <WeightVote>
+              <span className="weight-vote-demo-label">Title</span>
+              <span className="weight-vote-demo-label">Status</span>
+              <span className="weight-vote-demo-label">Owner</span>
+            </WeightVote>
+            <p className="decision-output" aria-live="polite">
+              Click the same choice three times. It becomes the only one allowed to look important.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with three ordinary choices at equal size.</dd></div>
+            <div><dt>2</dt><dd>Click any choice to add one visible unit of weight.</dd></div>
+            <div><dt>3</dt><dd>Partial choices grow as their meters fill.</dd></div>
+            <div><dt>4</dt><dd>The first choice clicked three times wins and locks the others.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "case-gate") {
     return (
