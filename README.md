@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## LayoutReferendum
+
+`LayoutReferendum` submits its children to a tiny layout referendum. Double-click one of three genuinely different arrangements and the chosen disposition persists until the ballot is reopened.
+
+```ts
+type LayoutReferendumProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { LayoutReferendum } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RefiledFields() {
+  return (
+    <LayoutReferendum>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </LayoutReferendum>
+  );
+}
+```
+
+Double-click `Stack everything`, `Read backwards`, or `Split the committee`; the fields visibly become a column, a reversed row, or a two-column grid, and the controls lock under the binding result. `Reopen the ballot` restores the initial row. It could be used to let a reviewer settle the layout of a handoff card or to make a presenter formally choose how a few labels should be read. A reasonable local alternative is one layout class and an ordinary select or button group. This component should not have existed because a layout referendum adds ceremony to a decision CSS already knows how to make.
+
 ## ChildGravity
 
 `ChildGravity` turns its children into a tiny gravity experiment. Click one child to make it the anchor; every sibling moves away by a gap calculated from the total child count.

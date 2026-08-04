@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "layout-referendum"
   | "child-gravity"
   | "scale-sweep"
   | "scroll-redact"
@@ -58,6 +59,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "LayoutReferendum",
+    slug: "layout-referendum",
+    summary: "Three binding ways to make the same children harder to read.",
+    description:
+      "It submits the children to a tiny layout referendum: double-click one of three genuinely different arrangements, and the chosen disposition becomes persistent until the ballot is reopened.",
+    usage: `import { LayoutReferendum } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RefiledFields() {
+  return (
+    <LayoutReferendum>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </LayoutReferendum>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content reorganized by the chosen arrangement." },
+    ],
+    demo: "layout-referendum",
+    useCase:
+      "It could be used to let a reviewer choose whether a small set of fields should become a stack, read backwards, or split into a two-column committee before a handoff.",
+    alternative:
+      "A reasonable local alternative is one layout class and an ordinary select or button group. Publishing a binding referendum for a few fields remains difficult to defend when CSS already knows how to arrange them.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "ChildGravity",
     slug: "child-gravity",
     summary: "One chosen child that pushes its siblings apart by calculation.",
@@ -85,7 +116,6 @@ export function SeparatedFields() {
     alternative:
       "A reasonable local alternative is a selected index and one conditional transform in the page. Publishing a child-count gravity calculation is difficult to defend when ordinary spacing is already enough.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ScaleSweep",

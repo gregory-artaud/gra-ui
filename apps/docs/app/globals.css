@@ -569,6 +569,15 @@ a {
   min-width: 168px;
 }
 
+.layout-referendum-preview .gra-ui {
+  width: min(100%, 430px);
+}
+
+.layout-referendum-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .word-relay-preview .gra-ui {
   width: min(100%, 420px);
 }

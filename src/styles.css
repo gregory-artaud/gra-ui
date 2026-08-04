@@ -5,6 +5,208 @@
 
 @source "./components/**/*.{ts,tsx}";
 
+.gra-ui.layout-referendum {
+  display: inline-flex;
+  width: min(100%, 430px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.layout-referendum__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--greact-ring);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.layout-referendum__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.layout-referendum__items {
+  display: flex;
+  min-height: 164px;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 8px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+}
+
+.layout-referendum__items[data-layout="stack"] {
+  flex-direction: column;
+  align-items: stretch;
+  animation: gra-ui-layout-referendum-stack 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.layout-referendum__items[data-layout="reverse"] {
+  flex-direction: row-reverse;
+  animation: gra-ui-layout-referendum-reverse 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.layout-referendum__items[data-layout="split"] {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  animation: gra-ui-layout-referendum-split 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.layout-referendum__item {
+  display: flex;
+  min-width: 0;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  color: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  text-align: center;
+  transition: min-height 240ms ease, padding 240ms ease, background-color 160ms ease;
+}
+
+.layout-referendum__items[data-layout="stack"] .layout-referendum__item {
+  justify-content: flex-start;
+}
+
+.layout-referendum__items[data-layout="reverse"] .layout-referendum__item {
+  background: var(--greact-accent);
+}
+
+.layout-referendum__items[data-layout="split"] .layout-referendum__item {
+  min-height: 58px;
+}
+
+.layout-referendum__empty {
+  width: 100%;
+  margin: auto;
+  color: var(--greact-ring);
+  font-size: 12px;
+  text-align: center;
+}
+
+.layout-referendum__ballot {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.layout-referendum__ballot-label {
+  color: var(--greact-ring);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.layout-referendum__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.layout-referendum__choice,
+.layout-referendum__reset {
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+.layout-referendum__choice {
+  min-height: 38px;
+  padding: 7px 8px;
+  font-size: 10px;
+  line-height: 1.25;
+}
+
+.layout-referendum__choice:hover,
+.layout-referendum__choice:focus-visible {
+  border-color: var(--greact-ring);
+  background: var(--greact-secondary);
+}
+
+.layout-referendum__choice:focus-visible,
+.layout-referendum__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.layout-referendum__choice:disabled {
+  cursor: default;
+  opacity: 0.58;
+}
+
+.layout-referendum__choice[aria-pressed="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-accent);
+  color: var(--greact-foreground);
+  opacity: 1;
+}
+
+.layout-referendum__status {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.layout-referendum__reset {
+  align-self: center;
+  padding: 0;
+  border: 0;
+  color: var(--greact-foreground);
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes gra-ui-layout-referendum-stack {
+  from { opacity: 0.55; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gra-ui-layout-referendum-reverse {
+  from { opacity: 0.55; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes gra-ui-layout-referendum-split {
+  from { opacity: 0.55; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout-referendum__items[data-layout="stack"],
+  .layout-referendum__items[data-layout="reverse"],
+  .layout-referendum__items[data-layout="split"] {
+    animation: none;
+  }
+
+  .layout-referendum__item {
+    transition-duration: 0.01ms;
+  }
+}
+
 .gra-ui.child-gravity {
   display: inline-flex;
   width: min(100%, 430px);

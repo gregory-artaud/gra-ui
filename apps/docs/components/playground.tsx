@@ -20,6 +20,7 @@ import {
   IndexSum,
   IndecisiveButton,
   KeystrokeStack,
+  LayoutReferendum,
   LastRemaining,
   LengthOrder,
   MixedClick,
@@ -49,6 +50,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "layout-referendum"
     | "child-gravity"
     | "scale-sweep"
     | "scroll-redact"
@@ -100,6 +102,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "layout-referendum") {
+    return (
+      <div className="playground-shell layout-referendum-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage layout-referendum-preview">
+            <LayoutReferendum>
+              <span className="layout-referendum-demo-label">Title</span>
+              <span className="layout-referendum-demo-label">Status</span>
+              <span className="layout-referendum-demo-label">Owner</span>
+              <span className="layout-referendum-demo-label">Date</span>
+            </LayoutReferendum>
+            <p className="decision-output" aria-live="polite">
+              Double-click a proposal. The chosen arrangement becomes binding until you reopen the ballot.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four fields in their ordinary row.</dd></div>
+            <div><dt>2</dt><dd>Double-click one of the three genuinely different proposals.</dd></div>
+            <div><dt>3</dt><dd>The fields become a stack, a backwards row, or a split committee.</dd></div>
+            <div><dt>4</dt><dd>Reopen the ballot to restore the original arrangement.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "child-gravity") {
     return (

@@ -5,6 +5,10 @@ export {
   type ChildGravityProps,
 } from "./components/child-gravity";
 export {
+  LayoutReferendum,
+  type LayoutReferendumProps,
+} from "./components/layout-referendum";
+export {
   ScaleSweep,
   type ScaleSweepProps,
 } from "./components/scale-sweep";
