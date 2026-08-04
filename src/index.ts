@@ -25,6 +25,10 @@ export {
   type NestChildrenProps,
 } from "./components/nest-children";
 export {
+  CaseGate,
+  type CaseGateProps,
+} from "./components/case-gate";
+export {
   CountedClone,
   type CountedCloneProps,
 } from "./components/counted-clone";

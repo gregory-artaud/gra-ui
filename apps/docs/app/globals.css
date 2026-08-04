@@ -751,6 +751,15 @@ a {
   font-weight: 650;
 }
 
+.case-gate-preview .gra-ui {
+  width: min(100%, 380px);
+}
+
+.case-gate-demo-label {
+  font-size: 15px;
+  font-weight: 650;
+}
+
 .equal-choice-notes dl {
   margin: 0;
   padding: 6px 20px 20px;

@@ -1,5 +1,6 @@
 export type DemoKind =
   | "button"
+  | "case-gate"
   | "indecisive"
   | "counted-clone"
   | "repeat-children"
@@ -63,6 +64,25 @@ export function Example() {
       { name: "...props", type: "ButtonHTMLAttributes", description: "Native button attributes are forwarded." },
     ],
     demo: "button",
+  },
+  {
+    name: "CaseGate",
+    slug: "case-gate",
+    summary: "Content that unlocks after six alternating letter cases.",
+    description:
+      "It hides its children until you type six letters that alternate uppercase and lowercase; one mistake erases the whole attempt.",
+    usage: `import { CaseGate } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CarefullyHidden() {
+  return <CaseGate>Release notes</CaseGate>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content revealed after six alternating-case letters." },
+    ],
+    demo: "case-gate",
+    featured: true,
+    isNew: true,
   },
   {
     name: "IndecisiveButton",
@@ -520,7 +540,6 @@ export function NestedFields() {
     ],
     demo: "nest-children",
     featured: true,
-    isNew: true,
   },
 ] as const;
 

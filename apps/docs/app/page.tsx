@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make a finished content tree require manual assembly.
+            the newest way to hide a finished piece of content behind a typing ritual.
           </p>
         </div>
         <div className="featured-grid">

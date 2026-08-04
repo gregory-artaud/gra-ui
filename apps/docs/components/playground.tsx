@@ -3,6 +3,7 @@
 import {
   AveragePosition,
   BackspaceArchive,
+  CaseGate,
   ClickOrder,
   CornerFold,
   DragDuplicate,
@@ -38,6 +39,7 @@ type Variant = (typeof variants)[number];
 export interface PlaygroundProps {
   kind?:
     | "indecisive"
+    | "case-gate"
     | "equal-choice"
     | "split-label"
     | "focus-fade"
@@ -73,6 +75,38 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "case-gate") {
+    return (
+      <div className="playground-shell case-gate-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage case-gate-preview">
+            <CaseGate>
+              <span className="case-gate-demo-label">Release notes</span>
+            </CaseGate>
+            <p className="decision-output" aria-live="polite">
+              Type alternating uppercase and lowercase letters. One mistake erases the attempt.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Click the input and start with any letter.</dd></div>
+            <div><dt>2</dt><dd>Switch case on every next letter, such as aBcDeF.</dd></div>
+            <div><dt>3</dt><dd>A wrong case resets all accepted keys.</dd></div>
+            <div><dt>4</dt><dd>Six correct keys uncover the content.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "hover-route") {
     return (

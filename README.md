@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## CaseGate
+
+`CaseGate` keeps its children visually locked until six typed letters alternate between uppercase and lowercase. A wrong case erases the attempt, which is a lot of ceremony for a small reveal.
+
+```ts
+type CaseGateProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { CaseGate } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CarefullyHidden() {
+  return <CaseGate>Release notes</CaseGate>;
+}
+```
+
+Click the field and type a pattern such as `aBcDeF`. Each alternating letter advances the six-slot progression; any other key resets it, and a complete sequence reveals the children. It could be used to make a reviewer type a ceremonial case pattern before seeing release notes. A reasonable person would keep an input, six lines of local state, and a conditional in the page. This component should not have existed because a fixed typing ritual is not a reusable abstraction.
+
 ## IndecisiveButton
 
 `IndecisiveButton` cycles through possible decisions while it is hovered or focused, then reports whichever option was visible when it was clicked.
