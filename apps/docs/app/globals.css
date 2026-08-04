@@ -552,6 +552,15 @@ a {
   width: min(100%, 420px);
 }
 
+.index-sum-preview .gra-ui {
+  width: min(100%, 360px);
+}
+
+.index-sum-demo-label {
+  font-size: 12px;
+  font-weight: 650;
+}
+
 .side-split-demo-label {
   font-size: 12px;
   font-weight: 650;

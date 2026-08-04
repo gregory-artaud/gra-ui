@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  IndexSum,
+  type IndexSumProps,
+} from "./components/index-sum";
+export {
   SideSplit,
   type SideSplitProps,
 } from "./components/side-split";

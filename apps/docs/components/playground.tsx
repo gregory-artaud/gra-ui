@@ -14,6 +14,7 @@ import {
   HoldPosition,
   HoverRoute,
   HoverConfirm,
+  IndexSum,
   IndecisiveButton,
   KeystrokeStack,
   LastRemaining,
@@ -42,6 +43,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "index-sum"
     | "side-split"
     | "duration-scale"
     | "indecisive"
@@ -85,6 +87,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "index-sum") {
+    return (
+      <div className="playground-shell index-sum-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage index-sum-preview">
+            <IndexSum>
+              <span className="index-sum-demo-label">Title</span>
+              <span className="index-sum-demo-label">Status</span>
+              <span className="index-sum-demo-label">Owner</span>
+              <span className="index-sum-demo-label">Date</span>
+            </IndexSum>
+            <p className="decision-output" aria-live="polite">
+              Choose positions that add to the target. For four items, Title + Date and Status + Owner are both valid.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Each item is worth its position: 1, 2, 3, or 4.</dd></div>
+            <div><dt>2</dt><dd>Select any combination and watch the sum persist.</dd></div>
+            <div><dt>3</dt><dd>Overshoot the target, then remove a position to recover.</dd></div>
+            <div><dt>4</dt><dd>Hit the exact total and the selected combination freezes.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "side-split") {
     return (

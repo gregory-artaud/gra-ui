@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## IndexSum
+
+`IndexSum` assigns each child the value of its position and asks the user to select a combination that reaches the component's calculated target. The chosen items remain selected, overshooting is a recoverable state, and an exact sum freezes the result.
+
+```ts
+type IndexSumProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { IndexSum } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ChooseFieldsByArithmetic() {
+  return (
+    <IndexSum>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </IndexSum>
+  );
+}
+```
+
+Select items until their position values match the target shown above the grid. With four items, `Title + Date` and `Status + Owner` are different successful results; a reasonable person would keep the selected indexes and total directly in the page. This could be used to choose fields for a card whose “budget” is an arbitrary checksum, but it should not have become a reusable abstraction because ordinary field selection does not need arithmetic ceremony.
+
 ## SideSplit
 
 `SideSplit` makes you route each child into a left or right side, one decision at a time. The split remains visible after the last choice, which is a surprisingly formal way to make two lists.

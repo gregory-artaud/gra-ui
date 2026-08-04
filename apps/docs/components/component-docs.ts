@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "index-sum"
   | "button"
   | "side-split"
   | "duration-scale"
@@ -49,6 +50,32 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "IndexSum",
+    slug: "index-sum",
+    summary: "Children selected by the arithmetic value of their position.",
+    description:
+      "It gives every child an ordinal value, asks you to select a combination that reaches a calculated target, and freezes the exact sum when you get there.",
+    usage: `import { IndexSum } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ChooseFieldsByArithmetic() {
+  return (
+    <IndexSum>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </IndexSum>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The items assigned ascending values by their position." },
+    ],
+    demo: "index-sum",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "SideSplit",
     slug: "side-split",
     summary: "Children routed into two permanent sides one choice at a time.",
@@ -71,7 +98,6 @@ export function SortFields() {
     ],
     demo: "side-split",
     featured: true,
-    isNew: true,
   },
   {
     name: "Button",

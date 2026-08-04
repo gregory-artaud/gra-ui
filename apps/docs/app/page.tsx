@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to divide finished content into two personally chosen sides.
+            the newest way to make finished content pass an arithmetic entrance exam.
           </p>
         </div>
         <div className="featured-grid">
