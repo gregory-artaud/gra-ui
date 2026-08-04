@@ -22,6 +22,7 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "pairwise-merge" ||
     kind === "average-position" ||
     kind === "last-remaining" ||
+    kind === "focus-unpack" ||
     kind === "backspace-archive"
   ) {
     return <Playground kind={kind} />;

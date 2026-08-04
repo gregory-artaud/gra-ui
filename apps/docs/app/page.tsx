@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to keep deleted characters around for review.
+            the newest way to make focus responsible for the layout of its children.
           </p>
         </div>
         <div className="featured-grid">

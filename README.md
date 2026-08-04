@@ -122,6 +122,33 @@ export function ReviewedText() {
 
 Edit the starting text and press Backspace. Each removed character is copied into the archive in deletion order; `Restore text` clears the archive and starts again. It could be used for a review field where someone must visibly account for every deleted character. A reasonable person would keep an input and a small `onKeyDown` handler in the page. This component should not have existed because it makes ordinary text editing preserve the evidence of every backspace.
 
+## FocusUnpack
+
+`FocusUnpack` keeps several children in one compact bundle until focus separates them into individual cards.
+
+```ts
+type FocusUnpackProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { FocusUnpack } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function InspectedFields() {
+  return (
+    <FocusUnpack>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </FocusUnpack>
+  );
+}
+```
+
+Focus the bundle with a pointer or the keyboard and each child moves into its own visible card. Press Space or Enter to pack them together again. It could be used to inspect the fields of a compact review summary one focus event at a time. A reasonable person would keep a boolean and a conditional class in the page. This component should not have existed because it makes focus responsible for rearranging content that was already readable.
+
 ## RepeatChildren
 
 `RepeatChildren` renders the same child twice because one copy was apparently not enough.

@@ -13,6 +13,10 @@ export {
   type BackspaceArchiveProps,
 } from "./components/backspace-archive";
 export {
+  FocusUnpack,
+  type FocusUnpackProps,
+} from "./components/focus-unpack";
+export {
   CountedClone,
   type CountedCloneProps,
 } from "./components/counted-clone";

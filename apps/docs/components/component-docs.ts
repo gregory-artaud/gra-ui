@@ -19,6 +19,7 @@ export type DemoKind =
   | "pairwise-merge"
   | "average-position"
   | "last-remaining"
+  | "focus-unpack"
   | "backspace-archive";
 
 export interface ApiRow {
@@ -435,6 +436,31 @@ export function ChooseOne() {
     featured: true,
   },
   {
+    name: "FocusUnpack",
+    slug: "focus-unpack",
+    summary: "A focused bundle that separates its children for inspection.",
+    description:
+      "It keeps several children in one compact bundle until focus splits them into separate cards; press Space to pack them together again.",
+    usage: `import { FocusUnpack } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function InspectedFields() {
+  return (
+    <FocusUnpack>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </FocusUnpack>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content packed together until focus separates it." },
+    ],
+    demo: "focus-unpack",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "BackspaceArchive",
     slug: "backspace-archive",
     summary: "An input that archives every character removed with Backspace.",
@@ -451,7 +477,6 @@ export function ReviewedText() {
     ],
     demo: "backspace-archive",
     featured: true,
-    isNew: true,
   },
 ] as const;
 

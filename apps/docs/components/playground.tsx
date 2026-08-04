@@ -8,6 +8,7 @@ import {
   DragDuplicate,
   EqualChoice,
   FocusFade,
+  FocusUnpack,
   HoldPosition,
   HoverConfirm,
   IndecisiveButton,
@@ -38,6 +39,7 @@ export interface PlaygroundProps {
     | "equal-choice"
     | "split-label"
     | "focus-fade"
+    | "focus-unpack"
     | "press-escape"
     | "keystroke-stack"
     | "reorder-back"
@@ -257,6 +259,40 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Press Backspace one character at a time.</dd></div>
             <div><dt>3</dt><dd>Watch each deletion become a permanent chip.</dd></div>
             <div><dt>4</dt><dd>Restore the sentence when the archive has done enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "focus-unpack") {
+    return (
+      <div className="playground-shell focus-unpack-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage focus-unpack-preview">
+            <FocusUnpack>
+              <span className="focus-unpack-demo-label">Title</span>
+              <span className="focus-unpack-demo-label">Status</span>
+              <span className="focus-unpack-demo-label">Owner</span>
+            </FocusUnpack>
+            <p className="decision-output" aria-live="polite">
+              Focus the bundle to separate its children. Press Space to pack them back together.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Click or tab to focus the compact bundle.</dd></div>
+            <div><dt>2</dt><dd>Watch each child move into its own card.</dd></div>
+            <div><dt>3</dt><dd>Press Space or Enter to pack the cards together again.</dd></div>
+            <div><dt>4</dt><dd>Focus it again whenever the collection needs another inspection.</dd></div>
           </dl>
         </div>
       </div>
