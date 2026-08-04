@@ -30,6 +30,7 @@ import {
   PressEscape,
   ReorderBack,
   ScaleSweep,
+  SelectionSeal,
   ScrollRedact,
   SideSplit,
   SplitLabel,
@@ -53,6 +54,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "selection-seal"
     | "checkpoint-queue"
     | "alphabet-treadmill"
     | "layout-referendum"
@@ -108,6 +110,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "selection-seal") {
+    return (
+      <div className="playground-shell selection-seal-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage selection-seal-preview">
+            <SelectionSeal />
+            <p className="decision-output" aria-live="polite">
+              Select the same excerpt three times. The sentence will make the result official.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Focus the read-only sentence and select any non-empty excerpt.</dd></div>
+            <div><dt>2</dt><dd>Select the exact same range again; a visible impression bounces into place.</dd></div>
+            <div><dt>3</dt><dd>Repeat once more and the selected words leave the textarea for a raised mark.</dd></div>
+            <div><dt>4</dt><dd>Reset when three identical selections have become enough ceremony.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "checkpoint-queue") {
     return (

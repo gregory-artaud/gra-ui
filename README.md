@@ -16,6 +16,25 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## SelectionSeal
+
+`SelectionSeal` asks you to select the exact same excerpt three times before it is allowed to leave the sentence. Each selection creates a visible impression that bounces into the seal row; the third selection locks the excerpt into a raised mark and changes the rendered sentence.
+
+```ts
+type SelectionSealProps = Record<never, never>;
+```
+
+```tsx
+import { SelectionSeal } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CeremonialApproval() {
+  return <SelectionSeal />;
+}
+```
+
+Focus the read-only sentence and select any non-empty excerpt with the mouse or keyboard. Select that exact range two more times; the count advances only when both endpoints match. The third matching selection seals the excerpt, replaces the textarea with the transformed sentence, and keeps the three impressions visible. `Reset` returns to the initial sentence. It could be used to make a reviewer certify the most important phrase in a handoff note, or to let a presenter ceremonially isolate the sentence they are about to discuss. A reasonable local alternative is a text selection plus one boolean or range in the page. This component should not have existed because selecting a sentence three times does not make it more approved.
+
 ## CheckpointQueue
 
 `CheckpointQueue` makes a row of children pass through three drag checkpoints. Each checkpoint moves the first child to the back of the queue, so the content itself is genuinely reordered by the filing ceremony.

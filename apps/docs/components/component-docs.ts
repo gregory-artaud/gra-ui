@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "selection-seal"
   | "checkpoint-queue"
   | "alphabet-treadmill"
   | "layout-referendum"
@@ -62,6 +63,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "SelectionSeal",
+    slug: "selection-seal",
+    summary: "An excerpt that needs three identical selections before it can be sealed.",
+    description:
+      "It asks you to select the exact same excerpt three times. Each matching selection leaves a visible impression that bounces into a row, and the third one locks the excerpt into the sentence as a raised seal.",
+    usage: `import { SelectionSeal } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CeremonialApproval() {
+  return <SelectionSeal />;
+}`,
+    api: [
+      { name: "props", type: "Record<never, never>", description: "No props; the sentence and sealing ritual are self-contained." },
+    ],
+    demo: "selection-seal",
+    useCase:
+      "It could be used to make a reviewer certify the most important phrase in a handoff note, or to let a presenter ceremonially isolate the sentence they are about to discuss.",
+    alternative:
+      "A reasonable local alternative is a text selection plus one boolean or range in the page. Publishing a three-selection seal is difficult to defend because selecting a sentence does not make it more approved.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "CheckpointQueue",
     slug: "checkpoint-queue",
     summary: "A queue that reorders itself at three drag checkpoints.",
@@ -89,7 +113,6 @@ export function FiledFields() {
     alternative:
       "A reasonable local alternative is an array and one queue rotation per button click, or simply rendering the intended order. Publishing a drag-operated filing queue is difficult to defend when the items already had an order.",
     featured: true,
-    isNew: true,
   },
   {
     name: "AlphabetTreadmill",

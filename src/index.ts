@@ -13,6 +13,10 @@ export {
   type CheckpointQueueProps,
 } from "./components/checkpoint-queue";
 export {
+  SelectionSeal,
+  type SelectionSealProps,
+} from "./components/selection-seal";
+export {
   ChildGravity,
   type ChildGravityProps,
 } from "./components/child-gravity";

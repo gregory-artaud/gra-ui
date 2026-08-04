@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make ordinary labels earn their spelling.
+            the newest way to make an ordinary sentence earn its approval.
           </p>
         </div>
         <div className="featured-grid">
