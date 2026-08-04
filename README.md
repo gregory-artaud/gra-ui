@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## CopyEcho
+
+`CopyEcho` listens to the browser's real copy event and leaves a visible replica of a label behind every time it is copied. After three copies, the source receives an unnecessarily official shadow.
+
+```ts
+type CopyEchoProps = {
+  label: string;
+};
+```
+
+```tsx
+import { CopyEcho } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OverDocumentedLabel() {
+  return <CopyEcho label="Ready for review" />;
+}
+```
+
+Select the read-only label and press `Ctrl+C` or `Cmd+C`. The browser copies the value normally, while the component keeps one visible echo per copy, up to three; `Erase echoes` returns to the initial state. The newly added echo arrives with a short scale-and-rise animation, and the final source settles under an official shadow. It could be used to make a reviewer copy a release status three times before a handoff, or to create a tiny visible audit trail for a clipboard-friendly label. A reasonable local alternative is a read-only input with one `onCopy` handler and a small array rendered beside it. This component should not have existed because preserving a visible souvenir of an ordinary copy gesture is an absurd abstraction for both forms and documentation.
+
 ## WordRelay
 
 `WordRelay` passes the last letter of every word to the beginning of the next word. Each activation changes the visible labels while preserving all their letters, which is an impressive amount of ceremony for a sentence that did not need to move.

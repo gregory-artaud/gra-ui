@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "copy-echo"
   | "word-relay"
   | "index-sum"
   | "drag-threshold"
@@ -46,11 +47,36 @@ export interface ComponentDoc {
   usage: string;
   api: readonly ApiRow[];
   demo: DemoKind;
+  useCase?: string;
+  alternative?: string;
   featured?: boolean;
   isNew?: boolean;
 }
 
 export const componentDocs: readonly ComponentDoc[] = [
+  {
+    name: "CopyEcho",
+    slug: "copy-echo",
+    summary: "A copied label that leaves visible souvenirs behind.",
+    description:
+      "It listens to the browser's real copy event, adds one visible replica of the label, and settles after three copies with an unnecessarily official shadow. The label is changed in the DOM, not merely counted, while the original clipboard action still works normally.",
+    usage: `import { CopyEcho } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OverDocumentedLabel() {
+  return <CopyEcho label="Ready for review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The read-only text users select and copy to create visible echoes." },
+    ],
+    demo: "copy-echo",
+    useCase:
+      "It could be used to make a reviewer copy a release status three times before a handoff, or to let a tiny clipboard-friendly label visibly accumulate an audit trail.",
+    alternative:
+      "A reasonable local alternative is a read-only input with one onCopy handler and a small array rendered beside it. Publishing that ceremony as a reusable component remains difficult to defend.",
+    featured: true,
+    isNew: true,
+  },
   {
     name: "WordRelay",
     slug: "word-relay",
@@ -68,7 +94,6 @@ export function HandoffLabels() {
     ],
     demo: "word-relay",
     featured: true,
-    isNew: true,
   },
   {
     name: "IndexSum",

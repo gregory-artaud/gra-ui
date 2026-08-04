@@ -54,6 +54,22 @@ export default async function ComponentPage({ params }: ComponentPageProps) {
           {component.isNew ? <span className="new-badge">New</span> : null}
         </div>
         <p>{component.description}</p>
+        {component.useCase || component.alternative ? (
+          <div className="component-context">
+            {component.useCase ? (
+              <div>
+                <p className="section-index">Possible use</p>
+                <p>{component.useCase}</p>
+              </div>
+            ) : null}
+            {component.alternative ? (
+              <div>
+                <p className="section-index">Reasonable alternative</p>
+                <p>{component.alternative}</p>
+              </div>
+            ) : null}
+          </div>
+        ) : null}
       </header>
 
       <section className="doc-section" aria-labelledby="preview-heading">

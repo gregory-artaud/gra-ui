@@ -3507,3 +3507,155 @@
     animation-duration: 0.01ms;
   }
 }
+
+.gra-ui.copy-echo {
+  display: inline-flex;
+  width: min(100%, 360px);
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.copy-echo__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--greact-ring);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.copy-echo__header output {
+  color: var(--greact-foreground);
+  letter-spacing: 0.02em;
+}
+
+.copy-echo__input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  color: var(--greact-foreground);
+  cursor: text;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+  text-align: center;
+  transition: border-color 160ms ease, background-color 160ms ease,
+    transform 180ms ease;
+}
+
+.copy-echo__input:hover,
+.copy-echo__input:focus {
+  border-color: var(--greact-ring);
+  background: var(--greact-background);
+}
+
+.copy-echo__input:focus-visible,
+.copy-echo__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.copy-echo__tray {
+  display: flex;
+  min-height: 48px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px;
+  border: 1px dashed var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+}
+
+.copy-echo__echo {
+  display: inline-flex;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 8px 10px;
+  border: 1px solid var(--greact-input);
+  border-radius: 999px;
+  background: var(--greact-secondary);
+  font-size: 11px;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copy-echo__echo[data-new="true"] {
+  animation: gra-ui-copy-echo-arrive 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.copy-echo__empty {
+  color: var(--greact-ring);
+  font-size: 11px;
+}
+
+.copy-echo__status {
+  min-height: 30px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.copy-echo__reset {
+  align-self: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.copy-echo__reset:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.copy-echo[data-state="official"] .copy-echo__input {
+  border-color: var(--greact-foreground);
+  box-shadow: 0 5px 0 var(--greact-foreground);
+  transform: translateY(-3px);
+}
+
+@keyframes gra-ui-copy-echo-arrive {
+  0% {
+    opacity: 0;
+    transform: translateY(7px) scale(0.88);
+  }
+
+  65% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.04);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-echo__input {
+    transition-duration: 0.01ms;
+  }
+
+  .copy-echo__echo[data-new="true"] {
+    animation-duration: 0.01ms;
+  }
+}

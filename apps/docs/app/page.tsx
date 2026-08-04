@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make finished content clear three increasingly long drag thresholds.
+            the newest way to make a copied label leave visible souvenirs behind.
           </p>
         </div>
         <div className="featured-grid">

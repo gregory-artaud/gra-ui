@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  CopyEcho,
+  type CopyEchoProps,
+} from "./components/copy-echo";
+export {
   WordRelay,
   type WordRelayProps,
 } from "./components/word-relay";

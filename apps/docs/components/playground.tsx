@@ -6,6 +6,7 @@ import {
   CaseGate,
   ClickOrder,
   CornerFold,
+  CopyEcho,
   DragDuplicate,
   DragThreshold,
   DurationScale,
@@ -45,6 +46,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "copy-echo"
     | "word-relay"
     | "index-sum"
     | "side-split"
@@ -92,6 +94,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "copy-echo") {
+    return (
+      <div className="playground-shell copy-echo-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage copy-echo-preview">
+            <CopyEcho label="Ready for review" />
+            <p className="decision-output" aria-live="polite">
+              Select the label, copy it three times, and watch the component keep the evidence.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Focus the read-only label and select its text.</dd></div>
+            <div><dt>2</dt><dd>Press Ctrl+C or Cmd+C; the browser still copies the value normally.</dd></div>
+            <div><dt>3</dt><dd>Each copy adds a permanent visible echo underneath the source.</dd></div>
+            <div><dt>4</dt><dd>After three copies, the source receives an official shadow for no useful reason.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "word-relay") {
     return (
