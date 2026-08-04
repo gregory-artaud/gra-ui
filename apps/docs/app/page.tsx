@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make focus responsible for the layout of its children.
+            the newest way to make a simple hover path responsible for where content ends up.
           </p>
         </div>
         <div className="featured-grid">

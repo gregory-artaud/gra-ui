@@ -10,6 +10,7 @@ import {
   FocusFade,
   FocusUnpack,
   HoldPosition,
+  HoverRoute,
   HoverConfirm,
   IndecisiveButton,
   KeystrokeStack,
@@ -53,7 +54,8 @@ export interface PlaygroundProps {
     | "pairwise-merge"
     | "average-position"
     | "last-remaining"
-    | "backspace-archive";
+    | "backspace-archive"
+    | "hover-route";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -69,6 +71,38 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "hover-route") {
+    return (
+      <div className="playground-shell hover-route-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage hover-route-preview">
+            <HoverRoute>
+              <span className="hover-route-demo-label">Release this carefully</span>
+            </HoverRoute>
+            <p className="decision-output" aria-live="polite">
+              Hover steps 1 through 4 in order. Skipping ahead sends the content back to the start.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the content waiting above the route.</dd></div>
+            <div><dt>2</dt><dd>Hover each numbered zone in sequence.</dd></div>
+            <div><dt>3</dt><dd>Skip ahead and the progress returns to zero.</dd></div>
+            <div><dt>4</dt><dd>Complete the route and the content settles in the middle.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "click-order") {
     return (

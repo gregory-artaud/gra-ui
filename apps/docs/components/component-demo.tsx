@@ -23,7 +23,8 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "average-position" ||
     kind === "last-remaining" ||
     kind === "focus-unpack" ||
-    kind === "backspace-archive"
+    kind === "backspace-archive" ||
+    kind === "hover-route"
   ) {
     return <Playground kind={kind} />;
   }

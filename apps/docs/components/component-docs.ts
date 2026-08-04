@@ -20,7 +20,8 @@ export type DemoKind =
   | "average-position"
   | "last-remaining"
   | "focus-unpack"
-  | "backspace-archive";
+  | "backspace-archive"
+  | "hover-route";
 
 export interface ApiRow {
   name: string;
@@ -458,7 +459,6 @@ export function InspectedFields() {
     ],
     demo: "focus-unpack",
     featured: true,
-    isNew: true,
   },
   {
     name: "BackspaceArchive",
@@ -477,6 +477,25 @@ export function ReviewedText() {
     ],
     demo: "backspace-archive",
     featured: true,
+  },
+  {
+    name: "HoverRoute",
+    slug: "hover-route",
+    summary: "Content that moves only when you hover a fixed route in order.",
+    description:
+      "It moves its children through four hover zones, resets when you skip ahead, and settles in the middle after the full route is completed.",
+    usage: `import { HoverRoute } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function DeliberateRelease() {
+  return <HoverRoute>Release this carefully</HoverRoute>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content moved along the fixed four-step route." },
+    ],
+    demo: "hover-route",
+    featured: true,
+    isNew: true,
   },
 ] as const;
 

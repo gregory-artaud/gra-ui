@@ -17,6 +17,10 @@ export {
   type FocusUnpackProps,
 } from "./components/focus-unpack";
 export {
+  HoverRoute,
+  type HoverRouteProps,
+} from "./components/hover-route";
+export {
   CountedClone,
   type CountedCloneProps,
 } from "./components/counted-clone";

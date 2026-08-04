@@ -16,7 +16,7 @@ export default function ComponentsPage() {
         <p className="section-index">Component catalog</p>
         <h1>Small components.<br />Questionable purpose.</h1>
         <p>
-          Twenty-two React components composed with shadcn/ui. Each one ships typed,
+          Twenty-three React components composed with shadcn/ui. Each one ships typed,
           styled, and ready to make a simple interface slightly less direct.
         </p>
       </header>

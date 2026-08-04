@@ -1815,6 +1815,190 @@
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
+.gra-ui.hover-route {
+  display: grid;
+  width: min(100%, 430px);
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.hover-route__stage {
+  position: relative;
+  min-height: 188px;
+  overflow: hidden;
+  border: 1px dashed var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+}
+
+.hover-route__path {
+  position: absolute;
+  inset: 36px 12px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  gap: 8px;
+}
+
+.hover-route__step {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  min-height: 92px;
+  place-items: end center;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+}
+
+.hover-route__step::before {
+  position: absolute;
+  bottom: 2px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--greact-input);
+  border-radius: 999px;
+  background: var(--greact-background);
+  box-shadow: 0 5px 12px rgb(0 0 0 / 0.05);
+  content: "";
+  transition: transform 180ms ease, background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.hover-route__step span {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+  color: var(--greact-foreground);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 10px;
+  opacity: 0.52;
+}
+
+.hover-route__step:hover::before,
+.hover-route__step[data-next="true"]::before {
+  border-color: var(--greact-ring);
+  background: var(--greact-accent);
+  transform: scale(1.14);
+}
+
+.hover-route__step[data-visited="true"]::before {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  box-shadow: 0 5px 12px rgb(0 0 0 / 0.14);
+}
+
+.hover-route__step[data-visited="true"] span {
+  color: var(--greact-primary-foreground);
+  opacity: 1;
+}
+
+.hover-route__step:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 4px;
+}
+
+.hover-route__traveler {
+  position: absolute;
+  z-index: 3;
+  top: 28px;
+  left: 50%;
+  display: grid;
+  width: max-content;
+  max-width: 46%;
+  min-height: 48px;
+  place-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-background);
+  box-shadow: 0 12px 24px rgb(0 0 0 / 0.1);
+  pointer-events: none;
+  transform: translateX(-50%) scale(0.96);
+  transition: left 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    top 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 180ms ease;
+}
+
+.hover-route__traveler[data-step="1"] {
+  top: 88px;
+  left: 12.5%;
+  transform: translateX(-50%) scale(1);
+}
+
+.hover-route__traveler[data-step="2"] {
+  top: 88px;
+  left: 37.5%;
+  transform: translateX(-50%) scale(1);
+}
+
+.hover-route__traveler[data-step="3"] {
+  top: 88px;
+  left: 62.5%;
+  transform: translateX(-50%) scale(1);
+}
+
+.hover-route__traveler[data-step="4"] {
+  top: 88px;
+  left: 87.5%;
+  transform: translateX(-50%) scale(1);
+}
+
+.hover-route[data-state="complete"] .hover-route__traveler {
+  top: 50%;
+  left: 50%;
+  background: var(--greact-accent);
+  animation: gra-ui-hover-route-complete 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translate(-50%, -50%) scale(1.04);
+}
+
+.hover-route__content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hover-route__footer {
+  display: flex;
+  min-height: 18px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--greact-foreground);
+  font-size: 10px;
+  opacity: 0.72;
+}
+
+.hover-route__reset {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hover-route__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+@keyframes gra-ui-hover-route-complete {
+  0% { opacity: 0.62; transform: translate(-50%, -50%) scale(0.84); }
+  65% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .equal-choice__content,
   .equal-choice__side {
@@ -1945,6 +2129,15 @@
   .focus-unpack__bundle,
   .focus-unpack__item {
     transition-duration: 0.01ms;
+    animation-duration: 0.01ms;
+  }
+
+  .hover-route__step::before,
+  .hover-route__traveler {
+    transition-duration: 0.01ms;
+  }
+
+  .hover-route[data-state="complete"] .hover-route__traveler {
     animation-duration: 0.01ms;
   }
 }

@@ -149,6 +149,27 @@ export function InspectedFields() {
 
 Focus the bundle with a pointer or the keyboard and each child moves into its own visible card. Press Space or Enter to pack them together again. It could be used to inspect the fields of a compact review summary one focus event at a time. A reasonable person would keep a boolean and a conditional class in the page. This component should not have existed because it makes focus responsible for rearranging content that was already readable.
 
+## HoverRoute
+
+`HoverRoute` moves its children through four fixed hover zones and only settles after the route is completed in order.
+
+```ts
+type HoverRouteProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { HoverRoute } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function DeliberateRelease() {
+  return <HoverRoute>Release this carefully</HoverRoute>;
+}
+```
+
+Hover steps 1 through 4 in order. Skipping ahead resets the progress; completing the route moves the content to the center and keeps it there until `Start over`. It could be used to make someone follow a cursor path before releasing a carefully positioned control. A reasonable person would keep four event handlers and a number in the page. This component should not have existed because a fixed hover route is not a reusable interaction so much as a small obstacle.
+
 ## RepeatChildren
 
 `RepeatChildren` renders the same child twice because one copy was apparently not enough.
