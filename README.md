@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## CursorProof
+
+`CursorProof` makes a label earn its legibility one character at a time. Move the local proofing cursor across the surface; every character it crosses becomes visible and stays visible until the proof is reset.
+
+```ts
+type CursorProofProps = {
+  label: string;
+};
+```
+
+```tsx
+import { CursorProof } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function VerifiedStatus() {
+  return <CursorProof label="Ready for review" />;
+}
+```
+
+Move the pointer across the label, or focus the proofing surface and use the arrow keys. The characters are revealed individually and the counter reaches completion only after every position has been visited; `Reset` hides them again. It could be used to make a reviewer scan a status label before a handoff, or to let a presenter reveal an agenda item character by character while discussing it. A reasonable local alternative is the original text with no interaction, or a small CSS mask with one pointer handler. This component should not have existed because moving a cursor over a label does not make the label more true.
+
 ## SeamFold
 
 `SeamFold` gives a row of children a movable crease. Move the native range control and the children split at that seam; the lower half returns in reverse order, creating a real folded state for content that did not request one.

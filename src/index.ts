@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  CursorProof,
+  type CursorProofProps,
+} from "./components/cursor-proof";
+export {
   SeamFold,
   type SeamFoldProps,
 } from "./components/seam-fold";

@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make an ordinary row earn its crease.
+            the newest way to make an ordinary label earn its legibility.
           </p>
         </div>
         <div className="featured-grid">

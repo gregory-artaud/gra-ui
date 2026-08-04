@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "cursor-proof"
   | "seam-fold"
   | "selection-seal"
   | "checkpoint-queue"
@@ -64,6 +65,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "CursorProof",
+    slug: "cursor-proof",
+    summary: "A label that becomes legible only after a pointer passes each character.",
+    description:
+      "It hides a label behind proof dots and makes a local cursor reveal each character it crosses. The revealed characters stay visible, so a trivial sentence has to earn its right to be read.",
+    usage: `import { CursorProof } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function VerifiedStatus() {
+  return <CursorProof label="Ready for review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text revealed one character at a time by the proofing cursor." },
+    ],
+    demo: "cursor-proof",
+    useCase:
+      "It could be used to make a reviewer scan a status label before a handoff, or to let a presenter reveal an agenda item character by character while discussing it.",
+    alternative:
+      "A reasonable local alternative is the original text with no interaction, or a small CSS mask with one pointer handler. Publishing a cursor proof is difficult to defend because moving over a label does not make it more true.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "SeamFold",
     slug: "seam-fold",
     summary: "A row that folds its lower half backwards around a movable seam.",
@@ -91,7 +115,6 @@ export function FoldedFields() {
     alternative:
       "A reasonable local alternative is a small CSS grid with one breakpoint or an array slice in the page. Publishing a range-controlled paper fold is difficult to defend because the fields never needed folding.",
     featured: true,
-    isNew: true,
   },
   {
     name: "SelectionSeal",

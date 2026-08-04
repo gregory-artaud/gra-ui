@@ -5,6 +5,202 @@
 
 @source "./components/**/*.{ts,tsx}";
 
+.gra-ui.cursor-proof {
+  display: inline-flex;
+  width: min(100%, 430px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.cursor-proof__header,
+.cursor-proof__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cursor-proof__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cursor-proof__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.cursor-proof__surface {
+  position: relative;
+  display: grid;
+  min-height: 142px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+
+.cursor-proof__surface:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.cursor-proof__rail {
+  position: absolute;
+  right: 17px;
+  bottom: 25px;
+  left: 17px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--greact-input);
+}
+
+.cursor-proof__cursor {
+  position: absolute;
+  top: 22px;
+  bottom: 24px;
+  left: var(--cursor-position);
+  width: 2px;
+  background: var(--greact-foreground);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--greact-foreground) 12%, transparent);
+  pointer-events: none;
+  transform: translateX(-50%);
+  transition: left 120ms ease;
+}
+
+.cursor-proof__cursor::after {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--greact-foreground);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.cursor-proof__label {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 24px 16px 30px;
+  overflow-wrap: anywhere;
+  font-size: clamp(20px, 5vw, 29px);
+  font-weight: 750;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.cursor-proof__character {
+  position: relative;
+  display: inline-block;
+  min-width: 0.58em;
+  color: transparent;
+  transition: color 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cursor-proof__character::before {
+  position: absolute;
+  inset: 0;
+  color: var(--greact-ring);
+  content: "•";
+  opacity: 1;
+  text-align: center;
+  transform: scale(1);
+  transition: opacity 160ms ease, transform 180ms ease;
+}
+
+.cursor-proof__character[data-space="true"] {
+  min-width: 0.32em;
+}
+
+.cursor-proof__character[data-space="true"]::before {
+  content: "";
+}
+
+.cursor-proof__character[data-revealed="true"] {
+  color: var(--greact-foreground);
+  animation: gra-ui-cursor-proof-reveal 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.cursor-proof__character[data-revealed="true"]::before {
+  opacity: 0;
+  transform: scale(0.2);
+}
+
+.cursor-proof__footer {
+  align-items: flex-start;
+}
+
+.cursor-proof__footer p {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.cursor-proof__reset {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cursor-proof__reset:hover:not(:disabled),
+.cursor-proof__reset:focus-visible {
+  color: var(--greact-ring);
+}
+
+.cursor-proof__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.cursor-proof__reset:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@keyframes gra-ui-cursor-proof-reveal {
+  from { opacity: 0.2; transform: translateY(7px) rotate(-3deg) scale(0.84); }
+  65% { opacity: 1; transform: translateY(-3px) rotate(1deg) scale(1.08); }
+  to { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-proof__cursor,
+  .cursor-proof__character,
+  .cursor-proof__character::before {
+    animation: none;
+    transition-duration: 0.01ms;
+  }
+}
+
 .gra-ui.seam-fold {
   display: inline-flex;
   width: min(100%, 460px);
