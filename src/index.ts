@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  DisclosureSpill,
+  type DisclosureSpillProps,
+} from "./components/disclosure-spill";
+export {
   CursorProof,
   type CursorProofProps,
 } from "./components/cursor-proof";

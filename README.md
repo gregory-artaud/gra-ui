@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## DisclosureSpill
+
+`DisclosureSpill` gives a native disclosure one unnecessary filing rule: closing it ejects the final child into a visible escape slot, and reopening files that child back inside.
+
+```ts
+type DisclosureSpillProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { DisclosureSpill } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function UnstableFiling() {
+  return (
+    <DisclosureSpill>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </DisclosureSpill>
+  );
+}
+```
+
+Click the disclosure summary, or focus it and press `Enter` or `Space`. Closing hides the filed children and moves the final child into an escape slot; reopening puts it back with a short entrance animation. It could be used to make a reviewer close a handoff card while the date escapes for separate attention, or to let a presenter give one agenda item permission to leave its section. A reasonable local alternative is a native `details` element that simply hides its children. This component should not have existed because closing a disclosure should not change where its last child lives.
+
 ## CursorProof
 
 `CursorProof` makes a label earn its legibility one character at a time. Move the local proofing cursor across the surface; every character it crosses becomes visible and stays visible until the proof is reset.

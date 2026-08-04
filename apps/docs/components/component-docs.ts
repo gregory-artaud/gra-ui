@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "disclosure-spill"
   | "cursor-proof"
   | "seam-fold"
   | "selection-seal"
@@ -65,6 +66,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "DisclosureSpill",
+    slug: "disclosure-spill",
+    summary: "A disclosure that lets its last child escape when closed.",
+    description:
+      "It uses a native disclosure for an ordinary group of children, then spills the final child into a visible escape slot whenever the filing is closed. Open it again and the escaped child is filed back inside.",
+    usage: `import { DisclosureSpill } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function UnstableFiling() {
+  return (
+    <DisclosureSpill>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </DisclosureSpill>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content filed inside the disclosure, with the final child designated as the escapee." },
+    ],
+    demo: "disclosure-spill",
+    useCase:
+      "It could be used to make a reviewer close a handoff card while letting the date escape for separate attention, or to give a presenter one agenda item that refuses to stay filed.",
+    alternative:
+      "A reasonable local alternative is a native details element that simply hides its children. Publishing a disclosure that ejects its final child is difficult to defend because closing a panel should not change where content lives.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "CursorProof",
     slug: "cursor-proof",
     summary: "A label that becomes legible only after a pointer passes each character.",
@@ -85,7 +116,6 @@ export function VerifiedStatus() {
     alternative:
       "A reasonable local alternative is the original text with no interaction, or a small CSS mask with one pointer handler. Publishing a cursor proof is difficult to defend because moving over a label does not make it more true.",
     featured: true,
-    isNew: true,
   },
   {
     name: "SeamFold",

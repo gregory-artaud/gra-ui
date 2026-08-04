@@ -1018,6 +1018,15 @@ input[type="range"] {
   font-size: 11px;
 }
 
+.disclosure-spill-preview .gra-ui {
+  width: min(100%, 430px);
+}
+
+.disclosure-spill-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .repeated-demo {
   display: flex;
   gap: 12px;

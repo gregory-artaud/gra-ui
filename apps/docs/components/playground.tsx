@@ -10,6 +10,7 @@ import {
   CornerFold,
   CopyEcho,
   CursorProof,
+  DisclosureSpill,
   DragDuplicate,
   DragThreshold,
   DurationScale,
@@ -56,6 +57,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "disclosure-spill"
     | "cursor-proof"
     | "seam-fold"
     | "selection-seal"
@@ -114,6 +116,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "disclosure-spill") {
+    return (
+      <div className="playground-shell disclosure-spill-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage disclosure-spill-preview">
+            <DisclosureSpill>
+              <span className="disclosure-spill-demo-label">Title</span>
+              <span className="disclosure-spill-demo-label">Status</span>
+              <span className="disclosure-spill-demo-label">Owner</span>
+              <span className="disclosure-spill-demo-label">Date</span>
+            </DisclosureSpill>
+            <p className="decision-output" aria-live="polite">
+              Close the filing. The last field leaves its paperwork behind.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four children safely filed inside a native disclosure.</dd></div>
+            <div><dt>2</dt><dd>Close the filing with a click, Enter, or Space.</dd></div>
+            <div><dt>3</dt><dd>The final child spills into a separate escape slot.</dd></div>
+            <div><dt>4</dt><dd>Reopen the filing to put the child back where it started.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "cursor-proof") {
     return (
