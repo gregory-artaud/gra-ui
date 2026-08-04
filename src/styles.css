@@ -206,6 +206,153 @@
   --greact-radius: 0.625rem;
 }
 
+.gra-ui.word-relay {
+  display: inline-flex;
+  width: min(100%, 420px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.word-relay__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--greact-ring);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.word-relay__header strong {
+  color: var(--greact-foreground);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.word-relay__words {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.word-relay__word {
+  display: grid;
+  min-height: 52px;
+  place-items: center;
+  overflow: hidden;
+  padding: 10px 8px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  color: var(--greact-foreground);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+  text-align: center;
+  animation: gra-ui-word-relay-pass 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.word-relay__word:nth-child(2) {
+  animation-delay: 35ms;
+}
+
+.word-relay__word:nth-child(3) {
+  animation-delay: 70ms;
+}
+
+.word-relay__word:nth-child(4) {
+  animation-delay: 105ms;
+}
+
+.word-relay__control,
+.word-relay__reset {
+  cursor: pointer;
+  font: inherit;
+}
+
+.word-relay__control {
+  min-height: 40px;
+  padding: 9px 14px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.word-relay__control:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.word-relay__control:disabled,
+.word-relay__reset:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.word-relay__control:focus-visible,
+.word-relay__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.word-relay__status {
+  min-height: 30px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.word-relay__reset {
+  align-self: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@keyframes gra-ui-word-relay-pass {
+  0% {
+    opacity: 0.2;
+    transform: translateY(8px) scale(0.96);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .word-relay__word,
+  .word-relay__control {
+    animation-duration: 0.01ms;
+    transition-duration: 0.01ms;
+  }
+}
+
 .gra-ui.equal-choice {
   position: relative;
   display: grid;

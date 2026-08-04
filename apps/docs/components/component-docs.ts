@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "word-relay"
   | "index-sum"
   | "drag-threshold"
   | "button"
@@ -51,6 +52,25 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "WordRelay",
+    slug: "word-relay",
+    summary: "Words that pass their last letters to the next word.",
+    description:
+      "It repeatedly removes the final letter from every word and hands it to the beginning of the next word, preserving the total letters while making the sentence less useful.",
+    usage: `import { WordRelay } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function HandoffLabels() {
+  return <WordRelay label="Title Status Owner Date" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The space-separated words whose final letters circulate between neighbors." },
+    ],
+    demo: "word-relay",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "IndexSum",
     slug: "index-sum",
     summary: "Children selected by the arithmetic value of their position.",
@@ -92,7 +112,6 @@ export function CarefullyCommitted() {
     ],
     demo: "drag-threshold",
     featured: true,
-    isNew: true,
   },
   {
     name: "SideSplit",

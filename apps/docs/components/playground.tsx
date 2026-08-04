@@ -29,6 +29,7 @@ import {
   SplitLabel,
   TimedRelease,
   WeightVote,
+  WordRelay,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -44,6 +45,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "word-relay"
     | "index-sum"
     | "side-split"
     | "duration-scale"
@@ -90,6 +92,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "word-relay") {
+    return (
+      <div className="playground-shell word-relay-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage word-relay-preview">
+            <WordRelay label="Title Status Owner Date" />
+            <p className="decision-output" aria-live="polite">
+              Pass one final letter onward at a time. The words change, but the sentence still has the same number of letters.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary labels waiting in separate cells.</dd></div>
+            <div><dt>2</dt><dd>Pass the last letter of every word to the next word.</dd></div>
+            <div><dt>3</dt><dd>Each round preserves the letters while changing every label.</dd></div>
+            <div><dt>4</dt><dd>Return the letters when this handoff has become administratively important.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "index-sum") {
     return (

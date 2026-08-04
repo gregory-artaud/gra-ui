@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  WordRelay,
+  type WordRelayProps,
+} from "./components/word-relay";
+export {
   IndexSum,
   type IndexSumProps,
 } from "./components/index-sum";

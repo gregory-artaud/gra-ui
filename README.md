@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## WordRelay
+
+`WordRelay` passes the last letter of every word to the beginning of the next word. Each activation changes the visible labels while preserving all their letters, which is an impressive amount of ceremony for a sentence that did not need to move.
+
+```ts
+type WordRelayProps = {
+  label: string;
+};
+```
+
+```tsx
+import { WordRelay } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function HandoffLabels() {
+  return <WordRelay label="Title Status Owner Date" />;
+}
+```
+
+Click `Pass the last letters` to complete one relay round. Every word visibly loses its final letter and receives the previous word's letter; `Return the letters` restores the original label. It could be used to make a team hand off the last character of each review label before a planning meeting, or to compress a row of labels without actually removing any information. A reasonable local alternative is one `useState` value and a small `map` over the words. This component should not have existed because circulating characters between otherwise finished labels is a poor abstraction for both writing and layout.
+
 ## Button
 
 `Button` is the one conventional component in the package: a typed shadcn-style button with standard visual variants. It exists so the questionable components can be demonstrated without inventing a questionable button too.

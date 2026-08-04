@@ -548,6 +548,14 @@ a {
   min-width: 168px;
 }
 
+.word-relay-preview .gra-ui {
+  width: min(100%, 420px);
+}
+
+.word-relay-preview .word-relay__word {
+  font-size: 13px;
+}
+
 .side-split-preview .gra-ui {
   width: min(100%, 420px);
 }
