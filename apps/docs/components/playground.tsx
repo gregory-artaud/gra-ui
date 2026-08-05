@@ -37,6 +37,7 @@ import {
   ParityPurge,
   PressEscape,
   ReorderBack,
+  RotationTithe,
   ScaleSweep,
   SeamFold,
   SelectionSeal,
@@ -64,6 +65,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "rotation-tithe"
     | "letter-levy"
     | "parity-purge"
     | "blank-filing"
@@ -130,6 +132,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "rotation-tithe") {
+    return (
+      <div className="playground-shell rotation-tithe-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage rotation-tithe-preview">
+            <RotationTithe label="Approved for another review" />
+            <p className="decision-output" aria-live="polite">
+              Move the pointer left and right across the receipt. A full track width buys one 45° turn.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary label and an unspent distance bank.</dd></div>
+            <div><dt>2</dt><dd>Move across the receipt, then reverse direction to keep spending width.</dd></div>
+            <div><dt>3</dt><dd>Each full width rotates the label by 45 degrees and leaves the angle in place.</dd></div>
+            <div><dt>4</dt><dd>Use the arrow keys as a keyboard-sized quarter-width, or return the receipt to reset.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "letter-levy") {
     return (

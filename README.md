@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## RotationTithe
+
+`RotationTithe` charges pointer distance for the privilege of turning a label. Move the pointer back and forth across the receipt until a full track width has been spent; the label rotates 45 degrees and keeps the turn until it is returned.
+
+```ts
+type RotationTitheProps = {
+  label: string;
+};
+```
+
+```tsx
+import { RotationTithe } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TaxedReceipt() {
+  return <RotationTithe label="Approved for another review" />;
+}
+```
+
+Move across the interactive surface with a pointer, or use the left and right arrow keys after focusing it. The distance bank accumulates until a complete width buys a real 45-degree turn; `Return receipt` restores the initial orientation. It could be used to make a reviewer spend attention before rotating a caution label, or to let a presenter ceremonially turn an agenda note after each extra pass across a slide. A reasonable local alternative is a label with one ordinary class and no pointer accounting. This component should not have existed because cursor distance is not a meaningful reason to reorient text.
+
 ## LetterLevy
 
 `LetterLevy` makes a keyboard letter into a filing order. Press a letter that appears in the label and every matching occurrence leaves the sentence for a visible levy drawer.

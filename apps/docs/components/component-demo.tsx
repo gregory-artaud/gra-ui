@@ -6,6 +6,7 @@ import { Playground } from "@/components/playground";
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
     kind === "letter-levy" ||
+    kind === "rotation-tithe" ||
     kind === "parity-purge" ||
     kind === "blank-filing" ||
     kind === "momentum-weave" ||

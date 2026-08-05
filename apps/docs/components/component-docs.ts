@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "rotation-tithe"
   | "letter-levy"
   | "parity-purge"
   | "blank-filing"
@@ -73,6 +74,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "RotationTithe",
+    slug: "rotation-tithe",
+    summary: "A label that charges pointer distance for every unnecessary turn.",
+    description:
+      "It turns horizontal pointer travel into a tiny rotation tax. Move across the receipt until a full track width has been spent, and the label turns 45 degrees; the accumulated angle stays until you return the receipt.",
+    usage: `import { RotationTithe } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TaxedReceipt() {
+  return <RotationTithe label="Approved for another review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text rotated after each full width of pointer distance is spent." },
+    ],
+    demo: "rotation-tithe",
+    useCase:
+      "It could be used to make a reviewer physically spend attention before rotating a caution label, or to let a presenter ceremonially turn an agenda note after each extra pass across a slide.",
+    alternative:
+      "A reasonable local alternative is a label with one ordinary class and no pointer accounting. Publishing a rotation tithe is difficult to defend because distance travelled by a cursor is not a meaningful reason to reorient text.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "LetterLevy",
     slug: "letter-levy",
     summary: "A label that pays every matching letter into a visible drawer.",
@@ -93,7 +117,6 @@ export function TaxedStatus() {
     alternative:
       "A reasonable local alternative is a string filter with an ordinary display. Publishing a letter levy is difficult to defend because a keyboard character is not an authority entitled to tax an entire sentence.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ParityPurge",

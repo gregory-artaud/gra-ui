@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  RotationTithe,
+  type RotationTitheProps,
+} from "./components/rotation-tithe";
+export {
   LetterLevy,
   type LetterLevyProps,
 } from "./components/letter-levy";

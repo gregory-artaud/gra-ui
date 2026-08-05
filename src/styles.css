@@ -6896,3 +6896,207 @@
     transition: none;
   }
 }
+
+.rotation-tithe {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--greact-border);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.rotation-tithe__header,
+.rotation-tithe__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.rotation-tithe__header {
+  color: var(--greact-ring);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.rotation-tithe__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.rotation-tithe__surface {
+  position: relative;
+  display: grid;
+  min-height: 176px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  cursor: ew-resize;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.rotation-tithe__surface::before,
+.rotation-tithe__surface::after {
+  position: absolute;
+  top: 10px;
+  color: var(--greact-ring);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rotation-tithe__surface::before {
+  left: 12px;
+  content: "left";
+}
+
+.rotation-tithe__surface::after {
+  right: 12px;
+  content: "right";
+}
+
+.rotation-tithe__surface:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.rotation-tithe__rail {
+  position: absolute;
+  inset: 35px 14% auto;
+  display: grid;
+  gap: 6px;
+  color: var(--greact-ring);
+  pointer-events: none;
+  text-align: center;
+}
+
+.rotation-tithe__rail-line {
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--greact-input) 0 6px,
+    transparent 6px 11px
+  );
+}
+
+.rotation-tithe__rail-caption {
+  font-size: 9px;
+  letter-spacing: 0.04em;
+}
+
+.rotation-tithe__label {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  max-width: calc(100% - 48px);
+  padding: 18px 22px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  box-shadow: 4px 4px 0 var(--greact-input);
+  font-size: clamp(14px, 3vw, 19px);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-align: center;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms ease;
+}
+
+.rotation-tithe__surface[data-turns="1"] .rotation-tithe__label {
+  transform: rotate(45deg);
+  box-shadow: -3px 4px 0 var(--greact-input);
+}
+
+.rotation-tithe__surface[data-turns="2"] .rotation-tithe__label {
+  transform: rotate(90deg);
+  box-shadow: -4px -4px 0 var(--greact-input);
+}
+
+.rotation-tithe__surface[data-turns="3"] .rotation-tithe__label {
+  transform: rotate(135deg);
+  box-shadow: 3px -4px 0 var(--greact-input);
+}
+
+.rotation-tithe__surface[data-turns="4"] .rotation-tithe__label {
+  transform: rotate(180deg);
+  box-shadow: -4px -4px 0 var(--greact-input);
+}
+
+.rotation-tithe__surface[data-turns="5"] .rotation-tithe__label {
+  transform: rotate(225deg);
+  box-shadow: 3px -4px 0 var(--greact-input);
+}
+
+.rotation-tithe__surface[data-turns="6"] .rotation-tithe__label {
+  transform: rotate(270deg);
+  box-shadow: 4px 4px 0 var(--greact-input);
+}
+
+.rotation-tithe__surface[data-turns="7"] .rotation-tithe__label {
+  transform: rotate(315deg);
+  box-shadow: -3px 4px 0 var(--greact-input);
+}
+
+.rotation-tithe__footer {
+  align-items: flex-start;
+}
+
+.rotation-tithe__footer p {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.rotation-tithe__reset {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.rotation-tithe__reset:hover:not(:disabled) {
+  color: var(--greact-ring);
+}
+
+.rotation-tithe__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.rotation-tithe__reset:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@media (max-width: 520px) {
+  .rotation-tithe__surface {
+    min-height: 160px;
+  }
+
+  .rotation-tithe__footer {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotation-tithe__label {
+    transition: none;
+  }
+}
