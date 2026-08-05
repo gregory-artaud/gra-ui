@@ -573,6 +573,15 @@ a {
   width: min(100%, 420px);
 }
 
+.momentum-weave-preview .gra-ui {
+  width: min(100%, 460px);
+}
+
+.momentum-weave-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .seam-fold-preview .gra-ui {
   width: min(100%, 460px);
 }

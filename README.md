@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## MomentumWeave
+
+`MomentumWeave` gives a row of children a shuttle whose release speed decides how they are woven. A gentle drag interleaves them into two strands; a quick flick uses three strands, and the changed order remains visible until it is restored.
+
+```ts
+type MomentumWeaveProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { MomentumWeave } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function WovenBrief() {
+  return (
+    <MomentumWeave>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </MomentumWeave>
+  );
+}
+```
+
+Drag the shuttle across the rail and release gently or flick quickly; the children reunite in a real two- or three-strand order. Focus the rail and use the arrow keys for the same alternatives. `Restore order` returns the supplied order. It could be used to let a reviewer weave handoff fields according to the urgency of a gesture, or to recompose four agenda labels into a tighter grid after a quick flick. A reasonable local alternative is an array with one explicit reorder and a CSS grid. This component should not have existed because the children already had a perfectly serviceable order, regardless of how energetically someone drags a shuttle.
+
 ## SpaceStaple
 
 `SpaceStaple` lets a dragged staple remove one actual space from a label. The chosen gap is a real position-dependent result: `Friday review notes` can become `Fridayreview notes`, `Friday reviewnotes`, or another equally questionable contraction.

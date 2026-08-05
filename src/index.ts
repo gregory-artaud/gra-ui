@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  MomentumWeave,
+  type MomentumWeaveProps,
+} from "./components/momentum-weave";
+export {
   SpaceStaple,
   type SpaceStapleProps,
 } from "./components/space-staple";

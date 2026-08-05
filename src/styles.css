@@ -6041,3 +6041,205 @@
     animation: none;
   }
 }
+
+.gra-ui.momentum-weave {
+  display: inline-flex;
+  width: min(100%, 480px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.momentum-weave__header,
+.momentum-weave__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.momentum-weave__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.momentum-weave__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.momentum-weave__track {
+  position: relative;
+  display: grid;
+  min-height: 188px;
+  align-content: end;
+  padding: 54px 12px 14px;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.momentum-weave__track:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.momentum-weave[data-dragging="true"] .momentum-weave__track {
+  cursor: grabbing;
+}
+
+.momentum-weave__rail {
+  position: absolute;
+  top: 28px;
+  right: 19px;
+  left: 19px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--greact-input);
+}
+
+.momentum-weave__rail::before,
+.momentum-weave__rail::after {
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--greact-ring);
+  border-radius: 50%;
+  background: var(--greact-background);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.momentum-weave__rail::before {
+  left: 0;
+}
+
+.momentum-weave__rail::after {
+  right: 0;
+}
+
+.momentum-weave__handle {
+  position: absolute;
+  top: 21px;
+  left: var(--momentum-position);
+  width: 17px;
+  height: 17px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 50%;
+  background: var(--greact-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--greact-foreground) 10%, transparent);
+  transform: translateX(-50%);
+  transition: left 180ms cubic-bezier(0.22, 1, 0.36, 1), background-color 160ms ease;
+  pointer-events: none;
+}
+
+.momentum-weave[data-dragging="true"] .momentum-weave__handle,
+.momentum-weave__track:focus-visible .momentum-weave__handle {
+  background: var(--greact-foreground);
+}
+
+.momentum-weave__content {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  align-items: stretch;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.momentum-weave__content[data-dragging="true"] {
+  opacity: 0.68;
+  transform: translateY(3px) scale(0.985);
+}
+
+.momentum-weave[data-strands="3"] .momentum-weave__content {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.momentum-weave__piece {
+  display: flex;
+  min-width: 0;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 8px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  font-size: 12px;
+  font-weight: 650;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.momentum-weave[data-state="woven"] .momentum-weave__piece {
+  animation: gra-ui-momentum-weave 480ms var(--weave-delay) cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.momentum-weave__footer {
+  align-items: flex-start;
+}
+
+.momentum-weave__footer p {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.momentum-weave__reset {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.momentum-weave__reset:hover:not(:disabled),
+.momentum-weave__reset:focus-visible {
+  color: var(--greact-ring);
+}
+
+.momentum-weave__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.momentum-weave__reset:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@keyframes gra-ui-momentum-weave {
+  from { opacity: 0; transform: translateY(-10px) rotate(-1.5deg) scale(0.94); }
+  68% { opacity: 1; transform: translateY(2px) rotate(0.5deg) scale(1.02); }
+  to { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .momentum-weave__handle,
+  .momentum-weave__content,
+  .momentum-weave__piece {
+    animation: none;
+    transition: none;
+  }
+}

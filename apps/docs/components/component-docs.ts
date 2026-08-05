@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "momentum-weave"
   | "space-staple"
   | "arrow-bias"
   | "idle-unspool"
@@ -69,6 +70,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "MomentumWeave",
+    slug: "momentum-weave",
+    summary: "Children that weave themselves according to the speed of a drag.",
+    description:
+      "It gives a row of children a shuttle and asks the pointer to supply the momentum. A gentle release settles the pieces into two strands; a quick flick uses three, and the resulting order stays changed until it is restored.",
+    usage: `import { MomentumWeave } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function WovenBrief() {
+  return (
+    <MomentumWeave>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </MomentumWeave>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content interleaved into two or three strands by the drag momentum." },
+    ],
+    demo: "momentum-weave",
+    useCase:
+      "It could be used to let a reviewer physically weave the fields of a handoff card according to how urgently they drag, or to make a presenter recompose four agenda labels into a tighter grid after a quick flick.",
+    alternative:
+      "A reasonable local alternative is an array with one explicit reorder and a CSS grid. Publishing a momentum-sensitive shuttle is difficult to defend because the children already had a perfectly serviceable order.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "SpaceStaple",
     slug: "space-staple",
     summary: "A label that lets a dragged staple erase one of its spaces.",
@@ -89,7 +120,6 @@ export function StapledBrief() {
     alternative:
       "A reasonable local alternative is the original label with one string replacement. Publishing a draggable staple is difficult to defend because typography does not need a physical object to decide where words stop being separate.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ArrowBias",

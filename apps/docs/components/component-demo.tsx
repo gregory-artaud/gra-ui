@@ -5,6 +5,7 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "momentum-weave" ||
     kind === "arrow-bias" ||
     kind === "space-staple" ||
     kind === "disclosure-spill" ||

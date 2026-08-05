@@ -29,6 +29,7 @@ import {
   LastRemaining,
   LengthOrder,
   MixedClick,
+  MomentumWeave,
   NestChildren,
   PairwiseMerge,
   PressEscape,
@@ -60,6 +61,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "momentum-weave"
     | "space-staple"
     | "arrow-bias"
     | "idle-unspool"
@@ -122,6 +124,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "momentum-weave") {
+    return (
+      <div className="playground-shell momentum-weave-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage momentum-weave-preview">
+            <MomentumWeave>
+              <span className="momentum-weave-demo-label">Title</span>
+              <span className="momentum-weave-demo-label">Status</span>
+              <span className="momentum-weave-demo-label">Owner</span>
+              <span className="momentum-weave-demo-label">Date</span>
+            </MomentumWeave>
+            <p className="decision-output" aria-live="polite">
+              Drag slowly for two strands or flick quickly for three. The order really changes.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary fields in their supplied order.</dd></div>
+            <div><dt>2</dt><dd>Drag the shuttle across the rail, or focus it and press an arrow key.</dd></div>
+            <div><dt>3</dt><dd>Release gently to weave two strands; flick quickly to weave three.</dd></div>
+            <div><dt>4</dt><dd>Restore the order when the shuttle has rearranged enough paperwork.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "space-staple") {
     return (
