@@ -569,6 +569,10 @@ a {
   min-width: 168px;
 }
 
+.margin-quota-preview .gra-ui {
+  width: min(100%, 480px);
+}
+
 .letter-levy-preview .gra-ui {
   width: min(100%, 480px);
 }

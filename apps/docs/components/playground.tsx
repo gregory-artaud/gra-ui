@@ -30,6 +30,7 @@ import {
   LayoutReferendum,
   LastRemaining,
   LengthOrder,
+  MarginQuota,
   MixedClick,
   MomentumWeave,
   NestChildren,
@@ -65,6 +66,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "margin-quota"
     | "rotation-tithe"
     | "letter-levy"
     | "parity-purge"
@@ -132,6 +134,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "margin-quota") {
+    return (
+      <div className="playground-shell margin-quota-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage margin-quota-preview">
+            <MarginQuota label="Review this once" />
+            <p className="decision-output" aria-live="polite">
+              Reserve a margin equal to the label&apos;s character count, then reclaim it when the text has paid its rent.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a label occupying the whole available surface.</dd></div>
+            <div><dt>2</dt><dd>Reserve the margin; one visible slot appears for every character.</dd></div>
+            <div><dt>3</dt><dd>The label moves into the remaining space while the quota stays real.</dd></div>
+            <div><dt>4</dt><dd>Reclaim the space when a label has finally paid enough rent.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "rotation-tithe") {
     return (

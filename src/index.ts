@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  MarginQuota,
+  type MarginQuotaProps,
+} from "./components/margin-quota";
+export {
   RotationTithe,
   type RotationTitheProps,
 } from "./components/rotation-tithe";

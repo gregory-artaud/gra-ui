@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## MarginQuota
+
+`MarginQuota` makes a label rent its own margin. Click the control and it reserves one visible slot for every character in the label, moving the text into a real side margin until the space is reclaimed.
+
+```ts
+type MarginQuotaProps = {
+  label: string;
+};
+```
+
+```tsx
+import { MarginQuota } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RentedLabel() {
+  return <MarginQuota label="Review this once" />;
+}
+```
+
+Click `Reserve the margin` or focus it and press `Enter`. The label shifts into a responsive margin containing one slot per character; `Reclaim space` returns it to the full-width surface. It could be used to make a reviewer reserve visual room for a handoff note before it is allowed to stand beside a decision, or to let a presenter give an agenda label a literal amount of breathing room proportional to its copy. A reasonable local alternative is a normal layout with an intentional `margin-inline` value. This component should not have existed because a label's character count is not a credible landlord.
+
 ## RotationTithe
 
 `RotationTithe` charges pointer distance for the privilege of turning a label. Move the pointer back and forth across the receipt until a full track width has been spent; the label rotates 45 degrees and keeps the turn until it is returned.

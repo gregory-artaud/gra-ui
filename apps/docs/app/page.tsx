@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to let an arbitrary position decide which fields survive.
+            the newest way to make a label rent space proportional to its own copy.
           </p>
         </div>
         <div className="featured-grid">

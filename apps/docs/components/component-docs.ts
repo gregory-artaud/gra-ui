@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "margin-quota"
   | "rotation-tithe"
   | "letter-levy"
   | "parity-purge"
@@ -74,6 +75,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "MarginQuota",
+    slug: "margin-quota",
+    summary: "A label that rents a margin one character at a time.",
+    description:
+      "It calculates a visible side margin from the label's own character count. Reserve the quota and the text moves out of the way while one slot appears for every character; reclaiming the space restores the full-width surface.",
+    usage: `import { MarginQuota } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RentedLabel() {
+  return <MarginQuota label="Review this once" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text whose character count becomes a visible reserved margin." },
+    ],
+    demo: "margin-quota",
+    useCase:
+      "It could be used to make a reviewer reserve visual room for a handoff note before it can stand beside a decision, or to let a presenter give an agenda label a literal amount of breathing room proportional to its copy.",
+    alternative:
+      "A reasonable local alternative is a normal layout with an intentional margin-inline value. Publishing a margin quota is difficult to defend because a label's character count is not a credible landlord.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "RotationTithe",
     slug: "rotation-tithe",
     summary: "A label that charges pointer distance for every unnecessary turn.",
@@ -94,7 +118,6 @@ export function TaxedReceipt() {
     alternative:
       "A reasonable local alternative is a label with one ordinary class and no pointer accounting. Publishing a rotation tithe is difficult to defend because distance travelled by a cursor is not a meaningful reason to reorient text.",
     featured: true,
-    isNew: true,
   },
   {
     name: "LetterLevy",
