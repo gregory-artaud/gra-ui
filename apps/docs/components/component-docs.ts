@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "space-staple"
   | "arrow-bias"
   | "idle-unspool"
   | "disclosure-spill"
@@ -68,6 +69,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "SpaceStaple",
+    slug: "space-staple",
+    summary: "A label that lets a dragged staple erase one of its spaces.",
+    description:
+      "It turns the gaps in a label into landing places for a tiny staple. Release the staple at one gap and that actual space disappears, leaving the words awkwardly fused until the label is unstapled.",
+    usage: `import { SpaceStaple } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function StapledBrief() {
+  return <SpaceStaple label="Friday review notes" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text whose spaces can receive the staple." },
+    ],
+    demo: "space-staple",
+    useCase:
+      "It could be used to make a reviewer choose which phrase in a handoff note should be fused for a compact subject line, or to let a presenter ceremonially compress one agenda label before showing it.",
+    alternative:
+      "A reasonable local alternative is the original label with one string replacement. Publishing a draggable staple is difficult to defend because typography does not need a physical object to decide where words stop being separate.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "ArrowBias",
     slug: "arrow-bias",
     summary: "A row that lets three arrow presses decide which way it should drift.",
@@ -95,7 +119,6 @@ export function DirectionalBrief() {
     alternative:
       "A reasonable local alternative is a flex row with one direction class and a keyboard handler. Publishing a three-arrow binding ritual is difficult to defend because a layout should not need a vote to choose its own edge.",
     featured: true,
-    isNew: true,
   },
   {
     name: "IdleUnspool",

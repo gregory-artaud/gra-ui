@@ -5871,3 +5871,173 @@
     transition: none;
   }
 }
+
+.gra-ui.space-staple {
+  display: inline-flex;
+  width: min(100%, 440px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.space-staple__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--greact-ring);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.space-staple__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.space-staple__paper {
+  display: grid;
+  min-height: 148px;
+  align-content: center;
+  gap: 24px;
+  padding: 20px 16px 16px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+}
+
+.space-staple__label {
+  display: block;
+  min-height: 28px;
+  color: var(--greact-foreground);
+  font-size: clamp(16px, 4vw, 21px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+
+.space-staple[data-state="stapled"] .space-staple__label {
+  animation: gra-ui-space-staple-close 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.space-staple__track {
+  position: relative;
+  height: 32px;
+  border: 1px solid var(--greact-input);
+  border-radius: 999px;
+  background: var(--greact-background);
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.space-staple__track:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.space-staple__track:active,
+.space-staple[data-state="dragging"] .space-staple__track {
+  cursor: grabbing;
+}
+
+.space-staple__rail {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  left: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--greact-input);
+  transform: translateY(-50%);
+}
+
+.space-staple__handle {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 50%;
+  background: var(--greact-accent);
+  color: var(--greact-foreground);
+  font-size: 17px;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+  transition: left 240ms cubic-bezier(0.22, 1, 0.36, 1), background-color 180ms ease;
+}
+
+.space-staple[data-state="dragging"] .space-staple__handle,
+.space-staple__track:focus-visible .space-staple__handle {
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+}
+
+.space-staple__handle span {
+  transform: translateY(-1px);
+}
+
+.space-staple__status {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.space-staple__reset {
+  align-self: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.space-staple__reset:hover:not(:disabled),
+.space-staple__reset:focus-visible {
+  color: var(--greact-ring);
+}
+
+.space-staple__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.space-staple__reset:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@keyframes gra-ui-space-staple-close {
+  from { opacity: 0.2; transform: translateY(5px) scaleX(0.96); }
+  70% { opacity: 1; transform: translateY(-1px) scaleX(1.01); }
+  to { opacity: 1; transform: translateY(0) scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .space-staple__handle {
+    transition: none;
+  }
+
+  .space-staple[data-state="stapled"] .space-staple__label {
+    animation: none;
+  }
+}

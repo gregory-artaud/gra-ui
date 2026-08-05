@@ -37,6 +37,7 @@ import {
   SeamFold,
   SelectionSeal,
   ScrollRedact,
+  SpaceStaple,
   SideSplit,
   SplitLabel,
   TimedRelease,
@@ -59,6 +60,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "space-staple"
     | "arrow-bias"
     | "idle-unspool"
     | "disclosure-spill"
@@ -120,6 +122,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "space-staple") {
+    return (
+      <div className="playground-shell space-staple-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage space-staple-preview">
+            <SpaceStaple label="Friday review notes" />
+            <p className="decision-output" aria-live="polite">
+              Drag the staple to one gap. That space will be removed from the actual label.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with three ordinary words and their visible gaps.</dd></div>
+            <div><dt>2</dt><dd>Drag the staple across the rail, or focus it and use the arrow keys.</dd></div>
+            <div><dt>3</dt><dd>Release at a gap; that real space disappears and the words fuse.</dd></div>
+            <div><dt>4</dt><dd>Unstaple the label when one missing space has been enough ceremony.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "arrow-bias") {
     return (

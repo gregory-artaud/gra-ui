@@ -569,6 +569,10 @@ a {
   min-width: 168px;
 }
 
+.space-staple-preview .gra-ui {
+  width: min(100%, 420px);
+}
+
 .seam-fold-preview .gra-ui {
   width: min(100%, 460px);
 }

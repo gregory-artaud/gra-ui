@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## SpaceStaple
+
+`SpaceStaple` lets a dragged staple remove one actual space from a label. The chosen gap is a real position-dependent result: `Friday review notes` can become `Fridayreview notes`, `Friday reviewnotes`, or another equally questionable contraction.
+
+```ts
+type SpaceStapleProps = {
+  label: string;
+};
+```
+
+```tsx
+import { SpaceStaple } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function StapledBrief() {
+  return <SpaceStaple label="Friday review notes" />;
+}
+```
+
+Drag the staple across the rail and release it at one of the label's gaps, or focus the rail and use the arrow keys. The selected space disappears from the rendered text; `Unstaple the label` restores the original. It could be used to make a reviewer choose which phrase in a handoff note should be fused for a compact subject line, or to let a presenter ceremonially compress one agenda label before showing it. A reasonable local alternative is the original label with one string replacement. This component should not have existed because typography does not need a physical staple to decide where words stop being separate.
+
 ## ArrowBias
 
 `ArrowBias` lets three keyboard directions decide which edge should receive its children. The majority direction moves the whole row and locks it there; `Escape` clears the vote and returns the row to center.

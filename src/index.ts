@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  SpaceStaple,
+  type SpaceStapleProps,
+} from "./components/space-staple";
+export {
   ArrowBias,
   type ArrowBiasProps,
 } from "./components/arrow-bias";
