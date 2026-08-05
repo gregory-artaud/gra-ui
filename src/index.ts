@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  WordTurnstile,
+  type WordTurnstileProps,
+} from "./components/word-turnstile";
+export {
   MarginQuota,
   type MarginQuotaProps,
 } from "./components/margin-quota";

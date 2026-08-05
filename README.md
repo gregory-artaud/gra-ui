@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## WordTurnstile
+
+`WordTurnstile` makes a label pass through a word-by-word turnstile. Each activation rotates the next word 180 degrees and keeps that real transformation until every word has paid its unnecessary inversion fee.
+
+```ts
+type WordTurnstileProps = {
+  label: string;
+};
+```
+
+```tsx
+import { WordTurnstile } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function UpsideDownBrief() {
+  return <WordTurnstile label="Ready for another review" />;
+}
+```
+
+Click `Turn next word` or focus the native button and press `Enter` or `Space`. The next word rotates upside down and stays transformed; `Reset label` returns every word to its original orientation. It could be used to make a reviewer invert each word of a handoff status before a meeting, or to let a presenter ceremonially turn an agenda line upside down as each topic is discussed. A reasonable local alternative is the original label with one ordinary class. This component should not have existed because a sentence does not become more complete when its words are upside down.
+
 ## MarginQuota
 
 `MarginQuota` makes a label rent its own margin. Click the control and it reserves one visible slot for every character in the label, moving the text into a real side margin until the space is reclaimed.

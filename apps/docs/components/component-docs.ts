@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "word-turnstile"
   | "margin-quota"
   | "rotation-tithe"
   | "letter-levy"
@@ -75,6 +76,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "WordTurnstile",
+    slug: "word-turnstile",
+    summary: "A label that turns each word upside down before it may finish.",
+    description:
+      "It makes a sentence pass through a tiny word-by-word turnstile. Each activation rotates the next word by 180 degrees and keeps the transformation in place until the whole label has paid its unnecessary inversion fee.",
+    usage: `import { WordTurnstile } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function UpsideDownBrief() {
+  return <WordTurnstile label="Ready for another review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The whitespace-separated words turned one at a time." },
+    ],
+    demo: "word-turnstile",
+    useCase:
+      "It could be used to make a reviewer invert each word of a handoff status before a meeting, or to let a presenter ceremonially turn an agenda line upside down as each topic is discussed.",
+    alternative:
+      "A reasonable local alternative is the original label with one ordinary class. Publishing a word turnstile is difficult to defend because a sentence does not become more complete when its words are upside down.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "MarginQuota",
     slug: "margin-quota",
     summary: "A label that rents a margin one character at a time.",
@@ -95,7 +119,6 @@ export function RentedLabel() {
     alternative:
       "A reasonable local alternative is a normal layout with an intentional margin-inline value. Publishing a margin quota is difficult to defend because a label's character count is not a credible landlord.",
     featured: true,
-    isNew: true,
   },
   {
     name: "RotationTithe",
