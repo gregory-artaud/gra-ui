@@ -26,6 +26,7 @@ import {
   IdleUnspool,
   IndecisiveButton,
   KeystrokeStack,
+  LassoLock,
   LetterLevy,
   LayoutReferendum,
   LastRemaining,
@@ -67,6 +68,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "lasso-lock"
     | "word-turnstile"
     | "margin-quota"
     | "rotation-tithe"
@@ -136,6 +138,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "lasso-lock") {
+    return (
+      <div className="playground-shell lasso-lock-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage lasso-lock-preview">
+            <LassoLock>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Date</span>
+            </LassoLock>
+            <p className="decision-output" aria-live="polite">
+              Draw one box around the pieces that deserve to stay together.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four pieces loose in the field.</dd></div>
+            <div><dt>2</dt><dd>Drag a rectangle around the center of at least two pieces.</dd></div>
+            <div><dt>3</dt><dd>Release: enclosed pieces leave the field and arrive in the locked tray.</dd></div>
+            <div><dt>4</dt><dd>Tab to the field and press Space to lock the first two, or reset to draw again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "word-turnstile") {
     return (

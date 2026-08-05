@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## LassoLock
+
+`LassoLock` turns a drawn rectangle into a real filing decision. Enclose at least two children and the pieces whose centers fall inside the box leave the loose field for a locked tray while the other pieces stay in place.
+
+```ts
+type LassoLockProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { LassoLock } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function BoxedBrief() {
+  return (
+    <LassoLock>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </LassoLock>
+  );
+}
+```
+
+Drag across the field and release when one rectangle encloses at least two pieces. The enclosed children move into the locked tray and arrive with a short settle animation; the initial field, drawing state and locked state remain observable until `Reset` is used. Keyboard users can tab to the field and press `Space` or `Enter` to lock the first two pieces. It could be used to make a reviewer draw a literal box around the fields that belong together on a handoff card, or to let a presenter quarantine the agenda items they are about to discuss. A reasonable local alternative is an array filter with one selected range and a normal layout. This component should not have existed because a rectangle around content is not a meaningful ownership boundary.
+
 ## WordTurnstile
 
 `WordTurnstile` makes a label pass through a word-by-word turnstile. Each activation rotates the next word 180 degrees and keeps that real transformation until every word has paid its unnecessary inversion fee.

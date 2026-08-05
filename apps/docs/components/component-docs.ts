@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "lasso-lock"
   | "word-turnstile"
   | "margin-quota"
   | "rotation-tithe"
@@ -76,6 +77,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "LassoLock",
+    slug: "lasso-lock",
+    summary: "Pieces that leave the field when a pointer box manages to enclose them.",
+    description:
+      "It turns a rectangle drawn around ordinary children into a permanent locking decision. Enclose at least two pieces and the ones whose centers fit inside the lasso leave the loose field for a real tray; everything else stays put.",
+    usage: `import { LassoLock } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function BoxedBrief() {
+  return (
+    <LassoLock>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </LassoLock>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces that can be enclosed and moved into the locking tray." },
+    ],
+    demo: "lasso-lock",
+    useCase:
+      "It could be used to make a reviewer draw a literal box around the fields that belong together on a handoff card, or to let a presenter physically quarantine the agenda items they are about to discuss.",
+    alternative:
+      "A reasonable local alternative is an array filter with one selected range and a normal layout. Publishing a lasso lock is difficult to defend because a rectangle around content is not a meaningful ownership boundary.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "WordTurnstile",
     slug: "word-turnstile",
     summary: "A label that turns each word upside down before it may finish.",
@@ -96,7 +127,6 @@ export function UpsideDownBrief() {
     alternative:
       "A reasonable local alternative is the original label with one ordinary class. Publishing a word turnstile is difficult to defend because a sentence does not become more complete when its words are upside down.",
     featured: true,
-    isNew: true,
   },
   {
     name: "MarginQuota",

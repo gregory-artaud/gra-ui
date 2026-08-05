@@ -7468,3 +7468,222 @@
     transition: none;
   }
 }
+
+.gra-ui.lasso-lock {
+  display: grid;
+  width: min(100%, 560px);
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.lasso-lock__header,
+.lasso-lock__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.lasso-lock__header {
+  color: var(--greact-ring);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lasso-lock__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.lasso-lock__stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 124px;
+  gap: 10px;
+  min-height: 248px;
+  padding: 12px;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  cursor: crosshair;
+  outline: none;
+  touch-action: none;
+  user-select: none;
+}
+
+.lasso-lock__stage:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.lasso-lock__field,
+.lasso-lock__tray {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+}
+
+.lasso-lock__field {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.lasso-lock__tray {
+  align-content: start;
+  border-style: dashed;
+  background: color-mix(in srgb, var(--greact-background) 72%, var(--greact-ring));
+}
+
+.lasso-lock__item {
+  display: grid;
+  min-width: 0;
+  min-height: 46px;
+  place-items: center;
+  padding: 8px 7px;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--greact-input);
+  border-radius: 4px;
+  background: var(--greact-secondary);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+  transition: border-color 220ms ease, background-color 220ms ease, transform 220ms ease;
+}
+
+.lasso-lock__item:hover {
+  border-color: var(--greact-ring);
+}
+
+.lasso-lock[data-state="drawing"] .lasso-lock__item {
+  opacity: 0.76;
+}
+
+.lasso-lock__bundle {
+  display: grid;
+  gap: 6px;
+  animation: gra-ui-lasso-lock-arrive 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.lasso-lock__item--locked {
+  min-height: 38px;
+  padding: 6px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: rotate(-2deg);
+}
+
+.lasso-lock__item--locked:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.lasso-lock__empty {
+  margin: auto 0;
+  color: var(--greact-ring);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.lasso-lock__marquee {
+  position: absolute;
+  top: var(--lasso-top);
+  left: var(--lasso-left);
+  width: calc(var(--lasso-right) - var(--lasso-left));
+  height: calc(var(--lasso-bottom) - var(--lasso-top));
+  border: 1px dashed var(--greact-foreground);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--greact-ring) 12%, transparent);
+  pointer-events: none;
+}
+
+.lasso-lock__footer {
+  align-items: flex-start;
+}
+
+.lasso-lock__footer p {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.lasso-lock__footer button {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lasso-lock__footer button:hover:not(:disabled) {
+  color: var(--greact-ring);
+}
+
+.lasso-lock__footer button:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.lasso-lock__footer button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@keyframes gra-ui-lasso-lock-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 520px) {
+  .lasso-lock__stage {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .lasso-lock__tray {
+    min-height: 72px;
+  }
+
+  .lasso-lock__footer {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lasso-lock__item {
+    transition: none;
+  }
+
+  .lasso-lock__bundle {
+    animation: none;
+  }
+}

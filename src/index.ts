@@ -137,6 +137,10 @@ export {
   type NestChildrenProps,
 } from "./components/nest-children";
 export {
+  LassoLock,
+  type LassoLockProps,
+} from "./components/lasso-lock";
+export {
   CaseGate,
   type CaseGateProps,
 } from "./components/case-gate";
