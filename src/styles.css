@@ -6243,3 +6243,217 @@
     transition: none;
   }
 }
+
+.gra-ui.blank-filing {
+  display: inline-flex;
+  width: min(100%, 480px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.blank-filing__header,
+.blank-filing__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.blank-filing__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.blank-filing__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.blank-filing__board {
+  display: grid;
+  gap: 10px;
+}
+
+.blank-filing__lane {
+  display: grid;
+  min-height: 74px;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  align-content: start;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  transition: border-color 220ms ease, background-color 220ms ease;
+}
+
+.blank-filing__filed {
+  border-style: dashed;
+  background: var(--greact-background);
+}
+
+.blank-filing[data-state="filing"] .blank-filing__filed,
+.blank-filing[data-state="complete"] .blank-filing__filed {
+  border-color: var(--greact-ring);
+}
+
+.blank-filing__lane-label {
+  grid-column: 1 / -1;
+  color: var(--greact-ring);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.blank-filing__item,
+.blank-filing__empty {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  font-size: 12px;
+  font-weight: 650;
+  text-align: center;
+  overflow-wrap: anywhere;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), border-color 160ms ease;
+}
+
+.blank-filing__filed .blank-filing__item[data-fresh="true"] {
+  border-color: var(--greact-foreground);
+  animation: gra-ui-blank-filing-arrive 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.blank-filing__empty {
+  grid-column: 1 / -1;
+  color: var(--greact-ring);
+  font-weight: 500;
+}
+
+.blank-filing__form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.blank-filing__input-label {
+  display: grid;
+  gap: 5px;
+  color: var(--greact-ring);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.blank-filing__input-label input {
+  min-width: 0;
+  min-height: 34px;
+  padding: 7px 9px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  font-size: 12px;
+  letter-spacing: 0;
+  outline: none;
+  text-transform: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.blank-filing__input-label input::placeholder {
+  color: var(--greact-ring);
+}
+
+.blank-filing__input-label input:focus {
+  border-color: var(--greact-ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--greact-ring) 16%, transparent);
+}
+
+.blank-filing__form > button {
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.blank-filing__form > button:hover:not(:disabled),
+.blank-filing__form > button:focus-visible {
+  background: var(--greact-ring);
+  border-color: var(--greact-ring);
+}
+
+.blank-filing__form > button:focus-visible,
+.blank-filing__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.blank-filing__form > button:disabled,
+.blank-filing__reset:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.blank-filing__footer {
+  align-items: flex-start;
+}
+
+.blank-filing__footer p {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.blank-filing__reset {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.blank-filing__reset:hover:not(:disabled) {
+  color: var(--greact-ring);
+}
+
+@keyframes gra-ui-blank-filing-arrive {
+  from { opacity: 0; transform: translateY(-8px) rotate(-1.5deg); }
+  62% { opacity: 1; transform: translateY(2px) rotate(0.5deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blank-filing__lane,
+  .blank-filing__item,
+  .blank-filing__input-label input {
+    animation: none;
+    transition: none;
+  }
+}

@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## BlankFiling
+
+`BlankFiling` files one child at a time whenever its small form is submitted with absolutely no evidence. A filled submission is refused; an empty one moves the next child into a separate void shelf, so the absence of information becomes a real layout decision.
+
+```ts
+type BlankFilingProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { BlankFiling } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function UnexplainedFiling() {
+  return (
+    <BlankFiling>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </BlankFiling>
+  );
+}
+```
+
+Leave the evidence field empty and submit with the button or the `Enter` key. Each empty submission moves the next child from the waiting room to the void shelf; entering any text leaves the children in place and explains why. `Reset filing` restores the original arrangement. It could be used to make a reviewer file handoff fields through a sequence of empty acknowledgements, or to make a presenter move agenda labels away without ever documenting a reason. A reasonable local alternative is a form handler with one array slice and a normal button. This component should not have existed because the absence of evidence should not reorganize content.
+
 ## MomentumWeave
 
 `MomentumWeave` gives a row of children a shuttle whose release speed decides how they are woven. A gentle drag interleaves them into two strands; a quick flick uses three strands, and the changed order remains visible until it is restored.

@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  BlankFiling,
+  type BlankFilingProps,
+} from "./components/blank-filing";
+export {
   MomentumWeave,
   type MomentumWeaveProps,
 } from "./components/momentum-weave";

@@ -5,6 +5,7 @@ import {
   ArrowBias,
   AveragePosition,
   BackspaceArchive,
+  BlankFiling,
   CaseGate,
   ChildGravity,
   ClickOrder,
@@ -61,6 +62,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "blank-filing"
     | "momentum-weave"
     | "space-staple"
     | "arrow-bias"
@@ -124,6 +126,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "blank-filing") {
+    return (
+      <div className="playground-shell blank-filing-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage blank-filing-preview">
+            <BlankFiling>
+              <span className="blank-filing-demo-label">Title</span>
+              <span className="blank-filing-demo-label">Status</span>
+              <span className="blank-filing-demo-label">Owner</span>
+              <span className="blank-filing-demo-label">Date</span>
+            </BlankFiling>
+            <p className="decision-output" aria-live="polite">
+              Leave the evidence field empty and submit. Each blank filing moves one label into the void.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary fields and an empty evidence field.</dd></div>
+            <div><dt>2</dt><dd>Submit the blank field with the button or the Enter key.</dd></div>
+            <div><dt>3</dt><dd>The next child leaves the waiting room and appears in the void shelf.</dd></div>
+            <div><dt>4</dt><dd>Type anything to refuse the filing, or reset after all four absences have been recorded.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "momentum-weave") {
     return (

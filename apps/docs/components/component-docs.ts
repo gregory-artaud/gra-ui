@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "blank-filing"
   | "momentum-weave"
   | "space-staple"
   | "arrow-bias"
@@ -70,6 +71,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "BlankFiling",
+    slug: "blank-filing",
+    summary: "Children filed one at a time by submitting absolutely nothing.",
+    description:
+      "It places a small form in front of an ordinary group of children and treats an empty submission as a filing instruction. Each blank submission moves the next child into a separate void shelf; entering evidence makes the form refuse to move anything.",
+    usage: `import { BlankFiling } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function UnexplainedFiling() {
+  return (
+    <BlankFiling>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </BlankFiling>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content filed one piece at a time by empty form submissions." },
+    ],
+    demo: "blank-filing",
+    useCase:
+      "It could be used to let a reviewer file the fields of a handoff card by repeatedly submitting an empty acknowledgement, or to make a presenter move agenda labels into a void shelf without ever explaining why.",
+    alternative:
+      "A reasonable local alternative is a form submit handler with one array slice and a normal button. Publishing a blank filing protocol is difficult to defend because an absence of evidence should not reorganize content.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "MomentumWeave",
     slug: "momentum-weave",
     summary: "Children that weave themselves according to the speed of a drag.",
@@ -97,7 +128,6 @@ export function WovenBrief() {
     alternative:
       "A reasonable local alternative is an array with one explicit reorder and a CSS grid. Publishing a momentum-sensitive shuttle is difficult to defend because the children already had a perfectly serviceable order.",
     featured: true,
-    isNew: true,
   },
   {
     name: "SpaceStaple",

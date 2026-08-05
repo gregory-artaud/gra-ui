@@ -569,6 +569,15 @@ a {
   min-width: 168px;
 }
 
+.blank-filing-preview .gra-ui {
+  width: min(100%, 480px);
+}
+
+.blank-filing-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .space-staple-preview .gra-ui {
   width: min(100%, 420px);
 }
