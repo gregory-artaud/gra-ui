@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "focus-receipt"
   | "ruler-rise"
   | "lasso-lock"
   | "word-turnstile"
@@ -78,6 +79,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "FocusReceipt",
+    slug: "focus-receipt",
+    summary: "Every focus prints a persistent duplicate at the child’s original station.",
+    description:
+      "It turns focus into an unnecessary receipt printer. Focus an original child and a real copy appears in the station bearing that child’s position; the original stays where it was, so the receipt records attention without improving the content.",
+    usage: `import { FocusReceipt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AuditedFields() {
+  return (
+    <FocusReceipt>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </FocusReceipt>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The focusable originals that issue copies into their matching receipt stations." },
+    ],
+    demo: "focus-receipt",
+    useCase:
+      "It could be used to make a reviewer leave a physical-looking copy of every field they inspect on a handoff card, or to let a presenter build a receipt of the agenda labels they touched during a talk.",
+    alternative:
+      "A reasonable local alternative is a focus style and one local array of visited indices. Publishing a receipt printer is difficult to defend because looking at a field should not duplicate it.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "RulerRise",
     slug: "ruler-rise",
     summary: "A draggable ruler raises one child at a time onto an unnecessary staircase.",
@@ -105,7 +136,6 @@ export function RaisedBrief() {
     alternative:
       "A reasonable local alternative is an array index and one conditional class in the page. This component should not have existed because a ruler crossing a line is not evidence that content deserves a higher place.",
     featured: true,
-    isNew: true,
   },
   {
     name: "LassoLock",

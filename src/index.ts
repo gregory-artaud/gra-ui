@@ -177,6 +177,10 @@ export {
   type FocusFadeProps,
 } from "./components/focus-fade";
 export {
+  FocusReceipt,
+  type FocusReceiptProps,
+} from "./components/focus-receipt";
+export {
   PressEscape,
   type PressEscapeProps,
 } from "./components/press-escape";

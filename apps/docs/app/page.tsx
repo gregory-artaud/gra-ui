@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to make a row climb a staircase one ruler mark at a time.
+            the newest way to print a copy whenever somebody focuses a field.
           </p>
         </div>
         <div className="featured-grid">

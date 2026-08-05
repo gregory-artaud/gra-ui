@@ -573,6 +573,15 @@ a {
   width: min(100%, 460px);
 }
 
+.focus-receipt-preview .gra-ui {
+  width: min(100%, 480px);
+}
+
+.focus-receipt-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .ruler-rise-demo-label {
   font-size: 12px;
   font-weight: 650;

@@ -18,6 +18,7 @@ import {
   DurationScale,
   EqualChoice,
   FocusFade,
+  FocusReceipt,
   FocusUnpack,
   HoldPosition,
   HoverRoute,
@@ -69,6 +70,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "focus-receipt"
     | "ruler-rise"
     | "lasso-lock"
     | "word-turnstile"
@@ -140,6 +142,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "focus-receipt") {
+    return (
+      <div className="playground-shell focus-receipt-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage focus-receipt-preview">
+            <FocusReceipt>
+              <span className="focus-receipt-demo-label">Title</span>
+              <span className="focus-receipt-demo-label">Status</span>
+              <span className="focus-receipt-demo-label">Owner</span>
+              <span className="focus-receipt-demo-label">Date</span>
+            </FocusReceipt>
+            <p className="decision-output" aria-live="polite">
+              Focus each field. Every glance prints a copy beneath its original position.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four originals and an empty receipt.</dd></div>
+            <div><dt>2</dt><dd>Tab through the fields, or focus one directly.</dd></div>
+            <div><dt>3</dt><dd>Each focus leaves a real copy in the station matching its position.</dd></div>
+            <div><dt>4</dt><dd>Clear the receipt when the inspection has become ceremonial.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "ruler-rise") {
     return (

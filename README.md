@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## FocusReceipt
+
+`FocusReceipt` turns focus into an unnecessary receipt printer. Focus an original child and a real copy appears in the station bearing that child’s position; the original stays where it was, so the receipt records attention without improving the content.
+
+```ts
+type FocusReceiptProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { FocusReceipt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AuditedFields() {
+  return (
+    <FocusReceipt>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </FocusReceipt>
+  );
+}
+```
+
+Focus an original field by clicking it or tabbing through the row. Each focus leaves a persistent duplicate in the receipt station matching the field’s original position; `Clear receipt` returns the empty receipt. It could be used to make a reviewer leave a physical-looking copy of every field they inspect on a handoff card, or to let a presenter build a receipt of the agenda labels they touched during a talk. A reasonable local alternative is a focus style and one local array of visited indices. This component should not have existed because looking at a field should not duplicate it.
+
 ## RulerRise
 
 `RulerRise` turns a ruler dragged across a row into a one-way elevation order. Each marker the ruler passes raises the next child onto a higher visible step and keeps it there until the whole row has climbed or the staircase is lowered.
