@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "idle-unspool"
   | "disclosure-spill"
   | "cursor-proof"
   | "seam-fold"
@@ -66,6 +67,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "IdleUnspool",
+    slug: "idle-unspool",
+    summary: "A row that quietly moves its children onto an aside shelf.",
+    description:
+      "It starts unspooling on its own after mounting: one child at a time leaves the main row and settles on a separate shelf. The migration stops when every child has moved, and refiling starts the needless process again.",
+    usage: `import { IdleUnspool } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NeglectedAgenda() {
+  return (
+    <IdleUnspool>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </IdleUnspool>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content that leaves the main row one item at a time while idle." },
+    ],
+    demo: "idle-unspool",
+    useCase:
+      "It could be used to let an ignored handoff card slowly move its fields into an aside, or to make a presenter let agenda items peel into side notes between talking points.",
+    alternative:
+      "A reasonable local alternative is a static row, or one local array and a CSS transition if the content really must be moved. Publishing an idle timer that relocates children is difficult to defend because waiting should not reorganize a layout.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "DisclosureSpill",
     slug: "disclosure-spill",
     summary: "A disclosure that lets its last child escape when closed.",
@@ -93,7 +124,6 @@ export function UnstableFiling() {
     alternative:
       "A reasonable local alternative is a native details element that simply hides its children. Publishing a disclosure that ejects its final child is difficult to defend because closing a panel should not change where content lives.",
     featured: true,
-    isNew: true,
   },
   {
     name: "CursorProof",

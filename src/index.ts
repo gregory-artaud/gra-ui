@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  IdleUnspool,
+  type IdleUnspoolProps,
+} from "./components/idle-unspool";
+export {
   DisclosureSpill,
   type DisclosureSpillProps,
 } from "./components/disclosure-spill";

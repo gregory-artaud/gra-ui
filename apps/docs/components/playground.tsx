@@ -21,6 +21,7 @@ import {
   HoverRoute,
   HoverConfirm,
   IndexSum,
+  IdleUnspool,
   IndecisiveButton,
   KeystrokeStack,
   LayoutReferendum,
@@ -57,6 +58,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "idle-unspool"
     | "disclosure-spill"
     | "cursor-proof"
     | "seam-fold"
@@ -116,6 +118,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "idle-unspool") {
+    return (
+      <div className="playground-shell idle-unspool-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage idle-unspool-preview">
+            <IdleUnspool>
+              <span className="idle-unspool-demo-label">Title</span>
+              <span className="idle-unspool-demo-label">Status</span>
+              <span className="idle-unspool-demo-label">Owner</span>
+              <span className="idle-unspool-demo-label">Date</span>
+            </IdleUnspool>
+            <p className="decision-output" aria-live="polite">
+              Wait without touching anything. Each field will quietly move to the aside shelf.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary fields in one main row.</dd></div>
+            <div><dt>2</dt><dd>Do nothing; after a short pause, the first field leaves by itself.</dd></div>
+            <div><dt>3</dt><dd>Every 1.1 seconds, one more field moves onto the aside shelf.</dd></div>
+            <div><dt>4</dt><dd>Refile everything to restore the row and begin waiting again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "disclosure-spill") {
     return (

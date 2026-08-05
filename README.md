@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## IdleUnspool
+
+`IdleUnspool` quietly moves its children from a main row onto an aside shelf while nobody is interacting with it. One child leaves every 1.1 seconds; when the shelf is full, `Refile everything` returns the children to the row and starts the waiting sequence again.
+
+```ts
+type IdleUnspoolProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { IdleUnspool } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NeglectedAgenda() {
+  return (
+    <IdleUnspool>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </IdleUnspool>
+  );
+}
+```
+
+Leave the component alone and watch the first child move aside, followed by the others. The counter records the migration, the newly moved item arrives with a short slide-and-settle animation, and `Refile everything` restores the initial row; the button is keyboard reachable and the state change remains real with reduced motion. It could be used to let an ignored handoff card slowly move its fields into an aside, or to let a presenter peel agenda items into side notes between talking points. A reasonable local alternative is a static row, or one local array and a CSS transition if the content must move. This component should not have existed because waiting should not reorganize a layout.
+
 ## DisclosureSpill
 
 `DisclosureSpill` gives a native disclosure one unnecessary filing rule: closing it ejects the final child into a visible escape slot, and reopening files that child back inside.
