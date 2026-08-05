@@ -52,6 +52,7 @@ import {
   WeekdayLedger,
   WordRelay,
   WordTurnstile,
+  RulerRise,
   CheckpointQueue,
 } from "gra-ui";
 import { useState } from "react";
@@ -68,6 +69,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "ruler-rise"
     | "lasso-lock"
     | "word-turnstile"
     | "margin-quota"
@@ -138,6 +140,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "ruler-rise") {
+    return (
+      <div className="playground-shell ruler-rise-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage ruler-rise-preview">
+            <RulerRise>
+              <span className="ruler-rise-demo-label">Title</span>
+              <span className="ruler-rise-demo-label">Status</span>
+              <span className="ruler-rise-demo-label">Owner</span>
+              <span className="ruler-rise-demo-label">Date</span>
+            </RulerRise>
+            <p className="decision-output">
+              Drag the ruler across the rail. Each passed marker raises one field and keeps it raised.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four fields resting on one line.</dd></div>
+            <div><dt>2</dt><dd>Drag the ruler past each marker, or focus it and press ArrowRight.</dd></div>
+            <div><dt>3</dt><dd>Every passed field climbs onto a higher step and stays there.</dd></div>
+            <div><dt>4</dt><dd>Use Lower all to return the fields to the floor.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "lasso-lock") {
     return (

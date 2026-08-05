@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  RulerRise,
+  type RulerRiseProps,
+} from "./components/ruler-rise";
+export {
   WordTurnstile,
   type WordTurnstileProps,
 } from "./components/word-turnstile";

@@ -5,6 +5,188 @@
 
 @source "./components/**/*.{ts,tsx}";
 
+.gra-ui.ruler-rise {
+  display: inline-flex;
+  width: min(100%, 460px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.ruler-rise__stage {
+  display: grid;
+  gap: 18px;
+}
+
+.ruler-rise__steps {
+  display: grid;
+  min-height: 144px;
+  grid-template-columns: repeat(auto-fit, minmax(62px, 1fr));
+  align-items: end;
+  gap: 8px;
+  padding: 18px 12px 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: linear-gradient(180deg, var(--greact-background), var(--greact-secondary));
+  overflow: hidden;
+}
+
+.ruler-rise__item,
+.ruler-rise__empty {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 7px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  font-size: 12px;
+  text-align: center;
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), border-color 220ms ease, background-color 220ms ease;
+}
+
+.ruler-rise__item[data-raised="true"] {
+  border-color: var(--greact-ring);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+}
+
+.ruler-rise__empty {
+  grid-column: 1 / -1;
+  border-style: dashed;
+  color: var(--greact-ring);
+}
+
+.ruler-rise__rail-wrap {
+  padding: 0 8px;
+}
+
+.ruler-rise__rail {
+  position: relative;
+  display: block;
+  height: 42px;
+  cursor: ew-resize;
+  outline: none;
+  touch-action: none;
+}
+
+.ruler-rise__rail:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 4px;
+}
+
+.ruler-rise__rail[aria-disabled="true"] {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.ruler-rise__rail-line {
+  position: absolute;
+  top: 19px;
+  right: 0;
+  left: 0;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--greact-input);
+}
+
+.ruler-rise__marker {
+  position: absolute;
+  top: 12px;
+  width: 3px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--greact-input);
+  transform: translateX(-50%);
+  transition: background-color 220ms ease, height 220ms ease;
+}
+
+.ruler-rise__marker[data-passed="true"] {
+  height: 24px;
+  background: var(--greact-ring);
+}
+
+.ruler-rise__handle {
+  position: absolute;
+  top: 4px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--greact-foreground);
+  border-radius: 7px;
+  background: var(--greact-background);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.12);
+  transform: translateX(-50%) rotate(45deg);
+  transition: left 180ms ease, box-shadow 180ms ease;
+  pointer-events: none;
+}
+
+.ruler-rise__handle span {
+  position: absolute;
+  inset: 7px;
+  border-radius: 2px;
+  background: var(--greact-ring);
+}
+
+.ruler-rise__rail[data-dragging="true"] .ruler-rise__handle {
+  box-shadow: 0 7px 16px rgb(0 0 0 / 0.2);
+}
+
+.ruler-rise__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--greact-ring);
+  font-size: 11px;
+}
+
+.ruler-rise__reset {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ruler-rise__reset:hover:not(:disabled),
+.ruler-rise__reset:focus-visible {
+  color: var(--greact-ring);
+}
+
+.ruler-rise__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.ruler-rise__reset:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ruler-rise__item,
+  .ruler-rise__marker,
+  .ruler-rise__handle {
+    transition: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .ruler-rise__steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .gra-ui.letter-levy {
   display: inline-flex;
   width: min(100%, 480px);

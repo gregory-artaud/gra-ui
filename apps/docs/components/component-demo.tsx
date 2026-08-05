@@ -6,6 +6,7 @@ import { Playground } from "@/components/playground";
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
     kind === "lasso-lock" ||
+    kind === "ruler-rise" ||
     kind === "word-turnstile" ||
     kind === "margin-quota" ||
     kind === "letter-levy" ||

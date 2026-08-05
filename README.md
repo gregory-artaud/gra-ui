@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## RulerRise
+
+`RulerRise` turns a ruler dragged across a row into a one-way elevation order. Each marker the ruler passes raises the next child onto a higher visible step and keeps it there until the whole row has climbed or the staircase is lowered.
+
+```ts
+type RulerRiseProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { RulerRise } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RaisedBrief() {
+  return (
+    <RulerRise>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </RulerRise>
+  );
+}
+```
+
+Drag the ruler across the rail, or focus it and press `ArrowRight`. Each passed marker raises one child onto a higher step and keeps it there; `Lower all` returns the original row. It could be used to make a reviewer physically raise the fields that deserve attention on a handoff card, or to let a presenter elevate agenda items into a literal staircase as they are discussed. A reasonable local alternative is an array index and one conditional class in the page. This component should not have existed because a ruler crossing a line is not evidence that content deserves a higher place.
+
 ## LassoLock
 
 `LassoLock` turns a drawn rectangle into a real filing decision. Enclose at least two children and the pieces whose centers fall inside the box leave the loose field for a locked tray while the other pieces stay in place.

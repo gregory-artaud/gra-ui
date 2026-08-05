@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "ruler-rise"
   | "lasso-lock"
   | "word-turnstile"
   | "margin-quota"
@@ -77,6 +78,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "RulerRise",
+    slug: "ruler-rise",
+    summary: "A draggable ruler raises one child at a time onto an unnecessary staircase.",
+    description:
+      "It turns a ruler dragged across a row into a one-way elevation order. Each marker the ruler passes raises the next child onto a higher visible step and keeps it there until the whole row has climbed or the staircase is lowered.",
+    usage: `import { RulerRise } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RaisedBrief() {
+  return (
+    <RulerRise>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </RulerRise>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces that rise one at a time when the ruler passes their markers." },
+    ],
+    demo: "ruler-rise",
+    useCase:
+      "It could be used to make a reviewer physically raise the fields that deserve attention on a handoff card, or to let a presenter elevate agenda items into a literal staircase as they are discussed.",
+    alternative:
+      "A reasonable local alternative is an array index and one conditional class in the page. This component should not have existed because a ruler crossing a line is not evidence that content deserves a higher place.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "LassoLock",
     slug: "lasso-lock",
     summary: "Pieces that leave the field when a pointer box manages to enclose them.",
@@ -104,7 +135,6 @@ export function BoxedBrief() {
     alternative:
       "A reasonable local alternative is an array filter with one selected range and a normal layout. Publishing a lasso lock is difficult to defend because a rectangle around content is not a meaningful ownership boundary.",
     featured: true,
-    isNew: true,
   },
   {
     name: "WordTurnstile",

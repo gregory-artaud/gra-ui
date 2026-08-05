@@ -569,6 +569,15 @@ a {
   min-width: 168px;
 }
 
+.ruler-rise-preview .gra-ui {
+  width: min(100%, 460px);
+}
+
+.ruler-rise-demo-label {
+  font-size: 12px;
+  font-weight: 650;
+}
+
 .margin-quota-preview .gra-ui {
   width: min(100%, 480px);
 }
