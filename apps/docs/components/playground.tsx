@@ -2,6 +2,7 @@
 
 import {
   AlphabetTreadmill,
+  ArrowBias,
   AveragePosition,
   BackspaceArchive,
   CaseGate,
@@ -58,6 +59,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "arrow-bias"
     | "idle-unspool"
     | "disclosure-spill"
     | "cursor-proof"
@@ -118,6 +120,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "arrow-bias") {
+    return (
+      <div className="playground-shell arrow-bias-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage arrow-bias-preview">
+            <ArrowBias>
+              <span className="arrow-bias-demo-label">Title</span>
+              <span className="arrow-bias-demo-label">Status</span>
+              <span className="arrow-bias-demo-label">Owner</span>
+              <span className="arrow-bias-demo-label">Date</span>
+            </ArrowBias>
+            <p className="decision-output" aria-live="polite">
+              Focus the surface and press three left or right arrows. Escape clears the vote.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary fields centered in one row.</dd></div>
+            <div><dt>2</dt><dd>Focus the row and press ArrowLeft or ArrowRight.</dd></div>
+            <div><dt>3</dt><dd>After three presses, the majority direction moves the whole row and locks it there.</dd></div>
+            <div><dt>4</dt><dd>Press Escape to erase the vote and return the fields to center.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "idle-unspool") {
     return (

@@ -1027,6 +1027,20 @@ input[type="range"] {
   font-weight: 650;
 }
 
+.arrow-bias-preview .gra-ui {
+  width: min(100%, 460px);
+}
+
+.arrow-bias-demo-label {
+  display: block;
+  width: 100%;
+  padding: 5px 7px;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
 .repeated-demo {
   display: flex;
   gap: 12px;

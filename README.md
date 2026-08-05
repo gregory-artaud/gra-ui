@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## ArrowBias
+
+`ArrowBias` lets three keyboard directions decide which edge should receive its children. The majority direction moves the whole row and locks it there; `Escape` clears the vote and returns the row to center.
+
+```ts
+type ArrowBiasProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { ArrowBias } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function DirectionalBrief() {
+  return (
+    <ArrowBias>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ArrowBias>
+  );
+}
+```
+
+Focus the row and press `ArrowLeft` or `ArrowRight` three times. The majority direction moves every child toward that edge and locks the row there; `Escape` returns it to the undecided center. The count and three-step meter show the progression, and the final movement uses a short transform transition that remains a real state change with reduced motion. It could be used to let a reviewer bias a handoff card toward the side they intend to discuss, or to make a presenter settle a small agenda row against the edge of a slide. A reasonable local alternative is a flex row with one direction class and a keyboard handler. This component should not have existed because a layout should not need a three-arrow vote to choose its own edge.
+
 ## IdleUnspool
 
 `IdleUnspool` quietly moves its children from a main row onto an aside shelf while nobody is interacting with it. One child leaves every 1.1 seconds; when the shelf is full, `Refile everything` returns the children to the row and starts the waiting sequence again.

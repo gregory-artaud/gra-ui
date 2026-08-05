@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "arrow-bias"
   | "idle-unspool"
   | "disclosure-spill"
   | "cursor-proof"
@@ -67,6 +68,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "ArrowBias",
+    slug: "arrow-bias",
+    summary: "A row that lets three arrow presses decide which way it should drift.",
+    description:
+      "It turns three keyboard directions into a tiny binding vote. The majority direction moves every child toward that edge and locks the row there; Escape restores the undecided position.",
+    usage: `import { ArrowBias } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function DirectionalBrief() {
+  return (
+    <ArrowBias>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ArrowBias>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content that drifts toward the majority arrow direction." },
+    ],
+    demo: "arrow-bias",
+    useCase:
+      "It could be used to let a reviewer physically bias a handoff card toward the side they intend to discuss, or to make a presenter settle a small agenda row against the edge of a slide.",
+    alternative:
+      "A reasonable local alternative is a flex row with one direction class and a keyboard handler. Publishing a three-arrow binding ritual is difficult to defend because a layout should not need a vote to choose its own edge.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "IdleUnspool",
     slug: "idle-unspool",
     summary: "A row that quietly moves its children onto an aside shelf.",
@@ -94,7 +125,6 @@ export function NeglectedAgenda() {
     alternative:
       "A reasonable local alternative is a static row, or one local array and a CSS transition if the content really must be moved. Publishing an idle timer that relocates children is difficult to defend because waiting should not reorganize a layout.",
     featured: true,
-    isNew: true,
   },
   {
     name: "DisclosureSpill",

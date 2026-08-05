@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  ArrowBias,
+  type ArrowBiasProps,
+} from "./components/arrow-bias";
+export {
   IdleUnspool,
   type IdleUnspoolProps,
 } from "./components/idle-unspool";

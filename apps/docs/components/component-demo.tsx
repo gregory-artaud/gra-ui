@@ -5,6 +5,7 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "arrow-bias" ||
     kind === "disclosure-spill" ||
     kind === "checkpoint-queue" ||
     kind === "cursor-proof" ||
