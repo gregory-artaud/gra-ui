@@ -5,6 +5,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "ratchet-reveal" ||
+    kind === "verdict-selector" ||
+    kind === "orbit-stow" ||
+    kind === "palindrome-latch" ||
+    kind === "inside-out-words" ||
     kind === "focus-receipt" ||
     kind === "lasso-lock" ||
     kind === "ruler-rise" ||

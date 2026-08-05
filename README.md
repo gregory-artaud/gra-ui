@@ -16,6 +16,125 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## RatchetReveal
+
+`RatchetReveal` opens children one sealed tooth at a time. Each notch changes the real rendered state and stays open until the ratchet is reset.
+
+```ts
+type RatchetRevealProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { RatchetReveal } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NotarizedFields() {
+  return (
+    <RatchetReveal>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </RatchetReveal>
+  );
+}
+```
+
+Click `Advance one notch` or focus it and press `Enter`. Exactly one child becomes visible in the ratchet, the progress rail advances, and `Reset` closes every tooth. It could be used to reveal handoff fields only as a reviewer discusses them, or to open agenda items one notch at a time during a ceremonial briefing. A reasonable local alternative is a normal row with one disclosure state; visibility should not require mechanical paperwork.
+
+## VerdictSelector
+
+`VerdictSelector` gives a label three binding editorial verdicts that produce genuinely different text.
+
+```ts
+type VerdictSelectorProps = {
+  label: string;
+};
+```
+
+```tsx
+import { VerdictSelector } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function JudgedStatus() {
+  return <VerdictSelector label="Ready for another review" />;
+}
+```
+
+Choose `Headline`, `Ledger` or `Whisper`. The output changes its word order, numbering or initials rather than only changing its appearance; `Reopen the case` returns the undecided label. It could be used to give a handoff note an unnecessarily official register, or to let a presenter choose how an agenda line is recorded. A reasonable local alternative is one formatter function selected directly by the page; three buttons should not decide how a short label is allowed to exist.
+
+## OrbitStow
+
+`OrbitStow` parks a child at one of eight orbital docks through direct manipulation.
+
+```ts
+type OrbitStowProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { OrbitStow } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OrbitalNotice() {
+  return <OrbitStow><span>Review me</span></OrbitStow>;
+}
+```
+
+Drag the cargo around the ring, or focus it and use the arrow keys. The child moves to the selected dock and remains there until `Return to dock 1`. It could be used to park a warning at a reviewer-chosen edge of a card, or to orbit an agenda label toward the corner of a slide. A reasonable local alternative is one CSS position or alignment control; circling content does not make it better filed.
+
+## PalindromeLatch
+
+`PalindromeLatch` seals children only after the activation route reads the same forwards and backwards.
+
+```ts
+type PalindromeLatchProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { PalindromeLatch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MirroredAgenda() {
+  return (
+    <PalindromeLatch>
+      <span>Open</span>
+      <span>Review</span>
+      <span>Decide</span>
+      <span>Close</span>
+    </PalindromeLatch>
+  );
+}
+```
+
+Activate the pieces in ascending order and then back down the same route: `1, 2, 3, 4, 3, 2, 1`. A wrong choice clears the sequence; a complete palindrome fills the latch tray. It could be used to make a reviewer open and close a handoff card through a mirrored ceremony, or to let a presenter walk an agenda forward and backward before it is settled. A reasonable local alternative is one ordered list and a completion button; an action sequence does not improve when it has to rhyme with itself.
+
+## InsideOutWords
+
+`InsideOutWords` reverses the actual letters of whichever words you click.
+
+```ts
+type InsideOutWordsProps = {
+  label: string;
+};
+```
+
+```tsx
+import { InsideOutWords } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ReversibleNote() {
+  return <InsideOutWords label="Ready for another review" />;
+}
+```
+
+Click a word, or focus it and press `Enter` or `Space`. Its letters reverse in the rendered sentence and stay reversed independently; `Restore sentence` returns the original text. It could be used to mark challenged words in a handoff note, or to make agenda terms temporarily unreadable while they are discussed. A reasonable local alternative is the original label plus an annotation style; clickable letter reversal is not a credible review status.
+
 ## FocusReceipt
 
 `FocusReceipt` turns focus into an unnecessary receipt printer. Focus an original child and a real copy appears in the station bearing that child’s position; the original stays where it was, so the receipt records attention without improving the content.

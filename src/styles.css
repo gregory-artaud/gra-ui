@@ -8098,3 +8098,601 @@
     animation: none;
   }
 }
+
+.gra-ui.ratchet-reveal,
+.gra-ui.verdict-selector,
+.gra-ui.orbit-stow,
+.gra-ui.palindrome-latch,
+.gra-ui.inside-out-words {
+  display: inline-flex;
+  width: min(100%, 520px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.ratchet-reveal__header,
+.verdict-selector__header,
+.orbit-stow__header,
+.palindrome-latch__header,
+.inside-out-words__header,
+.ratchet-reveal__footer,
+.orbit-stow__footer,
+.palindrome-latch__footer,
+.inside-out-words__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ratchet-reveal__header,
+.verdict-selector__header,
+.orbit-stow__header,
+.palindrome-latch__header,
+.inside-out-words__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ratchet-reveal__header output,
+.verdict-selector__header output,
+.orbit-stow__header output,
+.palindrome-latch__header output,
+.inside-out-words__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.ratchet-reveal__track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 8px;
+  padding: 14px 10px 12px;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: linear-gradient(180deg, var(--greact-secondary), var(--greact-background));
+}
+
+.ratchet-reveal__progress {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: var(--ratchet-progress);
+  background: var(--greact-ring);
+  transition: width 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ratchet-reveal__tooth {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.ratchet-reveal__number {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border: 1px solid var(--greact-input);
+  border-radius: 50%;
+  background: var(--greact-background);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  transition: background-color 220ms ease, border-color 220ms ease, color 220ms ease;
+}
+
+.ratchet-reveal__item {
+  display: grid;
+  min-height: 62px;
+  place-items: center;
+  padding: 8px 6px;
+  overflow-wrap: anywhere;
+  border: 1px dashed var(--greact-input);
+  border-radius: 6px;
+  text-align: center;
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1), background-color 220ms ease, border-color 220ms ease;
+}
+
+.ratchet-reveal__tooth[data-revealed="true"] .ratchet-reveal__number {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+}
+
+.ratchet-reveal__tooth[data-revealed="true"] .ratchet-reveal__item {
+  border-style: solid;
+  border-color: var(--greact-ring);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: translateY(-3px);
+  animation: gra-ui-ratchet-reveal-open 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ratchet-reveal__closed {
+  color: var(--greact-input);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ratchet-reveal__empty {
+  grid-column: 1 / -1;
+  padding: 24px 8px;
+  color: var(--greact-ring);
+  text-align: center;
+}
+
+.ratchet-reveal__footer p,
+.orbit-stow__footer p,
+.palindrome-latch__footer p,
+.inside-out-words__footer p {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.ratchet-reveal__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.ratchet-reveal__actions button:first-child,
+.verdict-selector__choice,
+.palindrome-latch__piece {
+  border: 1px solid var(--greact-foreground);
+  border-radius: 5px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ratchet-reveal__actions button:first-child {
+  padding: 9px 11px;
+}
+
+.ratchet-reveal button:focus-visible,
+.verdict-selector button:focus-visible,
+.orbit-stow:focus-visible,
+.palindrome-latch button:focus-visible,
+.inside-out-words button:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.ratchet-reveal button:disabled,
+.verdict-selector button:disabled,
+.orbit-stow button:disabled,
+.palindrome-latch button:disabled,
+.inside-out-words button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.ratchet-reveal__reset,
+.verdict-selector__reset,
+.orbit-stow__reset,
+.palindrome-latch__reset,
+.inside-out-words__reset {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ratchet-reveal__reset:hover:not(:disabled),
+.verdict-selector__reset:hover:not(:disabled),
+.orbit-stow__reset:hover:not(:disabled),
+.palindrome-latch__reset:hover:not(:disabled),
+.inside-out-words__reset:hover:not(:disabled) {
+  color: var(--greact-ring);
+}
+
+@keyframes gra-ui-ratchet-reveal-open {
+  from {
+    opacity: 0.2;
+    transform: translateY(8px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(-3px) scale(1);
+  }
+}
+
+.verdict-selector__result {
+  display: grid;
+  min-height: 124px;
+  place-items: center;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  text-align: center;
+}
+
+.verdict-selector__result-label {
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.verdict-selector__result strong {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: clamp(20px, 5vw, 30px);
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+  animation: gra-ui-verdict-selector-change 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.verdict-selector__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.verdict-selector__choice {
+  display: grid;
+  min-width: 0;
+  min-height: 68px;
+  place-items: center;
+  gap: 4px;
+  padding: 9px 6px;
+  text-align: center;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.verdict-selector__choice:hover:not(:disabled),
+.verdict-selector__choice[aria-pressed="true"] {
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  transform: translateY(-3px);
+}
+
+.verdict-selector__choice small {
+  color: inherit;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.verdict-selector__reset {
+  align-self: flex-end;
+}
+
+@keyframes gra-ui-verdict-selector-change {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.orbit-stow__orbit {
+  position: relative;
+  display: block;
+  width: min(100%, 310px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+  cursor: grab;
+  outline: none;
+  touch-action: none;
+}
+
+.orbit-stow__orbit:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 5px;
+}
+
+.orbit-stow[data-dragging="true"] .orbit-stow__orbit {
+  cursor: grabbing;
+}
+
+.orbit-stow__ring {
+  position: absolute;
+  inset: 15%;
+  border: 1px dashed var(--greact-input);
+  border-radius: 50%;
+  box-shadow: 0 0 0 12px color-mix(in srgb, var(--greact-ring) 7%, transparent);
+}
+
+.orbit-stow__dock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid var(--greact-input);
+  border-radius: 50%;
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+  transform: translate(-50%, -50%) rotate(var(--orbit-dock-angle)) translateY(-108px) rotate(calc(-1 * var(--orbit-dock-angle)));
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.orbit-stow__dock[data-active="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+}
+
+.orbit-stow__cargo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  min-width: 68px;
+  min-height: 46px;
+  max-width: 112px;
+  place-items: center;
+  padding: 8px;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 7px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  cursor: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  transform: translate(-50%, -50%) rotate(var(--orbit-cargo-angle)) translateY(-108px) rotate(calc(-1 * var(--orbit-cargo-angle)));
+  transition: transform 340ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms ease;
+  user-select: none;
+}
+
+.orbit-stow[data-dragging="true"] .orbit-stow__cargo {
+  box-shadow: 0 10px 20px rgb(0 0 0 / 0.18);
+  transition: none;
+}
+
+.orbit-stow__footer {
+  align-items: flex-start;
+}
+
+.orbit-stow__reset {
+  flex-shrink: 0;
+}
+
+.palindrome-latch__tray {
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  overflow-x: auto;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: linear-gradient(90deg, var(--greact-secondary), var(--greact-background), var(--greact-secondary));
+}
+
+.palindrome-latch__token {
+  display: grid;
+  min-width: 40px;
+  min-height: 36px;
+  place-items: center;
+  padding: 6px;
+  border: 1px solid var(--greact-ring);
+  border-radius: 5px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-size: 10px;
+  font-weight: 700;
+  text-align: center;
+  animation: gra-ui-palindrome-latch-arrive 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.palindrome-latch__empty {
+  color: var(--greact-ring);
+  font-size: 11px;
+}
+
+.palindrome-latch__pieces {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  gap: 7px;
+}
+
+.palindrome-latch__piece {
+  display: grid;
+  min-height: 58px;
+  place-items: center;
+  padding: 8px 6px;
+  overflow-wrap: anywhere;
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.palindrome-latch__piece[data-expected="true"] {
+  border-color: var(--greact-ring);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--greact-ring) 16%, transparent);
+}
+
+.palindrome-latch__piece[data-used="true"] {
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: translateY(-3px);
+}
+
+.palindrome-latch__piece:hover:not(:disabled) {
+  transform: translateY(-3px);
+}
+
+.palindrome-latch__footer {
+  align-items: flex-start;
+}
+
+.palindrome-latch__reset {
+  flex-shrink: 0;
+}
+
+@keyframes gra-ui-palindrome-latch-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.inside-out-words__sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.18em;
+  min-height: 92px;
+  margin: 0;
+  padding: 18px 12px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  font-size: clamp(21px, 5vw, 31px);
+  font-weight: 750;
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.inside-out-words__word {
+  padding: 0 0.06em;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  transition: color 180ms ease, background-color 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.inside-out-words__word[data-turned="true"] {
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: translateY(-3px);
+  animation: gra-ui-inside-out-words-turn 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.inside-out-words__word:hover {
+  color: var(--greact-ring);
+}
+
+.inside-out-words__footer {
+  align-items: flex-start;
+}
+
+.inside-out-words__reset {
+  flex-shrink: 0;
+}
+
+@keyframes gra-ui-inside-out-words-turn {
+  from {
+    opacity: 0;
+    transform: rotateX(90deg) translateY(-3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0) translateY(-3px);
+  }
+}
+
+@media (max-width: 520px) {
+  .gra-ui.ratchet-reveal,
+  .gra-ui.verdict-selector,
+  .gra-ui.orbit-stow,
+  .gra-ui.palindrome-latch,
+  .gra-ui.inside-out-words {
+    padding: 14px;
+  }
+
+  .ratchet-reveal__footer,
+  .orbit-stow__footer,
+  .palindrome-latch__footer,
+  .inside-out-words__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ratchet-reveal__actions {
+    justify-content: space-between;
+  }
+
+  .verdict-selector__choices {
+    grid-template-columns: 1fr;
+  }
+
+  .verdict-selector__choice {
+    min-height: 48px;
+  }
+
+  .orbit-stow__orbit {
+    width: min(100%, 260px);
+  }
+
+  .orbit-stow__dock,
+  .orbit-stow__cargo {
+    transform: translate(-50%, -50%) rotate(var(--orbit-dock-angle, var(--orbit-cargo-angle))) translateY(-88px) rotate(calc(-1 * var(--orbit-dock-angle, var(--orbit-cargo-angle))));
+  }
+
+  .orbit-stow__cargo {
+    transform: translate(-50%, -50%) rotate(var(--orbit-cargo-angle)) translateY(-88px) rotate(calc(-1 * var(--orbit-cargo-angle)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ratchet-reveal__progress,
+  .ratchet-reveal__number,
+  .ratchet-reveal__item,
+  .verdict-selector__choice,
+  .verdict-selector__result strong,
+  .orbit-stow__dock,
+  .orbit-stow__cargo,
+  .palindrome-latch__piece,
+  .palindrome-latch__token,
+  .inside-out-words__word {
+    animation: none;
+    transition: none;
+  }
+}

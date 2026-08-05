@@ -55,6 +55,11 @@ import {
   WordTurnstile,
   RulerRise,
   CheckpointQueue,
+  InsideOutWords,
+  OrbitStow,
+  PalindromeLatch,
+  RatchetReveal,
+  VerdictSelector,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -70,6 +75,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "ratchet-reveal"
+    | "verdict-selector"
+    | "orbit-stow"
+    | "palindrome-latch"
+    | "inside-out-words"
     | "focus-receipt"
     | "ruler-rise"
     | "lasso-lock"
@@ -142,6 +152,151 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "ratchet-reveal") {
+    return (
+      <div className="playground-shell ratchet-reveal-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage ratchet-reveal-preview">
+            <RatchetReveal>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Date</span>
+            </RatchetReveal>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four sealed teeth and no revealed fields.</dd></div>
+            <div><dt>2</dt><dd>Click Advance one notch, or focus it and press Enter.</dd></div>
+            <div><dt>3</dt><dd>Exactly one child opens and the ratchet cannot move backward.</dd></div>
+            <div><dt>4</dt><dd>Reset when the paperwork has become sufficiently ceremonial.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "verdict-selector") {
+    return (
+      <div className="playground-shell verdict-selector-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage verdict-selector-preview">
+            <VerdictSelector label="Ready for another review" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one label and no editorial verdict.</dd></div>
+            <div><dt>2</dt><dd>Choose Headline, Ledger or Whisper.</dd></div>
+            <div><dt>3</dt><dd>The result changes its actual words, order or notation.</dd></div>
+            <div><dt>4</dt><dd>Reopen the case to make a different decision.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "orbit-stow") {
+    return (
+      <div className="playground-shell orbit-stow-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage orbit-stow-preview">
+            <OrbitStow><span>Review me</span></OrbitStow>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the notice parked at dock one.</dd></div>
+            <div><dt>2</dt><dd>Drag the cargo around the ring, or focus the ring and use the arrow keys.</dd></div>
+            <div><dt>3</dt><dd>The notice moves to an actual orbital dock and stays there.</dd></div>
+            <div><dt>4</dt><dd>Return to dock one when the orbit has done enough filing.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "palindrome-latch") {
+    return (
+      <div className="playground-shell palindrome-latch-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage palindrome-latch-preview">
+            <PalindromeLatch>
+              <span>Open</span>
+              <span>Review</span>
+              <span>Decide</span>
+              <span>Close</span>
+            </PalindromeLatch>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>The required route is 1, 2, 3, 4, 3, 2, 1.</dd></div>
+            <div><dt>2</dt><dd>Click the pieces in that order, using Enter or Space when focused.</dd></div>
+            <div><dt>3</dt><dd>A wrong click clears the route and returns the tray to waiting.</dd></div>
+            <div><dt>4</dt><dd>Complete the palindrome to seal the visible sequence.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "inside-out-words") {
+    return (
+      <div className="playground-shell inside-out-words-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage inside-out-words-preview">
+            <InsideOutWords label="Ready for another review" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with every word in its original spelling.</dd></div>
+            <div><dt>2</dt><dd>Click any word, or focus it and press Enter or Space.</dd></div>
+            <div><dt>3</dt><dd>Only that word reverses its actual letters and stays reversed.</dd></div>
+            <div><dt>4</dt><dd>Restore the sentence when the typography has become too honest.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "focus-receipt") {
     return (

@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "ratchet-reveal"
+  | "verdict-selector"
+  | "orbit-stow"
+  | "palindrome-latch"
+  | "inside-out-words"
   | "focus-receipt"
   | "ruler-rise"
   | "lasso-lock"
@@ -79,6 +84,135 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "RatchetReveal",
+    slug: "ratchet-reveal",
+    summary: "A one-way ratchet opens children one sealed tooth at a time.",
+    description:
+      "It turns a row of ordinary children into a paper mechanism with a ratcheting gate. Each activation opens exactly one tooth and keeps that child revealed, so a simple row must earn its complete visibility one notch at a time.",
+    usage: `import { RatchetReveal } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NotarizedFields() {
+  return (
+    <RatchetReveal>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </RatchetReveal>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces revealed one at a time by the one-way ratchet." },
+    ],
+    demo: "ratchet-reveal",
+    useCase:
+      "It could be used to make a reviewer reveal handoff fields only as each one is discussed, or to let a presenter open agenda items one notch at a time during a deliberately ceremonial briefing.",
+    alternative:
+      "A reasonable local alternative is the children in a normal row with one disclosure state. Publishing a ratchet is difficult to defend because visibility should not require mechanical paperwork.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "VerdictSelector",
+    slug: "verdict-selector",
+    summary: "Three binding verdicts turn one label into three genuinely different readings.",
+    description:
+      "It gives a label a tiny editorial tribunal. Choosing Headline moves the last word to the front, Ledger numbers every word, and Whisper reduces the sentence to initials; the decision changes the actual rendered content rather than just its styling.",
+    usage: `import { VerdictSelector } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function JudgedStatus() {
+  return <VerdictSelector label="Ready for another review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The whitespace-separated text given to the three competing verdicts." },
+    ],
+    demo: "verdict-selector",
+    useCase:
+      "It could be used to let a reviewer choose whether a handoff note should read like a headline, ledger or whisper, or to make a presenter select the unnecessarily official register for an agenda line.",
+    alternative:
+      "A reasonable local alternative is one formatter function selected directly by the page. Publishing an editorial tribunal is difficult to defend because three buttons should not decide how a short label is allowed to exist.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "OrbitStow",
+    slug: "orbit-stow",
+    summary: "A draggable piece parks itself at one of eight unnecessary orbital docks.",
+    description:
+      "It turns a child into cargo on a small storage orbit. Drag around the ring or use the arrow keys to park the content at one of eight compass docks; the cargo remains in that real position until it is returned to dock one.",
+    usage: `import { OrbitStow } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OrbitalNotice() {
+  return <OrbitStow><span>Review me</span></OrbitStow>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The single piece of content parked around the orbital ring." },
+    ],
+    demo: "orbit-stow",
+    useCase:
+      "It could be used to park a handoff warning at the side of a card according to where a reviewer drags it, or to let a presenter orbit an agenda label toward the corner of the slide that feels most ceremonially relevant.",
+    alternative:
+      "A reasonable local alternative is one CSS position or an ordinary alignment control. Publishing orbital storage is difficult to defend because content does not become better filed by circling it around a ring.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "PalindromeLatch",
+    slug: "palindrome-latch",
+    summary: "Children lock only when the activation route reads the same forwards and backwards.",
+    description:
+      "It makes a latch out of a palindrome. Activate the pieces in ascending order and then walk back through the same route; a wrong piece clears the sequence, while a complete mirrored route seals the visible latch tray.",
+    usage: `import { PalindromeLatch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MirroredAgenda() {
+  return (
+    <PalindromeLatch>
+      <span>Open</span>
+      <span>Review</span>
+      <span>Decide</span>
+      <span>Close</span>
+    </PalindromeLatch>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces forming the ascending half of the mirrored activation route." },
+    ],
+    demo: "palindrome-latch",
+    useCase:
+      "It could be used to make a reviewer open and close a handoff card through a perfectly mirrored ceremony, or to let a presenter walk an agenda forward and backward before it is considered settled.",
+    alternative:
+      "A reasonable local alternative is one ordered list and a normal completion button. Publishing a palindrome latch is difficult to defend because an action sequence does not improve when it has to rhyme with itself.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "InsideOutWords",
+    slug: "inside-out-words",
+    summary: "Clicking a word reverses its actual letters and leaves the sentence awkwardly changed.",
+    description:
+      "It treats every word as a small reversible object. Click any word to turn its letters inside out in the rendered text; each reversal persists independently until the sentence is restored.",
+    usage: `import { InsideOutWords } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ReversibleNote() {
+  return <InsideOutWords label="Ready for another review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text whose individual words can be reversed in place." },
+    ],
+    demo: "inside-out-words",
+    useCase:
+      "It could be used to make a reviewer reverse the words they have challenged in a handoff note, or to let a presenter mark agenda terms as temporarily unreadable while discussing their meaning.",
+    alternative:
+      "A reasonable local alternative is the original label plus one ordinary annotation style. Publishing clickable word reversal is difficult to defend because rearranging letters is not a credible review status.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "FocusReceipt",
     slug: "focus-receipt",
     summary: "Every focus prints a persistent duplicate at the child’s original station.",
@@ -106,7 +240,6 @@ export function AuditedFields() {
     alternative:
       "A reasonable local alternative is a focus style and one local array of visited indices. Publishing a receipt printer is difficult to defend because looking at a field should not duplicate it.",
     featured: true,
-    isNew: true,
   },
   {
     name: "RulerRise",
