@@ -5,6 +5,231 @@
 
 @source "./components/**/*.{ts,tsx}";
 
+.gra-ui.letter-levy {
+  display: inline-flex;
+  width: min(100%, 480px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.letter-levy__header,
+.letter-levy__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.letter-levy__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.letter-levy__header output {
+  color: var(--greact-foreground);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+.letter-levy__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 118px;
+  gap: 10px;
+}
+
+.letter-levy__label-surface,
+.letter-levy__drawer {
+  min-height: 152px;
+  padding: 14px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: var(--greact-secondary);
+  transition: border-color 220ms ease, background-color 220ms ease;
+}
+
+.letter-levy__label-surface {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: text;
+  outline: none;
+  text-align: center;
+}
+
+.letter-levy__label-surface:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.letter-levy[data-state="filing"] .letter-levy__label-surface,
+.letter-levy[data-state="cleared"] .letter-levy__label-surface {
+  border-color: var(--greact-ring);
+}
+
+.letter-levy__label {
+  max-width: 100%;
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(21px, 5vw, 30px);
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+.letter-levy__label > span {
+  display: inline-block;
+  min-width: 0.18em;
+  animation: gra-ui-letter-levy-settle 220ms ease both;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.letter-levy__label > span[data-space="true"] {
+  min-width: 0.34em;
+}
+
+.letter-levy__cleared {
+  color: var(--greact-ring);
+  font-size: 14px;
+  font-weight: 550;
+  letter-spacing: 0;
+}
+
+.letter-levy__hint {
+  margin-top: 16px;
+  color: var(--greact-ring);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.letter-levy__drawer {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  border-style: dashed;
+  background: var(--greact-background);
+}
+
+.letter-levy__drawer-label {
+  width: 100%;
+  margin-bottom: 5px;
+  color: var(--greact-ring);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.letter-levy__token,
+.letter-levy__empty {
+  display: inline-flex;
+  min-width: 28px;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 7px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 3px);
+  background: var(--greact-secondary);
+  color: var(--greact-foreground);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.letter-levy__token {
+  animation: gra-ui-letter-levy-arrive 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.letter-levy__empty {
+  min-width: 0;
+  border-style: dashed;
+  color: var(--greact-ring);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.letter-levy__footer {
+  align-items: flex-start;
+}
+
+.letter-levy__footer p {
+  min-height: 32px;
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.letter-levy__reset {
+  flex-shrink: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.letter-levy__reset:hover:not(:disabled),
+.letter-levy__reset:focus-visible {
+  color: var(--greact-ring);
+}
+
+.letter-levy__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.letter-levy__reset:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+@keyframes gra-ui-letter-levy-arrive {
+  from { opacity: 0; transform: translateX(-10px) rotate(-8deg) scale(0.7); }
+  70% { opacity: 1; transform: translateX(2px) rotate(2deg) scale(1.06); }
+  to { opacity: 1; transform: translateX(0) rotate(0) scale(1); }
+}
+
+@keyframes gra-ui-letter-levy-settle {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter-levy__label-surface,
+  .letter-levy__drawer,
+  .letter-levy__label > span,
+  .letter-levy__token {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .letter-levy__stage {
+    grid-template-columns: 1fr;
+  }
+
+  .letter-levy__drawer {
+    min-height: 72px;
+  }
+}
+
 .gra-ui.idle-unspool {
   display: inline-flex;
   width: min(100%, 460px);

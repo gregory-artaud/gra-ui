@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "letter-levy"
   | "parity-purge"
   | "blank-filing"
   | "momentum-weave"
@@ -72,6 +73,29 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "LetterLevy",
+    slug: "letter-levy",
+    summary: "A label that pays every matching letter into a visible drawer.",
+    description:
+      "It turns the keyboard into a tiny tax office. Focus the label and press one letter; every matching occurrence leaves the sentence and arrives as a separate token in the levy drawer.",
+    usage: `import { LetterLevy } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TaxedStatus() {
+  return <LetterLevy label="Review the brief today" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text whose matching letters are filed when their key is pressed." },
+    ],
+    demo: "letter-levy",
+    useCase:
+      "It could be used to make a reviewer pay a textual levy before filing a handoff status, or to let a presenter remove every copy of one letter from an agenda heading while discussing it.",
+    alternative:
+      "A reasonable local alternative is a string filter with an ordinary display. Publishing a letter levy is difficult to defend because a keyboard character is not an authority entitled to tax an entire sentence.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "ParityPurge",
     slug: "parity-purge",
     summary: "Children sorted into survivors and rejects by an odd-or-even decree.",
@@ -99,7 +123,6 @@ export function ParityFiledFields() {
     alternative:
       "A reasonable local alternative is an array filter with one normal layout. Publishing a parity purge is difficult to defend because the position of a field is not evidence that it should survive.",
     featured: true,
-    isNew: true,
   },
   {
     name: "BlankFiling",

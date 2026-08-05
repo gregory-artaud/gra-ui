@@ -16,6 +16,27 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## LetterLevy
+
+`LetterLevy` makes a keyboard letter into a filing order. Press a letter that appears in the label and every matching occurrence leaves the sentence for a visible levy drawer.
+
+```ts
+type LetterLevyProps = {
+  label: string;
+};
+```
+
+```tsx
+import { LetterLevy } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TaxedStatus() {
+  return <LetterLevy label="Review the brief today" />;
+}
+```
+
+Focus the label surface and press a visible letter. All matching characters disappear from the rendered label and arrive as individual tokens in the drawer; `Restore label` returns the original text. It could be used to make a reviewer pay a textual levy before filing a handoff status, or to let a presenter remove every copy of one letter from an agenda heading while discussing it. A reasonable local alternative is a string filter with an ordinary display. This component should not have existed because a keyboard character is not an authority entitled to tax an entire sentence.
+
 ## ParityPurge
 
 `ParityPurge` asks whether odd or even child positions deserve to survive. Choosing a rule moves the other children into a real discard tray, turning an arbitrary numbering decision into a visible filing state.

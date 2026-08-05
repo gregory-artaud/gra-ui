@@ -26,6 +26,7 @@ import {
   IdleUnspool,
   IndecisiveButton,
   KeystrokeStack,
+  LetterLevy,
   LayoutReferendum,
   LastRemaining,
   LengthOrder,
@@ -63,6 +64,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "letter-levy"
     | "parity-purge"
     | "blank-filing"
     | "momentum-weave"
@@ -128,6 +130,36 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "letter-levy") {
+    return (
+      <div className="playground-shell letter-levy-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage letter-levy-preview">
+            <LetterLevy label="Review the brief today" />
+            <p className="decision-output" aria-live="polite">
+              Focus the label and press a visible letter. Every matching copy pays into the drawer.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary status label and an empty levy drawer.</dd></div>
+            <div><dt>2</dt><dd>Focus the label surface and press a letter that appears in it.</dd></div>
+            <div><dt>3</dt><dd>Every matching occurrence leaves the label and arrives as a real token.</dd></div>
+            <div><dt>4</dt><dd>Restore the label when the keyboard has collected enough unnecessary tax.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "parity-purge") {
     return (
