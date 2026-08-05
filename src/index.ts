@@ -1,6 +1,10 @@
 import "./styles.css";
 
 export {
+  ParityPurge,
+  type ParityPurgeProps,
+} from "./components/parity-purge";
+export {
   BlankFiling,
   type BlankFilingProps,
 } from "./components/blank-filing";

@@ -1,4 +1,5 @@
 export type DemoKind =
+  | "parity-purge"
   | "blank-filing"
   | "momentum-weave"
   | "space-staple"
@@ -71,6 +72,36 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "ParityPurge",
+    slug: "parity-purge",
+    summary: "Children sorted into survivors and rejects by an odd-or-even decree.",
+    description:
+      "It presents ordinary children as numbered positions and asks you to choose whether odd or even positions deserve to remain. The other children move into a real discard tray, so a tiny parity rule becomes a permanent filing decision until everything is restored.",
+    usage: `import { ParityPurge } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ParityFiledFields() {
+  return (
+    <ParityPurge>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ParityPurge>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content assigned one-based positions and split by the chosen odd-or-even rule." },
+    ],
+    demo: "parity-purge",
+    useCase:
+      "It could be used to let a reviewer decide whether odd- or even-numbered fields deserve to stay on a handoff card, or to make a presenter discard every other agenda label before discussing the survivors.",
+    alternative:
+      "A reasonable local alternative is an array filter with one normal layout. Publishing a parity purge is difficult to defend because the position of a field is not evidence that it should survive.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "BlankFiling",
     slug: "blank-filing",
     summary: "Children filed one at a time by submitting absolutely nothing.",
@@ -98,7 +129,6 @@ export function UnexplainedFiling() {
     alternative:
       "A reasonable local alternative is a form submit handler with one array slice and a normal button. Publishing a blank filing protocol is difficult to defend because an absence of evidence should not reorganize content.",
     featured: true,
-    isNew: true,
   },
   {
     name: "MomentumWeave",

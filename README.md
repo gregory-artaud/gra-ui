@@ -16,6 +16,34 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## ParityPurge
+
+`ParityPurge` asks whether odd or even child positions deserve to survive. Choosing a rule moves the other children into a real discard tray, turning an arbitrary numbering decision into a visible filing state.
+
+```ts
+type ParityPurgeProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { ParityPurge } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ParityFiledFields() {
+  return (
+    <ParityPurge>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ParityPurge>
+  );
+}
+```
+
+Choose `Keep odd positions` or `Keep even positions`. The selected positions remain in the kept tray while the others move into the purged tray; `Restore all` returns the original set. It could be used to let a reviewer decide which numbered fields stay on a handoff card, or to make a presenter discard every other agenda label before discussing the survivors. A reasonable local alternative is an array filter with a normal layout. This component should not have existed because a field’s position is not evidence that it deserves to survive.
+
 ## BlankFiling
 
 `BlankFiling` files one child at a time whenever its small form is submitted with absolutely no evidence. A filled submission is refused; an empty one moves the next child into a separate void shelf, so the absence of information becomes a real layout decision.

@@ -33,6 +33,7 @@ import {
   MomentumWeave,
   NestChildren,
   PairwiseMerge,
+  ParityPurge,
   PressEscape,
   ReorderBack,
   ScaleSweep,
@@ -62,6 +63,7 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "parity-purge"
     | "blank-filing"
     | "momentum-weave"
     | "space-staple"
@@ -126,6 +128,41 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "parity-purge") {
+    return (
+      <div className="playground-shell parity-purge-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage parity-purge-preview">
+            <ParityPurge>
+              <span className="parity-purge-demo-label">Title</span>
+              <span className="parity-purge-demo-label">Status</span>
+              <span className="parity-purge-demo-label">Owner</span>
+              <span className="parity-purge-demo-label">Date</span>
+            </ParityPurge>
+            <p className="decision-output" aria-live="polite">
+              Choose odd or even. The other positions move into a real discard tray.
+            </p>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header">
+            <span>Mechanism</span>
+          </div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four ordinary fields carrying positions one through four.</dd></div>
+            <div><dt>2</dt><dd>Choose whether odd or even positions deserve to remain.</dd></div>
+            <div><dt>3</dt><dd>The surviving fields stay visible while the others move into a separate purged tray.</dd></div>
+            <div><dt>4</dt><dd>Restore all to erase the decree and return every field to the waiting lane.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "blank-filing") {
     return (
