@@ -5,6 +5,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "precision-ladder" ||
+    kind === "mask-ballot" ||
+    kind === "free-drift" ||
+    kind === "docket-sequence" ||
+    kind === "vowel-hinge" ||
     kind === "ratchet-reveal" ||
     kind === "verdict-selector" ||
     kind === "orbit-stow" ||

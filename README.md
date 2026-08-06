@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## PrecisionLadder
+
+`PrecisionLadder` makes a child earn its center through four increasingly small target rings. A successful hit advances the real progress state and tightens the next ring; a miss returns the ladder to its outer ring. The target gives a short scale-and-ring hit animation and a small rejection shake.
+
+```ts
+type PrecisionLadderProps = {
+  children: React.ReactNode;
+};
+```
+
+`children` is the content placed in the target. Click nearer the center on each attempt, or focus the target and press `Enter` or `Space`; after four successful hits the child is considered centered. It could make a reviewer center a handoff warning before it is presentable, or let a presenter earn the exact middle of a slide for one agenda label. A reasonable local alternative is a centered container with no ceremony; a label does not gain authority from being clicked near its own center.
+
+## MaskBallot
+
+`MaskBallot` gives a child three physical stencil choices. Choosing `Round`, `Ticket` or `Slit` changes the actual clipping geometry of the rendered content, with a snap animation as the mask settles.
+
+```ts
+type MaskBallotProps = {
+  children: React.ReactNode;
+};
+```
+
+`children` is the content covered by the selected stencil. Choose one of the three buttons to create a materially different opening, then remove the stencil to return to the unmasked state. It could let a reviewer choose how a warning is seen through a paper opening, or give a presenter three ceremonial ways to reveal an agenda label. A reasonable local alternative is one CSS mask chosen directly by the page; content does not need a ballot for perforation.
+
+## FreeDrift
+
+`FreeDrift` lets a child keep arbitrary coordinates inside a bounded grid. Dragging moves the real position directly, arrow keys make five-point adjustments, and the cargo settles with a short positional transition.
+
+```ts
+type FreeDriftProps = {
+  children: React.ReactNode;
+};
+```
+
+`children` is the single draggable cargo. Drag it anywhere inside the surface, or focus it and use the arrow keys; `Return to center` restores the initial position. It could let a reviewer park a handoff note where attention wandered, or let a presenter assign an agenda label a personally selected coordinate on a slide. A reasonable local alternative is normal flow layout or one alignment value; arbitrary coordinates are not a filing system.
+
+## DocketSequence
+
+`DocketSequence` moves a child through four visible stations only when three actions happen in order: click `Open docket`, type exactly one character, then click `File with evidence`. The cargo translates between stations and gives the final filing a small settle animation.
+
+```ts
+type DocketSequenceProps = {
+  children: React.ReactNode;
+};
+```
+
+`children` is the content filed by the sequence. The evidence field is unavailable until the docket is open, and filing is unavailable until one character exists; `Clear docket` starts over. It could make a reviewer open a handoff item, add a one-character evidence mark and file it, or force an agenda label through a miniature approval ritual. A reasonable local alternative is one button and one boolean; a trivial filing does not need a key, a gate and four stations.
+
+## VowelHinge
+
+`VowelHinge` detaches the first vowel from one word at a time. The original word gains a visible gap and the removed vowel becomes a raised chip beside it, so the rendered content is structurally transformed rather than merely recolored; `Restore words` returns every letter to its word.
+
+```ts
+type VowelHingeProps = {
+  label: string;
+};
+```
+
+`label` is the sentence whose words are transformed. Click `Hinge next vowel` until each word has surrendered one vowel. It could make a reviewer separate the vocal centers of a handoff note, or let a presenter hang one vowel from each agenda word while discussing its structure. A reasonable local alternative is the original sentence with an annotation; a short label does not become clearer when its vowels are put on hinges.
+
 ## RatchetReveal
 
 `RatchetReveal` opens children one sealed tooth at a time. Each notch changes the real rendered state and stays open until the ratchet is reset.

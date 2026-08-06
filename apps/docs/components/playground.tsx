@@ -55,11 +55,16 @@ import {
   WordTurnstile,
   RulerRise,
   CheckpointQueue,
+  DocketSequence,
+  FreeDrift,
   InsideOutWords,
+  MaskBallot,
   OrbitStow,
   PalindromeLatch,
+  PrecisionLadder,
   RatchetReveal,
   VerdictSelector,
+  VowelHinge,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -76,6 +81,11 @@ type Variant = (typeof variants)[number];
 export interface PlaygroundProps {
   kind?:
     | "ratchet-reveal"
+    | "precision-ladder"
+    | "mask-ballot"
+    | "free-drift"
+    | "docket-sequence"
+    | "vowel-hinge"
     | "verdict-selector"
     | "orbit-stow"
     | "palindrome-latch"
@@ -179,6 +189,131 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Click Advance one notch, or focus it and press Enter.</dd></div>
             <div><dt>3</dt><dd>Exactly one child opens and the ratchet cannot move backward.</dd></div>
             <div><dt>4</dt><dd>Reset when the paperwork has become sufficiently ceremonial.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "precision-ladder") {
+    return (
+      <div className="playground-shell precision-ladder-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage precision-ladder-preview">
+            <PrecisionLadder><span>Center me</span></PrecisionLadder>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four rings and no earned precision.</dd></div>
+            <div><dt>2</dt><dd>Click nearer the center on each attempt; keyboard activation counts as a perfect hit.</dd></div>
+            <div><dt>3</dt><dd>Each success tightens the target. A miss sends the ladder back to its outer ring.</dd></div>
+            <div><dt>4</dt><dd>Reset when centering a label has become a professional obligation.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "mask-ballot") {
+    return (
+      <div className="playground-shell mask-ballot-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage mask-ballot-preview">
+            <MaskBallot><span>Review me</span></MaskBallot>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with content that has no stencil.</dd></div>
+            <div><dt>2</dt><dd>Choose Round, Ticket or Slit.</dd></div>
+            <div><dt>3</dt><dd>The selected mask clips the actual content into a materially different opening.</dd></div>
+            <div><dt>4</dt><dd>Remove the stencil to hold another unnecessary ballot.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "free-drift") {
+    return (
+      <div className="playground-shell free-drift-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage free-drift-preview">
+            <FreeDrift><span>Unassigned</span></FreeDrift>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the content at the exact center of the grid.</dd></div>
+            <div><dt>2</dt><dd>Drag it to any coordinate, or focus it and use the arrow keys.</dd></div>
+            <div><dt>3</dt><dd>The content keeps the precise place you gave it instead of improving the layout.</dd></div>
+            <div><dt>4</dt><dd>Return it to center when free will has been sufficiently demonstrated.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "docket-sequence") {
+    return (
+      <div className="playground-shell docket-sequence-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage docket-sequence-preview">
+            <DocketSequence><span>Approve</span></DocketSequence>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Click Open docket. The other steps remain unavailable.</dd></div>
+            <div><dt>2</dt><dd>Type exactly one character into the newly permitted evidence field.</dd></div>
+            <div><dt>3</dt><dd>Click File with evidence in that order; the content travels to Filed.</dd></div>
+            <div><dt>4</dt><dd>Clear the docket to repeat the whole ceremony.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "vowel-hinge") {
+    return (
+      <div className="playground-shell vowel-hinge-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage vowel-hinge-preview">
+            <VowelHinge label="Review the brief" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary sentence and intact words.</dd></div>
+            <div><dt>2</dt><dd>Click Hinge next vowel to detach one first vowel.</dd></div>
+            <div><dt>3</dt><dd>The vowel leaves a visible gap and becomes a raised hinge chip beside its word.</dd></div>
+            <div><dt>4</dt><dd>Restore words when the sentence has been disassembled enough.</dd></div>
           </dl>
         </div>
       </div>

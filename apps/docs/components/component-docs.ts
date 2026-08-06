@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "precision-ladder"
+  | "mask-ballot"
+  | "free-drift"
+  | "docket-sequence"
+  | "vowel-hinge"
   | "ratchet-reveal"
   | "verdict-selector"
   | "orbit-stow"
@@ -84,6 +89,121 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "PrecisionLadder",
+    slug: "precision-ladder",
+    summary: "A label climbs four shrinking target rings before it is allowed to be centered.",
+    description:
+      "It turns a piece of content into a precision exercise. Each successful click lands inside the current target ring, tightens the next ring and advances a real progress state; a miss resets the ladder to its outer ring.",
+    usage: `import { PrecisionLadder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CenteredNotice() {
+  return <PrecisionLadder><span>Center me</span></PrecisionLadder>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content placed in the target and centered only after four accurate hits." },
+    ],
+    demo: "precision-ladder",
+    useCase:
+      "It could be used to make a reviewer center a handoff warning before it is considered presentable, or to let a presenter earn the right to place an agenda label in the exact middle of a slide.",
+    alternative:
+      "A reasonable local alternative is a centered container with no ceremony. Publishing an accuracy ladder is difficult to defend because a label does not gain authority from being clicked near its own center.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "MaskBallot",
+    slug: "mask-ballot",
+    summary: "Three stencil votes clip the same content into three genuinely different openings.",
+    description:
+      "It gives a piece of content a physical masking ballot. Choosing Round, Ticket or Slit changes the actual clipping geometry of the rendered content, so the result is not merely a selected color or label.",
+    usage: `import { MaskBallot } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function StenciledNotice() {
+  return <MaskBallot><span>Review me</span></MaskBallot>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content covered by the selected physical stencil." },
+    ],
+    demo: "mask-ballot",
+    useCase:
+      "It could be used to let a reviewer choose whether a warning is seen through a round, perforated or narrow opening, or to give a presenter three ceremonial ways to reveal one agenda label.",
+    alternative:
+      "A reasonable local alternative is one intentional CSS mask chosen by the page. Publishing a ballot for clipping is difficult to defend because the content did not ask for a perforation policy.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "FreeDrift",
+    slug: "free-drift",
+    summary: "A child keeps the exact arbitrary coordinates assigned to it by direct manipulation.",
+    description:
+      "It turns a bounded surface into a small jurisdiction for free positioning. Drag the child to any coordinate or move it with arrow keys; the exact position remains real state until it is returned to center.",
+    usage: `import { FreeDrift } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function UnassignedNotice() {
+  return <FreeDrift><span>Unassigned</span></FreeDrift>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The single piece of content that may drift anywhere inside the bounded surface." },
+    ],
+    demo: "free-drift",
+    useCase:
+      "It could be used to let a reviewer park a handoff note exactly where their attention wandered, or to let a presenter place an agenda label at a personally selected coordinate on a slide.",
+    alternative:
+      "A reasonable local alternative is normal flow layout or one deliberate alignment value. Publishing a free-drift surface is difficult to defend because arbitrary coordinates are not a filing system.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "DocketSequence",
+    slug: "docket-sequence",
+    summary: "A child travels through a docket only after click, type and click happen in order.",
+    description:
+      "It turns a tiny piece of content into a three-action filing ceremony. Open the docket, type exactly one character as evidence, then file; each ordered step moves the real child through visible stations and an out-of-order step is unavailable.",
+    usage: `import { DocketSequence } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledApproval() {
+  return <DocketSequence><span>Approve</span></DocketSequence>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content moved through the docket stations when the sequence is completed." },
+    ],
+    demo: "docket-sequence",
+    useCase:
+      "It could be used to make a reviewer open a handoff item, add a one-character evidence mark and file it in a strict order, or to force an agenda label through a miniature approval ritual.",
+    alternative:
+      "A reasonable local alternative is one button and a local boolean. Publishing a docket sequence is difficult to defend because a trivial filing does not need a key, a gate and three stations.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "VowelHinge",
+    slug: "vowel-hinge",
+    summary: "One first vowel leaves each word and becomes a raised hinge chip beside its gap.",
+    description:
+      "It turns a sentence into a hinged inventory. Each activation detaches the first vowel from the next word, leaves a visible gap in the original word and renders the vowel as a separate raised chip; restoring the sentence returns every letter.",
+    usage: `import { VowelHinge } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function HingedBrief() {
+  return <VowelHinge label="Review the brief" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence whose first vowels are detached one word at a time." },
+    ],
+    demo: "vowel-hinge",
+    useCase:
+      "It could be used to make a reviewer physically separate the vocal centers of a handoff note, or to let a presenter hang one vowel from each agenda word while discussing its structure.",
+    alternative:
+      "A reasonable local alternative is the original sentence with an annotation or comment. Publishing vowel extraction is difficult to defend because a short label does not become clearer when its vowels are put on hinges.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "RatchetReveal",
     slug: "ratchet-reveal",
     summary: "A one-way ratchet opens children one sealed tooth at a time.",
@@ -111,7 +231,6 @@ export function NotarizedFields() {
     alternative:
       "A reasonable local alternative is the children in a normal row with one disclosure state. Publishing a ratchet is difficult to defend because visibility should not require mechanical paperwork.",
     featured: true,
-    isNew: true,
   },
   {
     name: "VerdictSelector",
@@ -134,7 +253,6 @@ export function JudgedStatus() {
     alternative:
       "A reasonable local alternative is one formatter function selected directly by the page. Publishing an editorial tribunal is difficult to defend because three buttons should not decide how a short label is allowed to exist.",
     featured: true,
-    isNew: true,
   },
   {
     name: "OrbitStow",
@@ -157,7 +275,6 @@ export function OrbitalNotice() {
     alternative:
       "A reasonable local alternative is one CSS position or an ordinary alignment control. Publishing orbital storage is difficult to defend because content does not become better filed by circling it around a ring.",
     featured: true,
-    isNew: true,
   },
   {
     name: "PalindromeLatch",
@@ -187,7 +304,6 @@ export function MirroredAgenda() {
     alternative:
       "A reasonable local alternative is one ordered list and a normal completion button. Publishing a palindrome latch is difficult to defend because an action sequence does not improve when it has to rhyme with itself.",
     featured: true,
-    isNew: true,
   },
   {
     name: "InsideOutWords",
@@ -210,7 +326,6 @@ export function ReversibleNote() {
     alternative:
       "A reasonable local alternative is the original label plus one ordinary annotation style. Publishing clickable word reversal is difficult to defend because rearranging letters is not a credible review status.",
     featured: true,
-    isNew: true,
   },
   {
     name: "FocusReceipt",
