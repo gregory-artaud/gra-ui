@@ -51,6 +51,11 @@ import {
   TimedRelease,
   WeightVote,
   WeekdayLedger,
+  WheelStamp,
+  ElasticFrame,
+  NeighborMarch,
+  SignalChoice,
+  FootnoteShift,
   WordRelay,
   WordTurnstile,
   RulerRise,
@@ -80,6 +85,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "wheel-stamp"
+    | "elastic-frame"
+    | "neighbor-march"
+    | "signal-choice"
+    | "footnote-shift"
     | "ratchet-reveal"
     | "precision-ladder"
     | "mask-ballot"
@@ -162,6 +172,136 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "wheel-stamp") {
+    return (
+      <div className="playground-shell wheel-stamp-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage wheel-stamp-preview">
+            <WheelStamp><span>Approve this</span></WheelStamp>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary label and no paper seals.</dd></div>
+            <div><dt>2</dt><dd>Roll over the paper, or focus it and press ArrowUp.</dd></div>
+            <div><dt>3</dt><dd>Each notch adds one real visible seal, up to five.</dd></div>
+            <div><dt>4</dt><dd>Roll back or remove the stamps when the paperwork is complete.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "elastic-frame") {
+    return (
+      <div className="playground-shell elastic-frame-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage elastic-frame-preview">
+            <ElasticFrame><span>Fit me into the brief column</span></ElasticFrame>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a flexible frame around one label.</dd></div>
+            <div><dt>2</dt><dd>Drag the right handle, or focus it and press the arrow keys.</dd></div>
+            <div><dt>3</dt><dd>The frame width changes the label&apos;s actual wrapping and remains selected.</dd></div>
+            <div><dt>4</dt><dd>Restore the frame when the layout has been made sufficiently awkward.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "neighbor-march") {
+    return (
+      <div className="playground-shell neighbor-march-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage neighbor-march-preview">
+            <NeighborMarch>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Date</span>
+            </NeighborMarch>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start anywhere in the row.</dd></div>
+            <div><dt>2</dt><dd>After that, choose only an untouched piece directly beside the current one.</dd></div>
+            <div><dt>3</dt><dd>A long jump clears the route and sends the march back to its first step.</dd></div>
+            <div><dt>4</dt><dd>Visit the full row to finish the corridor.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "signal-choice") {
+    return (
+      <div className="playground-shell signal-choice-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage signal-choice-preview">
+            <SignalChoice label="Ready for review" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one ordinary sentence.</dd></div>
+            <div><dt>2</dt><dd>Choose Morse, Braille or Ledger.</dd></div>
+            <div><dt>3</dt><dd>Each choice replaces the actual text with a different notation.</dd></div>
+            <div><dt>4</dt><dd>Restore the label when no notation deserves to win.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "footnote-shift") {
+    return (
+      <div className="playground-shell footnote-shift-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage footnote-shift-preview">
+            <FootnoteShift label="Review the questionable brief" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with every word inline and an empty footnote rail.</dd></div>
+            <div><dt>2</dt><dd>Click any word to move its actual content into a numbered note.</dd></div>
+            <div><dt>3</dt><dd>The sentence keeps a visible gap and the note can move back.</dd></div>
+            <div><dt>4</dt><dd>Restore the sentence when the scholarship has become excessive.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "ratchet-reveal") {
     return (

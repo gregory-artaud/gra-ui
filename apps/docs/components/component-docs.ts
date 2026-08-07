@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "wheel-stamp"
+  | "elastic-frame"
+  | "neighbor-march"
+  | "signal-choice"
+  | "footnote-shift"
   | "precision-ladder"
   | "mask-ballot"
   | "free-drift"
@@ -89,6 +94,128 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "WheelStamp",
+    slug: "wheel-stamp",
+    summary: "A child collects five paper seals from a mouse wheel before it is overqualified.",
+    description:
+      "It turns local scrolling into a real five-step approval progression. Each wheel notch adds a visible seal to the paper and rolling backward removes the most recent one.",
+    usage: `import { WheelStamp } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function StampedNotice() {
+  return <WheelStamp><span>Review me</span></WheelStamp>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content collecting the five visible paper seals." },
+    ],
+    demo: "wheel-stamp",
+    useCase:
+      "It could make a reviewer over-certify a handoff note, or let a presenter stamp an agenda label before allowing it onto a slide.",
+    alternative:
+      "A reasonable local alternative is a progress indicator or no indicator at all. Scrolling should not issue paper authority.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "ElasticFrame",
+    slug: "elastic-frame",
+    summary: "A draggable frame forces its child through arbitrary widths and keeps the chosen measurement.",
+    description:
+      "It makes direct resizing the experience. The handle changes the frame's real width, so the child wraps and reflows instead of merely changing a decorative scale.",
+    usage: `import { ElasticFrame } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NarrowNotice() {
+  return <ElasticFrame><span>Make this fit badly</span></ElasticFrame>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content reflowing inside the directly resized frame." },
+    ],
+    demo: "elastic-frame",
+    useCase:
+      "It could let a reviewer test whether a handoff label survives an unreasonable column, or let a presenter choose the least readable width for an agenda.",
+    alternative:
+      "A reasonable local alternative is normal responsive layout with a deliberate max-width. A draggable frame is not a layout system.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "NeighborMarch",
+    slug: "neighbor-march",
+    summary: "Children can be visited only by stepping to an untouched adjacent neighbor.",
+    description:
+      "It turns a row into a tiny corridor. The first piece may be anywhere, but every next choice must be one position away; a long-distance choice resets the route.",
+    usage: `import { NeighborMarch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CorridorFields() {
+  return (
+    <NeighborMarch>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </NeighborMarch>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces visited through the adjacent-only route." },
+    ],
+    demo: "neighbor-march",
+    useCase:
+      "It could make a reviewer inspect fields as though they were tiles in a corridor, or make a presenter walk an agenda left and right instead of selecting a topic directly.",
+    alternative:
+      "A reasonable local alternative is a normal list with independent focus. Adjacency is not a useful requirement for reading.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "SignalChoice",
+    slug: "signal-choice",
+    summary: "Three choices encode one label as Morse, Braille or a numbered ledger.",
+    description:
+      "It offers genuinely divergent content states rather than cosmetic variants. The selected choice replaces the label with a different notation and can be restored without a formatter dependency.",
+    usage: `import { SignalChoice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EncodedStatus() {
+  return <SignalChoice label="Ready for review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text transformed by the selected encoding." },
+    ],
+    demo: "signal-choice",
+    useCase:
+      "It could turn a handoff status into an unnecessarily formal signal, or let a presenter choose a different notation for each agenda line.",
+    alternative:
+      "A reasonable local alternative is one explicit formatter chosen by the page. Three incompatible records are not a useful label API.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "FootnoteShift",
+    slug: "footnote-shift",
+    summary: "Clicked words leave a sentence and become numbered footnotes with visible gaps behind.",
+    description:
+      "It transforms the actual content of a sentence by relocating whole words. The original line keeps a placeholder, while the word lives in a reversible footnote rail.",
+    usage: `import { FootnoteShift } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AnnotatedStatus() {
+  return <FootnoteShift label="Review the questionable brief" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence whose words can move into the footnote rail." },
+    ],
+    demo: "footnote-shift",
+    useCase:
+      "It could make a reviewer quarantine debatable words in a handoff note, or let a presenter demote agenda terms into a running scholarly apparatus.",
+    alternative:
+      "A reasonable local alternative is an annotation or footnote supplied by the page. Moving prose around one click at a time is not editorial tooling.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "PrecisionLadder",
     slug: "precision-ladder",
     summary: "A label climbs four shrinking target rings before it is allowed to be centered.",
@@ -109,7 +236,6 @@ export function CenteredNotice() {
     alternative:
       "A reasonable local alternative is a centered container with no ceremony. Publishing an accuracy ladder is difficult to defend because a label does not gain authority from being clicked near its own center.",
     featured: true,
-    isNew: true,
   },
   {
     name: "MaskBallot",
@@ -132,7 +258,6 @@ export function StenciledNotice() {
     alternative:
       "A reasonable local alternative is one intentional CSS mask chosen by the page. Publishing a ballot for clipping is difficult to defend because the content did not ask for a perforation policy.",
     featured: true,
-    isNew: true,
   },
   {
     name: "FreeDrift",
@@ -155,7 +280,6 @@ export function UnassignedNotice() {
     alternative:
       "A reasonable local alternative is normal flow layout or one deliberate alignment value. Publishing a free-drift surface is difficult to defend because arbitrary coordinates are not a filing system.",
     featured: true,
-    isNew: true,
   },
   {
     name: "DocketSequence",
@@ -178,7 +302,6 @@ export function FiledApproval() {
     alternative:
       "A reasonable local alternative is one button and a local boolean. Publishing a docket sequence is difficult to defend because a trivial filing does not need a key, a gate and three stations.",
     featured: true,
-    isNew: true,
   },
   {
     name: "VowelHinge",
@@ -201,7 +324,6 @@ export function HingedBrief() {
     alternative:
       "A reasonable local alternative is the original sentence with an annotation or comment. Publishing vowel extraction is difficult to defend because a short label does not become clearer when its vowels are put on hinges.",
     featured: true,
-    isNew: true,
   },
   {
     name: "RatchetReveal",

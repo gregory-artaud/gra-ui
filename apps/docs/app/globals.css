@@ -569,6 +569,14 @@ a {
   min-width: 168px;
 }
 
+.wheel-stamp-preview .gra-ui,
+.elastic-frame-preview .gra-ui,
+.neighbor-march-preview .gra-ui,
+.signal-choice-preview .gra-ui,
+.footnote-shift-preview .gra-ui {
+  width: min(100%, 480px);
+}
+
 .ruler-rise-preview .gra-ui {
   width: min(100%, 460px);
 }

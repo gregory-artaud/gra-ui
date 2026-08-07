@@ -1,6 +1,27 @@
 import "./styles.css";
 
 export {
+  WheelStamp,
+  type WheelStampProps,
+} from "./components/wheel-stamp";
+export {
+  ElasticFrame,
+  type ElasticFrameProps,
+} from "./components/elastic-frame";
+export {
+  NeighborMarch,
+  type NeighborMarchProps,
+} from "./components/neighbor-march";
+export {
+  SignalChoice,
+  type SignalChoiceProps,
+} from "./components/signal-choice";
+export {
+  FootnoteShift,
+  type FootnoteShiftProps,
+} from "./components/footnote-shift";
+
+export {
   RulerRise,
   type RulerRiseProps,
 } from "./components/ruler-rise";

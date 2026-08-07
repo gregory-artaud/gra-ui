@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## WheelStamp
+
+`WheelStamp` makes a child collect five paper seals from a local mouse wheel. Each notch advances a real state and adds a visible seal; rolling back or removing the stamps returns the paper to its initial form.
+
+```ts
+type WheelStampProps = {
+  children: React.ReactNode;
+};
+```
+
+Roll over the paper, or focus it and use the arrow keys, to progress from zero to five seals. It could make a reviewer over-certify a handoff note, or let a presenter stamp an agenda label before allowing it onto a slide. A reasonable local alternative is a progress indicator or no indicator at all; scrolling should not issue paper authority.
+
+## ElasticFrame
+
+`ElasticFrame` lets a child be resized directly by dragging its frame handle. The available width changes the actual wrapping of the content and remains at the chosen measurement until the frame is restored.
+
+```ts
+type ElasticFrameProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the right handle, or focus it and use the arrow keys, to force the content into an arbitrary width. It could let a reviewer test whether a handoff label survives an unreasonable column, or let a presenter choose the least readable width for an agenda. A reasonable local alternative is normal responsive layout with a deliberate max-width; a draggable frame is not a layout system.
+
+## NeighborMarch
+
+`NeighborMarch` requires every child to be visited by stepping only to an adjacent child. A long-distance click resets the route, and a completed route keeps the real visited state until reset.
+
+```ts
+type NeighborMarchProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose any first piece, then click or focus each untouched neighbor in sequence. It could make a reviewer inspect fields as though they were tiles in a corridor, or make a presenter walk an agenda left and right instead of selecting a topic directly. A reasonable local alternative is a normal list with independent focus; adjacency is not a useful requirement for reading.
+
+## SignalChoice
+
+`SignalChoice` offers three genuinely different encodings of a label: Morse marks, Braille glyphs or numbered ledger initials. The selected choice changes the actual rendered content, not only its color or decoration.
+
+```ts
+type SignalChoiceProps = {
+  label: string;
+};
+```
+
+Choose one encoding and restore the original label when the experiment is over. It could turn a handoff status into an unnecessarily formal signal, or let a presenter choose a different notation for each agenda line. A reasonable local alternative is one explicit formatter chosen by the page; three incompatible records are not a useful label API.
+
+## FootnoteShift
+
+`FootnoteShift` moves clicked words out of a sentence and into a numbered footnote rail. The sentence receives a visible placeholder, while the actual word remains available in its new position and can be returned.
+
+```ts
+type FootnoteShiftProps = {
+  label: string;
+};
+```
+
+Click a word to relocate it, or click its footnote to restore it; `Restore sentence` returns every word at once. It could make a reviewer quarantine debatable words in a handoff note, or let a presenter demote agenda terms into a running scholarly apparatus. A reasonable local alternative is an annotation or footnote supplied by the page; moving prose around one click at a time is not editorial tooling.
+
 ## PrecisionLadder
 
 `PrecisionLadder` makes a child earn its center through four increasingly small target rings. A successful hit advances the real progress state and tightens the next ring; a miss returns the ladder to its outer ring. The target gives a short scale-and-ring hit animation and a small rejection shake.
