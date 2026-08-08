@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "punch-proof"
+  | "sort-mandate"
+  | "lens-rail"
+  | "quota-procession"
+  | "braidline"
   | "wheel-stamp"
   | "elastic-frame"
   | "neighbor-march"
@@ -94,6 +99,128 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "PunchProof",
+    slug: "punch-proof",
+    summary: "A child earns five actual perforations before its proof card is complete.",
+    description:
+      "It turns a simple child into a paper proof card. Each press punches the next visible hole in a five-step strip, changes the card's completion state and leaves the content over-certified at the end.",
+    usage: `import { PunchProof } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OverCertifiedNotice() {
+  return <PunchProof><span>Ready to file</span></PunchProof>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content placed on the proof card and cleared after five perforations." },
+    ],
+    demo: "punch-proof",
+    useCase:
+      "It could make a reviewer punch an approval card five times before a handoff note leaves the desk, or let a presenter perforate an agenda label before moving to the next slide.",
+    alternative:
+      "A reasonable local alternative is a normal progress indicator or no approval ceremony. A paper card does not become more correct because a button opened five holes in it.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "SortMandate",
+    slug: "sort-mandate",
+    summary: "Three arbitrary sorting mandates put the same roster under genuinely different orders.",
+    description:
+      "It gives a list three incompatible rules: first letter, vowel load or last letter. Selecting a mandate actually reorders the rendered items and keeps that decision visible until it is withdrawn.",
+    usage: `import { SortMandate } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MandatedRoster() {
+  return <SortMandate items={["Status", "Owner", "Review", "Date"]} />;
+}`,
+    api: [
+      { name: "items", type: "readonly string[]", description: "The strings submitted to the three competing ordering rules." },
+    ],
+    demo: "sort-mandate",
+    useCase:
+      "It could make a reviewer decide whether a handoff roster deserves an opening-letter order, a vowel-heavy order or a last-letter order, or let a presenter rearrange agenda labels according to whichever criterion feels official that day.",
+    alternative:
+      "A reasonable local alternative is one explicit sort chosen near the data. A reusable tribunal for three arbitrary ordering rules makes list intent harder to understand.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "LensRail",
+    slug: "lens-rail",
+    summary: "A draggable lens travels across a label and enlarges one actual excerpt at a time.",
+    description:
+      "It turns a sentence into a rail with a movable inspection lens. The slider changes the real character position, highlights the focused character and replaces the excerpt below with the seven characters currently under review.",
+    usage: `import { LensRail } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function InspectedStatus() {
+  return <LensRail label="Ready for another review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text traversed by the movable lens." },
+    ],
+    demo: "lens-rail",
+    useCase:
+      "It could let a reviewer inspect one narrow slice of a long handoff label without trusting their eyes, or let a presenter park a magnified excerpt over whichever agenda phrase currently feels important.",
+    alternative:
+      "A reasonable local alternative is ordinary text selection or a static truncation. A draggable lens is difficult to defend when the sentence was already readable.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "QuotaProcession",
+    slug: "quota-procession",
+    summary: "Each child demands its own number of taps before the procession may move on.",
+    description:
+      "It imposes a strict one-way sequence of per-child quotas: the first piece needs one tap, the next two, the next three and then the pattern repeats. Only the active step can be used, and completed pieces remain visibly filed.",
+    usage: `import { QuotaProcession } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CeremonialFields() {
+  return (
+    <QuotaProcession>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </QuotaProcession>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The ordered pieces that advance through the repeating one-two-three tap quotas." },
+    ],
+    demo: "quota-procession",
+    useCase:
+      "It could force a reviewer to tap a title once, a status twice and an owner three times before a handoff card is complete, or make a presenter perform a growing ritual on each agenda label.",
+    alternative:
+      "A reasonable local alternative is a normal ordered list with one completion button. Per-item tap quotas add ceremony without adding information.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "Braidline",
+    slug: "braidline",
+    summary: "One click separates a label into two interlaced rows of its actual characters.",
+    description:
+      "It transforms the supplied text by distributing alternating characters into two visible strands. The characters remain real content in a different arrangement and can be returned to the straight line without losing anything.",
+    usage: `import { Braidline } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function InterlacedStatus() {
+  return <Braidline label="Ready for review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text split into alternating character strands." },
+    ],
+    demo: "braidline",
+    useCase:
+      "It could let a reviewer braid a handoff phrase while discussing which characters deserve attention, or let a presenter turn one agenda line into a two-strand visual aside.",
+    alternative:
+      "A reasonable local alternative is the original label with a deliberate typographic treatment. A reusable character loom is not a meaningful content abstraction.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "WheelStamp",
     slug: "wheel-stamp",
     summary: "A child collects five paper seals from a mouse wheel before it is overqualified.",
@@ -114,7 +241,6 @@ export function StampedNotice() {
     alternative:
       "A reasonable local alternative is a progress indicator or no indicator at all. Scrolling should not issue paper authority.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ElasticFrame",
@@ -137,7 +263,6 @@ export function NarrowNotice() {
     alternative:
       "A reasonable local alternative is normal responsive layout with a deliberate max-width. A draggable frame is not a layout system.",
     featured: true,
-    isNew: true,
   },
   {
     name: "NeighborMarch",
@@ -167,7 +292,6 @@ export function CorridorFields() {
     alternative:
       "A reasonable local alternative is a normal list with independent focus. Adjacency is not a useful requirement for reading.",
     featured: true,
-    isNew: true,
   },
   {
     name: "SignalChoice",
@@ -190,7 +314,6 @@ export function EncodedStatus() {
     alternative:
       "A reasonable local alternative is one explicit formatter chosen by the page. Three incompatible records are not a useful label API.",
     featured: true,
-    isNew: true,
   },
   {
     name: "FootnoteShift",
@@ -213,7 +336,6 @@ export function AnnotatedStatus() {
     alternative:
       "A reasonable local alternative is an annotation or footnote supplied by the page. Moving prose around one click at a time is not editorial tooling.",
     featured: true,
-    isNew: true,
   },
   {
     name: "PrecisionLadder",

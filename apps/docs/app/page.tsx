@@ -32,7 +32,7 @@ export default function Home() {
           </div>
           <p>
             Start with unnecessarily opinionated interactions, including
-            the newest way to print a copy whenever somebody focuses a field.
+            the newest way to perforate a label before it is considered filed.
           </p>
         </div>
         <div className="featured-grid">

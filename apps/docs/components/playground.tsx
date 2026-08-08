@@ -4,6 +4,7 @@ import {
   AlphabetTreadmill,
   ArrowBias,
   AveragePosition,
+  Braidline,
   BackspaceArchive,
   BlankFiling,
   CaseGate,
@@ -28,6 +29,7 @@ import {
   IndecisiveButton,
   KeystrokeStack,
   LassoLock,
+  LensRail,
   LetterLevy,
   LayoutReferendum,
   LastRemaining,
@@ -39,12 +41,15 @@ import {
   PairwiseMerge,
   ParityPurge,
   PressEscape,
+  PunchProof,
+  QuotaProcession,
   ReorderBack,
   RotationTithe,
   ScaleSweep,
   SeamFold,
   SelectionSeal,
   ScrollRedact,
+  SortMandate,
   SpaceStaple,
   SideSplit,
   SplitLabel,
@@ -85,6 +90,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "punch-proof"
+    | "sort-mandate"
+    | "lens-rail"
+    | "quota-procession"
+    | "braidline"
     | "wheel-stamp"
     | "elastic-frame"
     | "neighbor-march"
@@ -172,6 +182,136 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "punch-proof") {
+    return (
+      <div className="playground-shell punch-proof-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage punch-proof-preview">
+            <PunchProof><span>Ready to file</span></PunchProof>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary card and five empty perforations.</dd></div>
+            <div><dt>2</dt><dd>Press Punch next hole. Each press opens the next physical hole.</dd></div>
+            <div><dt>3</dt><dd>The card changes from waiting to complete only after all five holes are open.</dd></div>
+            <div><dt>4</dt><dd>Re-file the card when the approval has become sufficiently official.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "sort-mandate") {
+    return (
+      <div className="playground-shell sort-mandate-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage sort-mandate-preview">
+            <SortMandate items={["Status", "Owner", "Review", "Date"]} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the roster in the supplied order.</dd></div>
+            <div><dt>2</dt><dd>Choose First letter, Most vowels or Last letter.</dd></div>
+            <div><dt>3</dt><dd>The same four labels move into a genuinely different order under each mandate.</dd></div>
+            <div><dt>4</dt><dd>Withdraw the mandate when no criterion deserves to govern the list.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "lens-rail") {
+    return (
+      <div className="playground-shell lens-rail-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage lens-rail-preview">
+            <LensRail label="Ready for another review" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the lens at the first character.</dd></div>
+            <div><dt>2</dt><dd>Drag the range or use the arrow keys to move it along the rail.</dd></div>
+            <div><dt>3</dt><dd>The current character enlarges and the seven-character excerpt changes with it.</dd></div>
+            <div><dt>4</dt><dd>Return the lens to the start when the inspection becomes needless.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "quota-procession") {
+    return (
+      <div className="playground-shell quota-procession-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage quota-procession-preview">
+            <QuotaProcession>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Date</span>
+            </QuotaProcession>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start at Title, which demands one tap.</dd></div>
+            <div><dt>2</dt><dd>Status demands two taps, Owner three and Date one again.</dd></div>
+            <div><dt>3</dt><dd>Only the current step accepts input; completed steps stay filed.</dd></div>
+            <div><dt>4</dt><dd>Return to the first stage when the procession has gone far enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "braidline") {
+    return (
+      <div className="playground-shell braidline-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage braidline-preview">
+            <Braidline label="Ready for review" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one straight label.</dd></div>
+            <div><dt>2</dt><dd>Click Braid the characters to distribute alternating characters into two strands.</dd></div>
+            <div><dt>3</dt><dd>The actual characters remain present, but their reading order becomes visibly interlaced.</dd></div>
+            <div><dt>4</dt><dd>Unbraid the line when the typographic loom has done enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "wheel-stamp") {
     return (

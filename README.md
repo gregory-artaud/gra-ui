@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## PunchProof
+
+`PunchProof` makes a child earn five visible perforations before its proof card is complete. The holes fill one at a time, the card settles into a completed state, and `Re-file` returns it to the untouched card.
+
+```ts
+type PunchProofProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Punch next hole` five times. The perforation strip animates on every press and the content receives its final over-certified treatment only at the fifth hole. It could make a reviewer punch an approval card before filing a handoff note, or let a presenter perforate an agenda label before moving on. A reasonable local alternative is a normal progress indicator or no approval ceremony; a card does not become more correct because a button opened five holes in it.
+
+## SortMandate
+
+`SortMandate` gives one roster three arbitrary ordering rules and applies the selected rule to the actual rendered item order.
+
+```ts
+type SortMandateProps = {
+  items: readonly string[];
+};
+```
+
+Choose `First letter`, `Most vowels` or `Last letter`. Each choice produces a different order with a short arrival animation, and `Withdraw` restores the supplied order. It could make a reviewer decide how a handoff roster should be officially arranged, or let a presenter rearrange agenda labels according to whichever criterion feels authoritative. A reasonable local alternative is one explicit `sort` near the data; a reusable tribunal for arbitrary ordering rules makes list intent harder to understand.
+
+## LensRail
+
+`LensRail` lets a user move a lens across a label and inspect a real seven-character excerpt at each position.
+
+```ts
+type LensRailProps = {
+  label: string;
+};
+```
+
+Drag the range or use its arrow keys. The focused character lifts on the rail, and the excerpt below changes with the lens position; `Return lens to the start` restores the initial position. It could let a reviewer inspect a narrow slice of a long handoff label, or let a presenter park a magnified phrase over one agenda item. A reasonable local alternative is ordinary text selection or static truncation; a draggable lens is difficult to defend when the sentence was already readable.
+
+## QuotaProcession
+
+`QuotaProcession` makes each child demand a different number of taps before the next child may be touched.
+
+```ts
+type QuotaProcessionProps = {
+  children: React.ReactNode;
+};
+```
+
+The first child needs one tap, the second two, the third three, then the quota pattern repeats. Only the active step is interactive, its marks fill in place, and completed pieces remain filed; `Return to the first stage` restarts the procession. It could force a reviewer to tap a title, status and owner according to an arbitrary handoff ritual, or make a presenter perform a growing ceremony on each agenda label. A reasonable local alternative is an ordered list with one completion button; per-item tap quotas add ceremony without information.
+
+## Braidline
+
+`Braidline` transforms a label into two visible strands by distributing its actual alternating characters, then can return the text to one straight line.
+
+```ts
+type BraidlineProps = {
+  label: string;
+};
+```
+
+Click `Braid the characters` to replace the line with an animated two-row braid; click `Unbraid the line` to restore it. The characters are not decorative copies: the rendered content is reorganized into two real strands. It could let a reviewer braid a handoff phrase while discussing its structure, or let a presenter turn an agenda line into a two-strand visual aside. A reasonable local alternative is the original label with deliberate typography; a reusable character loom is not a meaningful content abstraction.
+
 ## WheelStamp
 
 `WheelStamp` makes a child collect five paper seals from a local mouse wheel. Each notch advances a real state and adds a visible seal; rolling back or removing the stamps returns the paper to its initial form.
