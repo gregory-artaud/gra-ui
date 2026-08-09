@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## RecessDepth
+
+`RecessDepth` files a child beneath four actual layers until it becomes needlessly recessed.
+
+```ts
+type RecessDepthProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `File one layer` to move the content deeper and add a visible layer to the filing well. `Unbury` restores the initial state. It could let a reviewer bury a handoff note under successive approval sheets, or let a presenter recess an agenda label before deciding it has been sufficiently archived. A reasonable local alternative is the child itself with one status or a normal disclosure; four physical filing layers make a simple label harder to retrieve without adding meaning.
+
+## CustodyChoice
+
+`CustodyChoice` gives one child three custody destinations that produce genuinely different rendered states.
+
+```ts
+type CustodyChoiceProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Desk`, `Vault` or `Courier` to move the actual content from intake into that station, then use `Recall` to return it. It could make a reviewer decide where a handoff note belongs, or let a presenter route one agenda label to the table, the archive or the next speaker. A reasonable local alternative is one explicit state near the data and one conditional render; publishing three ceremonial destinations as a reusable custody machine is difficult to defend.
+
+## Counterweight
+
+`Counterweight` lets a user drag a weight across five slots while its child moves to the exact mirrored slot.
+
+```ts
+type CounterweightProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the weight, or focus the rail and use the arrow keys. The cargo keeps the opposite position until `Recenter` restores the balance. It could let a reviewer position a handoff warning opposite the place where attention is dragged, or let a presenter balance an agenda label against a deliberately chosen counter-position. A reasonable local alternative is normal flow layout with one alignment value; a mirrored cargo rail creates a surprising coordinate rule where a direct position would have been enough.
+
+## ShadowPair
+
+`ShadowPair` requires every child to be selected, then paired with its matching witness, in order.
+
+```ts
+type ShadowPairProps = {
+  children: React.ReactNode;
+};
+```
+
+Select `card 1`, then `witness` in the same row, and repeat for every row. A wrong card or witness erases the route; `Restart` begins again. It could make a reviewer acknowledge every handoff field and then sign its matching shadow, or make a presenter pair each agenda item with an unnecessary witness before advancing. A reasonable local alternative is one ordered checklist with independent completion state; requiring a second click on a matching witness makes sequence state reusable where a list would suffice.
+
+## CenterOut
+
+`CenterOut` reassembles a label from its middle outward into a new reading order.
+
+```ts
+type CenterOutProps = {
+  label: string;
+};
+```
+
+Press `Read from the middle` to put the center character first, then alternate its neighbors outward. The actual character order changes and `Straighten the sentence` restores it. It could let a reviewer inspect the center of a handoff sentence before its edges, or let a presenter make one agenda phrase radiate outward during a theatrical explanation. A reasonable local alternative is ordinary text selection or typographic emphasis; a center-first reading order makes a sentence less readable without revealing anything useful.
+
 ## PunchProof
 
 `PunchProof` makes a child earn five visible perforations before its proof card is complete. The holes fill one at a time, the card settles into a completed state, and `Re-file` returns it to the untouched card.

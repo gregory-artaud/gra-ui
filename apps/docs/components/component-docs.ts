@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "recess-depth"
+  | "custody-choice"
+  | "counterweight"
+  | "shadow-pair"
+  | "center-out"
   | "punch-proof"
   | "sort-mandate"
   | "lens-rail"
@@ -99,6 +104,127 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "RecessDepth",
+    slug: "recess-depth",
+    summary: "A child is filed under four actual layers until it becomes needlessly recessed.",
+    description:
+      "It turns one child into a filing well. Every press adds a real layer, shifts the content deeper and changes the final state from available to fully recessed; Unbury restores the original depth.",
+    usage: `import { RecessDepth } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OverFiledNotice() {
+  return <RecessDepth><span>Ready to review</span></RecessDepth>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content pushed beneath four visible filing layers." },
+    ],
+    demo: "recess-depth",
+    useCase:
+      "It could let a reviewer bury a handoff note under successive approval sheets, or let a presenter recess an agenda label before deciding it has been sufficiently archived.",
+    alternative:
+      "A reasonable local alternative is the child itself with one visible status or a normal disclosure. Four physical filing layers make a simple label harder to retrieve without adding meaning.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "CustodyChoice",
+    slug: "custody-choice",
+    summary: "Three custody buttons send one child to three genuinely different stations.",
+    description:
+      "It makes a single child wait in intake until the user chooses Desk, Vault or Courier. The choice moves the actual content into a different named station, and Recall brings it back to intake.",
+    usage: `import { CustodyChoice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RoutedNotice() {
+  return <CustodyChoice><span>Needs a destination</span></CustodyChoice>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content waiting in intake and moved to the chosen custody station." },
+    ],
+    demo: "custody-choice",
+    useCase:
+      "It could make a reviewer decide whether a handoff note belongs on the desk, in the vault or with a courier, or let a presenter route one agenda label to the table, the archive or the next speaker.",
+    alternative:
+      "A reasonable local alternative is one explicit state near the data and one conditional render. Publishing three ceremonial destinations as a reusable custody machine is difficult to defend.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "Counterweight",
+    slug: "counterweight",
+    summary: "Dragging a weight to one slot sends its content to the mirrored slot.",
+    description:
+      "It gives a user direct control of a five-slot rail, but moves the child according to the exact opposite position. The weight remains where it was dragged and the cargo keeps its mirrored station until recentered.",
+    usage: `import { Counterweight } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function BalancedNotice() {
+  return <Counterweight><span>Move the balance</span></Counterweight>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content parked at the slot opposite the directly manipulated weight." },
+    ],
+    demo: "counterweight",
+    useCase:
+      "It could let a reviewer position a handoff warning opposite the place where attention is dragged, or let a presenter balance an agenda label against a deliberately chosen counter-position.",
+    alternative:
+      "A reasonable local alternative is normal flow layout with one alignment value. A mirrored cargo rail creates a surprising coordinate rule where a direct position would have been enough.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "ShadowPair",
+    slug: "shadow-pair",
+    summary: "Each child must be paired with its matching witness in the exact order.",
+    description:
+      "It creates a two-part filing route for every child. Select the current card, then its matching witness; any wrong card or witness erases the route and returns the sequence to the first pair.",
+    usage: `import { ShadowPair } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function WitnessedFields() {
+  return (
+    <ShadowPair>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </ShadowPair>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The ordered cards that must each be followed by their matching witness." },
+    ],
+    demo: "shadow-pair",
+    useCase:
+      "It could make a reviewer acknowledge every handoff field and then sign its matching shadow, or make a presenter pair each agenda item with an unnecessary witness before advancing.",
+    alternative:
+      "A reasonable local alternative is one ordered checklist with independent completion state. Requiring a second click on a matching witness makes sequence state reusable where a list would suffice.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "CenterOut",
+    slug: "center-out",
+    summary: "A label is reassembled from its middle outward into a new reading order.",
+    description:
+      "It transforms the actual character order of a label: the middle character appears first, then its neighbors alternate outward. Straighten the sentence restores the supplied order without changing the content.",
+    usage: `import { CenterOut } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function UnusualReading() {
+  return <CenterOut label="Ready for another review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text whose actual characters are reordered from the center outward." },
+    ],
+    demo: "center-out",
+    useCase:
+      "It could let a reviewer inspect the center of a handoff sentence before its edges, or let a presenter make one agenda phrase radiate outward during a deliberately theatrical explanation.",
+    alternative:
+      "A reasonable local alternative is the original label with ordinary text selection or a deliberate typographic emphasis. A center-first reading order makes a sentence less readable without revealing anything useful.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "PunchProof",
     slug: "punch-proof",
     summary: "A child earns five actual perforations before its proof card is complete.",
@@ -119,7 +245,6 @@ export function OverCertifiedNotice() {
     alternative:
       "A reasonable local alternative is a normal progress indicator or no approval ceremony. A paper card does not become more correct because a button opened five holes in it.",
     featured: true,
-    isNew: true,
   },
   {
     name: "SortMandate",
@@ -142,7 +267,6 @@ export function MandatedRoster() {
     alternative:
       "A reasonable local alternative is one explicit sort chosen near the data. A reusable tribunal for three arbitrary ordering rules makes list intent harder to understand.",
     featured: true,
-    isNew: true,
   },
   {
     name: "LensRail",
@@ -165,7 +289,6 @@ export function InspectedStatus() {
     alternative:
       "A reasonable local alternative is ordinary text selection or a static truncation. A draggable lens is difficult to defend when the sentence was already readable.",
     featured: true,
-    isNew: true,
   },
   {
     name: "QuotaProcession",
@@ -195,7 +318,6 @@ export function CeremonialFields() {
     alternative:
       "A reasonable local alternative is a normal ordered list with one completion button. Per-item tap quotas add ceremony without adding information.",
     featured: true,
-    isNew: true,
   },
   {
     name: "Braidline",
@@ -218,7 +340,6 @@ export function InterlacedStatus() {
     alternative:
       "A reasonable local alternative is the original label with a deliberate typographic treatment. A reusable character loom is not a meaningful content abstraction.",
     featured: true,
-    isNew: true,
   },
   {
     name: "WheelStamp",

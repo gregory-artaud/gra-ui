@@ -8,10 +8,13 @@ import {
   BackspaceArchive,
   BlankFiling,
   CaseGate,
+  CenterOut,
   ChildGravity,
   ClickOrder,
   CornerFold,
   CopyEcho,
+  Counterweight,
+  CustodyChoice,
   CursorProof,
   DisclosureSpill,
   DragDuplicate,
@@ -48,6 +51,7 @@ import {
   ScaleSweep,
   SeamFold,
   SelectionSeal,
+  ShadowPair,
   ScrollRedact,
   SortMandate,
   SpaceStaple,
@@ -57,6 +61,7 @@ import {
   WeightVote,
   WeekdayLedger,
   WheelStamp,
+  RecessDepth,
   ElasticFrame,
   NeighborMarch,
   SignalChoice,
@@ -90,6 +95,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "recess-depth"
+    | "custody-choice"
+    | "counterweight"
+    | "shadow-pair"
+    | "center-out"
     | "punch-proof"
     | "sort-mandate"
     | "lens-rail"
@@ -182,6 +192,135 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "recess-depth") {
+    return (
+      <div className="playground-shell recess-depth-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage recess-depth-preview">
+            <RecessDepth><span>Ready to review</span></RecessDepth>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a child above four empty filing layers.</dd></div>
+            <div><dt>2</dt><dd>Press File one layer. The content shifts deeper and one layer becomes real.</dd></div>
+            <div><dt>3</dt><dd>Continue until the content is fully recessed beneath the filing stack.</dd></div>
+            <div><dt>4</dt><dd>Unbury the child when the archive has become unnecessarily hard to reach.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "custody-choice") {
+    return (
+      <div className="playground-shell custody-choice-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage custody-choice-preview">
+            <CustodyChoice><span>Needs a destination</span></CustodyChoice>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the notice waiting in intake.</dd></div>
+            <div><dt>2</dt><dd>Choose Desk, Vault or Courier. Each button moves the actual notice into a different station.</dd></div>
+            <div><dt>3</dt><dd>The chosen destination stays visible while the other stations remain empty.</dd></div>
+            <div><dt>4</dt><dd>Recall the notice when a custody decision has become too official.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "counterweight") {
+    return (
+      <div className="playground-shell counterweight-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage counterweight-preview">
+            <Counterweight><span>Opposite cargo</span></Counterweight>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the weight and cargo balanced in the center.</dd></div>
+            <div><dt>2</dt><dd>Drag the weight across the five-slot rail, or use the arrow keys.</dd></div>
+            <div><dt>3</dt><dd>The cargo moves to the exact opposite slot and stays there.</dd></div>
+            <div><dt>4</dt><dd>Recenter the weight when the counter-position has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "shadow-pair") {
+    return (
+      <div className="playground-shell shadow-pair-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage shadow-pair-preview">
+            <ShadowPair>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+            </ShadowPair>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with three cards and their unselected witnesses.</dd></div>
+            <div><dt>2</dt><dd>Select card 1, then witness 1. Repeat the pair for each row.</dd></div>
+            <div><dt>3</dt><dd>A correct pair stays signed; a wrong card or witness resets the whole route.</dd></div>
+            <div><dt>4</dt><dd>Restart the filing when every witness has finally been involved.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "center-out") {
+    return (
+      <div className="playground-shell center-out-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage center-out-preview">
+            <CenterOut label="Ready for another review" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the supplied sentence in its ordinary order.</dd></div>
+            <div><dt>2</dt><dd>Press Read from the middle to reorder the actual characters.</dd></div>
+            <div><dt>3</dt><dd>The center appears first, then its neighbors alternate outward.</dd></div>
+            <div><dt>4</dt><dd>Straighten the sentence when center-first reading has done enough damage.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "punch-proof") {
     return (

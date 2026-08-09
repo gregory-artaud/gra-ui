@@ -262,6 +262,26 @@ export {
   type BraidlineProps,
 } from "./components/braidline";
 export {
+  RecessDepth,
+  type RecessDepthProps,
+} from "./components/recess-depth";
+export {
+  CustodyChoice,
+  type CustodyChoiceProps,
+} from "./components/custody-choice";
+export {
+  Counterweight,
+  type CounterweightProps,
+} from "./components/counterweight";
+export {
+  ShadowPair,
+  type ShadowPairProps,
+} from "./components/shadow-pair";
+export {
+  CenterOut,
+  type CenterOutProps,
+} from "./components/center-out";
+export {
   PressEscape,
   type PressEscapeProps,
 } from "./components/press-escape";

@@ -569,6 +569,14 @@ a {
   min-width: 168px;
 }
 
+.recess-depth-preview .gra-ui,
+.custody-choice-preview .gra-ui,
+.counterweight-preview .gra-ui,
+.shadow-pair-preview .gra-ui,
+.center-out-preview .gra-ui {
+  width: min(100%, 480px);
+}
+
 .wheel-stamp-preview .gra-ui,
 .elastic-frame-preview .gra-ui,
 .neighbor-march-preview .gra-ui,
