@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## ContextEscalator
+
+`ContextEscalator` sends a notice through four increasingly serious filing levels by right-clicking it.
+
+```ts
+type ContextEscalatorProps = {
+  children: React.ReactNode;
+};
+```
+
+Right-click the notice, or press `Open next context`, to record one level. Each level adds a visible record and paper shadow; `Clear context` restores the initial state. It could let a reviewer escalate a handoff note through progressively official filing levels, or let a presenter right-click an agenda label until it earns a ceremonial status. A reasonable local alternative is one visible status field and a normal button; a context menu should not carry a four-step approval ladder.
+
+## OutcomeTriptych
+
+`OutcomeTriptych` gives one child three materially different fates.
+
+```ts
+type OutcomeTriptychProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Promote`, `Quarantine` or `Muffle`. The actual rendered treatment becomes a priority card, a fieldset or a softened notice, and `Return to indecision` restores the waiting state. It could let a reviewer assign one of three fates to a handoff note, or let a presenter give an agenda label a temporary verdict. A reasonable local alternative is one explicit status and one conditional near the data; a reusable tribunal hides a simple decision behind ceremony.
+
+## MagneticDock
+
+`MagneticDock` makes dragged content snap to the nearest of three named pockets.
+
+```ts
+type MagneticDockProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the cargo anywhere across the surface and release it. The component calculates the nearest pocket and moves the content there; arrow keys choose pockets and `Release cargo` returns it to the middle. It could let a reviewer fling a warning toward the nearest filing category, or let a presenter park an agenda label wherever it happens to attract. A reasonable local alternative is normal flow layout with one category; a magnetic coordinate surface adds calculations where a button or list would suffice.
+
+## PatternLatch
+
+`PatternLatch` opens a child only after the exact triangle-circle-square-circle pattern is entered.
+
+```ts
+type PatternLatchProps = {
+  children: React.ReactNode;
+};
+```
+
+Select the four symbols in order. A wrong symbol clears the attempt, while the correct sequence opens the notice; `Forget pattern` returns the lock to its initial state. It could make a reviewer unlock a handoff note with a pattern remembered from a meeting, or make a presenter perform a tiny gesture ritual before revealing an agenda line. A reasonable local alternative is an ordinary button or permission check; a fixed pattern protects nothing and mainly provides a memorable failure mode.
+
+## LetterCensus
+
+`LetterCensus` replaces a label with an animated frequency ledger of its actual letters.
+
+```ts
+type LetterCensusProps = {
+  label: string;
+};
+```
+
+Press `Count letters` to transform the text into a first-seen list of unique letters, with bars sized by their real counts. `Restore label` reverses the transformation. It could let a reviewer audit which letters dominate a handoff sentence, or let a presenter turn one agenda phrase into a tiny linguistic report before restoring it. A reasonable local alternative is the original label or a one-off utility; a census machine is not a meaningful UI primitive.
+
 ## RecessDepth
 
 `RecessDepth` files a child beneath four actual layers until it becomes needlessly recessed.

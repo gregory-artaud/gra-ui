@@ -1,6 +1,27 @@
 import "./styles.css";
 
 export {
+  ContextEscalator,
+  type ContextEscalatorProps,
+} from "./components/context-escalator";
+export {
+  OutcomeTriptych,
+  type OutcomeTriptychProps,
+} from "./components/outcome-triptych";
+export {
+  MagneticDock,
+  type MagneticDockProps,
+} from "./components/magnetic-dock";
+export {
+  PatternLatch,
+  type PatternLatchProps,
+} from "./components/pattern-latch";
+export {
+  LetterCensus,
+  type LetterCensusProps,
+} from "./components/letter-census";
+
+export {
   WheelStamp,
   type WheelStampProps,
 } from "./components/wheel-stamp";

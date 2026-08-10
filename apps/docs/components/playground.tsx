@@ -80,6 +80,11 @@ import {
   RatchetReveal,
   VerdictSelector,
   VowelHinge,
+  ContextEscalator,
+  LetterCensus,
+  MagneticDock,
+  OutcomeTriptych,
+  PatternLatch,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -95,6 +100,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "context-escalator"
+    | "outcome-triptych"
+    | "magnetic-dock"
+    | "pattern-latch"
+    | "letter-census"
     | "recess-depth"
     | "custody-choice"
     | "counterweight"
@@ -192,6 +202,131 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "context-escalator") {
+    return (
+      <div className="playground-shell context-escalator-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <ContextEscalator><span>Needs one decision</span></ContextEscalator>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a notice and four closed record levels.</dd></div>
+            <div><dt>2</dt><dd>Right-click the notice, or use Open next context.</dd></div>
+            <div><dt>3</dt><dd>Each gesture adds a real record and a deeper paper shadow.</dd></div>
+            <div><dt>4</dt><dd>Clear the context when the escalation has become indefensible.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "outcome-triptych") {
+    return (
+      <div className="playground-shell outcome-triptych-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <OutcomeTriptych><span>Ready for review</span></OutcomeTriptych>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one child waiting for a fate.</dd></div>
+            <div><dt>2</dt><dd>Choose Promote, Quarantine or Muffle.</dd></div>
+            <div><dt>3</dt><dd>The actual markup changes to a priority card, fieldset or softened notice.</dd></div>
+            <div><dt>4</dt><dd>Return to indecision when none of the three outcomes deserves to last.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "magnetic-dock") {
+    return (
+      <div className="playground-shell magnetic-dock-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <MagneticDock><span>Loose cargo</span></MagneticDock>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with cargo floating between three named pockets.</dd></div>
+            <div><dt>2</dt><dd>Drag it anywhere across the surface and release.</dd></div>
+            <div><dt>3</dt><dd>It snaps to whichever pocket is mathematically nearest.</dd></div>
+            <div><dt>4</dt><dd>Use the arrow keys or Release cargo to move it again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "pattern-latch") {
+    return (
+      <div className="playground-shell pattern-latch-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <PatternLatch><span>Already available</span></PatternLatch>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a perfectly ordinary notice behind a lock.</dd></div>
+            <div><dt>2</dt><dd>Enter triangle, circle, square, then circle.</dd></div>
+            <div><dt>3</dt><dd>A wrong symbol clears the route; the exact pattern opens the notice.</dd></div>
+            <div><dt>4</dt><dd>Forget the pattern when the lock has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "letter-census") {
+    return (
+      <div className="playground-shell letter-census-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <LetterCensus label="Ready for another review" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one readable sentence.</dd></div>
+            <div><dt>2</dt><dd>Click Count letters to replace it with a frequency ledger.</dd></div>
+            <div><dt>3</dt><dd>Each bar is calculated from the actual letters in the supplied label.</dd></div>
+            <div><dt>4</dt><dd>Restore the label when the census has become more official than the sentence.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "recess-depth") {
     return (

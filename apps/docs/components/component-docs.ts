@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "context-escalator"
+  | "outcome-triptych"
+  | "magnetic-dock"
+  | "pattern-latch"
+  | "letter-census"
   | "recess-depth"
   | "custody-choice"
   | "counterweight"
@@ -104,6 +109,121 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "ContextEscalator",
+    slug: "context-escalator",
+    summary: "A right-click sends a notice through four increasingly serious filing levels.",
+    description:
+      "It turns the browser context menu into a four-step escalation ladder. Each right-click records another level, adds a visible paper shadow and leaves the notice fully filed after the fourth context gesture.",
+    usage: `import { ContextEscalator } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EscalatedNotice() {
+  return <ContextEscalator><span>Needs one decision</span></ContextEscalator>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice advanced through the four context-menu levels." },
+    ],
+    demo: "context-escalator",
+    useCase:
+      "It could let a reviewer promote a handoff note through progressively more official filing levels, or let a presenter right-click an agenda label until it has earned an entirely ceremonial status.",
+    alternative:
+      "A reasonable local alternative is one visible status field and a normal button. Making a context menu carry a four-step approval ladder gives a browser gesture far more authority than it deserves.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "OutcomeTriptych",
+    slug: "outcome-triptych",
+    summary: "Three buttons give one child three materially different fates.",
+    description:
+      "It asks the user to choose whether the content should be promoted, quarantined or muffled. The selected outcome changes the actual rendered treatment and remains visible until indecision is restored.",
+    usage: `import { OutcomeTriptych } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function JudgedNotice() {
+  return <OutcomeTriptych><span>Ready for review</span></OutcomeTriptych>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content given one of three visibly different outcomes." },
+    ],
+    demo: "outcome-triptych",
+    useCase:
+      "It could make a reviewer decide whether a handoff note is promoted, quarantined or deliberately softened, or let a presenter assign one agenda label a fate before continuing.",
+    alternative:
+      "A reasonable local alternative is one explicit status near the data and one local conditional. A reusable tribunal for three theatrical outcomes obscures a decision that should be plain.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "MagneticDock",
+    slug: "magnetic-dock",
+    summary: "Dragged content snaps to whichever of three pockets is nearest.",
+    description:
+      "It provides a bounded surface with three named pockets. Drag the cargo anywhere and release it; the component calculates the nearest pocket and moves the actual content there, while arrow keys move it between pockets.",
+    usage: `import { MagneticDock } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ParkedNotice() {
+  return <MagneticDock><span>Loose cargo</span></MagneticDock>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The single piece of cargo dragged across the pocket surface." },
+    ],
+    demo: "magnetic-dock",
+    useCase:
+      "It could let a reviewer fling a handoff warning toward the nearest category before filing it, or let a presenter park an agenda label in whichever pocket happens to attract it.",
+    alternative:
+      "A reasonable local alternative is normal flow layout with one explicit category. A magnetic surface creates a coordinate calculation for content that could have used a button or a list.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "PatternLatch",
+    slug: "pattern-latch",
+    summary: "A notice opens only after a four-symbol pattern is entered exactly.",
+    description:
+      "It places a child behind a small pattern lock. The required triangle-circle-square-circle sequence advances the real lock state; one wrong symbol clears the attempt and the correct sequence opens the notice.",
+    usage: `import { PatternLatch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function LockedNotice() {
+  return <PatternLatch><span>Already available</span></PatternLatch>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content hidden behind the four-symbol pattern." },
+    ],
+    demo: "pattern-latch",
+    useCase:
+      "It could make a reviewer unlock a handoff note with a pattern remembered from a meeting, or make a presenter enter a tiny gesture ritual before revealing one agenda line.",
+    alternative:
+      "A reasonable local alternative is a visible button or an ordinary permission check. A fixed symbol pattern protects nothing while adding a memorable way to fail.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "LetterCensus",
+    slug: "letter-census",
+    summary: "One click replaces a label with an animated census of its letters.",
+    description:
+      "It transforms the actual supplied text into a first-seen ledger of unique letters and their frequencies. The bar lengths reflect the real counts, and restoring the label reverses the transformation.",
+    usage: `import { LetterCensus } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AuditedLabel() {
+  return <LetterCensus label="Ready for another review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text converted into a visible frequency ledger." },
+    ],
+    demo: "letter-census",
+    useCase:
+      "It could let a reviewer audit which letters dominate a handoff sentence, or let a presenter turn one agenda phrase into a tiny linguistic report before putting it back.",
+    alternative:
+      "A reasonable local alternative is the original label or a one-off utility near the content. Publishing a census machine makes an observation about a sentence feel like a reusable UI primitive.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "RecessDepth",
     slug: "recess-depth",
     summary: "A child is filed under four actual layers until it becomes needlessly recessed.",
@@ -124,7 +244,6 @@ export function OverFiledNotice() {
     alternative:
       "A reasonable local alternative is the child itself with one visible status or a normal disclosure. Four physical filing layers make a simple label harder to retrieve without adding meaning.",
     featured: true,
-    isNew: true,
   },
   {
     name: "CustodyChoice",
@@ -147,7 +266,6 @@ export function RoutedNotice() {
     alternative:
       "A reasonable local alternative is one explicit state near the data and one conditional render. Publishing three ceremonial destinations as a reusable custody machine is difficult to defend.",
     featured: true,
-    isNew: true,
   },
   {
     name: "Counterweight",
@@ -170,7 +288,6 @@ export function BalancedNotice() {
     alternative:
       "A reasonable local alternative is normal flow layout with one alignment value. A mirrored cargo rail creates a surprising coordinate rule where a direct position would have been enough.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ShadowPair",
@@ -199,7 +316,6 @@ export function WitnessedFields() {
     alternative:
       "A reasonable local alternative is one ordered checklist with independent completion state. Requiring a second click on a matching witness makes sequence state reusable where a list would suffice.",
     featured: true,
-    isNew: true,
   },
   {
     name: "CenterOut",
@@ -222,7 +338,6 @@ export function UnusualReading() {
     alternative:
       "A reasonable local alternative is the original label with ordinary text selection or a deliberate typographic emphasis. A center-first reading order makes a sentence less readable without revealing anything useful.",
     featured: true,
-    isNew: true,
   },
   {
     name: "PunchProof",
