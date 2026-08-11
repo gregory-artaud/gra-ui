@@ -85,6 +85,11 @@ import {
   MagneticDock,
   OutcomeTriptych,
   PatternLatch,
+  CalibrationWindow,
+  SemanticLottery,
+  CellularDrift,
+  ReverseQueue,
+  PunctuationSieve,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -100,6 +105,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "calibration-window"
+    | "semantic-lottery"
+    | "cellular-drift"
+    | "reverse-queue"
+    | "punctuation-sieve"
     | "context-escalator"
     | "outcome-triptych"
     | "magnetic-dock"
@@ -322,6 +332,136 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Click Count letters to replace it with a frequency ledger.</dd></div>
             <div><dt>3</dt><dd>Each bar is calculated from the actual letters in the supplied label.</dd></div>
             <div><dt>4</dt><dd>Restore the label when the census has become more official than the sentence.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "calibration-window") {
+    return (
+      <div className="playground-shell calibration-window-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <CalibrationWindow><span>Ready for review</span></CalibrationWindow>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a notice in a generous aperture.</dd></div>
+            <div><dt>2</dt><dd>Press Calibrate one notch to narrow the actual notice width.</dd></div>
+            <div><dt>3</dt><dd>Four marks change the box, shadow and progress state together.</dd></div>
+            <div><dt>4</dt><dd>Open it again when the measurement has become more important than the notice.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "semantic-lottery") {
+    return (
+      <div className="playground-shell semantic-lottery-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <SemanticLottery><span>Needs a noun</span></SemanticLottery>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one child and no semantic verdict.</dd></div>
+            <div><dt>2</dt><dd>Choose Briefing, Ledger or Aside from the radio cards.</dd></div>
+            <div><dt>3</dt><dd>The child moves into a different real HTML structure and layout.</dd></div>
+            <div><dt>4</dt><dd>Return to plain content when the lottery has chosen enough meaning.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "cellular-drift") {
+    return (
+      <div className="playground-shell cellular-drift-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <CellularDrift><span>Place me precisely</span></CellularDrift>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the content in the privileged middle cell.</dd></div>
+            <div><dt>2</dt><dd>Click any numbered cell or focus it and press Enter.</dd></div>
+            <div><dt>3</dt><dd>The actual child travels to that coordinate across the board.</dd></div>
+            <div><dt>4</dt><dd>Return to the middle when the grid has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "reverse-queue") {
+    return (
+      <div className="playground-shell reverse-queue-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <ReverseQueue>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Date</span>
+            </ReverseQueue>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four items waiting in their ordinary order.</dd></div>
+            <div><dt>2</dt><dd>Board Date first, then Owner, Status and Title.</dd></div>
+            <div><dt>3</dt><dd>A wrong choice shakes but does not remove the item.</dd></div>
+            <div><dt>4</dt><dd>Empty the queue when the reverse manifest feels sufficiently official.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "punctuation-sieve") {
+    return (
+      <div className="playground-shell punctuation-sieve-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <PunctuationSieve label="Please, file this: today." />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with punctuation embedded in a readable sentence.</dd></div>
+            <div><dt>2</dt><dd>Press Sieve next mark to remove the next actual punctuation character.</dd></div>
+            <div><dt>3</dt><dd>The sentence leaves placeholders while the marks collect in the tray.</dd></div>
+            <div><dt>4</dt><dd>Put marks back when the tray has become more important than grammar.</dd></div>
           </dl>
         </div>
       </div>

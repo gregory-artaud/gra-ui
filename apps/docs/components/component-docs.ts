@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "calibration-window"
+  | "semantic-lottery"
+  | "cellular-drift"
+  | "reverse-queue"
+  | "punctuation-sieve"
   | "context-escalator"
   | "outcome-triptych"
   | "magnetic-dock"
@@ -109,6 +114,128 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "CalibrationWindow",
+    slug: "calibration-window",
+    summary: "Four calibration notches narrow the window around one otherwise adequate notice.",
+    description:
+      "It makes a child pass through four progressively narrower calibration apertures. Each notch changes the actual width and elevation of the notice, leaving it fully calibrated inside a window that never needed measuring.",
+    usage: `import { CalibrationWindow } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CalibratedNotice() {
+  return <CalibrationWindow><span>Ready for review</span></CalibrationWindow>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice squeezed through the four calibration windows." },
+    ],
+    demo: "calibration-window",
+    useCase:
+      "It could make a reviewer certify that a handoff notice fits increasingly strict apertures, or let a presenter calibrate an agenda label before allowing it into a slide.",
+    alternative:
+      "A reasonable local alternative is one max-width and ordinary layout. Four irreversible calibration notches turn sizing into paperwork without making the notice more useful.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "SemanticLottery",
+    slug: "semantic-lottery",
+    summary: "Three semantic wrappers give one child three genuinely different kinds of officialness.",
+    description:
+      "It asks the user to choose whether the child should be an article briefing, a ledger row or an aside. The selected option changes the actual HTML structure, typography and layout rather than only tinting the same box.",
+    usage: `import { SemanticLottery } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OfficialNotice() {
+  return <SemanticLottery><span>Needs a noun</span></SemanticLottery>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content assigned one of three semantic presentations." },
+    ],
+    demo: "semantic-lottery",
+    useCase:
+      "It could let an editor classify a handoff note as a briefing, ledger item or side note, or let a presenter give an agenda label a structural identity before showing it.",
+    alternative:
+      "A reasonable local alternative is choosing the correct element at the call site. A lottery that decides whether content is an article, definition or aside is semantic theater.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "CellularDrift",
+    slug: "cellular-drift",
+    summary: "A click sends content to one of nine cells and keeps it there instead of using normal flow.",
+    description:
+      "It places a child on a bounded three-by-three board. Selecting any numbered cell moves the actual content to that coordinate, with the middle treated as a strangely privileged reset point.",
+    usage: `import { CellularDrift } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ParkedNotice() {
+  return <CellularDrift><span>Place me precisely</span></CellularDrift>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content moved across the nine-cell board." },
+    ],
+    demo: "cellular-drift",
+    useCase:
+      "It could let a reviewer park a warning in the cell where attention seems likely to land, or let a presenter assign an agenda item a coordinate on an unnecessarily tactical slide.",
+    alternative:
+      "A reasonable local alternative is normal flow or one alignment value. A nine-cell relocation board makes a simple position depend on a small ceremony.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "ReverseQueue",
+    slug: "reverse-queue",
+    summary: "A queue accepts its children only from last to first, then displays that reverse manifest.",
+    description:
+      "It requires the final child to board first, followed by each predecessor. Wrong selections remain available and visibly rejected; the completed manifest preserves the actual reverse order of the children.",
+    usage: `import { ReverseQueue } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function BackwardsBrief() {
+  return (
+    <ReverseQueue>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Date</span>
+    </ReverseQueue>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The child items boarded from last to first." },
+    ],
+    demo: "reverse-queue",
+    useCase:
+      "It could make a reviewer board a handoff brief in reverse importance, or let a presenter reveal agenda fields backward as if arrival order were a meaningful editorial rule.",
+    alternative:
+      "A reasonable local alternative is rendering the intended order directly. Making users click four items backwards is a sequence puzzle masquerading as a queue.",
+    featured: true,
+    isNew: true,
+  },
+  {
+    name: "PunctuationSieve",
+    slug: "punctuation-sieve",
+    summary: "One mark at a time leaves a sentence for a tray that did not improve it.",
+    description:
+      "It scans the supplied label for actual punctuation, removes each mark in order and places it into a visible sieve tray. The sentence receives real placeholders while the punctuation remains available to restore.",
+    usage: `import { PunctuationSieve } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SiftedNotice() {
+  return <PunctuationSieve label="Please, file this: today." />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text whose punctuation is removed into the sieve." },
+    ],
+    demo: "punctuation-sieve",
+    useCase:
+      "It could let a reviewer inspect which marks carry the drama in a handoff sentence, or let a presenter strip punctuation from an agenda phrase before putting every mark back.",
+    alternative:
+      "A reasonable local alternative is leaving punctuation in the sentence or using one text utility. A sieve should not supervise a comma one click at a time.",
+    featured: true,
+    isNew: true,
+  },
+  {
     name: "ContextEscalator",
     slug: "context-escalator",
     summary: "A right-click sends a notice through four increasingly serious filing levels.",
@@ -128,8 +255,6 @@ export function EscalatedNotice() {
       "It could let a reviewer promote a handoff note through progressively more official filing levels, or let a presenter right-click an agenda label until it has earned an entirely ceremonial status.",
     alternative:
       "A reasonable local alternative is one visible status field and a normal button. Making a context menu carry a four-step approval ladder gives a browser gesture far more authority than it deserves.",
-    featured: true,
-    isNew: true,
   },
   {
     name: "OutcomeTriptych",
@@ -151,8 +276,6 @@ export function JudgedNotice() {
       "It could make a reviewer decide whether a handoff note is promoted, quarantined or deliberately softened, or let a presenter assign one agenda label a fate before continuing.",
     alternative:
       "A reasonable local alternative is one explicit status near the data and one local conditional. A reusable tribunal for three theatrical outcomes obscures a decision that should be plain.",
-    featured: true,
-    isNew: true,
   },
   {
     name: "MagneticDock",
@@ -174,8 +297,6 @@ export function ParkedNotice() {
       "It could let a reviewer fling a handoff warning toward the nearest category before filing it, or let a presenter park an agenda label in whichever pocket happens to attract it.",
     alternative:
       "A reasonable local alternative is normal flow layout with one explicit category. A magnetic surface creates a coordinate calculation for content that could have used a button or a list.",
-    featured: true,
-    isNew: true,
   },
   {
     name: "PatternLatch",
@@ -197,8 +318,6 @@ export function LockedNotice() {
       "It could make a reviewer unlock a handoff note with a pattern remembered from a meeting, or make a presenter enter a tiny gesture ritual before revealing one agenda line.",
     alternative:
       "A reasonable local alternative is a visible button or an ordinary permission check. A fixed symbol pattern protects nothing while adding a memorable way to fail.",
-    featured: true,
-    isNew: true,
   },
   {
     name: "LetterCensus",
@@ -220,8 +339,6 @@ export function AuditedLabel() {
       "It could let a reviewer audit which letters dominate a handoff sentence, or let a presenter turn one agenda phrase into a tiny linguistic report before putting it back.",
     alternative:
       "A reasonable local alternative is the original label or a one-off utility near the content. Publishing a census machine makes an observation about a sentence feel like a reusable UI primitive.",
-    featured: true,
-    isNew: true,
   },
   {
     name: "RecessDepth",

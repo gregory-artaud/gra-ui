@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## CalibrationWindow
+
+`CalibrationWindow` makes a notice pass through four progressively narrower calibration apertures.
+
+```ts
+type CalibrationWindowProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Calibrate one notch` to advance the real progression. Each notch narrows the rendered notice, raises it and adds another ruler mark; `Open it again` restores the generous opening. It could let a reviewer certify that a handoff note survives increasingly strict apertures, or let a presenter calibrate one agenda label before putting it on a slide. A reasonable local alternative is one `max-width` and ordinary layout; four irreversible measurements make a notice less readable without adding meaning.
+
+## SemanticLottery
+
+`SemanticLottery` lets one child draw one of three genuinely different semantic presentations.
+
+```ts
+type SemanticLotteryProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Briefing`, `Ledger` or `Aside` from the radio cards. The child is actually rendered inside an `article`, a definition list or an `aside`, with different structure and layout; `Return to plain content` clears the draw. It could let an editor classify a handoff note, or let a presenter give an agenda label a formal structural identity. A reasonable local alternative is choosing the correct element where the content is authored; a semantic lottery is ceremony around a decision the page already knows.
+
+## CellularDrift
+
+`CellularDrift` moves one child to a selected cell in a nine-cell board.
+
+```ts
+type CellularDriftProps = {
+  children: React.ReactNode;
+};
+```
+
+Click a numbered cell to move the actual child there, or focus its control and press Enter. The child travels between real grid coordinates and `Return to the middle` restores cell five. It could let a reviewer park a warning where attention wandered, or let a presenter assign an agenda item a tactical coordinate on a slide. A reasonable local alternative is normal flow or one alignment value; a nine-cell board makes a simple position depend on a needless ceremony.
+
+## ReverseQueue
+
+`ReverseQueue` accepts children only from last to first and keeps the resulting reverse manifest.
+
+```ts
+type ReverseQueueProps = {
+  children: React.ReactNode;
+};
+```
+
+Click the final child first, then each predecessor. Correct items leave the board for a visible manifest in the order clicked, while a wrong choice shakes and remains available; `Empty the queue` resets the sequence. It could make a reviewer board a handoff brief in reverse importance, or let a presenter reveal agenda fields backwards for a theatrical explanation. A reasonable local alternative is rendering the intended order directly; a backwards queue is a sequence puzzle pretending to be a data structure.
+
+## PunctuationSieve
+
+`PunctuationSieve` removes the actual punctuation from a label one mark at a time.
+
+```ts
+type PunctuationSieveProps = {
+  label: string;
+};
+```
+
+Press `Sieve next mark` to replace the next punctuation character with a visible placeholder and put the real mark in a tray; `Put marks back` restores the label. It could let a reviewer inspect which marks create drama in a handoff sentence, or let a presenter strip punctuation from an agenda phrase before returning it. A reasonable local alternative is leaving punctuation in the sentence or using one local text utility; a sieve should not supervise a comma one click at a time.
+
 ## ContextEscalator
 
 `ContextEscalator` sends a notice through four increasingly serious filing levels by right-clicking it.

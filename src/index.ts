@@ -20,6 +20,26 @@ export {
   LetterCensus,
   type LetterCensusProps,
 } from "./components/letter-census";
+export {
+  CalibrationWindow,
+  type CalibrationWindowProps,
+} from "./components/calibration-window";
+export {
+  SemanticLottery,
+  type SemanticLotteryProps,
+} from "./components/semantic-lottery";
+export {
+  CellularDrift,
+  type CellularDriftProps,
+} from "./components/cellular-drift";
+export {
+  ReverseQueue,
+  type ReverseQueueProps,
+} from "./components/reverse-queue";
+export {
+  PunctuationSieve,
+  type PunctuationSieveProps,
+} from "./components/punctuation-sieve";
 
 export {
   WheelStamp,

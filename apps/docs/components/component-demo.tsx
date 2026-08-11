@@ -5,6 +5,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "calibration-window" ||
+    kind === "semantic-lottery" ||
+    kind === "cellular-drift" ||
+    kind === "reverse-queue" ||
+    kind === "punctuation-sieve" ||
     kind === "recess-depth" ||
     kind === "custody-choice" ||
     kind === "counterweight" ||
