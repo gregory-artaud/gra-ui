@@ -5,6 +5,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "clarity-debt" ||
+    kind === "arithmetic-council" ||
+    kind === "tether-pull" ||
+    kind === "double-entry" ||
+    kind === "signal-transcript" ||
     kind === "calibration-window" ||
     kind === "semantic-lottery" ||
     kind === "cellular-drift" ||

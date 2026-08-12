@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ArithmeticCouncil,
   AlphabetTreadmill,
   ArrowBias,
   AveragePosition,
@@ -58,19 +59,23 @@ import {
   SideSplit,
   SplitLabel,
   TimedRelease,
+  TetherPull,
   WeightVote,
   WeekdayLedger,
   WheelStamp,
+  ClarityDebt,
   RecessDepth,
   ElasticFrame,
   NeighborMarch,
   SignalChoice,
+  SignalTranscript,
   FootnoteShift,
   WordRelay,
   WordTurnstile,
   RulerRise,
   CheckpointQueue,
   DocketSequence,
+  DoubleEntry,
   FreeDrift,
   InsideOutWords,
   MaskBallot,
@@ -105,6 +110,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "clarity-debt"
+    | "arithmetic-council"
+    | "tether-pull"
+    | "double-entry"
+    | "signal-transcript"
     | "calibration-window"
     | "semantic-lottery"
     | "cellular-drift"
@@ -212,6 +222,130 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "clarity-debt") {
+    return (
+      <div className="playground-shell clarity-debt-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <ClarityDebt><span>Ready for review</span></ClarityDebt>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Charge the readable notice.</dd></div>
+            <div><dt>2</dt><dd>Watch four real blur levels accumulate.</dd></div>
+            <div><dt>3</dt><dd>Clear the debt to make it legible again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "arithmetic-council") {
+    return (
+      <div className="playground-shell arithmetic-council-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <ArithmeticCouncil value={7.25} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Submit the amount 7.25.</dd></div>
+            <div><dt>2</dt><dd>Choose double, halve or invert.</dd></div>
+            <div><dt>3</dt><dd>Reopen the case to choose again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "tether-pull") {
+    return (
+      <div className="playground-shell tether-pull-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <TetherPull><span>Stay exactly here</span></TetherPull>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the anchor dot around the surface.</dd></div>
+            <div><dt>2</dt><dd>Use arrow keys when the dot is focused.</dd></div>
+            <div><dt>3</dt><dd>Watch the tether stretch while the notice refuses to move.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "double-entry") {
+    return (
+      <div className="playground-shell double-entry-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <DoubleEntry>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+            </DoubleEntry>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Click Title, Status and Owner in order.</dd></div>
+            <div><dt>2</dt><dd>Repeat the same order for the second pass.</dd></div>
+            <div><dt>3</dt><dd>Try the wrong entry to leave it visibly unposted.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "signal-transcript") {
+    return (
+      <div className="playground-shell signal-transcript-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <SignalTranscript label="Please review this" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Transmit the plain label.</dd></div>
+            <div><dt>2</dt><dd>Read the actual per-character Morse signals.</dd></div>
+            <div><dt>3</dt><dd>Restore the original phrase when the ceremony is over.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "context-escalator") {
     return (

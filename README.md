@@ -1828,6 +1828,66 @@ export function MeasuredContent() {
 
 Its only prop is `children`. Press and hold the content three times; each release is recorded, the average is calculated, and the content keeps the resulting scale. It could be used to make the size of a review label reflect how long somebody hesitated before releasing it. A reasonable person would keep three durations in the page and calculate the scale locally. This component should not have existed because turning a few pointer events and an average into a reusable hold-measuring ritual is excessive.
 
+## ClarityDebt
+
+`ClarityDebt` accumulates four real blur charges against a child.
+
+```ts
+type ClarityDebtProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Charge clarity` to advance the progression: the child becomes visibly blurrier at each level, then `Clear debt` returns it to its readable state. It could let a reviewer blur a handoff note each time more context is requested, or let a presenter make an agenda label harder to read after too much discussion. A reasonable local alternative is readable content with a small status; a blur debt makes information worse while pretending to track progress.
+
+## ArithmeticCouncil
+
+`ArithmeticCouncil` gives one number three incompatible arithmetic rulings.
+
+```ts
+type ArithmeticCouncilProps = {
+  value: number;
+};
+```
+
+Choose `Double it`, `Halve it` or `Invert it`. The selected choice changes the actual result, and `Reopen the case` returns to the undecided state. It could let a reviewer decide whether an estimate deserves twice the time, half the time or a negative amount of time, or let a presenter give an agenda number a ceremonial verdict. A reasonable local alternative is one local arithmetic expression; a council turns a trivial calculation into a decision ritual with no policy.
+
+## TetherPull
+
+`TetherPull` lets an anchor move while the content refuses to leave the center.
+
+```ts
+type TetherPullProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the anchor dot, or focus it and use the arrow keys. The SVG tether stretches to the real anchor position while the child stays fixed; `Relax the tether` restores the initial anchor. It could let a reviewer pull a warning toward drifting attention, or let a presenter stretch an agenda label toward a speaker without moving the label. A reasonable local alternative is one pointer position or normal flow; a tether adds geometry where a relationship could simply be stated.
+
+## DoubleEntry
+
+`DoubleEntry` requires every child to be clicked in order twice.
+
+```ts
+type DoubleEntryProps = {
+  children: React.ReactNode;
+};
+```
+
+Click the children in their supplied order for the first pass, then repeat that exact order for the second. Each pass fills a visible ledger row, wrong choices stay unposted, and `Tear up the ledger` resets both passes. It could make a reviewer check title, status and owner twice before posting a handoff brief, or let a presenter rehearse every agenda field in duplicate. A reasonable local alternative is an ordinary checklist; requiring the same sequence twice is bookkeeping theater.
+
+## SignalTranscript
+
+`SignalTranscript` transforms a label into a visible Morse transcript.
+
+```ts
+type SignalTranscriptProps = {
+  label: string;
+};
+```
+
+Press `Transmit label` to replace the actual text with per-character dots, dashes and slash tokens, then use `Restore text` to return it. It could let a reviewer transmit a handoff phrase as though the room had lost its vocabulary, or let a presenter turn an agenda label into an over-engineered signal board. A reasonable local alternative is rendering the label or using a one-off encoding utility; a transcript component makes a conversion ceremony look reusable.
+
 ## Development
 
 ```bash

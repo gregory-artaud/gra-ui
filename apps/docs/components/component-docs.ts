@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "clarity-debt"
+  | "arithmetic-council"
+  | "tether-pull"
+  | "double-entry"
+  | "signal-transcript"
   | "calibration-window"
   | "semantic-lottery"
   | "cellular-drift"
@@ -134,7 +139,6 @@ export function CalibratedNotice() {
     alternative:
       "A reasonable local alternative is one max-width and ordinary layout. Four irreversible calibration notches turn sizing into paperwork without making the notice more useful.",
     featured: true,
-    isNew: true,
   },
   {
     name: "SemanticLottery",
@@ -157,7 +161,6 @@ export function OfficialNotice() {
     alternative:
       "A reasonable local alternative is choosing the correct element at the call site. A lottery that decides whether content is an article, definition or aside is semantic theater.",
     featured: true,
-    isNew: true,
   },
   {
     name: "CellularDrift",
@@ -180,7 +183,6 @@ export function ParkedNotice() {
     alternative:
       "A reasonable local alternative is normal flow or one alignment value. A nine-cell relocation board makes a simple position depend on a small ceremony.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ReverseQueue",
@@ -210,7 +212,6 @@ export function BackwardsBrief() {
     alternative:
       "A reasonable local alternative is rendering the intended order directly. Making users click four items backwards is a sequence puzzle masquerading as a queue.",
     featured: true,
-    isNew: true,
   },
   {
     name: "PunctuationSieve",
@@ -233,7 +234,6 @@ export function SiftedNotice() {
     alternative:
       "A reasonable local alternative is leaving punctuation in the sentence or using one text utility. A sieve should not supervise a comma one click at a time.",
     featured: true,
-    isNew: true,
   },
   {
     name: "ContextEscalator",
@@ -2219,6 +2219,122 @@ export function NestedFields() {
     ],
     demo: "nest-children",
     featured: true,
+  },
+  {
+    name: "ClarityDebt",
+    slug: "clarity-debt",
+    summary: "Four charges make a readable child progressively harder to read.",
+    description:
+      "It accumulates four clarity charges against a child. Every charge adds real blur to the rendered content, leaving a fully obscured notice after a progression that should never have existed.",
+    usage: `import { ClarityDebt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function IndebtedNotice() {
+  return <ClarityDebt><span>Ready for review</span></ClarityDebt>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content made progressively less clear by each charge." },
+    ],
+    demo: "clarity-debt",
+    useCase:
+      "It could let a reviewer charge a handoff note every time someone asks for more context, or let a presenter blur an agenda label until the meeting agrees it has been discussed enough.",
+    alternative:
+      "A reasonable local alternative is leaving the content readable and recording a small status. A blur debt makes the information worse as a ceremony for progress.",
+    isNew: true,
+  },
+  {
+    name: "ArithmeticCouncil",
+    slug: "arithmetic-council",
+    summary: "Three incompatible calculations issue a binding ruling on one number.",
+    description:
+      "It asks the user to choose whether a submitted amount should be doubled, halved or inverted. The selected ruling changes the actual result rather than merely styling the same value.",
+    usage: `import { ArithmeticCouncil } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledAmount() {
+  return <ArithmeticCouncil value={7} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The amount submitted to the three-way arithmetic ruling." },
+    ],
+    demo: "arithmetic-council",
+    useCase:
+      "It could let a reviewer decide whether a handoff estimate deserves twice the time, half the time or a negative amount of time, or let a presenter give an agenda number a ceremonial mathematical verdict.",
+    alternative:
+      "A reasonable local alternative is applying the needed arithmetic beside the value. A public council turns one expression into a decision ceremony with no policy behind it.",
+    isNew: true,
+  },
+  {
+    name: "TetherPull",
+    slug: "tether-pull",
+    summary: "Drag an anchor away from content that refuses to move with it.",
+    description:
+      "It keeps a child fixed at the center of a surface while a directly manipulated anchor stretches a real SVG tether toward it. The anchor can be dragged or moved with arrow keys, but the content declines to follow.",
+    usage: `import { TetherPull } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function StubbornNotice() {
+  return <TetherPull><span>Stay exactly here</span></TetherPull>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content fixed at the center while its tether anchor moves." },
+    ],
+    demo: "tether-pull",
+    useCase:
+      "It could let a reviewer pull a warning toward the place where attention is drifting, or let a presenter stretch an agenda label toward a speaker without moving the label itself.",
+    alternative:
+      "A reasonable local alternative is one pointer position or normal flow. A tether adds geometry to communicate a relationship that the page could simply state.",
+    isNew: true,
+  },
+  {
+    name: "DoubleEntry",
+    slug: "double-entry",
+    summary: "Every child must be clicked in order twice before the ledger will post it.",
+    description:
+      "It requires a first pass through the children and then the exact same ordered pass again. Each pass fills its own visible ledger row; a wrong item remains unposted until the expected entry is chosen.",
+    usage: `import { DoubleEntry } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PostedFields() {
+  return (
+    <DoubleEntry>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </DoubleEntry>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The entries checked once, then checked again in the same order." },
+    ],
+    demo: "double-entry",
+    useCase:
+      "It could make a reviewer post a handoff brief only after checking title, status and owner twice, or let a presenter rehearse each agenda field in duplicate before advancing.",
+    alternative:
+      "A reasonable local alternative is one checklist with ordinary completion state. Requiring a second identical pass turns a list into bookkeeping theater.",
+    isNew: true,
+  },
+  {
+    name: "SignalTranscript",
+    slug: "signal-transcript",
+    summary: "A label becomes a visible Morse transcript, one character signal at a time.",
+    description:
+      "It transforms the actual supplied label into dots, dashes and slash tokens using a local Morse table. The original text can be restored, but the transcript has no practical reason to replace it.",
+    usage: `import { SignalTranscript } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SignalledNotice() {
+  return <SignalTranscript label="Please review this" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text transformed into a visible per-character signal transcript." },
+    ],
+    demo: "signal-transcript",
+    useCase:
+      "It could let a reviewer transmit a handoff phrase as though the room had lost its vocabulary, or let a presenter turn an agenda label into a signal board for a deliberately over-engineered reveal.",
+    alternative:
+      "A reasonable local alternative is rendering the label and using a nearby text utility when encoding is truly needed. A transcript component makes a one-off conversion look like a lasting UI primitive.",
+    isNew: true,
   },
 ] as const;
 

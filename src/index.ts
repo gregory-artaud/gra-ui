@@ -367,6 +367,26 @@ export {
   type PairwiseMergeProps,
 } from "./components/pairwise-merge";
 export {
+  ClarityDebt,
+  type ClarityDebtProps,
+} from "./components/clarity-debt";
+export {
+  ArithmeticCouncil,
+  type ArithmeticCouncilProps,
+} from "./components/arithmetic-council";
+export {
+  TetherPull,
+  type TetherPullProps,
+} from "./components/tether-pull";
+export {
+  DoubleEntry,
+  type DoubleEntryProps,
+} from "./components/double-entry";
+export {
+  SignalTranscript,
+  type SignalTranscriptProps,
+} from "./components/signal-transcript";
+export {
   Button,
   buttonVariants,
   type ButtonProps,
