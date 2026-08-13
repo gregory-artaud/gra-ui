@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AlphabetizeWords,
   ArithmeticCouncil,
   AlphabetTreadmill,
   ArrowBias,
@@ -11,6 +12,7 @@ import {
   CaseGate,
   CenterOut,
   ChildGravity,
+  CompassHinge,
   ClickOrder,
   CornerFold,
   CopyEcho,
@@ -76,6 +78,7 @@ import {
   CheckpointQueue,
   DocketSequence,
   DoubleEntry,
+  EventRelay,
   FreeDrift,
   InsideOutWords,
   MaskBallot,
@@ -92,6 +95,8 @@ import {
   PatternLatch,
   CalibrationWindow,
   SemanticLottery,
+  SliceReferendum,
+  SpellingPermit,
   CellularDrift,
   ReverseQueue,
   PunctuationSieve,
@@ -111,6 +116,11 @@ type Variant = (typeof variants)[number];
 export interface PlaygroundProps {
   kind?:
     | "clarity-debt"
+    | "spelling-permit"
+    | "slice-referendum"
+    | "compass-hinge"
+    | "event-relay"
+    | "alphabetize-words"
     | "arithmetic-council"
     | "tether-pull"
     | "double-entry"
@@ -222,6 +232,128 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "spelling-permit") {
+    return (
+      <div className="playground-shell spelling-permit-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <SpellingPermit label="File the note" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Type “File the note” into the permit field.</dd></div>
+            <div><dt>2</dt><dd>Each correct character reveals one actual letter.</dd></div>
+            <div><dt>3</dt><dd>Make a mistake to see the permit reject it, then revoke and begin again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "slice-referendum") {
+    return (
+      <div className="playground-shell slice-referendum-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <SliceReferendum label="Please file the remarkably ordinary handoff note today" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the entire label awaiting a cut.</dd></div>
+            <div><dt>2</dt><dd>Choose Opening, Middle or Closing.</dd></div>
+            <div><dt>3</dt><dd>The surviving excerpt is actual content, not a tint on the same sentence.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "compass-hinge") {
+    return (
+      <div className="playground-shell compass-hinge-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <CompassHinge><span>Face the issue</span></CompassHinge>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the compass knob around its dial.</dd></div>
+            <div><dt>2</dt><dd>Watch the content pivot to the exact angle.</dd></div>
+            <div><dt>3</dt><dd>Arrow keys also turn the hinge; Face north restores it.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "event-relay") {
+    return (
+      <div className="playground-shell event-relay-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <EventRelay>
+              <span>One parcel</span>
+            </EventRelay>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Tab to focus the relay panel.</dd></div>
+            <div><dt>2</dt><dd>Scroll once while it is focused, then press Space.</dd></div>
+            <div><dt>3</dt><dd>The parcel only reaches delivery when all three events arrive in order.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "alphabetize-words") {
+    return (
+      <div className="playground-shell alphabetize-words-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <AlphabetizeWords label="Keep the useful sentence readable" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable sentence.</dd></div>
+            <div><dt>2</dt><dd>Mill the words to sort each word’s real characters.</dd></div>
+            <div><dt>3</dt><dd>Restore reading when alphabetical order has gone too far.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "clarity-debt") {
     return (

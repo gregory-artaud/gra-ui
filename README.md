@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## SpellingPermit
+
+`SpellingPermit` reveals a label one correctly typed character at a time.
+
+```ts
+type SpellingPermitProps = {
+  label: string;
+};
+```
+
+Type the exact `label` into the field. Each correct character reveals one actual letter and fills the permit bar; a wrong character is rejected, and `Revoke` returns to the empty state. It could make a reviewer retype a handoff status before admitting it to a board, or let a presenter reveal an agenda phrase as if spelling were security clearance. The use case remains discutable because a readable label gains no authority from being retyped one character at a time. A reasonable local alternative is rendering the label and validating one ordinary input only when validation is actually needed.
+
+## SliceReferendum
+
+`SliceReferendum` lets three editorial cuts decide which actual part of a label survives.
+
+```ts
+type SliceReferendumProps = {
+  label: string;
+};
+```
+
+Choose `Opening`, `Middle` or `Closing`. The full label is replaced by a genuinely different excerpt, and `Reopen the whole label` restores it. It could let a reviewer decide whether a handoff note deserves its opening request or closing deadline, or let a presenter reduce an agenda sentence to whichever clause feels most official. The use case remains discutable because a deterministic substring is not improved by a governance ritual. A reasonable local alternative is choosing a substring near the data or authoring the intended excerpt directly.
+
+## CompassHinge
+
+`CompassHinge` rotates content around an imaginary north.
+
+```ts
+type CompassHingeProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the dial knob, or focus it and use the arrow keys. The child rotates to the knob's real angle; `Face north` returns it to zero degrees. It could let a reviewer turn a warning toward the side of a room where discussion is happening, or let a presenter orient an agenda label toward its speaker. The use case remains discutable because direction can be stated without physically pivoting a readable label. A reasonable local alternative is normal text flow with one alignment or orientation choice.
+
+## EventRelay
+
+`EventRelay` delivers content through three browser events in an exact order.
+
+```ts
+type EventRelayProps = {
+  children: React.ReactNode;
+};
+```
+
+Focus the relay panel, scroll once, then press Space. The child moves through the Focus, Wheel and Space stations; an event out of order returns it to the first station, and `Recall cargo` resets it. It could make a reviewer focus, scroll and confirm before delivering a handoff field, or let a presenter rehearse three different browser gestures before releasing an agenda label. The use case remains discutable because one explicit button would communicate delivery more reliably. A reasonable local alternative is one button with an ordinary handler and visible status.
+
+## AlphabetizeWords
+
+`AlphabetizeWords` rearranges the actual characters inside every word.
+
+```ts
+type AlphabetizeWordsProps = {
+  label: string;
+};
+```
+
+Press `Mill the words` to sort each word's letters alphabetically while preserving its spaces; the rendered sentence changes and `Restore reading` reverses it. It could let a reviewer inspect a sentence as a pile of letters, or let a presenter turn an agenda line into an alphabetical artifact before restoring the readable copy. The use case remains discutable because alphabetical order is not a credible reason to destroy readability. A reasonable local alternative is leaving the copy intact and using a one-off string utility for analysis.
+
 ## CalibrationWindow
 
 `CalibrationWindow` makes a notice pass through four progressively narrower calibration apertures.

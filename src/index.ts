@@ -1,6 +1,27 @@
 import "./styles.css";
 
 export {
+  SpellingPermit,
+  type SpellingPermitProps,
+} from "./components/spelling-permit";
+export {
+  SliceReferendum,
+  type SliceReferendumProps,
+} from "./components/slice-referendum";
+export {
+  CompassHinge,
+  type CompassHingeProps,
+} from "./components/compass-hinge";
+export {
+  EventRelay,
+  type EventRelayProps,
+} from "./components/event-relay";
+export {
+  AlphabetizeWords,
+  type AlphabetizeWordsProps,
+} from "./components/alphabetize-words";
+
+export {
   ContextEscalator,
   type ContextEscalatorProps,
 } from "./components/context-escalator";

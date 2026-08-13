@@ -1,5 +1,10 @@
 export type DemoKind =
   | "clarity-debt"
+  | "spelling-permit"
+  | "slice-referendum"
+  | "compass-hinge"
+  | "event-relay"
+  | "alphabetize-words"
   | "arithmetic-council"
   | "tether-pull"
   | "double-entry"
@@ -2240,7 +2245,6 @@ export function IndebtedNotice() {
       "It could let a reviewer charge a handoff note every time someone asks for more context, or let a presenter blur an agenda label until the meeting agrees it has been discussed enough.",
     alternative:
       "A reasonable local alternative is leaving the content readable and recording a small status. A blur debt makes the information worse as a ceremony for progress.",
-    isNew: true,
   },
   {
     name: "ArithmeticCouncil",
@@ -2262,7 +2266,6 @@ export function RuledAmount() {
       "It could let a reviewer decide whether a handoff estimate deserves twice the time, half the time or a negative amount of time, or let a presenter give an agenda number a ceremonial mathematical verdict.",
     alternative:
       "A reasonable local alternative is applying the needed arithmetic beside the value. A public council turns one expression into a decision ceremony with no policy behind it.",
-    isNew: true,
   },
   {
     name: "TetherPull",
@@ -2284,7 +2287,6 @@ export function StubbornNotice() {
       "It could let a reviewer pull a warning toward the place where attention is drifting, or let a presenter stretch an agenda label toward a speaker without moving the label itself.",
     alternative:
       "A reasonable local alternative is one pointer position or normal flow. A tether adds geometry to communicate a relationship that the page could simply state.",
-    isNew: true,
   },
   {
     name: "DoubleEntry",
@@ -2312,7 +2314,6 @@ export function PostedFields() {
       "It could make a reviewer post a handoff brief only after checking title, status and owner twice, or let a presenter rehearse each agenda field in duplicate before advancing.",
     alternative:
       "A reasonable local alternative is one checklist with ordinary completion state. Requiring a second identical pass turns a list into bookkeeping theater.",
-    isNew: true,
   },
   {
     name: "SignalTranscript",
@@ -2334,6 +2335,115 @@ export function SignalledNotice() {
       "It could let a reviewer transmit a handoff phrase as though the room had lost its vocabulary, or let a presenter turn an agenda label into a signal board for a deliberately over-engineered reveal.",
     alternative:
       "A reasonable local alternative is rendering the label and using a nearby text utility when encoding is truly needed. A transcript component makes a one-off conversion look like a lasting UI primitive.",
+  },
+  {
+    name: "SpellingPermit",
+    slug: "spelling-permit",
+    summary: "A label reveals itself one correctly typed character at a time.",
+    description:
+      "It turns typing into a literal admission process. Correct characters reveal the supplied label and fill its permit bar, while a wrong character is refused instead of being allowed to advance the sentence.",
+    usage: `import { SpellingPermit } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AdmittedLabel() {
+  return <SpellingPermit label="File the note" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The exact text typed to reveal and admit the label." },
+    ],
+    demo: "spelling-permit",
+    useCase:
+      "It could make a reviewer retype a handoff status before admitting it to a board, or let a presenter reveal an agenda phrase as if spelling were a security clearance.",
+    alternative:
+      "A reasonable local alternative is rendering the label and validating one ordinary input when validation is needed. A permit that refuses one wrong character adds ceremony without adding confidence.",
+    isNew: true,
+  },
+  {
+    name: "SliceReferendum",
+    slug: "slice-referendum",
+    summary: "Three editorial cuts decide which actual part of a label survives.",
+    description:
+      "It offers an opening, middle or closing cut and replaces the full label with the selected excerpt. Each choice returns different words, so the component is an unnecessary editorial decision rather than a cosmetic toggle.",
+    usage: `import { SliceReferendum } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TrimmedNotice() {
+  return <SliceReferendum label="Please file the remarkably ordinary handoff note today" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence divided into three competing surviving excerpts." },
+    ],
+    demo: "slice-referendum",
+    useCase:
+      "It could let a reviewer decide whether a handoff note deserves its opening request or closing deadline, or let a presenter reduce an agenda sentence to the clause that feels most official.",
+    alternative:
+      "A reasonable local alternative is choosing a substring near the data or writing the intended excerpt directly. A referendum makes a deterministic editorial cut look like governance.",
+    isNew: true,
+  },
+  {
+    name: "CompassHinge",
+    slug: "compass-hinge",
+    summary: "A dragged compass knob rotates content around an imaginary north.",
+    description:
+      "It places a child at the center of a dial and lets a directly manipulated knob set its real rotation angle. The content pivots continuously with the knob and can be returned to north with one action.",
+    usage: `import { CompassHinge } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OrientedNotice() {
+  return <CompassHinge><span>Face the issue</span></CompassHinge>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content rotated around the dial's imaginary hinge." },
+    ],
+    demo: "compass-hinge",
+    useCase:
+      "It could let a reviewer turn a warning toward the side of a room where discussion is happening, or let a presenter physically orient an agenda label toward its speaker.",
+    alternative:
+      "A reasonable local alternative is normal text flow with one alignment or orientation choice. A compass hinge spends geometry on a direction the content could simply name.",
+    isNew: true,
+  },
+  {
+    name: "EventRelay",
+    slug: "event-relay",
+    summary: "Focus, wheel and Space must deliver one parcel in exactly that order.",
+    description:
+      "It turns three unrelated browser events into a delivery route. Focusing the relay, scrolling once and pressing Space moves the actual content through three stations; any event out of order sends it back to the first station.",
+    usage: `import { EventRelay } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function DeliveredNotice() {
+  return <EventRelay><span>One parcel</span></EventRelay>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content moved through the focus, wheel and Space stations." },
+    ],
+    demo: "event-relay",
+    useCase:
+      "It could make a reviewer focus, scroll and confirm before delivering a handoff field, or let a presenter rehearse three different browser gestures before releasing an agenda label.",
+    alternative:
+      "A reasonable local alternative is one button with an explicit handler. Making three unrelated events act as a relay protocol creates a failure mode where a normal interaction would be clearer.",
+    isNew: true,
+  },
+  {
+    name: "AlphabetizeWords",
+    slug: "alphabetize-words",
+    summary: "Every word is rearranged into alphabetical character order, whether it asked to be.",
+    description:
+      "It transforms the actual letters inside every word while preserving spaces between words. The milled sentence is visibly different and reversible, making alphabetical order a needlessly destructive editorial tool.",
+    usage: `import { AlphabetizeWords } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MilledNotice() {
+  return <AlphabetizeWords label="Keep the useful sentence readable" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence whose word characters are sorted in place." },
+    ],
+    demo: "alphabetize-words",
+    useCase:
+      "It could let a reviewer inspect a sentence as a pile of letters, or let a presenter turn an agenda line into an alphabetical artifact before restoring the readable copy.",
+    alternative:
+      "A reasonable local alternative is leaving the copy intact and using a one-off string utility for analysis. A reusable word mill makes readability subordinate to a sorting rule.",
     isNew: true,
   },
 ] as const;
