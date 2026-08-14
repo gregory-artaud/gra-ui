@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, CountedClone, RepeatChildren } from "gra-ui";
 
 import type { DemoKind } from "@/components/component-docs";
@@ -5,6 +7,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "notch-progress" ||
+    kind === "filing-fork" ||
+    kind === "pointer-plot" ||
+    kind === "switchback-route" ||
+    kind === "codepoint-receipt" ||
     kind === "spelling-permit" ||
     kind === "slice-referendum" ||
     kind === "compass-hinge" ||

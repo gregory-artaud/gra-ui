@@ -12,6 +12,7 @@ import {
   CaseGate,
   CenterOut,
   ChildGravity,
+  CodepointReceipt,
   CompassHinge,
   ClickOrder,
   CornerFold,
@@ -27,6 +28,7 @@ import {
   FocusFade,
   FocusReceipt,
   FocusUnpack,
+  FilingFork,
   HoldPosition,
   HoverRoute,
   HoverConfirm,
@@ -44,9 +46,11 @@ import {
   MixedClick,
   MomentumWeave,
   NestChildren,
+  NotchProgress,
   PairwiseMerge,
   ParityPurge,
   PressEscape,
+  PointerPlot,
   PunchProof,
   QuotaProcession,
   ReorderBack,
@@ -60,6 +64,7 @@ import {
   SpaceStaple,
   SideSplit,
   SplitLabel,
+  SwitchbackRoute,
   TimedRelease,
   TetherPull,
   WeightVote,
@@ -115,6 +120,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "notch-progress"
+    | "filing-fork"
+    | "pointer-plot"
+    | "switchback-route"
+    | "codepoint-receipt"
     | "clarity-debt"
     | "spelling-permit"
     | "slice-referendum"
@@ -232,6 +242,126 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "notch-progress") {
+    return (
+      <div className="playground-shell notch-progress-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <NotchProgress><span>Ready for one more review</span></NotchProgress>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable notice and an empty seal.</dd></div>
+            <div><dt>2</dt><dd>Add five notches one at a time; the ring and paper depth respond.</dd></div>
+            <div><dt>3</dt><dd>Begin again to discard the completely unnecessary certification.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "filing-fork") {
+    return (
+      <div className="playground-shell filing-fork-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <FilingFork><span>Needs a decision</span></FilingFork>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose Ledger, Frame or Echo.</dd></div>
+            <div><dt>2</dt><dd>The child moves into a genuinely different HTML structure.</dd></div>
+            <div><dt>3</dt><dd>Return to intake when the shelf feels too authoritative.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "pointer-plot") {
+    return (
+      <div className="playground-shell pointer-plot-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <PointerPlot><span>Park this note</span></PointerPlot>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Click anywhere on the plotting surface.</dd></div>
+            <div><dt>2</dt><dd>Watch the cargo and crosshair move to the real coordinate.</dd></div>
+            <div><dt>3</dt><dd>Use arrow keys for needless precision, or recenter it.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "switchback-route") {
+    return (
+      <div className="playground-shell switchback-route-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <SwitchbackRoute><span>Arrived eventually</span></SwitchbackRoute>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Focus the route board.</dd></div>
+            <div><dt>2</dt><dd>Press Up, Right, Down, then Left in that order.</dd></div>
+            <div><dt>3</dt><dd>A wrong turn resets the route before the child is released.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "codepoint-receipt") {
+    return (
+      <div className="playground-shell codepoint-receipt-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar">
+            <span>Preview</span>
+            <span className="preview-status"><i /> Interactive</span>
+          </div>
+          <div className="preview-stage">
+            <CodepointReceipt label="Please keep this sentence readable" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a sentence that is easy to read.</dd></div>
+            <div><dt>2</dt><dd>Issue a receipt for every actual character code.</dd></div>
+            <div><dt>3</dt><dd>Restore the sentence when implementation detail has had enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "spelling-permit") {
     return (

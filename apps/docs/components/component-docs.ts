@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "notch-progress"
+  | "filing-fork"
+  | "pointer-plot"
+  | "switchback-route"
+  | "codepoint-receipt"
   | "clarity-debt"
   | "spelling-permit"
   | "slice-referendum"
@@ -123,6 +128,116 @@ export interface ComponentDoc {
 }
 
 export const componentDocs: readonly ComponentDoc[] = [
+  {
+    name: "NotchProgress",
+    slug: "notch-progress",
+    summary: "Five ceremonial notches turn a readable notice into a fully notarized seal.",
+    description:
+      "It advances one physical-looking notch at a time. The ring fills, the marks settle and the child sinks into its seal only at the fifth stage; starting again deliberately discards the certification.",
+    usage: `import { NotchProgress } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NotarizedNotice() {
+  return <NotchProgress><span>Ready for one more review</span></NotchProgress>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice that earns five visible notches." },
+    ],
+    demo: "notch-progress",
+    useCase:
+      "It could make a reviewer notch a handoff note once per glance, or let a presenter certify an agenda label before putting it on a slide. Both uses turn merely seeing content into an ornamental approval ritual.",
+    alternative:
+      "A reasonable local alternative is rendering the notice and using one explicit status when approval matters. A five-notch seal gives a progress meter authority over a task that has no measurable progress.",
+    isNew: true,
+  },
+  {
+    name: "FilingFork",
+    slug: "filing-fork",
+    summary: "Choose a ledger, frame or echo and the same child receives a different actual shelf.",
+    description:
+      "The three choices render different HTML structures: a numbered filing ledger, a fieldset container or a quoted echo. The result is not a tint or a label change; it is a real structural fork that can be returned to intake.",
+    usage: `import { FilingFork } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShelvedNotice() {
+  return <FilingFork><span>Needs a decision</span></FilingFork>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content placed into one of three incompatible filing structures." },
+    ],
+    demo: "filing-fork",
+    useCase:
+      "It could let a reviewer choose whether a handoff note belongs in a ledger, a containment frame or an emphatic quote, or let a presenter give one agenda line a temporary stage format. Neither use needs a reusable fork because the intended structure is already known.",
+    alternative:
+      "A reasonable local alternative is choosing one semantic structure at the call site and styling it locally. Making the audience vote on a shelf adds a decision without improving the content.",
+    isNew: true,
+  },
+  {
+    name: "PointerPlot",
+    slug: "pointer-plot",
+    summary: "A click on a map relocates the cargo to the exact coordinate it did not need.",
+    description:
+      "It puts one child on a bounded plotting surface. Pointer placement moves the actual child and crosshair to the chosen coordinate, while arrow keys provide a precise keyboard route back to the middle.",
+    usage: `import { PointerPlot } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PlottedNotice() {
+  return <PointerPlot><span>Park this note</span></PointerPlot>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cargo moved to a real coordinate on the plot." },
+    ],
+    demo: "pointer-plot",
+    useCase:
+      "It could let a reviewer park a warning at the place where attention drifted, or let a presenter position an agenda label on a tactical-looking slide. Both uses make ordinary layout answer to a coordinate ritual.",
+    alternative:
+      "A reasonable local alternative is normal flow with one alignment or a local CSS position. A plotting surface introduces geometry when the content could simply occupy its intended place.",
+    isNew: true,
+  },
+  {
+    name: "SwitchbackRoute",
+    slug: "switchback-route",
+    summary: "Four arrow keys send a notice around a route whose long way is the only way.",
+    description:
+      "Focus the route and press Up, Right, Down, then Left. Each correct turn lights another station; any wrong arrow returns the route to its entrance, and only the completed detour releases the child.",
+    usage: `import { SwitchbackRoute } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function DetouredNotice() {
+  return <SwitchbackRoute><span>Arrived eventually</span></SwitchbackRoute>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content released after the four-turn keyboard route." },
+    ],
+    demo: "switchback-route",
+    useCase:
+      "It could make a reviewer navigate a handoff note through a memorized detour, or let a presenter rehearse a four-turn gesture before revealing an agenda item. The order is real, but the detour protects nothing.",
+    alternative:
+      "A reasonable local alternative is one button or one direct keyboard command. Turning four arrows into a gate makes a trivial reveal depend on a sequence users must remember.",
+    isNew: true,
+  },
+  {
+    name: "CodepointReceipt",
+    slug: "codepoint-receipt",
+    summary: "One click converts readable copy into a receipt for every underlying character code.",
+    description:
+      "It transforms each actual character into a ledger line with its glyph, Unicode code point and a proportional bar. The original sentence returns intact, so the conversion is observable and reversible rather than decorative.",
+    usage: `import { CodepointReceipt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ItemizedNotice() {
+  return <CodepointReceipt label="Please keep this sentence readable" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text itemized into a visible Unicode receipt." },
+    ],
+    demo: "codepoint-receipt",
+    useCase:
+      "It could let a reviewer audit the exact characters in a handoff label, or let a presenter turn an agenda phrase into a machine-legible artifact for one slide. Both uses expose data that is technically true and practically unhelpful.",
+    alternative:
+      "A reasonable local alternative is rendering the label and using a local string utility only when code points are actually relevant. A receipt component makes implementation detail compete with reading.",
+    isNew: true,
+  },
   {
     name: "CalibrationWindow",
     slug: "calibration-window",
@@ -2356,7 +2471,6 @@ export function AdmittedLabel() {
       "It could make a reviewer retype a handoff status before admitting it to a board, or let a presenter reveal an agenda phrase as if spelling were a security clearance.",
     alternative:
       "A reasonable local alternative is rendering the label and validating one ordinary input when validation is needed. A permit that refuses one wrong character adds ceremony without adding confidence.",
-    isNew: true,
   },
   {
     name: "SliceReferendum",
@@ -2378,7 +2492,6 @@ export function TrimmedNotice() {
       "It could let a reviewer decide whether a handoff note deserves its opening request or closing deadline, or let a presenter reduce an agenda sentence to the clause that feels most official.",
     alternative:
       "A reasonable local alternative is choosing a substring near the data or writing the intended excerpt directly. A referendum makes a deterministic editorial cut look like governance.",
-    isNew: true,
   },
   {
     name: "CompassHinge",
@@ -2400,7 +2513,6 @@ export function OrientedNotice() {
       "It could let a reviewer turn a warning toward the side of a room where discussion is happening, or let a presenter physically orient an agenda label toward its speaker.",
     alternative:
       "A reasonable local alternative is normal text flow with one alignment or orientation choice. A compass hinge spends geometry on a direction the content could simply name.",
-    isNew: true,
   },
   {
     name: "EventRelay",
@@ -2422,7 +2534,6 @@ export function DeliveredNotice() {
       "It could make a reviewer focus, scroll and confirm before delivering a handoff field, or let a presenter rehearse three different browser gestures before releasing an agenda label.",
     alternative:
       "A reasonable local alternative is one button with an explicit handler. Making three unrelated events act as a relay protocol creates a failure mode where a normal interaction would be clearer.",
-    isNew: true,
   },
   {
     name: "AlphabetizeWords",
@@ -2444,7 +2555,6 @@ export function MilledNotice() {
       "It could let a reviewer inspect a sentence as a pile of letters, or let a presenter turn an agenda line into an alphabetical artifact before restoring the readable copy.",
     alternative:
       "A reasonable local alternative is leaving the copy intact and using a one-off string utility for analysis. A reusable word mill makes readability subordinate to a sorting rule.",
-    isNew: true,
   },
 ] as const;
 

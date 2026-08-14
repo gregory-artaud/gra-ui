@@ -20,6 +20,26 @@ export {
   AlphabetizeWords,
   type AlphabetizeWordsProps,
 } from "./components/alphabetize-words";
+export {
+  NotchProgress,
+  type NotchProgressProps,
+} from "./components/notch-progress";
+export {
+  FilingFork,
+  type FilingForkProps,
+} from "./components/filing-fork";
+export {
+  PointerPlot,
+  type PointerPlotProps,
+} from "./components/pointer-plot";
+export {
+  SwitchbackRoute,
+  type SwitchbackRouteProps,
+} from "./components/switchback-route";
+export {
+  CodepointReceipt,
+  type CodepointReceiptProps,
+} from "./components/codepoint-receipt";
 
 export {
   ContextEscalator,

@@ -1948,6 +1948,66 @@ type SignalTranscriptProps = {
 
 Press `Transmit label` to replace the actual text with per-character dots, dashes and slash tokens, then use `Restore text` to return it. It could let a reviewer transmit a handoff phrase as though the room had lost its vocabulary, or let a presenter turn an agenda label into an over-engineered signal board. A reasonable local alternative is rendering the label or using a one-off encoding utility; a transcript component makes a conversion ceremony look reusable.
 
+## NotchProgress
+
+`NotchProgress` advances a child through five visible ceremonial notches.
+
+```ts
+type NotchProgressProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Add a notch` to fill the actual seal one stage at a time. The ring, numbered marks and paper depth change at every stage; `Begin again` or `Clear seal` returns to the empty state. It could make a reviewer notch a handoff note once per glance, or let a presenter certify an agenda label before placing it on a slide. The use case remains discutable because seeing a notice is not measurable progress and a seal adds no authority. A reasonable local alternative is rendering the notice with one explicit status when approval matters.
+
+## FilingFork
+
+`FilingFork` puts one child into one of three incompatible filing structures.
+
+```ts
+type FilingForkProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Ledger`, `Frame` or `Echo`. The child is actually rendered inside a numbered list, a fieldset or a quotation figure, and `Return to intake` removes the choice. It could let a reviewer classify a handoff note for a ledger or a containment frame, or let a presenter give an agenda line a temporary stage format. The use case remains discutable because the intended structure should be known by the author, not chosen by the audience. A reasonable local alternative is selecting one semantic structure at the call site.
+
+## PointerPlot
+
+`PointerPlot` relocates a child to a directly chosen coordinate.
+
+```ts
+type PointerPlotProps = {
+  children: React.ReactNode;
+};
+```
+
+Click the plotting surface to move the cargo and crosshair to that real point; focus it and use the arrow keys for smaller movements. `Recenter cargo` returns it to the middle. It could let a reviewer park a warning where attention drifted, or let a presenter position an agenda label on a tactical-looking slide. The use case remains discutable because normal layout already knows where the content belongs. A reasonable local alternative is normal flow with one alignment or a local CSS position.
+
+## SwitchbackRoute
+
+`SwitchbackRoute` releases a child only after an exact four-arrow detour.
+
+```ts
+type SwitchbackRouteProps = {
+  children: React.ReactNode;
+};
+```
+
+Focus the route and press `ArrowUp`, `ArrowRight`, `ArrowDown`, then `ArrowLeft`. Each correct turn lights a station; a wrong arrow returns to the entrance, and the completed route changes the child into a released cargo state. `Start over` clears it. It could make a reviewer navigate a handoff note through a memorized detour, or let a presenter rehearse four turns before revealing an agenda item. The use case remains discutable because the sequence protects nothing. A reasonable local alternative is one button or one direct keyboard command.
+
+## CodepointReceipt
+
+`CodepointReceipt` converts readable text into a reversible ledger of its actual Unicode code points.
+
+```ts
+type CodepointReceiptProps = {
+  label: string;
+};
+```
+
+Press `Issue receipt` to replace the label with one line per glyph, its visible code point and a proportional bar; `Restore sentence` returns the exact text. It could let a reviewer audit the characters in a handoff label, or let a presenter turn an agenda phrase into a machine-legible artifact for one slide. The use case remains discutable because implementation detail competes with reading and rarely deserves a visual receipt. A reasonable local alternative is rendering the label and using a local string utility only when code points are genuinely relevant.
+
 ## Development
 
 ```bash
