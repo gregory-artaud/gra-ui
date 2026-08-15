@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "coil-certification"
+  | "witness-choice"
+  | "shutter-pass"
+  | "return-protocol"
+  | "acronym-forge"
   | "notch-progress"
   | "filing-fork"
   | "pointer-plot"
@@ -129,6 +134,116 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "CoilCertification",
+    slug: "coil-certification",
+    summary: "Four unnecessary loops wind around a notice until geometry declares it certified.",
+    description:
+      "It adds one actual perimeter loop at a time around the child. Each loop changes the chamber and the final coil gives the notice a visible seal that says nothing about its contents.",
+    usage: `import { CoilCertification } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CoiledNotice() {
+  return <CoilCertification><span>Ready for another review</span></CoilCertification>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice enclosed by the progressively growing coil." },
+    ],
+    demo: "coil-certification",
+    useCase:
+      "It could let a reviewer wind one loop around a handoff note per glance, or let a presenter certify an agenda label by physically enclosing it before a slide advances. Both uses mistake enclosure for evidence.",
+    alternative:
+      "A reasonable local alternative is the notice with one status badge when certification matters. Adding four geometric loops turns a binary decision into a ceremony with no new information.",
+    isNew: true,
+  },
+  {
+    name: "WitnessChoice",
+    slug: "witness-choice",
+    summary: "Choose whether an unnecessary witness leads, follows or stands beside the same notice.",
+    description:
+      "The three choices do not merely recolor a box: they render the child in three different physical arrangements with a distinct witness slip above, beside or below it. The chosen placement remains until it is returned to an unwitnessed state.",
+    usage: `import { WitnessChoice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function WitnessedNotice() {
+  return <WitnessChoice><span>Needs a decision</span></WitnessChoice>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice assigned one of three witness placements." },
+    ],
+    demo: "witness-choice",
+    useCase:
+      "It could let a reviewer decide whether a handoff note needs a witness before it, beside it or after it, or let a presenter give an agenda line a ceremonial chaperone position. Neither use benefits from making layout answer to a vote.",
+    alternative:
+      "A reasonable local alternative is one nearby status label and the intended layout. A three-way witness placement creates structural doubt where the content already has a natural position.",
+    isNew: true,
+  },
+  {
+    name: "ShutterPass",
+    slug: "shutter-pass",
+    summary: "Drag a reading shutter across a notice and keep only the arbitrary aperture you leave open.",
+    description:
+      "A pointer-controlled shutter changes the actual clip boundary of the child, so the notice is partially hidden until the aperture is moved. Arrow keys, Home and End provide the same direct manipulation route without a pointer.",
+    usage: `import { ShutterPass } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AperturedNotice() {
+  return <ShutterPass><span>Only the approved portion is visible</span></ShutterPass>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content revealed through the movable reading shutter." },
+    ],
+    demo: "shutter-pass",
+    useCase:
+      "It could let a reviewer reveal a handoff note only as far as attention permits, or let a presenter choose how much of an agenda label the audience deserves to see. Both uses turn visibility into a hand-operated aperture.",
+    alternative:
+      "A reasonable local alternative is the content itself or a deliberate disclosure control. A draggable clip boundary is extra geometry for deciding whether a sentence is visible.",
+    isNew: true,
+  },
+  {
+    name: "ReturnProtocol",
+    slug: "return-protocol",
+    summary: "Borrow, witness and return a notice in order, leaving a mark it never needed.",
+    description:
+      "The child travels from Home to a Loan Tray, receives a visible witness mark and returns only after the three actions happen in that order. The stations and completed mark make the sequence observable, and cancellation restores the beginning.",
+    usage: `import { ReturnProtocol } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function LoanedNotice() {
+  return <ReturnProtocol><span>Back by the next meeting</span></ReturnProtocol>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice that travels through the ordered loan stations." },
+    ],
+    demo: "return-protocol",
+    useCase:
+      "It could make a reviewer borrow a handoff note before annotating it, or let a presenter rehearse taking an agenda line off the slide and returning it with a witness mark. The order creates accountability theater, not accountability.",
+    alternative:
+      "A reasonable local alternative is one edit action with a visible status. A three-station loan protocol makes a small annotation depend on an invented custody chain.",
+    isNew: true,
+  },
+  {
+    name: "AcronymForge",
+    slug: "acronym-forge",
+    summary: "One click smelts a readable phrase into its opening letters and displays the evidence trail.",
+    description:
+      "The supplied label is transformed into a real acronym made from the first character of every word. A source ledger shows which words contributed, and restoring the phrase brings back the original content.",
+    usage: `import { AcronymForge } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ForgedNotice() {
+  return <AcronymForge label="Please keep this sentence readable" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The phrase transformed into an acronym and source ledger." },
+    ],
+    demo: "acronym-forge",
+    useCase:
+      "It could let a reviewer compress a handoff sentence into a meeting shorthand, or let a presenter forge a slide code from an agenda phrase before restoring the readable version. Both uses reward losing words that were already doing useful work.",
+    alternative:
+      "A reasonable local alternative is keeping the phrase and deriving a local acronym only where the shortened form is actually needed. A forge should not replace the copy it is meant to help name.",
+    isNew: true,
+  },
+  {
     name: "NotchProgress",
     slug: "notch-progress",
     summary: "Five ceremonial notches turn a readable notice into a fully notarized seal.",
@@ -148,7 +263,6 @@ export function NotarizedNotice() {
       "It could make a reviewer notch a handoff note once per glance, or let a presenter certify an agenda label before putting it on a slide. Both uses turn merely seeing content into an ornamental approval ritual.",
     alternative:
       "A reasonable local alternative is rendering the notice and using one explicit status when approval matters. A five-notch seal gives a progress meter authority over a task that has no measurable progress.",
-    isNew: true,
   },
   {
     name: "FilingFork",
@@ -170,7 +284,6 @@ export function ShelvedNotice() {
       "It could let a reviewer choose whether a handoff note belongs in a ledger, a containment frame or an emphatic quote, or let a presenter give one agenda line a temporary stage format. Neither use needs a reusable fork because the intended structure is already known.",
     alternative:
       "A reasonable local alternative is choosing one semantic structure at the call site and styling it locally. Making the audience vote on a shelf adds a decision without improving the content.",
-    isNew: true,
   },
   {
     name: "PointerPlot",
@@ -192,7 +305,6 @@ export function PlottedNotice() {
       "It could let a reviewer park a warning at the place where attention drifted, or let a presenter position an agenda label on a tactical-looking slide. Both uses make ordinary layout answer to a coordinate ritual.",
     alternative:
       "A reasonable local alternative is normal flow with one alignment or a local CSS position. A plotting surface introduces geometry when the content could simply occupy its intended place.",
-    isNew: true,
   },
   {
     name: "SwitchbackRoute",
@@ -214,7 +326,6 @@ export function DetouredNotice() {
       "It could make a reviewer navigate a handoff note through a memorized detour, or let a presenter rehearse a four-turn gesture before revealing an agenda item. The order is real, but the detour protects nothing.",
     alternative:
       "A reasonable local alternative is one button or one direct keyboard command. Turning four arrows into a gate makes a trivial reveal depend on a sequence users must remember.",
-    isNew: true,
   },
   {
     name: "CodepointReceipt",
@@ -236,7 +347,6 @@ export function ItemizedNotice() {
       "It could let a reviewer audit the exact characters in a handoff label, or let a presenter turn an agenda phrase into a machine-legible artifact for one slide. Both uses expose data that is technically true and practically unhelpful.",
     alternative:
       "A reasonable local alternative is rendering the label and using a local string utility only when code points are actually relevant. A receipt component makes implementation detail compete with reading.",
-    isNew: true,
   },
   {
     name: "CalibrationWindow",

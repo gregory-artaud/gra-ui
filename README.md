@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## CoilCertification
+
+`CoilCertification` winds four actual loops around a notice before geometry is allowed to call it certified.
+
+```ts
+type CoilCertificationProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Wind another loop` to add a visible perimeter around the child; the chamber changes at every stage and `Uncoil and begin again` returns to the empty coil. It could let a reviewer certify a handoff note once per glance, or let a presenter enclose an agenda line before advancing a slide. Both uses confuse enclosure with evidence. A reasonable local alternative is one status badge or a direct approval action near the notice.
+
+## WitnessChoice
+
+`WitnessChoice` asks an unnecessary witness to lead, stand beside or follow the same notice.
+
+```ts
+type WitnessChoiceProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Lead`, `Side` or `Tail`. Each option renders a genuinely different arrangement with its own witness slip, and `Return to unwitnessed` clears the choice. It could let a reviewer decide where a handoff note should be chaperoned, or let a presenter give an agenda label a ceremonial escort position. Both uses make layout answer to a vote. A reasonable local alternative is one nearby status label and the intended layout authored directly at the call site.
+
+## ShutterPass
+
+`ShutterPass` reveals only the arbitrary slice of a notice left open by a movable reading shutter.
+
+```ts
+type ShutterPassProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the shutter across the rail, or focus it and use the arrow keys, Home or End. The child is actually clipped to the chosen aperture; `Reset aperture` restores the middle opening. It could let a reviewer reveal a handoff note only as far as attention permits, or let a presenter choose how much of an agenda label an audience deserves to see. A reasonable local alternative is the content itself or one deliberate disclosure control; a draggable clip boundary adds geometry to a visibility decision.
+
+## ReturnProtocol
+
+`ReturnProtocol` makes a notice travel through a borrow, witness and return sequence.
+
+```ts
+type ReturnProtocolProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Borrow notice`, then `Add witness mark`, then `Return notice`. The child moves from Home to a Loan Tray, receives a real visible mark and returns only in that order; `Cancel protocol` restores the opening state. It could make a reviewer borrow a handoff note before annotating it, or let a presenter rehearse taking an agenda line off a slide and returning it with a mark. The sequence creates custody theater instead of accountability. A reasonable local alternative is one edit action with a visible status.
+
+## AcronymForge
+
+`AcronymForge` transforms a readable phrase into its actual opening-letter acronym and keeps a source trail.
+
+```ts
+type AcronymForgeProps = {
+  label: string;
+};
+```
+
+Press `Forge acronym` to replace the phrase with the initials of its words and show the source ledger; `Restore phrase` returns the original label. It could let a reviewer compress a handoff sentence into meeting shorthand, or let a presenter forge a slide code from an agenda phrase before restoring it. Both uses reward losing words that were already doing useful work. A reasonable local alternative is keeping the phrase and deriving an acronym locally only where the shortened form is actually needed.
+
 ## SpellingPermit
 
 `SpellingPermit` reveals a label one correctly typed character at a time.

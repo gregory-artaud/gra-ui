@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  AcronymForge,
   AlphabetizeWords,
   ArithmeticCouncil,
   AlphabetTreadmill,
@@ -12,6 +13,7 @@ import {
   CaseGate,
   CenterOut,
   ChildGravity,
+  CoilCertification,
   CodepointReceipt,
   CompassHinge,
   ClickOrder,
@@ -70,11 +72,14 @@ import {
   WeightVote,
   WeekdayLedger,
   WheelStamp,
+  WitnessChoice,
   ClarityDebt,
   RecessDepth,
+  ReturnProtocol,
   ElasticFrame,
   NeighborMarch,
   SignalChoice,
+  ShutterPass,
   SignalTranscript,
   FootnoteShift,
   WordRelay,
@@ -120,6 +125,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "coil-certification"
+    | "witness-choice"
+    | "shutter-pass"
+    | "return-protocol"
+    | "acronym-forge"
     | "notch-progress"
     | "filing-fork"
     | "pointer-plot"
@@ -242,6 +252,111 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "coil-certification") {
+    return (
+      <div className="playground-shell coil-certification-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CoilCertification><span>Ready for another review</span></CoilCertification>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Wind one actual loop around the notice.</dd></div>
+            <div><dt>2</dt><dd>Watch each loop tighten the geometric perimeter.</dd></div>
+            <div><dt>3</dt><dd>Uncoil the certification when four loops feel excessive.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "witness-choice") {
+    return (
+      <div className="playground-shell witness-choice-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <WitnessChoice><span>Needs a decision</span></WitnessChoice>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose Lead, Side or Tail.</dd></div>
+            <div><dt>2</dt><dd>The witness changes the child&apos;s actual arrangement.</dd></div>
+            <div><dt>3</dt><dd>Return to unwitnessed when the layout has testified enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "shutter-pass") {
+    return (
+      <div className="playground-shell shutter-pass-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ShutterPass><span>Only the approved portion is visible</span></ShutterPass>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the reading shutter across the rail.</dd></div>
+            <div><dt>2</dt><dd>The clip boundary reveals a real amount of the notice.</dd></div>
+            <div><dt>3</dt><dd>Use arrow keys or reset the aperture.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "return-protocol") {
+    return (
+      <div className="playground-shell return-protocol-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ReturnProtocol><span>Back by the next meeting</span></ReturnProtocol>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Borrow the notice into the loan tray.</dd></div>
+            <div><dt>2</dt><dd>Add its witness mark before returning it.</dd></div>
+            <div><dt>3</dt><dd>Cancel to send the notice home without ceremony.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "acronym-forge") {
+    return (
+      <div className="playground-shell acronym-forge-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <AcronymForge label="Please keep this sentence readable" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Forge the phrase into its opening letters.</dd></div>
+            <div><dt>2</dt><dd>Inspect the source ledger below the acronym.</dd></div>
+            <div><dt>3</dt><dd>Restore the words when the shorthand stops helping.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "notch-progress") {
     return (

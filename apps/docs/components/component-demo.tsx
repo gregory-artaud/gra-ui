@@ -7,6 +7,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "coil-certification" ||
+    kind === "witness-choice" ||
+    kind === "shutter-pass" ||
+    kind === "return-protocol" ||
+    kind === "acronym-forge" ||
     kind === "notch-progress" ||
     kind === "filing-fork" ||
     kind === "pointer-plot" ||

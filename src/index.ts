@@ -1,6 +1,27 @@
 import "./styles.css";
 
 export {
+  CoilCertification,
+  type CoilCertificationProps,
+} from "./components/coil-certification";
+export {
+  WitnessChoice,
+  type WitnessChoiceProps,
+} from "./components/witness-choice";
+export {
+  ShutterPass,
+  type ShutterPassProps,
+} from "./components/shutter-pass";
+export {
+  ReturnProtocol,
+  type ReturnProtocolProps,
+} from "./components/return-protocol";
+export {
+  AcronymForge,
+  type AcronymForgeProps,
+} from "./components/acronym-forge";
+
+export {
   SpellingPermit,
   type SpellingPermitProps,
 } from "./components/spelling-permit";
