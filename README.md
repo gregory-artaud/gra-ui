@@ -16,6 +16,66 @@ Import the component styles once in your application:
 import "gra-ui/styles.css";
 ```
 
+## MarkupPromotion
+
+`MarkupPromotion` promotes a notice through increasingly official HTML containers one click at a time.
+
+```ts
+type MarkupPromotionProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Promote to section`, `Promote to article`, `Promote to aside` and `Promote to quoted` in order. The child moves through five real block-level containers with distinct structure and styling; `Clear promotions` returns it to a plain block. It could let a reviewer raise a handoff note through five ranks, or let a presenter promote an agenda line until it looks authoritative. Both uses mistake HTML structure for earned status. A reasonable local alternative is choosing the correct element once and adding one nearby status if needed.
+
+## SeparatorBallot
+
+`SeparatorBallot` asks three policies how a readable label should be divided.
+
+```ts
+type SeparatorBallotProps = {
+  label: string;
+};
+```
+
+Choose `Dot trail`, `Slash file` or `Column fall`. The actual separators change, and the column choice renders a real numbered list; `Return to spacing` restores the original label. It could let a reviewer vote on how a handoff phrase occupies a board, or let a presenter give an agenda line a punctuation policy. Neither use makes the words more authoritative. A reasonable local alternative is writing the desired separator directly or leaving the sentence in normal flow.
+
+## BeltCollector
+
+`BeltCollector` lets a pickup head collect children from a belt into a separate tray.
+
+```ts
+type BeltCollectorProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the pickup head across the belt, or focus it and use the arrow keys. Each reached child leaves the belt and appears in the real pickup tray; `Reset belt` returns every piece. It could let a reviewer sweep fields from a handoff brief into a tray, or let a presenter physically collect agenda items before advancing. A reasonable local alternative is an ordinary list with selection state or one batch action.
+
+## OperationParade
+
+`OperationParade` makes the order of three arithmetic operations decide the final number.
+
+```ts
+type OperationParadeProps = {
+  value: number;
+};
+```
+
+Press `Double`, `Add seven` and `Reverse` in any order, once each. The live value changes after every operation and different orders produce different results; `Restart parade` returns to the supplied value. It could make a reviewer process a handoff estimate as a tiny ceremony, or let a presenter demonstrate order sensitivity on an agenda number. A reasonable local alternative is one explicit expression or named calculation function.
+
+## RedundancyCuller
+
+`RedundancyCuller` removes repeated words from a sentence and files the discarded copies.
+
+```ts
+type RedundancyCullerProps = {
+  label: string;
+};
+```
+
+Press `Cull repeats` to keep the first occurrence of each word, remove later case-insensitive repeats from the visible sentence and list the discarded words in a drawer. `Restore repetitions` returns the original label. It could let a reviewer shorten a handoff sentence or let a presenter strip an agenda line to its first mention of every term. A reasonable local alternative is editing the copy deliberately or leaving intentional repetition intact.
+
 ## CoilCertification
 
 `CoilCertification` winds four actual loops around a notice before geometry is allowed to call it certified.

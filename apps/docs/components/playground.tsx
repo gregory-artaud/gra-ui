@@ -9,6 +9,7 @@ import {
   AveragePosition,
   Braidline,
   BackspaceArchive,
+  BeltCollector,
   BlankFiling,
   CaseGate,
   CenterOut,
@@ -44,11 +45,13 @@ import {
   LayoutReferendum,
   LastRemaining,
   LengthOrder,
+  MarkupPromotion,
   MarginQuota,
   MixedClick,
   MomentumWeave,
   NestChildren,
   NotchProgress,
+  OperationParade,
   PairwiseMerge,
   ParityPurge,
   PressEscape,
@@ -56,8 +59,10 @@ import {
   PunchProof,
   QuotaProcession,
   ReorderBack,
+  RedundancyCuller,
   RotationTithe,
   ScaleSweep,
+  SeparatorBallot,
   SeamFold,
   SelectionSeal,
   ShadowPair,
@@ -125,6 +130,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "markup-promotion"
+    | "separator-ballot"
+    | "belt-collector"
+    | "operation-parade"
+    | "redundancy-culler"
     | "coil-certification"
     | "witness-choice"
     | "shutter-pass"
@@ -252,6 +262,115 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "markup-promotion") {
+    return (
+      <div className="playground-shell markup-promotion-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <MarkupPromotion><span>Ready for another review</span></MarkupPromotion>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Promote the notice one actual HTML container at a time.</dd></div>
+            <div><dt>2</dt><dd>Watch the document structure and visual treatment change together.</dd></div>
+            <div><dt>3</dt><dd>Demote it back to plain when markup has had enough authority.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "separator-ballot") {
+    return (
+      <div className="playground-shell separator-ballot-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <SeparatorBallot label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ungoverned readable label.</dd></div>
+            <div><dt>2</dt><dd>Vote for dots, slashes or one word per line.</dd></div>
+            <div><dt>3</dt><dd>Return to normal spacing when the ruling feels ceremonial.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "belt-collector") {
+    return (
+      <div className="playground-shell belt-collector-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <BeltCollector>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+            </BeltCollector>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the pickup head across the belt.</dd></div>
+            <div><dt>2</dt><dd>Every reached child leaves the belt for the real tray.</dd></div>
+            <div><dt>3</dt><dd>Use arrow keys or reset the belt to send the pieces back.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "operation-parade") {
+    return (
+      <div className="playground-shell operation-parade-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <OperationParade value={24} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose one operation, then another, then the last.</dd></div>
+            <div><dt>2</dt><dd>Watch the number change after every actual calculation.</dd></div>
+            <div><dt>3</dt><dd>Restart and use a different order to reach a different answer.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "redundancy-culler") {
+    return (
+      <div className="playground-shell redundancy-culler-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <RedundancyCuller label="Review the review before the review" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a sentence that tolerates repetition.</dd></div>
+            <div><dt>2</dt><dd>Cull later repeats from the actual visible sentence.</dd></div>
+            <div><dt>3</dt><dd>Open the drawer to inspect what was removed, then restore it.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "coil-certification") {
     return (

@@ -1,6 +1,27 @@
 import "./styles.css";
 
 export {
+  MarkupPromotion,
+  type MarkupPromotionProps,
+} from "./components/markup-promotion";
+export {
+  SeparatorBallot,
+  type SeparatorBallotProps,
+} from "./components/separator-ballot";
+export {
+  BeltCollector,
+  type BeltCollectorProps,
+} from "./components/belt-collector";
+export {
+  OperationParade,
+  type OperationParadeProps,
+} from "./components/operation-parade";
+export {
+  RedundancyCuller,
+  type RedundancyCullerProps,
+} from "./components/redundancy-culler";
+
+export {
   CoilCertification,
   type CoilCertificationProps,
 } from "./components/coil-certification";

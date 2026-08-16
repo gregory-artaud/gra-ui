@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "markup-promotion"
+  | "separator-ballot"
+  | "belt-collector"
+  | "operation-parade"
+  | "redundancy-culler"
   | "coil-certification"
   | "witness-choice"
   | "shutter-pass"
@@ -134,6 +139,122 @@ export interface ComponentDoc {
 
 export const componentDocs: readonly ComponentDoc[] = [
   {
+    name: "MarkupPromotion",
+    slug: "markup-promotion",
+    summary: "A notice climbs through increasingly official HTML containers one promotion at a time.",
+    description:
+      "It promotes the same notice from a plain block into a section, article, aside and blockquote. The DOM and the visual treatment both change, as though semantic weight could be earned by clicking.",
+    usage: `import { MarkupPromotion } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PromotedNotice() {
+  return <MarkupPromotion><span>Ready for another review</span></MarkupPromotion>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice promoted through five increasingly official containers." },
+    ],
+    demo: "markup-promotion",
+    useCase:
+      "It could let a reviewer promote a handoff note until its HTML structure looks authoritative, or let a presenter raise an agenda line through five ranks before giving it the floor. Neither use makes semantics more true.",
+    alternative:
+      "A reasonable local alternative is choosing the correct element at authoring time and adding one status if needed. A promotion ladder turns document structure into a reward track.",
+    isNew: true,
+  },
+  {
+    name: "SeparatorBallot",
+    slug: "separator-ballot",
+    summary: "Three separator policies give one label three genuinely different readings.",
+    description:
+      "Choose a dot trail, slash file or column fall. Each ruling changes the actual separators and, for the column choice, the rendered list structure rather than merely changing a color or label.",
+    usage: `import { SeparatorBallot } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledLabel() {
+  return <SeparatorBallot label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The words submitted to the three competing separator policies." },
+    ],
+    demo: "separator-ballot",
+    useCase:
+      "It could let a reviewer decide whether a handoff phrase belongs in dots, slashes or a vertical filing column, or let a presenter vote on how an agenda line should occupy a slide. The words gain no authority from their chosen punctuation.",
+    alternative:
+      "A reasonable local alternative is writing the desired separator directly or keeping the sentence in normal flow. A ballot makes a formatting decision look like governance.",
+    isNew: true,
+  },
+  {
+    name: "BeltCollector",
+    slug: "belt-collector",
+    summary: "Drag a pickup head across a row and collect each child into a needless tray.",
+    description:
+      "The collector follows the pointer or arrow keys along a belt. As it reaches each piece, that child leaves the belt and appears in a real pickup tray, so movement changes the inventory rather than merely animating a cursor.",
+    usage: `import { BeltCollector } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CollectedNotice() {
+  return (
+    <BeltCollector>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </BeltCollector>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces picked up from the belt and placed in the tray." },
+    ],
+    demo: "belt-collector",
+    useCase:
+      "It could let a reviewer sweep a handoff brief into a pickup tray one field at a time, or let a presenter physically collect agenda items before a slide advances. A list already has a much better collection mechanism.",
+    alternative:
+      "A reasonable local alternative is an ordinary list with selection state or one batch action. A pointer-controlled collector spends a machine metaphor on moving data a few pixels.",
+    isNew: true,
+  },
+  {
+    name: "OperationParade",
+    slug: "operation-parade",
+    summary: "Three arithmetic buttons produce different answers solely because they march in a different order.",
+    description:
+      "Double, add seven and reverse the digits can each be used once. The live number changes after every step, and the final result depends on the order in which the same three operations were paraded.",
+    usage: `import { OperationParade } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ParadedValue() {
+  return <OperationParade value={24} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The starting number submitted to the order-dependent operation parade." },
+    ],
+    demo: "operation-parade",
+    useCase:
+      "It could make a reviewer perform three arbitrary calculations on a handoff estimate, or let a presenter demonstrate that an agenda number changes when its ceremony changes. Both uses confuse order sensitivity with policy.",
+    alternative:
+      "A reasonable local alternative is one explicit expression or a named calculation function. A public parade makes arithmetic depend on audience choreography.",
+    isNew: true,
+  },
+  {
+    name: "RedundancyCuller",
+    slug: "redundancy-culler",
+    summary: "One click removes repeated words from a sentence and files the discarded copies.",
+    description:
+      "It keeps the first occurrence of each word, removes later case-insensitive repeats from the visible sentence and records the discarded words in a real drawer. Restoring repetitions returns the original label.",
+    usage: `import { RedundancyCuller } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CullableNotice() {
+  return <RedundancyCuller label="Review the review before the review" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence whose repeated words can be removed and listed." },
+    ],
+    demo: "redundancy-culler",
+    useCase:
+      "It could let a reviewer cull repeated words from a handoff sentence, or let a presenter strip an agenda line down to its first mention of every term. Removing repetition also removes emphasis that may have been intentional.",
+    alternative:
+      "A reasonable local alternative is editing the copy deliberately or leaving repetition intact. A reusable culler should not decide that recurring language is waste.",
+    isNew: true,
+  },
+  {
     name: "CoilCertification",
     slug: "coil-certification",
     summary: "Four unnecessary loops wind around a notice until geometry declares it certified.",
@@ -153,7 +274,6 @@ export function CoiledNotice() {
       "It could let a reviewer wind one loop around a handoff note per glance, or let a presenter certify an agenda label by physically enclosing it before a slide advances. Both uses mistake enclosure for evidence.",
     alternative:
       "A reasonable local alternative is the notice with one status badge when certification matters. Adding four geometric loops turns a binary decision into a ceremony with no new information.",
-    isNew: true,
   },
   {
     name: "WitnessChoice",
@@ -175,7 +295,6 @@ export function WitnessedNotice() {
       "It could let a reviewer decide whether a handoff note needs a witness before it, beside it or after it, or let a presenter give an agenda line a ceremonial chaperone position. Neither use benefits from making layout answer to a vote.",
     alternative:
       "A reasonable local alternative is one nearby status label and the intended layout. A three-way witness placement creates structural doubt where the content already has a natural position.",
-    isNew: true,
   },
   {
     name: "ShutterPass",
@@ -197,7 +316,6 @@ export function AperturedNotice() {
       "It could let a reviewer reveal a handoff note only as far as attention permits, or let a presenter choose how much of an agenda label the audience deserves to see. Both uses turn visibility into a hand-operated aperture.",
     alternative:
       "A reasonable local alternative is the content itself or a deliberate disclosure control. A draggable clip boundary is extra geometry for deciding whether a sentence is visible.",
-    isNew: true,
   },
   {
     name: "ReturnProtocol",
@@ -219,7 +337,6 @@ export function LoanedNotice() {
       "It could make a reviewer borrow a handoff note before annotating it, or let a presenter rehearse taking an agenda line off the slide and returning it with a witness mark. The order creates accountability theater, not accountability.",
     alternative:
       "A reasonable local alternative is one edit action with a visible status. A three-station loan protocol makes a small annotation depend on an invented custody chain.",
-    isNew: true,
   },
   {
     name: "AcronymForge",
@@ -241,7 +358,6 @@ export function ForgedNotice() {
       "It could let a reviewer compress a handoff sentence into a meeting shorthand, or let a presenter forge a slide code from an agenda phrase before restoring the readable version. Both uses reward losing words that were already doing useful work.",
     alternative:
       "A reasonable local alternative is keeping the phrase and deriving a local acronym only where the shortened form is actually needed. A forge should not replace the copy it is meant to help name.",
-    isNew: true,
   },
   {
     name: "NotchProgress",

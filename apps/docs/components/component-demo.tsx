@@ -7,6 +7,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "markup-promotion" ||
+    kind === "separator-ballot" ||
+    kind === "belt-collector" ||
+    kind === "operation-parade" ||
+    kind === "redundancy-culler" ||
     kind === "coil-certification" ||
     kind === "witness-choice" ||
     kind === "shutter-pass" ||
