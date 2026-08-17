@@ -569,6 +569,14 @@ a {
   min-width: 168px;
 }
 
+.binary-march-preview .gra-ui,
+.metric-mandate-preview .gra-ui,
+.crank-shift-preview .gra-ui,
+.gesture-patent-preview .gra-ui,
+.run-length-pack-preview .gra-ui {
+  width: min(100%, 480px);
+}
+
 .recess-depth-preview .gra-ui,
 .custody-choice-preview .gra-ui,
 .counterweight-preview .gra-ui,

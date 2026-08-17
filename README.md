@@ -2128,6 +2128,117 @@ type CodepointReceiptProps = {
 
 Press `Issue receipt` to replace the label with one line per glyph, its visible code point and a proportional bar; `Restore sentence` returns the exact text. It could let a reviewer audit the characters in a handoff label, or let a presenter turn an agenda phrase into a machine-legible artifact for one slide. The use case remains discutable because implementation detail competes with reading and rarely deserves a visual receipt. A reasonable local alternative is rendering the label and using a local string utility only when code points are genuinely relevant.
 
+## BinaryMarch
+
+`BinaryMarch` turns a decimal integer into binary one manual division at a time.
+
+```ts
+type BinaryMarchProps = {
+  value: number;
+};
+```
+
+```tsx
+import { BinaryMarch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CeremonialNumber() {
+  return <BinaryMarch value={42} />;
+}
+```
+
+Click `Divide by two` to record the quotient and remainder, prepend the earned bit, and continue until the binary result is complete. `Restart march` returns to the initial decimal state. The new row arrives with a short slide, and the result settles into its receipt. It could let a reviewer manually convert a release number before admitting it to a machine-facing handoff, or let a presenter give one agenda count a tiny arithmetic procession. Both uses are discutable because `value.toString(2)` already performs the conversion. A reasonable local alternative is that one-line conversion or a local utility, not a progress component for long division.
+
+## MetricMandate
+
+`MetricMandate` makes a label choose what it is officially made of.
+
+```ts
+type MetricMandateProps = {
+  label: string;
+};
+```
+
+```tsx
+import { MetricMandate } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MeasuredNotice() {
+  return <MetricMandate label="Prepare the ordinary handoff" />;
+}
+```
+
+Choose `Ink`, `Air` or `Edges`. The choices calculate different totals from the same label and change the actual meter width and live result. `Withdraw standard` returns to the undecided state. It could let a reviewer decide whether a handoff is large because it contains characters, whitespace or word boundaries, or let a presenter assign an agenda item an official size. The use remains discutable because the metric is arbitrary and none changes the content. A reasonable local alternative is one explicit count selected for the real task.
+
+## CrankShift
+
+`CrankShift` uses a directly manipulated dial to rotate children into a new order.
+
+```ts
+type CrankShiftProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { CrankShift } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShiftedCargo() {
+  return (
+    <CrankShift>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </CrankShift>
+  );
+}
+```
+
+Drag the crank, or focus it and use the arrow keys. Each of eight dial positions rotates the actual child order in the cargo list; `Return to intake` restores the supplied order. The arm turns with a short transition while the reordered items settle into place. It could let a reviewer turn a handoff row until the least urgent field reaches the front, or let a presenter rotate agenda items through a ceremonial loading dock. A reasonable local alternative is an array with one ordinary reorder interaction. The component should not have existed because a list operation does not need a crank.
+
+## GesturePatent
+
+`GesturePatent` grants a specimen only after three unrelated gestures arrive in order.
+
+```ts
+type GesturePatentProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { GesturePatent } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PatentedNotice() {
+  return <GesturePatent><span>Approved for another meeting</span></GesturePatent>;
+}
+```
+
+Click `Stamp` once, double-click `Turn`, then right-click `Seal`; keyboard activation of each station is also available. Correct steps fill the three stations and move the specimen through pending states to a real `GRANTED` mark. A wrong gesture resets the route, and `Withdraw patent` clears it. It could make a reviewer certify a handoff note before filing it, or let a presenter rehearse three pointer intents before revealing an agenda item. The use remains discutable because unrelated gestures provide no security or meaning. A reasonable local alternative is one explicit confirmation button or short form.
+
+## RunLengthPack
+
+`RunLengthPack` turns adjacent repeated characters into counted visual crates.
+
+```ts
+type RunLengthPackProps = {
+  label: string;
+};
+```
+
+```tsx
+import { RunLengthPack } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PackedNotice() {
+  return <RunLengthPack label="Sooo much ceremony" />;
+}
+```
+
+Click `Pack adjacent runs` to perform a real run-length encoding: `ooo` becomes `o×3`, spaces become visible space glyphs, and the packed tokens replace the readable sentence. `Unpack sequence` restores the exact label. The crates arrive with a small rise-and-settle animation. It could let a reviewer compress an emphatic handoff label for a tiny display, or let a presenter turn a repeated phrase into a storage artifact. A reasonable local alternative is a local run-length utility used only where storage matters. This component should not have existed because optimizing a readable sentence visually makes it less readable.
+
 ## Development
 
 ```bash

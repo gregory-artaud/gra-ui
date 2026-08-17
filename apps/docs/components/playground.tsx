@@ -3,6 +3,7 @@
 import {
   AcronymForge,
   AlphabetizeWords,
+  BinaryMarch,
   ArithmeticCouncil,
   AlphabetTreadmill,
   ArrowBias,
@@ -47,6 +48,7 @@ import {
   LengthOrder,
   MarkupPromotion,
   MarginQuota,
+  MetricMandate,
   MixedClick,
   MomentumWeave,
   NestChildren,
@@ -95,6 +97,7 @@ import {
   DoubleEntry,
   EventRelay,
   FreeDrift,
+  GesturePatent,
   InsideOutWords,
   MaskBallot,
   OrbitStow,
@@ -104,6 +107,7 @@ import {
   VerdictSelector,
   VowelHinge,
   ContextEscalator,
+  CrankShift,
   LetterCensus,
   MagneticDock,
   OutcomeTriptych,
@@ -115,6 +119,7 @@ import {
   CellularDrift,
   ReverseQueue,
   PunctuationSieve,
+  RunLengthPack,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -243,7 +248,12 @@ export interface PlaygroundProps {
     | "hover-route"
     | "nest-children"
     | "drag-threshold"
-    | "weekday-ledger";
+    | "weekday-ledger"
+    | "binary-march"
+    | "metric-mandate"
+    | "crank-shift"
+    | "gesture-patent"
+    | "run-length-pack";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -3451,6 +3461,116 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Double-click the label.</dd></div>
             <div><dt>2</dt><dd>Select each newly separated half.</dd></div>
             <div><dt>3</dt><dd>Watch the unchanged label reunite.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "binary-march") {
+    return (
+      <div className="playground-shell binary-march-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage binary-march-preview">
+            <BinaryMarch value={42} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one ordinary decimal number.</dd></div>
+            <div><dt>2</dt><dd>Divide by two; the quotient continues and the remainder becomes a real bit.</dd></div>
+            <div><dt>3</dt><dd>Repeat until the binary receipt is complete, then restart the march if needed.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "metric-mandate") {
+    return (
+      <div className="playground-shell metric-mandate-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage metric-mandate-preview">
+            <MetricMandate label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with the same readable label and no official size.</dd></div>
+            <div><dt>2</dt><dd>Choose Ink, Air or Edges; each standard calculates a different total.</dd></div>
+            <div><dt>3</dt><dd>Withdraw the standard when the sentence has been measured enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "crank-shift") {
+    return (
+      <div className="playground-shell crank-shift-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage crank-shift-preview">
+            <CrankShift>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Date</span>
+            </CrankShift>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four fields in their ordinary cargo order.</dd></div>
+            <div><dt>2</dt><dd>Drag the circular crank, or focus it and use the arrow keys.</dd></div>
+            <div><dt>3</dt><dd>Every dial position rotates the actual list order.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "gesture-patent") {
+    return (
+      <div className="playground-shell gesture-patent-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage gesture-patent-preview">
+            <GesturePatent><span>Approved for another meeting</span></GesturePatent>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Click Stamp once.</dd></div>
+            <div><dt>2</dt><dd>Double-click Turn, then right-click Seal.</dd></div>
+            <div><dt>3</dt><dd>A wrong gesture restarts the patent; keyboard activation works on each station too.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "run-length-pack") {
+    return (
+      <div className="playground-shell run-length-pack-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage run-length-pack-preview">
+            <RunLengthPack label="Sooo much ceremony" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a label containing adjacent repetitions.</dd></div>
+            <div><dt>2</dt><dd>Pack the runs; each repeated glyph becomes a counted token.</dd></div>
+            <div><dt>3</dt><dd>Unpack the sequence to restore the exact readable text.</dd></div>
           </dl>
         </div>
       </div>

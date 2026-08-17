@@ -113,7 +113,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "hover-route" ||
     kind === "nest-children" ||
     kind === "drag-threshold" ||
-    kind === "weekday-ledger"
+    kind === "weekday-ledger" ||
+    kind === "binary-march" ||
+    kind === "metric-mandate" ||
+    kind === "crank-shift" ||
+    kind === "gesture-patent" ||
+    kind === "run-length-pack"
   ) {
     return <Playground kind={kind} />;
   }

@@ -115,7 +115,12 @@ export type DemoKind =
   | "backspace-archive"
   | "hover-route"
   | "nest-children"
-  | "weekday-ledger";
+  | "weekday-ledger"
+  | "binary-march"
+  | "metric-mandate"
+  | "crank-shift"
+  | "gesture-patent"
+  | "run-length-pack";
 
 export interface ApiRow {
   name: string;
@@ -158,7 +163,6 @@ export function PromotedNotice() {
       "It could let a reviewer promote a handoff note until its HTML structure looks authoritative, or let a presenter raise an agenda line through five ranks before giving it the floor. Neither use makes semantics more true.",
     alternative:
       "A reasonable local alternative is choosing the correct element at authoring time and adding one status if needed. A promotion ladder turns document structure into a reward track.",
-    isNew: true,
   },
   {
     name: "SeparatorBallot",
@@ -180,7 +184,6 @@ export function RuledLabel() {
       "It could let a reviewer decide whether a handoff phrase belongs in dots, slashes or a vertical filing column, or let a presenter vote on how an agenda line should occupy a slide. The words gain no authority from their chosen punctuation.",
     alternative:
       "A reasonable local alternative is writing the desired separator directly or keeping the sentence in normal flow. A ballot makes a formatting decision look like governance.",
-    isNew: true,
   },
   {
     name: "BeltCollector",
@@ -208,7 +211,6 @@ export function CollectedNotice() {
       "It could let a reviewer sweep a handoff brief into a pickup tray one field at a time, or let a presenter physically collect agenda items before a slide advances. A list already has a much better collection mechanism.",
     alternative:
       "A reasonable local alternative is an ordinary list with selection state or one batch action. A pointer-controlled collector spends a machine metaphor on moving data a few pixels.",
-    isNew: true,
   },
   {
     name: "OperationParade",
@@ -230,7 +232,6 @@ export function ParadedValue() {
       "It could make a reviewer perform three arbitrary calculations on a handoff estimate, or let a presenter demonstrate that an agenda number changes when its ceremony changes. Both uses confuse order sensitivity with policy.",
     alternative:
       "A reasonable local alternative is one explicit expression or a named calculation function. A public parade makes arithmetic depend on audience choreography.",
-    isNew: true,
   },
   {
     name: "RedundancyCuller",
@@ -252,7 +253,6 @@ export function CullableNotice() {
       "It could let a reviewer cull repeated words from a handoff sentence, or let a presenter strip an agenda line down to its first mention of every term. Removing repetition also removes emphasis that may have been intentional.",
     alternative:
       "A reasonable local alternative is editing the copy deliberately or leaving repetition intact. A reusable culler should not decide that recurring language is waste.",
-    isNew: true,
   },
   {
     name: "CoilCertification",
@@ -2781,6 +2781,122 @@ export function MilledNotice() {
       "It could let a reviewer inspect a sentence as a pile of letters, or let a presenter turn an agenda line into an alphabetical artifact before restoring the readable copy.",
     alternative:
       "A reasonable local alternative is leaving the copy intact and using a one-off string utility for analysis. A reusable word mill makes readability subordinate to a sorting rule.",
+  },
+  {
+    name: "BinaryMarch",
+    slug: "binary-march",
+    summary: "A number reaches binary one manual division at a time.",
+    description:
+      "It turns a trivial decimal-to-binary conversion into a visible march of long divisions. Each step records a quotient and remainder, prepends the earned bit and keeps the accumulated binary result on display.",
+    usage: `import { BinaryMarch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CeremonialNumber() {
+  return <BinaryMarch value={42} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The non-negative integer that must earn its binary representation through repeated divisions." },
+    ],
+    demo: "binary-march",
+    useCase:
+      "It could let a reviewer manually convert a release number before admitting it to a machine-facing handoff, or let a presenter make one agenda count undergo a tiny arithmetic procession.",
+    alternative:
+      "A reasonable local alternative is `value.toString(2)` or a local conversion utility. A component that makes division a progress track is hard to defend as interface infrastructure.",
+    isNew: true,
+  },
+  {
+    name: "MetricMandate",
+    slug: "metric-mandate",
+    summary: "Choose whether a label is officially measured in ink, air or edges.",
+    description:
+      "Three measurement standards calculate genuinely different counts from the same label: non-space characters, whitespace or word boundaries. The selected standard changes the live total and the width of its official meter.",
+    usage: `import { MetricMandate } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MeasuredNotice() {
+  return <MetricMandate label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text submitted to three competing and equally unhelpful measurement standards." },
+    ],
+    demo: "metric-mandate",
+    useCase:
+      "It could let a reviewer decide whether a handoff is large because it contains ink, silence or word boundaries, or let a presenter assign an agenda item an official size without changing its words.",
+    alternative:
+      "A reasonable local alternative is one explicit count chosen for the actual task. A public mandate makes an arbitrary measurement policy look like content governance.",
+    isNew: true,
+  },
+  {
+    name: "CrankShift",
+    slug: "crank-shift",
+    summary: "Turn a physical crank to rotate a row of children into a new order.",
+    description:
+      "A directly manipulated dial divides a full turn into eight positions. Each position rotates the actual child order in the cargo list, so the crank moves the data rather than merely decorating a control.",
+    usage: `import { CrankShift } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShiftedCargo() {
+  return (
+    <CrankShift>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </CrankShift>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cargo items rotated through the crank's actual order." },
+    ],
+    demo: "crank-shift",
+    useCase:
+      "It could let a reviewer turn a handoff row until the least urgent field reaches the front, or let a presenter rotate agenda items through a ceremonial loading dock.",
+    alternative:
+      "A reasonable local alternative is keeping the intended order in an array and rendering it directly, with one ordinary reorder interaction if needed. A crank turns a list operation into machinery.",
+    isNew: true,
+  },
+  {
+    name: "GesturePatent",
+    slug: "gesture-patent",
+    summary: "A specimen is granted a patent only after click, double-click and right-click arrive in order.",
+    description:
+      "The same content passes three gesture stations in a fixed order: a single click stamps it, a double-click turns it and a right-click seals it. A wrong gesture resets the route, while keyboard activation remains available on each station.",
+    usage: `import { GesturePatent } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PatentedNotice() {
+  return <GesturePatent><span>Approved for another meeting</span></GesturePatent>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The specimen that waits through the three-gesture patent route." },
+    ],
+    demo: "gesture-patent",
+    useCase:
+      "It could make a reviewer stamp, turn and seal a handoff note before filing it, or let a presenter rehearse three kinds of pointer intent before revealing an agenda item.",
+    alternative:
+      "A reasonable local alternative is one explicit confirmation button or a short form. Binding a business decision to three unrelated gesture types creates ceremony and failure without security.",
+    isNew: true,
+  },
+  {
+    name: "RunLengthPack",
+    slug: "run-length-pack",
+    summary: "Adjacent repeated characters collapse into little counted crates.",
+    description:
+      "One activation performs a real run-length encoding of the supplied label. Consecutive equal characters become visible tokens such as `a×3`, while the original sequence remains restorable with the same control.",
+    usage: `import { RunLengthPack } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PackedNotice() {
+  return <RunLengthPack label="Sooo much ceremony" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text whose adjacent repeated characters are packed into counted runs." },
+    ],
+    demo: "run-length-pack",
+    useCase:
+      "It could let a reviewer compress an emphatic handoff label before storing it in a tiny display, or let a presenter turn a repeated phrase into a small encoding artifact.",
+    alternative:
+      "A reasonable local alternative is a short run-length utility used where storage actually matters, while leaving the readable text alone. A visible packer optimizes a sentence nobody asked to compress.",
+    isNew: true,
   },
 ] as const;
 
