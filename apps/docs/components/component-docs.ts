@@ -120,7 +120,12 @@ export type DemoKind =
   | "metric-mandate"
   | "crank-shift"
   | "gesture-patent"
-  | "run-length-pack";
+  | "run-length-pack"
+  | "clause-audit"
+  | "terminus-choice"
+  | "drop-silo"
+  | "alphabetical-queue"
+  | "percent-parcel";
 
 export interface ApiRow {
   name: string;
@@ -2802,7 +2807,6 @@ export function CeremonialNumber() {
       "It could let a reviewer manually convert a release number before admitting it to a machine-facing handoff, or let a presenter make one agenda count undergo a tiny arithmetic procession.",
     alternative:
       "A reasonable local alternative is `value.toString(2)` or a local conversion utility. A component that makes division a progress track is hard to defend as interface infrastructure.",
-    isNew: true,
   },
   {
     name: "MetricMandate",
@@ -2824,7 +2828,6 @@ export function MeasuredNotice() {
       "It could let a reviewer decide whether a handoff is large because it contains ink, silence or word boundaries, or let a presenter assign an agenda item an official size without changing its words.",
     alternative:
       "A reasonable local alternative is one explicit count chosen for the actual task. A public mandate makes an arbitrary measurement policy look like content governance.",
-    isNew: true,
   },
   {
     name: "CrankShift",
@@ -2852,7 +2855,6 @@ export function ShiftedCargo() {
       "It could let a reviewer turn a handoff row until the least urgent field reaches the front, or let a presenter rotate agenda items through a ceremonial loading dock.",
     alternative:
       "A reasonable local alternative is keeping the intended order in an array and rendering it directly, with one ordinary reorder interaction if needed. A crank turns a list operation into machinery.",
-    isNew: true,
   },
   {
     name: "GesturePatent",
@@ -2874,7 +2876,6 @@ export function PatentedNotice() {
       "It could make a reviewer stamp, turn and seal a handoff note before filing it, or let a presenter rehearse three kinds of pointer intent before revealing an agenda item.",
     alternative:
       "A reasonable local alternative is one explicit confirmation button or a short form. Binding a business decision to three unrelated gesture types creates ceremony and failure without security.",
-    isNew: true,
   },
   {
     name: "RunLengthPack",
@@ -2896,6 +2897,115 @@ export function PackedNotice() {
       "It could let a reviewer compress an emphatic handoff label before storing it in a tiny display, or let a presenter turn a repeated phrase into a small encoding artifact.",
     alternative:
       "A reasonable local alternative is a short run-length utility used where storage actually matters, while leaving the readable text alone. A visible packer optimizes a sentence nobody asked to compress.",
+  },
+  {
+    name: "ClauseAudit",
+    slug: "clause-audit",
+    summary: "A sentence receives one needless inspection stamp per word.",
+    description:
+      "It audits a label from left to right. Each click inspects the next word, marks it in the actual sentence and advances a real progress ledger until every clause has been ceremonially cleared.",
+    usage: `import { ClauseAudit } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AuditedNotice() {
+  return <ClauseAudit label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The words inspected one at a time by the audit ledger." },
+    ],
+    demo: "clause-audit",
+    useCase:
+      "It could let a reviewer inspect every word in a handoff sentence before filing it, or let a presenter clear an agenda label word by word before a slide advances. Neither use turns reading into measurable work.",
+    alternative:
+      "A reasonable local alternative is displaying the sentence and one ordinary review status. A progress ledger should not pretend that looking at the next word is a project milestone.",
+    isNew: true,
+  },
+  {
+    name: "TerminusChoice",
+    slug: "terminus-choice",
+    summary: "Choose whether every word reports its first, middle or last letter.",
+    description:
+      "Three choices produce three genuinely different readings of the same label. The selected position is extracted from every word, so the displayed content changes rather than merely changing its decoration.",
+    usage: `import { TerminusChoice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledPhrase() {
+  return <TerminusChoice label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The words reduced to their first, middle or last letters." },
+    ],
+    demo: "terminus-choice",
+    useCase:
+      "It could let a reviewer choose whether a handoff sentence should be represented by its beginnings, centers or endings, or let a presenter make an agenda line confess one arbitrary letter from each word. The choice creates information loss without a policy behind it.",
+    alternative:
+      "A reasonable local alternative is keeping the readable label and deriving one summary explicitly where it is needed. A three-way tribunal is a poor substitute for naming the desired extraction rule.",
+    isNew: true,
+  },
+  {
+    name: "DropSilo",
+    slug: "drop-silo",
+    summary: "Drag one piece of content into a silo that immediately gives it a new administrative destiny.",
+    description:
+      "The cargo can be dragged with native HTML drag-and-drop into an inbox, vault or quarantine lane. The selected silo becomes the real rendered destination, and each lane is also keyboard-operable for devices that do not drag.",
+    usage: `import { DropSilo } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledNotice() {
+  return <DropSilo><span>Needs a decision</span></DropSilo>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cargo moved into one of the three visible silos." },
+    ],
+    demo: "drop-silo",
+    useCase:
+      "It could let a reviewer drag a warning into an inbox, vault or quarantine lane, or let a presenter physically file an agenda item by dropping it into a ceremonial category. The destination changes the layout but not the decision.",
+    alternative:
+      "A reasonable local alternative is a select, list or ordinary drag target chosen for the actual data model. A three-silo cargo ritual adds logistics to a classification that could be stated directly.",
+    isNew: true,
+  },
+  {
+    name: "AlphabeticalQueue",
+    slug: "alphabetical-queue",
+    summary: "A queue accepts labels only in alphabetical order.",
+    description:
+      "Each label must be selected in the next alphabetical position. Correct choices leave the board and enter a visible manifest, while an early selection is rejected and leaves the queue unchanged.",
+    usage: `import { AlphabeticalQueue } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OrderedFields() {
+  return <AlphabeticalQueue items={["Status", "Owner", "Title"]} />;
+}`,
+    api: [
+      { name: "items", type: "readonly string[]", description: "The labels that must be admitted in alphabetical order." },
+    ],
+    demo: "alphabetical-queue",
+    useCase:
+      "It could make a reviewer file handoff fields in alphabetical order, or let a presenter reveal agenda labels according to a dictionary nobody consulted. The sequence imposes an order unrelated to meaning.",
+    alternative:
+      "A reasonable local alternative is sorting the array once and rendering it, or preserving the author’s intentional order. A queue should not turn an ordinary sort into a timed admission ceremony.",
+    isNew: true,
+  },
+  {
+    name: "PercentParcel",
+    slug: "percent-parcel",
+    summary: "A readable label is packed into URL percent escapes and then unpacked again.",
+    description:
+      "One activation applies the real `encodeURIComponent` transformation to the supplied label and displays the resulting transport marks. A second activation restores the original readable text without involving a network or storage layer.",
+    usage: `import { PercentParcel } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TransportLabel() {
+  return <PercentParcel label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable text converted into a percent-encoded parcel." },
+    ],
+    demo: "percent-parcel",
+    useCase:
+      "It could let a reviewer package a handoff label for a URL-shaped filing system, or let a presenter reveal the transport spelling hidden inside an agenda phrase. The browser already performs this conversion invisibly when it matters.",
+    alternative:
+      "A reasonable local alternative is passing the value to `encodeURIComponent` at the boundary that needs it and keeping the display readable. A visible parcel makes transport syntax compete with the message.",
     isNew: true,
   },
 ] as const;

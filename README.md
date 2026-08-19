@@ -2239,6 +2239,111 @@ export function PackedNotice() {
 
 Click `Pack adjacent runs` to perform a real run-length encoding: `ooo` becomes `o×3`, spaces become visible space glyphs, and the packed tokens replace the readable sentence. `Unpack sequence` restores the exact label. The crates arrive with a small rise-and-settle animation. It could let a reviewer compress an emphatic handoff label for a tiny display, or let a presenter turn a repeated phrase into a storage artifact. A reasonable local alternative is a local run-length utility used only where storage matters. This component should not have existed because optimizing a readable sentence visually makes it less readable.
 
+## ClauseAudit
+
+`ClauseAudit` inspects a label one word at a time and gives each word a needless clearance mark.
+
+```ts
+type ClauseAuditProps = {
+  label: string;
+};
+```
+
+```tsx
+import { ClauseAudit } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AuditedNotice() {
+  return <ClauseAudit label="Prepare the remarkably ordinary handoff" />;
+}
+```
+
+Press `Audit next word` to mark the next word and advance the real progress ledger; `Clear audit` returns to the unexamined sentence. It could let a reviewer inspect every word in a handoff sentence or let a presenter clear an agenda label before advancing. Both uses mistake looking at words for measurable work. A reasonable local alternative is the sentence with one ordinary review status.
+
+## TerminusChoice
+
+`TerminusChoice` asks whether every word should report its first, middle or last letter.
+
+```ts
+type TerminusChoiceProps = {
+  label: string;
+};
+```
+
+```tsx
+import { TerminusChoice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledPhrase() {
+  return <TerminusChoice label="Prepare the remarkably ordinary handoff" />;
+}
+```
+
+Choose `First letters`, `Middle letters` or `Last letters`. The actual displayed words change according to the selected extraction, and `Restore whole phrase` brings back every letter. It could summarize a handoff sentence or make an agenda line confess one arbitrary letter per word. Neither use benefits from losing the rest. A reasonable local alternative is deriving one explicit summary where it is needed and keeping the source readable.
+
+## DropSilo
+
+`DropSilo` moves one child through three visible destinations with native drag-and-drop.
+
+```ts
+type DropSiloProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { DropSilo } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledNotice() {
+  return <DropSilo><span>Needs a decision</span></DropSilo>;
+}
+```
+
+Drag the cargo to `Inbox`, `Vault` or `Quarantine`, or focus a lane and press Enter. The child moves into the selected lane, and `Release cargo` returns it to the loose surface. It could let a reviewer file a warning or let a presenter categorize an agenda item by hand. The use remains discutable because the destination changes the ceremony, not the decision. A reasonable local alternative is a select, list or ordinary drag target backed by the real data model.
+
+## AlphabeticalQueue
+
+`AlphabeticalQueue` admits labels only in alphabetical order.
+
+```ts
+type AlphabeticalQueueProps = {
+  items: readonly string[];
+};
+```
+
+```tsx
+import { AlphabeticalQueue } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OrderedFields() {
+  return <AlphabeticalQueue items={["Status", "Owner", "Title"]} />;
+}
+```
+
+Select the next label alphabetically. Correct choices leave the board for a visible manifest, while an early choice is rejected; `Empty queue` starts over. It could make a reviewer file handoff fields alphabetically or reveal agenda labels according to a dictionary. Both uses impose an order unrelated to meaning. A reasonable local alternative is sorting the array once or preserving the author’s intentional order.
+
+## PercentParcel
+
+`PercentParcel` turns readable text into a URL percent-encoded parcel and back.
+
+```ts
+type PercentParcelProps = {
+  label: string;
+};
+```
+
+```tsx
+import { PercentParcel } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TransportLabel() {
+  return <PercentParcel label="Prepare the ordinary handoff" />;
+}
+```
+
+Press `Parcel the label` to apply the real `encodeURIComponent` transformation; the transport marks replace the readable phrase. `Unpack text` restores it. It could package a handoff label for a URL-shaped filing system or expose the transport spelling of an agenda phrase. The browser already performs this work invisibly when it matters. A reasonable local alternative is calling `encodeURIComponent` at the boundary that needs it while keeping the display readable.
+
 ## Development
 
 ```bash

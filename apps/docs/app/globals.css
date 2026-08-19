@@ -577,6 +577,14 @@ a {
   width: min(100%, 480px);
 }
 
+.clause-audit-preview .gra-ui,
+.terminus-choice-preview .gra-ui,
+.drop-silo-preview .gra-ui,
+.alphabetical-queue-preview .gra-ui,
+.percent-parcel-preview .gra-ui {
+  width: min(100%, 480px);
+}
+
 .recess-depth-preview .gra-ui,
 .custody-choice-preview .gra-ui,
 .counterweight-preview .gra-ui,

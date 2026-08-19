@@ -3,6 +3,7 @@
 import {
   AcronymForge,
   AlphabetizeWords,
+  AlphabeticalQueue,
   BinaryMarch,
   ArithmeticCouncil,
   AlphabetTreadmill,
@@ -15,6 +16,7 @@ import {
   CaseGate,
   CenterOut,
   ChildGravity,
+  ClauseAudit,
   CoilCertification,
   CodepointReceipt,
   CompassHinge,
@@ -27,6 +29,7 @@ import {
   DisclosureSpill,
   DragDuplicate,
   DragThreshold,
+  DropSilo,
   DurationScale,
   EqualChoice,
   FocusFade,
@@ -76,6 +79,7 @@ import {
   SwitchbackRoute,
   TimedRelease,
   TetherPull,
+  TerminusChoice,
   WeightVote,
   WeekdayLedger,
   WheelStamp,
@@ -112,6 +116,7 @@ import {
   MagneticDock,
   OutcomeTriptych,
   PatternLatch,
+  PercentParcel,
   CalibrationWindow,
   SemanticLottery,
   SliceReferendum,
@@ -253,7 +258,12 @@ export interface PlaygroundProps {
     | "metric-mandate"
     | "crank-shift"
     | "gesture-patent"
-    | "run-length-pack";
+    | "run-length-pack"
+    | "clause-audit"
+    | "terminus-choice"
+    | "drop-silo"
+    | "alphabetical-queue"
+    | "percent-parcel";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -3461,6 +3471,111 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Double-click the label.</dd></div>
             <div><dt>2</dt><dd>Select each newly separated half.</dd></div>
             <div><dt>3</dt><dd>Watch the unchanged label reunite.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "clause-audit") {
+    return (
+      <div className="playground-shell clause-audit-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage clause-audit-preview">
+            <ClauseAudit label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with every word unexamined.</dd></div>
+            <div><dt>2</dt><dd>Audit the next word to mark it and advance the real ledger.</dd></div>
+            <div><dt>3</dt><dd>Clear the audit when the sentence has been over-inspected.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "terminus-choice") {
+    return (
+      <div className="playground-shell terminus-choice-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage terminus-choice-preview">
+            <TerminusChoice label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the complete phrase.</dd></div>
+            <div><dt>2</dt><dd>Choose first, middle or last letters; the actual reading changes.</dd></div>
+            <div><dt>3</dt><dd>Restore the whole phrase when the extraction has gone far enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "drop-silo") {
+    return (
+      <div className="playground-shell drop-silo-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage drop-silo-preview">
+            <DropSilo><span>Needs a decision</span></DropSilo>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Pick up the loose cargo.</dd></div>
+            <div><dt>2</dt><dd>Drag it to Inbox, Vault or Quarantine, or focus a lane and press Enter.</dd></div>
+            <div><dt>3</dt><dd>Release the cargo to give it a new but meaningless destiny.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "alphabetical-queue") {
+    return (
+      <div className="playground-shell alphabetical-queue-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage alphabetical-queue-preview">
+            <AlphabeticalQueue items={["Status", "Owner", "Title", "Date"]} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with four labels in a deliberately unhelpful order.</dd></div>
+            <div><dt>2</dt><dd>Select the next label alphabetically; an early choice is rejected.</dd></div>
+            <div><dt>3</dt><dd>Watch the manifest build itself one letter at a time.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "percent-parcel") {
+    return (
+      <div className="playground-shell percent-parcel-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage percent-parcel-preview">
+            <PercentParcel label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable phrase.</dd></div>
+            <div><dt>2</dt><dd>Parcel it into real URL percent escapes.</dd></div>
+            <div><dt>3</dt><dd>Unpack the transport spelling to restore the message.</dd></div>
           </dl>
         </div>
       </div>

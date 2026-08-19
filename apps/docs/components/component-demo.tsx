@@ -118,7 +118,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "metric-mandate" ||
     kind === "crank-shift" ||
     kind === "gesture-patent" ||
-    kind === "run-length-pack"
+    kind === "run-length-pack" ||
+    kind === "clause-audit" ||
+    kind === "terminus-choice" ||
+    kind === "drop-silo" ||
+    kind === "alphabetical-queue" ||
+    kind === "percent-parcel"
   ) {
     return <Playground kind={kind} />;
   }
