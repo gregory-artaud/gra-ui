@@ -581,7 +581,12 @@ a {
 .terminus-choice-preview .gra-ui,
 .drop-silo-preview .gra-ui,
 .alphabetical-queue-preview .gra-ui,
-.percent-parcel-preview .gra-ui {
+.percent-parcel-preview .gra-ui,
+.column-tally-preview .gra-ui,
+.rounding-ruling-preview .gra-ui,
+.tension-arc-preview .gra-ui,
+.gray-route-preview .gra-ui,
+.atbash-notice-preview .gra-ui {
   width: min(100%, 480px);
 }
 

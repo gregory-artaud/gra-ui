@@ -123,7 +123,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "terminus-choice" ||
     kind === "drop-silo" ||
     kind === "alphabetical-queue" ||
-    kind === "percent-parcel"
+    kind === "percent-parcel" ||
+    kind === "column-tally" ||
+    kind === "rounding-ruling" ||
+    kind === "tension-arc" ||
+    kind === "gray-route" ||
+    kind === "atbash-notice"
   ) {
     return <Playground kind={kind} />;
   }

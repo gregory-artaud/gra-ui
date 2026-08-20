@@ -2344,6 +2344,131 @@ export function TransportLabel() {
 
 Press `Parcel the label` to apply the real `encodeURIComponent` transformation; the transport marks replace the readable phrase. `Unpack text` restores it. It could package a handoff label for a URL-shaped filing system or expose the transport spelling of an agenda phrase. The browser already performs this work invisibly when it matters. A reasonable local alternative is calling `encodeURIComponent` at the boundary that needs it while keeping the display readable.
 
+## ColumnTally
+
+`ColumnTally` makes a group earn its grid columns one click at a time.
+
+```ts
+type ColumnTallyProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { ColumnTally } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TalliedFields() {
+  return (
+    <ColumnTally>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Due date</span>
+    </ColumnTally>
+  );
+}
+```
+
+Press `Award a column` to reflow the actual children from one through four grid columns. The state is `counting` until the final allocation, then `complete`; `Return to one` restores the initial layout. The grid transition lets each cell settle into its new place. It could let a reviewer award a handoff brief one column per approval, or let a presenter make agenda fields earn the right to sit beside one another. Neither use improves the information architecture. A reasonable local alternative is choosing the grid columns in CSS or rendering the intended layout directly; a tally turns a layout decision into a progress ceremony.
+
+## RoundingRuling
+
+`RoundingRuling` lets three policies overrule one decimal value.
+
+```ts
+type RoundingRulingProps = {
+  value: number;
+};
+```
+
+```tsx
+import { RoundingRuling } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledScore() {
+  return <RoundingRuling value={27.6} />;
+}
+```
+
+Choose `Floor`, `Ceiling` or `Nearest five`. The selected policy changes the actual calculated result and the live ledger; `Reopen the case` returns to `Undecided`. The result settles with a short scale-and-rise animation. It could let a reviewer decide whether a handoff estimate rounds down, up or toward the nearest five, or let a presenter give an agenda score a formal numerical verdict. Both uses make arithmetic policy look like governance. A reasonable local alternative is one explicit rounding function at the calculation boundary.
+
+## TensionArc
+
+`TensionArc` bends a row of children into an unnecessary sag.
+
+```ts
+type TensionArcProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { TensionArc } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SaggingFields() {
+  return (
+    <TensionArc>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </TensionArc>
+  );
+}
+```
+
+Drag the tension range, or use its keyboard controls. Each child moves to a calculated vertical offset along the curve while its content and order stay unchanged; `Release tension` returns the row to straight. The cells transition smoothly and change corner shape as the arc bends. It could let a reviewer bend a handoff row toward the field under discussion, or let a presenter sag an agenda line to signal that a topic has lost energy. The shape adds mood without adding meaning. A reasonable local alternative is normal flow with one intentional alignment or spacing rule.
+
+## GrayRoute
+
+`GrayRoute` accepts children only in binary-reflected Gray-code order.
+
+```ts
+type GrayRouteProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { GrayRoute } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RoutedFields() {
+  return (
+    <GrayRoute>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Due date</span>
+    </GrayRoute>
+  );
+}
+```
+
+For four children, select station 1, then 2, then 4, then 3. Correct visits leave the board for a real manifest, while a wrong station shakes and remains available; `Reset route` returns to the first station. It could force a reviewer to inspect handoff fields in a bitwise route, or let a presenter reveal agenda items in an order that changes only one abstract bit at a time. The rule is precise but unrelated to the content. A reasonable local alternative is the authored order or a normal checklist.
+
+## AtbashNotice
+
+`AtbashNotice` mirrors a readable notice through the alphabet.
+
+```ts
+type AtbashNoticeProps = {
+  label: string;
+};
+```
+
+```tsx
+import { AtbashNotice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MirroredNotice() {
+  return <AtbashNotice label="Prepare the ordinary handoff" />;
+}
+```
+
+Press `Mirror alphabet` to transform A into Z, B into Y and so on while preserving spaces and punctuation. The mirrored text replaces the readable label, and `Restore notice` reverses it. Characters flip into place with a short reduced-motion-aware animation. It could let a reviewer hide a handoff phrase behind a reversible secret identity, or let a presenter reveal an agenda line as a tiny cryptographic artifact before restoring it. Neither use benefits from making copy unreadable. A reasonable local alternative is rendering the text normally and calling a local cipher utility only where a real protocol requires it.
+
 ## Development
 
 ```bash

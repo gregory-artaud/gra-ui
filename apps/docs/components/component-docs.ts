@@ -125,7 +125,12 @@ export type DemoKind =
   | "terminus-choice"
   | "drop-silo"
   | "alphabetical-queue"
-  | "percent-parcel";
+  | "percent-parcel"
+  | "column-tally"
+  | "rounding-ruling"
+  | "tension-arc"
+  | "gray-route"
+  | "atbash-notice";
 
 export interface ApiRow {
   name: string;
@@ -2918,7 +2923,6 @@ export function AuditedNotice() {
       "It could let a reviewer inspect every word in a handoff sentence before filing it, or let a presenter clear an agenda label word by word before a slide advances. Neither use turns reading into measurable work.",
     alternative:
       "A reasonable local alternative is displaying the sentence and one ordinary review status. A progress ledger should not pretend that looking at the next word is a project milestone.",
-    isNew: true,
   },
   {
     name: "TerminusChoice",
@@ -2940,7 +2944,6 @@ export function RuledPhrase() {
       "It could let a reviewer choose whether a handoff sentence should be represented by its beginnings, centers or endings, or let a presenter make an agenda line confess one arbitrary letter from each word. The choice creates information loss without a policy behind it.",
     alternative:
       "A reasonable local alternative is keeping the readable label and deriving one summary explicitly where it is needed. A three-way tribunal is a poor substitute for naming the desired extraction rule.",
-    isNew: true,
   },
   {
     name: "DropSilo",
@@ -2962,7 +2965,6 @@ export function FiledNotice() {
       "It could let a reviewer drag a warning into an inbox, vault or quarantine lane, or let a presenter physically file an agenda item by dropping it into a ceremonial category. The destination changes the layout but not the decision.",
     alternative:
       "A reasonable local alternative is a select, list or ordinary drag target chosen for the actual data model. A three-silo cargo ritual adds logistics to a classification that could be stated directly.",
-    isNew: true,
   },
   {
     name: "AlphabeticalQueue",
@@ -2984,7 +2986,6 @@ export function OrderedFields() {
       "It could make a reviewer file handoff fields in alphabetical order, or let a presenter reveal agenda labels according to a dictionary nobody consulted. The sequence imposes an order unrelated to meaning.",
     alternative:
       "A reasonable local alternative is sorting the array once and rendering it, or preserving the author’s intentional order. A queue should not turn an ordinary sort into a timed admission ceremony.",
-    isNew: true,
   },
   {
     name: "PercentParcel",
@@ -3006,6 +3007,135 @@ export function TransportLabel() {
       "It could let a reviewer package a handoff label for a URL-shaped filing system, or let a presenter reveal the transport spelling hidden inside an agenda phrase. The browser already performs this conversion invisibly when it matters.",
     alternative:
       "A reasonable local alternative is passing the value to `encodeURIComponent` at the boundary that needs it and keeping the display readable. A visible parcel makes transport syntax compete with the message.",
+  },
+  {
+    name: "ColumnTally",
+    slug: "column-tally",
+    summary: "A group earns its grid columns one click at a time.",
+    description:
+      "Each award adds a real CSS grid column to the children, reflowing the group through increasingly official arrangements. The final four-column allocation is no more useful than the first.",
+    usage: `import { ColumnTally } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TalliedFields() {
+  return (
+    <ColumnTally>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Due date</span>
+    </ColumnTally>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content reflowed through one to four actual grid columns." },
+    ],
+    demo: "column-tally",
+    useCase:
+      "It could let a reviewer award a handoff brief one column per approval, or let a presenter make agenda fields earn the right to sit beside one another. Neither use improves the information architecture.",
+    alternative:
+      "A reasonable local alternative is choosing the grid columns in CSS or rendering the intended layout directly. A tally turns a layout decision into a progress ceremony.",
+    isNew: true,
+  },
+  {
+    name: "RoundingRuling",
+    slug: "rounding-ruling",
+    summary: "Three rounding policies compete to overrule one decimal value.",
+    description:
+      "Choose floor, ceiling or nearest-five. Each policy calculates a different visible result for the submitted number, as though a decimal needed a binding legal interpretation.",
+    usage: `import { RoundingRuling } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledScore() {
+  return <RoundingRuling value={27.6} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The decimal value submitted to three competing rounding policies." },
+    ],
+    demo: "rounding-ruling",
+    useCase:
+      "It could let a reviewer decide whether a handoff estimate rounds down, up or toward the nearest five, or let a presenter give an agenda score a formal numerical verdict. Both uses make arithmetic policy look like governance.",
+    alternative:
+      "A reasonable local alternative is one explicit rounding function at the calculation boundary. A three-button ruling should not replace naming the policy in code.",
+    isNew: true,
+  },
+  {
+    name: "TensionArc",
+    slug: "tension-arc",
+    summary: "A direct tension control bends a straight row into an unnecessary sag.",
+    description:
+      "Move the range control and the actual children rise or sag along a calculated curve while keeping their content and order intact. It gives geometry an opinion about emotional stability.",
+    usage: `import { TensionArc } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SaggingFields() {
+  return (
+    <TensionArc>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </TensionArc>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The row of content placed along the adjustable curve." },
+    ],
+    demo: "tension-arc",
+    useCase:
+      "It could let a reviewer bend a handoff row toward the field under discussion, or let a presenter sag an agenda line to signal that a topic has lost energy. The shape adds mood without adding meaning.",
+    alternative:
+      "A reasonable local alternative is normal flow with one intentional alignment or spacing rule. A live curve is an expensive answer to a sentence that was already readable.",
+    isNew: true,
+  },
+  {
+    name: "GrayRoute",
+    slug: "gray-route",
+    summary: "A station route follows binary-reflected Gray order whether anyone asked it to.",
+    description:
+      "The component calculates a Gray-code order for its children and accepts stations only in that sequence. Correct visits build a real manifest; an incorrect station is rejected and stays available.",
+    usage: `import { GrayRoute } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RoutedFields() {
+  return (
+    <GrayRoute>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Due date</span>
+    </GrayRoute>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The stations visited in calculated Gray-code order." },
+    ],
+    demo: "gray-route",
+    useCase:
+      "It could force a reviewer to inspect handoff fields in a bitwise route, or let a presenter reveal agenda items in an order that changes only one abstract bit at a time. The rule is precise but unrelated to the content.",
+    alternative:
+      "A reasonable local alternative is the authored order or a normal checklist. A Gray route makes a stable sequence harder to discover and easier to get wrong.",
+    isNew: true,
+  },
+  {
+    name: "AtbashNotice",
+    slug: "atbash-notice",
+    summary: "One click mirrors every letter of a notice through the alphabet.",
+    description:
+      "The readable label is transformed with a reversible alphabet mirror: A becomes Z, B becomes Y and so on, while spaces and punctuation remain intact. The cipher is visible, deterministic and unnecessary.",
+    usage: `import { AtbashNotice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MirroredNotice() {
+  return <AtbashNotice label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable text transformed by the reversible alphabet mirror." },
+    ],
+    demo: "atbash-notice",
+    useCase:
+      "It could let a reviewer hide a handoff phrase behind a reversible secret identity, or let a presenter reveal an agenda line as a tiny cryptographic artifact before restoring it. Neither use benefits from making copy unreadable.",
+    alternative:
+      "A reasonable local alternative is rendering the text normally and calling a local cipher utility only where a real protocol requires it. A visible Atbash notice confuses a demo with security.",
     isNew: true,
   },
 ] as const;

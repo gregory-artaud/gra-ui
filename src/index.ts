@@ -511,6 +511,26 @@ export {
   type PercentParcelProps,
 } from "./components/percent-parcel";
 export {
+  ColumnTally,
+  type ColumnTallyProps,
+} from "./components/column-tally";
+export {
+  RoundingRuling,
+  type RoundingRulingProps,
+} from "./components/rounding-ruling";
+export {
+  TensionArc,
+  type TensionArcProps,
+} from "./components/tension-arc";
+export {
+  GrayRoute,
+  type GrayRouteProps,
+} from "./components/gray-route";
+export {
+  AtbashNotice,
+  type AtbashNoticeProps,
+} from "./components/atbash-notice";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

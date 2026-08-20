@@ -125,6 +125,11 @@ import {
   ReverseQueue,
   PunctuationSieve,
   RunLengthPack,
+  ColumnTally,
+  RoundingRuling,
+  TensionArc,
+  GrayRoute,
+  AtbashNotice,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -263,7 +268,12 @@ export interface PlaygroundProps {
     | "terminus-choice"
     | "drop-silo"
     | "alphabetical-queue"
-    | "percent-parcel";
+    | "percent-parcel"
+    | "column-tally"
+    | "rounding-ruling"
+    | "tension-arc"
+    | "gray-route"
+    | "atbash-notice";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -3686,6 +3696,125 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Start with a label containing adjacent repetitions.</dd></div>
             <div><dt>2</dt><dd>Pack the runs; each repeated glyph becomes a counted token.</dd></div>
             <div><dt>3</dt><dd>Unpack the sequence to restore the exact readable text.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "column-tally") {
+    return (
+      <div className="playground-shell column-tally-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage column-tally-preview">
+            <ColumnTally>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Due date</span>
+            </ColumnTally>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with four fields in one narrow column.</dd></div>
+            <div><dt>2</dt><dd>Award a column to reflow the actual children.</dd></div>
+            <div><dt>3</dt><dd>Return to one column when the layout ceremony has gone far enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "rounding-ruling") {
+    return (
+      <div className="playground-shell rounding-ruling-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage rounding-ruling-preview">
+            <RoundingRuling value={27.6} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Submit one decimal value without a policy.</dd></div>
+            <div><dt>2</dt><dd>Choose Floor, Ceiling or Nearest five; each yields a different result.</dd></div>
+            <div><dt>3</dt><dd>Reopen the case to withdraw the ruling.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "tension-arc") {
+    return (
+      <div className="playground-shell tension-arc-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage tension-arc-preview">
+            <TensionArc>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+            </TensionArc>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a row that refuses to express an opinion.</dd></div>
+            <div><dt>2</dt><dd>Drag the tension control; the actual children sag along a calculated curve.</dd></div>
+            <div><dt>3</dt><dd>Release tension to make the row straight again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "gray-route") {
+    return (
+      <div className="playground-shell gray-route-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage gray-route-preview">
+            <GrayRoute>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Due date</span>
+            </GrayRoute>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Four stations wait in their ordinary visual order.</dd></div>
+            <div><dt>2</dt><dd>Visit them in Gray-code order: station 1, 2, 4, then 3.</dd></div>
+            <div><dt>3</dt><dd>A wrong station stays open; reset the route whenever the bits become too ceremonial.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "atbash-notice") {
+    return (
+      <div className="playground-shell atbash-notice-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage atbash-notice-preview">
+            <AtbashNotice label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable notice.</dd></div>
+            <div><dt>2</dt><dd>Mirror every letter through the alphabet; spaces and punctuation survive.</dd></div>
+            <div><dt>3</dt><dd>Restore the original notice when the cipher has made its point.</dd></div>
           </dl>
         </div>
       </div>
