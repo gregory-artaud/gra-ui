@@ -130,7 +130,12 @@ export type DemoKind =
   | "rounding-ruling"
   | "tension-arc"
   | "gray-route"
-  | "atbash-notice";
+  | "atbash-notice"
+  | "apportion-veil"
+  | "fate-panel"
+  | "drift-pin"
+  | "alternating-intake"
+  | "vowel-shift";
 
 export interface ApiRow {
   name: string;
@@ -3035,7 +3040,6 @@ export function TalliedFields() {
       "It could let a reviewer award a handoff brief one column per approval, or let a presenter make agenda fields earn the right to sit beside one another. Neither use improves the information architecture.",
     alternative:
       "A reasonable local alternative is choosing the grid columns in CSS or rendering the intended layout directly. A tally turns a layout decision into a progress ceremony.",
-    isNew: true,
   },
   {
     name: "RoundingRuling",
@@ -3057,7 +3061,6 @@ export function RuledScore() {
       "It could let a reviewer decide whether a handoff estimate rounds down, up or toward the nearest five, or let a presenter give an agenda score a formal numerical verdict. Both uses make arithmetic policy look like governance.",
     alternative:
       "A reasonable local alternative is one explicit rounding function at the calculation boundary. A three-button ruling should not replace naming the policy in code.",
-    isNew: true,
   },
   {
     name: "TensionArc",
@@ -3085,7 +3088,6 @@ export function SaggingFields() {
       "It could let a reviewer bend a handoff row toward the field under discussion, or let a presenter sag an agenda line to signal that a topic has lost energy. The shape adds mood without adding meaning.",
     alternative:
       "A reasonable local alternative is normal flow with one intentional alignment or spacing rule. A live curve is an expensive answer to a sentence that was already readable.",
-    isNew: true,
   },
   {
     name: "GrayRoute",
@@ -3114,7 +3116,6 @@ export function RoutedFields() {
       "It could force a reviewer to inspect handoff fields in a bitwise route, or let a presenter reveal agenda items in an order that changes only one abstract bit at a time. The rule is precise but unrelated to the content.",
     alternative:
       "A reasonable local alternative is the authored order or a normal checklist. A Gray route makes a stable sequence harder to discover and easier to get wrong.",
-    isNew: true,
   },
   {
     name: "AtbashNotice",
@@ -3136,6 +3137,122 @@ export function MirroredNotice() {
       "It could let a reviewer hide a handoff phrase behind a reversible secret identity, or let a presenter reveal an agenda line as a tiny cryptographic artifact before restoring it. Neither use benefits from making copy unreadable.",
     alternative:
       "A reasonable local alternative is rendering the text normally and calling a local cipher utility only where a real protocol requires it. A visible Atbash notice confuses a demo with security.",
+  },
+  {
+    name: "ApportionVeil",
+    slug: "apportion-veil",
+    summary: "A notice receives four increasingly unnecessary privacy veils.",
+    description:
+      "Assign one veil at a time and the child changes chamber shape, scale and perimeter. The layers are real visible geometry, so a simple notice ends up with more privacy policy than content.",
+    usage: `import { ApportionVeil } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function VeiledNotice() {
+  return <ApportionVeil><span>Ready for another review</span></ApportionVeil>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice progressively surrounded by four visible veils." },
+    ],
+    demo: "apportion-veil",
+    useCase:
+      "It could let a reviewer add one privacy layer per awkward question, or let a presenter protect an agenda line until it has received enough ceremony. Neither use makes the underlying message safer or wiser.",
+    alternative:
+      "A reasonable local alternative is one disclosure state or one explicit permission label. A four-stage veil turns a binary visibility decision into a decorative allocation process.",
+    isNew: true,
+  },
+  {
+    name: "FatePanel",
+    slug: "fate-panel",
+    summary: "Three buttons give one child three materially different semantic destinies.",
+    description:
+      "Choose Notice, Parcel or Monument. The child is actually rendered as an aside, a definition-list parcel or a figure with a blockquote, so the selected fate changes structure as well as the visible treatment.",
+    usage: `import { FatePanel } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function DestinedNotice() {
+  return <FatePanel><span>Needs a decision</span></FatePanel>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content assigned to one of three structurally different fates." },
+    ],
+    demo: "fate-panel",
+    useCase:
+      "It could let a reviewer decide whether a handoff note should remain plain, become a filed object or be elevated into a monument, or let a presenter give an agenda item a temporary stage form. The choice changes ceremony rather than meaning.",
+    alternative:
+      "A reasonable local alternative is choosing the intended semantic element once at the call site. A fate panel makes an authoring decision look like a public tribunal.",
+    isNew: true,
+  },
+  {
+    name: "DriftPin",
+    slug: "drift-pin",
+    summary: "Drag a cargo pin across seven slots and keep the exact arbitrary parking place.",
+    description:
+      "A pointer-controlled rail snaps the child to one of seven actual grid slots. The position persists after release and the keyboard can move it by slot, even though the cargo has no useful destination.",
+    usage: `import { DriftPin } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ParkedNotice() {
+  return <DriftPin><span>Move me slightly to the right</span></DriftPin>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cargo snapped to the directly manipulated rail position." },
+    ],
+    demo: "drift-pin",
+    useCase:
+      "It could let a reviewer park a warning at the point where attention drifted, or let a presenter slide an agenda label toward the person discussing it. Normal layout already has a more honest answer to both requests.",
+    alternative:
+      "A reasonable local alternative is normal flow, one alignment rule or a real drag-and-drop destination. A seven-slot pin rail preserves a coordinate without preserving a reason.",
+    isNew: true,
+  },
+  {
+    name: "AlternatingIntake",
+    slug: "alternating-intake",
+    summary: "A manifest admits children only by alternating left intake and right intake.",
+    description:
+      "The first item must enter from the left, the next from the right, and so on. The admitted items form a real manifest while a wrong gate is rejected, making the order rule observable rather than decorative.",
+    usage: `import { AlternatingIntake } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AlternatingFields() {
+  return (
+    <AlternatingIntake>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Due date</span>
+    </AlternatingIntake>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The entries admitted from alternating ends into the manifest." },
+    ],
+    demo: "alternating-intake",
+    useCase:
+      "It could make a reviewer admit handoff fields from alternating sides of a paper tray, or let a presenter reveal agenda items as if left-right parity were an editorial rule. The sequence adds friction without adding order that anyone needs.",
+    alternative:
+      "A reasonable local alternative is the authored order or a normal checklist. A two-gate intake should not decide how a stable list is read.",
+    isNew: true,
+  },
+  {
+    name: "VowelShift",
+    slug: "vowel-shift",
+    summary: "Every vowel in a label moves one place around an unnecessary vowel wheel.",
+    description:
+      "One action transforms a readable label by cycling a→e→i→o→u→a while preserving consonants, spaces and case. The transformed copy replaces the original until it is explicitly restored.",
+    usage: `import { VowelShift } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShiftedLabel() {
+  return <VowelShift label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable text whose vowels are cyclically shifted." },
+    ],
+    demo: "vowel-shift",
+    useCase:
+      "It could let a reviewer create a temporary pronunciation puzzle from a handoff line, or let a presenter make an agenda label pass through an invented dialect before restoring it. Neither use improves the copy.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and using a local string transform only for a real linguistic task. A vowel wheel is a poor place to store editorial intent.",
     isNew: true,
   },
 ] as const;

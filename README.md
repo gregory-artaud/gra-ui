@@ -2469,6 +2469,66 @@ export function MirroredNotice() {
 
 Press `Mirror alphabet` to transform A into Z, B into Y and so on while preserving spaces and punctuation. The mirrored text replaces the readable label, and `Restore notice` reverses it. Characters flip into place with a short reduced-motion-aware animation. It could let a reviewer hide a handoff phrase behind a reversible secret identity, or let a presenter reveal an agenda line as a tiny cryptographic artifact before restoring it. Neither use benefits from making copy unreadable. A reasonable local alternative is rendering the text normally and calling a local cipher utility only where a real protocol requires it.
 
+## ApportionVeil
+
+`ApportionVeil` assigns a notice four increasingly unnecessary privacy layers.
+
+```ts
+type ApportionVeilProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Assign another veil` to change the real chamber shape, scale and perimeter one stage at a time; `Unveil and begin again` or `Clear veils` returns to the open state. It could let a reviewer add one privacy layer per awkward question, or let a presenter protect an agenda line until it has received enough ceremony. Neither use makes the message safer or wiser. A reasonable local alternative is one disclosure state or one explicit permission label.
+
+## FatePanel
+
+`FatePanel` gives one child three materially different semantic destinies.
+
+```ts
+type FatePanelProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Notice`, `Parcel` or `Monument`. The child is actually rendered as an aside, a definition-list parcel or a figure with a blockquote; `Return to uncertainty` clears the choice. It could let a reviewer decide whether a handoff note should remain plain, become a filed object or be elevated into a monument, or let a presenter give an agenda item a temporary stage form. The choice changes ceremony rather than meaning. A reasonable local alternative is choosing the intended semantic element once at the call site.
+
+## DriftPin
+
+`DriftPin` parks content at one of seven arbitrary rail slots.
+
+```ts
+type DriftPinProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the rail or focus it and use the arrow keys, Home or End. The child moves to the exact selected grid slot and stays there after release; `Center pin` returns it to the middle. It could let a reviewer park a warning where attention drifted, or let a presenter slide an agenda label toward the person discussing it. Normal layout already has a more honest answer. A reasonable local alternative is normal flow, one alignment rule or a real drag-and-drop destination.
+
+## AlternatingIntake
+
+`AlternatingIntake` admits children only through alternating left and right gates.
+
+```ts
+type AlternatingIntakeProps = {
+  children: React.ReactNode;
+};
+```
+
+Use `Left intake`, then `Right intake`, repeating until every entry is in the real manifest. The wrong gate is rejected without advancing the sequence, and `Empty manifest` restores the waiting entries. It could make a reviewer admit handoff fields from alternating sides of a paper tray, or let a presenter reveal agenda items as if left-right parity were editorial policy. The sequence adds friction without useful order. A reasonable local alternative is the authored order or a normal checklist.
+
+## VowelShift
+
+`VowelShift` moves every vowel in a label one place around an unnecessary vowel wheel.
+
+```ts
+type VowelShiftProps = {
+  label: string;
+};
+```
+
+Press `Shift every vowel` to transform `a→e→i→o→u→a` while preserving consonants, spaces and case; `Restore label` returns the exact original copy. It could let a reviewer create a temporary pronunciation puzzle from a handoff line, or let a presenter make an agenda label pass through an invented dialect before restoring it. Neither use improves the copy. A reasonable local alternative is keeping the label readable and using a local string transform only for a real linguistic task.
+
 ## Development
 
 ```bash

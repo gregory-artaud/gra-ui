@@ -128,7 +128,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "rounding-ruling" ||
     kind === "tension-arc" ||
     kind === "gray-route" ||
-    kind === "atbash-notice"
+    kind === "atbash-notice" ||
+    kind === "apportion-veil" ||
+    kind === "fate-panel" ||
+    kind === "drift-pin" ||
+    kind === "alternating-intake" ||
+    kind === "vowel-shift"
   ) {
     return <Playground kind={kind} />;
   }

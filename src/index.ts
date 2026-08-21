@@ -531,6 +531,26 @@ export {
   type AtbashNoticeProps,
 } from "./components/atbash-notice";
 export {
+  ApportionVeil,
+  type ApportionVeilProps,
+} from "./components/apportion-veil";
+export {
+  FatePanel,
+  type FatePanelProps,
+} from "./components/fate-panel";
+export {
+  DriftPin,
+  type DriftPinProps,
+} from "./components/drift-pin";
+export {
+  AlternatingIntake,
+  type AlternatingIntakeProps,
+} from "./components/alternating-intake";
+export {
+  VowelShift,
+  type VowelShiftProps,
+} from "./components/vowel-shift";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

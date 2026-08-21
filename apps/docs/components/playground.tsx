@@ -130,6 +130,11 @@ import {
   TensionArc,
   GrayRoute,
   AtbashNotice,
+  AlternatingIntake,
+  ApportionVeil,
+  DriftPin,
+  FatePanel,
+  VowelShift,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -273,7 +278,12 @@ export interface PlaygroundProps {
     | "rounding-ruling"
     | "tension-arc"
     | "gray-route"
-    | "atbash-notice";
+    | "atbash-notice"
+    | "apportion-veil"
+    | "fate-panel"
+    | "drift-pin"
+    | "alternating-intake"
+    | "vowel-shift";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -3815,6 +3825,116 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Start with a readable notice.</dd></div>
             <div><dt>2</dt><dd>Mirror every letter through the alphabet; spaces and punctuation survive.</dd></div>
             <div><dt>3</dt><dd>Restore the original notice when the cipher has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "apportion-veil") {
+    return (
+      <div className="playground-shell apportion-veil-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage apportion-veil-preview">
+            <ApportionVeil><span className="apportion-veil-demo-label">Ready for another review</span></ApportionVeil>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with the notice exposed and unallocated.</dd></div>
+            <div><dt>2</dt><dd>Assign a veil; the actual chamber shape and perimeter change.</dd></div>
+            <div><dt>3</dt><dd>Give the notice four layers, then unveil it when the ceremony is complete.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "fate-panel") {
+    return (
+      <div className="playground-shell fate-panel-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage fate-panel-preview">
+            <FatePanel><span className="fate-panel-demo-label">Needs a decision</span></FatePanel>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one child and three structurally different futures.</dd></div>
+            <div><dt>2</dt><dd>Choose Notice, Parcel or Monument; the actual element structure changes.</dd></div>
+            <div><dt>3</dt><dd>Return to uncertainty when the chosen destiny feels excessive.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "drift-pin") {
+    return (
+      <div className="playground-shell drift-pin-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage drift-pin-preview">
+            <DriftPin><span className="drift-pin-demo-label">Move me slightly to the right</span></DriftPin>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Grab the cargo rail or focus it for keyboard control.</dd></div>
+            <div><dt>2</dt><dd>Drag across seven snap slots; the child parks at the exact chosen slot.</dd></div>
+            <div><dt>3</dt><dd>Center the pin when the arbitrary parking place has been documented.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "alternating-intake") {
+    return (
+      <div className="playground-shell alternating-intake-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage alternating-intake-preview">
+            <AlternatingIntake>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Due date</span>
+            </AlternatingIntake>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>The first entry must come through the left gate.</dd></div>
+            <div><dt>2</dt><dd>Alternate left and right; the admitted entries build a real manifest.</dd></div>
+            <div><dt>3</dt><dd>Use the wrong gate once to see the order rule reject it.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "vowel-shift") {
+    return (
+      <div className="playground-shell vowel-shift-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage vowel-shift-preview">
+            <VowelShift label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable label and ordinary vowels.</dd></div>
+            <div><dt>2</dt><dd>Shift every vowel to its next place; the displayed copy changes.</dd></div>
+            <div><dt>3</dt><dd>Restore the label when the invented dialect has done enough damage.</dd></div>
           </dl>
         </div>
       </div>

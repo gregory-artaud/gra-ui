@@ -590,6 +590,21 @@ a {
   width: min(100%, 480px);
 }
 
+.apportion-veil-preview .gra-ui,
+.fate-panel-preview .gra-ui,
+.drift-pin-preview .gra-ui,
+.alternating-intake-preview .gra-ui,
+.vowel-shift-preview .gra-ui {
+  width: min(100%, 480px);
+}
+
+.apportion-veil-demo-label,
+.fate-panel-demo-label,
+.drift-pin-demo-label {
+  font-size: 13px;
+  font-weight: 650;
+}
+
 .recess-depth-preview .gra-ui,
 .custody-choice-preview .gra-ui,
 .counterweight-preview .gra-ui,
