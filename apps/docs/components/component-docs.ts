@@ -135,7 +135,12 @@ export type DemoKind =
   | "fate-panel"
   | "drift-pin"
   | "alternating-intake"
-  | "vowel-shift";
+  | "vowel-shift"
+  | "glyph-migration"
+  | "writing-tribunal"
+  | "trace-receipt"
+  | "chord-contract"
+  | "roman-ledger";
 
 export interface ApiRow {
   name: string;
@@ -3158,7 +3163,6 @@ export function VeiledNotice() {
       "It could let a reviewer add one privacy layer per awkward question, or let a presenter protect an agenda line until it has received enough ceremony. Neither use makes the underlying message safer or wiser.",
     alternative:
       "A reasonable local alternative is one disclosure state or one explicit permission label. A four-stage veil turns a binary visibility decision into a decorative allocation process.",
-    isNew: true,
   },
   {
     name: "FatePanel",
@@ -3180,7 +3184,6 @@ export function DestinedNotice() {
       "It could let a reviewer decide whether a handoff note should remain plain, become a filed object or be elevated into a monument, or let a presenter give an agenda item a temporary stage form. The choice changes ceremony rather than meaning.",
     alternative:
       "A reasonable local alternative is choosing the intended semantic element once at the call site. A fate panel makes an authoring decision look like a public tribunal.",
-    isNew: true,
   },
   {
     name: "DriftPin",
@@ -3202,7 +3205,6 @@ export function ParkedNotice() {
       "It could let a reviewer park a warning at the point where attention drifted, or let a presenter slide an agenda label toward the person discussing it. Normal layout already has a more honest answer to both requests.",
     alternative:
       "A reasonable local alternative is normal flow, one alignment rule or a real drag-and-drop destination. A seven-slot pin rail preserves a coordinate without preserving a reason.",
-    isNew: true,
   },
   {
     name: "AlternatingIntake",
@@ -3231,7 +3233,6 @@ export function AlternatingFields() {
       "It could make a reviewer admit handoff fields from alternating sides of a paper tray, or let a presenter reveal agenda items as if left-right parity were an editorial rule. The sequence adds friction without adding order that anyone needs.",
     alternative:
       "A reasonable local alternative is the authored order or a normal checklist. A two-gate intake should not decide how a stable list is read.",
-    isNew: true,
   },
   {
     name: "VowelShift",
@@ -3253,6 +3254,115 @@ export function ShiftedLabel() {
       "It could let a reviewer create a temporary pronunciation puzzle from a handoff line, or let a presenter make an agenda label pass through an invented dialect before restoring it. Neither use improves the copy.",
     alternative:
       "A reasonable local alternative is keeping the label readable and using a local string transform only for a real linguistic task. A vowel wheel is a poor place to store editorial intent.",
+  },
+  {
+    name: "GlyphMigration",
+    slug: "glyph-migration",
+    summary: "A sentence transfers its actual glyphs into an unnecessary archive one tiny move at a time.",
+    description:
+      "Each press removes the next real character from the readable line and files it as a visible glyph token. Spaces become explicit dots in the archive, so the content and its progress are both observable.",
+    usage: `import { GlyphMigration } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MigratingNotice() {
+  return <GlyphMigration label="Please file this ordinary note" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence whose real characters are transferred one at a time." },
+    ],
+    demo: "glyph-migration",
+    useCase:
+      "It could let a reviewer migrate a handoff sentence into a character-level archive, or let a presenter file an agenda line one glyph at a time as a tiny ceremony. Neither use makes the message easier to read or safer to store.",
+    alternative:
+      "A reasonable local alternative is leaving the sentence intact and using one local string operation when a parser truly needs individual characters. A transfer ledger should not supervise ordinary reading.",
+    isNew: true,
+  },
+  {
+    name: "WritingTribunal",
+    slug: "writing-tribunal",
+    summary: "Three directions compete to decide how one child is allowed to be read.",
+    description:
+      "Choose Row, Column or Mirror. The child is actually rendered with normal flow, vertical writing mode or right-to-left override, so the verdict changes the reading geometry rather than merely its decoration.",
+    usage: `import { WritingTribunal } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledNotice() {
+  return <WritingTribunal><span>Needs a decision</span></WritingTribunal>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content subjected to three materially different writing directions." },
+    ],
+    demo: "writing-tribunal",
+    useCase:
+      "It could let a reviewer choose whether a handoff note should read across, down or from the other edge, or let a presenter give an agenda label a direction before it enters a slide. Both uses turn a known layout choice into a public hearing.",
+    alternative:
+      "A reasonable local alternative is setting `writing-mode` or `direction` directly where the content is authored. A tribunal should not decide how ordinary copy flows.",
+    isNew: true,
+  },
+  {
+    name: "TraceReceipt",
+    slug: "trace-receipt",
+    summary: "A pointer trace becomes a persistent ink receipt around a piece of content.",
+    description:
+      "Draw on the surface and the exact pointer path remains as SVG geometry around the child. Arrow keys can add a small accessible path, making the trace a real stateful artifact instead of a pointer-only flourish.",
+    usage: `import { TraceReceipt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TracedNotice() {
+  return <TraceReceipt><span>Evidence</span></TraceReceipt>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content surrounded by the user’s recorded pointer trace." },
+    ],
+    demo: "trace-receipt",
+    useCase:
+      "It could let a reviewer circle the field that caused a handoff discussion, or let a presenter draw an improvised border around the agenda item currently under debate. Neither use turns a gesture into useful evidence.",
+    alternative:
+      "A reasonable local alternative is a normal focus ring, annotation field or one explicit selected state. Persisting freehand geometry around a child is a poor substitute for recording the reason.",
+    isNew: true,
+  },
+  {
+    name: "ChordContract",
+    slug: "chord-contract",
+    summary: "A document is released only after an exact four-key keyboard contract.",
+    description:
+      "Focus the surface and press Control, Alt, Shift and Enter in that order. Each correct key marks a real station, an unexpected key voids the draft, and the completed sequence changes the document to a signed state.",
+    usage: `import { ChordContract } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ContractedNotice() {
+  return <ChordContract><span>Approved for one more meeting</span></ChordContract>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content released after the keyboard sequence is completed." },
+    ],
+    demo: "chord-contract",
+    useCase:
+      "It could make a reviewer sign a handoff note with a memorized keyboard ritual, or let a presenter unlock an agenda label after demonstrating four keys. Both uses confuse gesture ceremony with authentication or approval.",
+    alternative:
+      "A reasonable local alternative is one accessible button or a real authentication boundary when security matters. A fixed key sequence is neither a reliable secret nor a useful confirmation.",
+    isNew: true,
+  },
+  {
+    name: "RomanLedger",
+    slug: "roman-ledger",
+    summary: "A readable phrase is replaced by Roman numerals that report only each word’s length.",
+    description:
+      "Issue the ledger to transform every word into the Roman numeral for its actual character count while retaining a small source label. The result is deterministic, reversible and dramatically less useful to read.",
+    usage: `import { RomanLedger } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CountedNotice() {
+  return <RomanLedger label="Keep the handoff readable" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The phrase whose words become Roman length entries." },
+    ],
+    demo: "roman-ledger",
+    useCase:
+      "It could let a reviewer issue a ceremonial size report for a handoff sentence, or let a presenter turn an agenda line into an antique-looking inventory of word lengths. Both uses discard meaning to display an arbitrary measurement.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and calculating `word.length` locally when a metric is genuinely needed. A Roman ledger should not replace content with its measurement.",
     isNew: true,
   },
 ] as const;

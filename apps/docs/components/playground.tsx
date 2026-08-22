@@ -110,6 +110,11 @@ import {
   RatchetReveal,
   VerdictSelector,
   VowelHinge,
+  GlyphMigration,
+  WritingTribunal,
+  TraceReceipt,
+  ChordContract,
+  RomanLedger,
   ContextEscalator,
   CrankShift,
   LetterCensus,
@@ -283,7 +288,12 @@ export interface PlaygroundProps {
     | "fate-panel"
     | "drift-pin"
     | "alternating-intake"
-    | "vowel-shift";
+    | "vowel-shift"
+    | "glyph-migration"
+    | "writing-tribunal"
+    | "trace-receipt"
+    | "chord-contract"
+    | "roman-ledger";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -3935,6 +3945,111 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Start with a readable label and ordinary vowels.</dd></div>
             <div><dt>2</dt><dd>Shift every vowel to its next place; the displayed copy changes.</dd></div>
             <div><dt>3</dt><dd>Restore the label when the invented dialect has done enough damage.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "glyph-migration") {
+    return (
+      <div className="playground-shell glyph-migration-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <GlyphMigration label="Please file this ordinary note" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with every glyph in a readable sentence.</dd></div>
+            <div><dt>2</dt><dd>Transfer one actual character into the archive on every press.</dd></div>
+            <div><dt>3</dt><dd>Return the glyphs when the archive has become the whole point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "writing-tribunal") {
+    return (
+      <div className="playground-shell writing-tribunal-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <WritingTribunal><span>Needs a decision</span></WritingTribunal>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose Row, Column or Mirror.</dd></div>
+            <div><dt>2</dt><dd>The same child actually changes its writing direction and layout.</dd></div>
+            <div><dt>3</dt><dd>Reopen the hearing when a normal reading direction seems sufficient.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "trace-receipt") {
+    return (
+      <div className="playground-shell trace-receipt-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <TraceReceipt><span>Evidence</span></TraceReceipt>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Draw directly around the evidence with a pointer.</dd></div>
+            <div><dt>2</dt><dd>The surface keeps the real pointer path as an ink receipt.</dd></div>
+            <div><dt>3</dt><dd>Use arrow keys for a tiny accessible trace, then erase it.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "chord-contract") {
+    return (
+      <div className="playground-shell chord-contract-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ChordContract><span>Approved for one more meeting</span></ChordContract>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Focus the panel and press Control, Alt, Shift, then Enter.</dd></div>
+            <div><dt>2</dt><dd>Each correct key marks a real station; a wrong key voids the draft.</dd></div>
+            <div><dt>3</dt><dd>Release the contract and watch the document receive its needless signature.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "roman-ledger") {
+    return (
+      <div className="playground-shell roman-ledger-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <RomanLedger label="Keep the handoff readable" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a sentence whose words still carry meaning.</dd></div>
+            <div><dt>2</dt><dd>Issue a ledger that replaces every word with its letter-count numeral.</dd></div>
+            <div><dt>3</dt><dd>Restore the phrase when Roman administration stops helping.</dd></div>
           </dl>
         </div>
       </div>

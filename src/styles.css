@@ -234,6 +234,503 @@
   }
 }
 
+.gra-ui.glyph-migration,
+.gra-ui.writing-tribunal,
+.gra-ui.trace-receipt,
+.gra-ui.chord-contract,
+.gra-ui.roman-ledger {
+  display: inline-flex;
+  width: min(100%, 480px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.glyph-migration__header,
+.writing-tribunal__header,
+.trace-receipt__header,
+.chord-contract__header,
+.roman-ledger__header,
+.glyph-migration__footer,
+.writing-tribunal__footer,
+.trace-receipt__footer,
+.chord-contract__footer,
+.roman-ledger__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.glyph-migration__header,
+.writing-tribunal__header,
+.trace-receipt__header,
+.chord-contract__header,
+.roman-ledger__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.glyph-migration__header output,
+.writing-tribunal__header output,
+.trace-receipt__header output,
+.chord-contract__header output,
+.roman-ledger__header output {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.glyph-migration__line,
+.glyph-migration__archive,
+.writing-tribunal__stage,
+.roman-ledger__paper {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  padding: 13px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: color-mix(in srgb, var(--greact-background) 78%, var(--greact-ring));
+}
+
+.glyph-migration__caption,
+.writing-tribunal__caption {
+  color: var(--greact-ring);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.glyph-migration__line strong {
+  min-height: 38px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid color-mix(in srgb, var(--greact-input) 75%, transparent);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 17px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.glyph-migration__archive {
+  min-height: 79px;
+  border-style: dashed;
+}
+
+.glyph-migration__glyphs {
+  display: flex;
+  min-height: 32px;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-content: flex-start;
+}
+
+.glyph-migration__glyph {
+  display: grid;
+  min-width: 23px;
+  min-height: 28px;
+  place-items: center;
+  padding-inline: 5px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 4px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  animation: gra-ui-glyph-migration-arrive 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.glyph-migration__empty,
+.writing-tribunal__waiting {
+  color: var(--greact-ring);
+  font-size: 12px;
+}
+
+.glyph-migration__footer,
+.writing-tribunal__footer,
+.trace-receipt__footer,
+.chord-contract__footer,
+.roman-ledger__footer {
+  align-items: flex-end;
+}
+
+.glyph-migration__footer p,
+.writing-tribunal__footer p,
+.trace-receipt__footer p,
+.chord-contract__footer p,
+.roman-ledger__footer p {
+  margin: 0;
+  color: var(--greact-ring);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.glyph-migration__actions,
+.roman-ledger__actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+.glyph-migration button,
+.writing-tribunal button,
+.trace-receipt button,
+.chord-contract button,
+.roman-ledger button {
+  border: 1px solid var(--greact-foreground);
+  border-radius: 4px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.1;
+  padding: 8px 10px;
+  transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.glyph-migration button:hover:not(:disabled),
+.writing-tribunal button:hover:not(:disabled),
+.trace-receipt button:hover:not(:disabled),
+.chord-contract button:hover:not(:disabled),
+.roman-ledger button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.glyph-migration button:disabled,
+.writing-tribunal button:disabled,
+.trace-receipt button:disabled,
+.chord-contract button:disabled,
+.roman-ledger button:disabled {
+  cursor: default;
+  opacity: 0.42;
+}
+
+.glyph-migration button:focus-visible,
+.writing-tribunal button:focus-visible,
+.trace-receipt button:focus-visible,
+.chord-contract button:focus-visible,
+.roman-ledger button:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.glyph-migration__reset,
+.writing-tribunal__reset,
+.trace-receipt__reset,
+.chord-contract__reset,
+.roman-ledger__reset {
+  border-color: var(--greact-input) !important;
+  background: transparent !important;
+  color: var(--greact-foreground) !important;
+}
+
+.writing-tribunal__stage {
+  min-height: 158px;
+}
+
+.writing-tribunal__content {
+  display: block;
+  min-height: 85px;
+  overflow: auto;
+  padding: 14px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 5px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+  animation: gra-ui-writing-tribunal-arrive 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.writing-tribunal__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.writing-tribunal__choice {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  background: transparent !important;
+  color: var(--greact-foreground) !important;
+  text-align: left;
+}
+
+.writing-tribunal__choice[data-selected="true"] {
+  background: var(--greact-foreground) !important;
+  color: var(--greact-background) !important;
+}
+
+.writing-tribunal__choice small {
+  color: var(--greact-ring);
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.writing-tribunal__choice[data-selected="true"] small {
+  color: color-mix(in srgb, var(--greact-background) 70%, transparent);
+}
+
+.trace-receipt__surface {
+  position: relative;
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background:
+    linear-gradient(color-mix(in srgb, var(--greact-input) 30%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--greact-input) 30%, transparent) 1px, transparent 1px),
+    color-mix(in srgb, var(--greact-background) 84%, var(--greact-ring));
+  background-size: 20px 20px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.trace-receipt__surface:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.trace-receipt__ink {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.trace-receipt__ink polyline {
+  fill: none;
+  stroke: var(--greact-ring);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.trace-receipt__ink circle {
+  fill: var(--greact-foreground);
+  stroke: var(--greact-background);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.trace-receipt__content {
+  position: relative;
+  z-index: 1;
+  max-width: 70%;
+  padding: 10px 13px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--greact-background) 92%, var(--greact-ring));
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  pointer-events: none;
+}
+
+.trace-receipt__hint {
+  position: absolute;
+  bottom: 12px;
+  color: var(--greact-ring);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.chord-contract__surface {
+  display: flex;
+  min-height: 176px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 15px;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: color-mix(in srgb, var(--greact-background) 78%, var(--greact-ring));
+}
+
+.chord-contract__surface:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.chord-contract__keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chord-contract__keys kbd {
+  padding: 5px 7px;
+  border: 1px solid var(--greact-input);
+  border-bottom-width: 3px;
+  border-radius: 4px;
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 10px;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.chord-contract__keys kbd[data-next="true"] {
+  border-color: var(--greact-ring);
+  color: var(--greact-foreground);
+  transform: translateY(-2px);
+}
+
+.chord-contract__keys kbd[data-active="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+}
+
+.chord-contract__document {
+  padding: 15px;
+  border: 1px dashed var(--greact-input);
+  border-radius: 5px;
+  color: var(--greact-ring);
+  font-size: 15px;
+  text-align: center;
+  transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.chord-contract__document[data-signed="true"] {
+  border-style: solid;
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: rotate(-1deg) scale(1.02);
+}
+
+.roman-ledger__paper {
+  min-height: 150px;
+  justify-content: center;
+}
+
+.roman-ledger__original {
+  overflow-wrap: anywhere;
+  font-size: 18px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.roman-ledger__entries {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.roman-ledger__entries li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 7px 9px;
+  border-left: 2px solid var(--greact-ring);
+  background: color-mix(in srgb, var(--greact-background) 72%, var(--greact-ring));
+  animation: gra-ui-roman-ledger-arrive 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.roman-ledger__entries li small {
+  overflow-wrap: anywhere;
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.roman-ledger__entries li strong {
+  color: var(--greact-foreground);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+}
+
+@keyframes gra-ui-glyph-migration-arrive {
+  0% { opacity: 0; transform: translateY(-7px) scale(0.8); }
+  75% { opacity: 1; transform: translateY(2px) scale(1.05); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gra-ui-writing-tribunal-arrive {
+  0% { opacity: 0; transform: scale(0.96) translateY(6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes gra-ui-roman-ledger-arrive {
+  0% { opacity: 0; transform: translateX(-8px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 520px) {
+  .gra-ui.glyph-migration,
+  .gra-ui.writing-tribunal,
+  .gra-ui.trace-receipt,
+  .gra-ui.chord-contract,
+  .gra-ui.roman-ledger {
+    padding: 14px;
+  }
+
+  .glyph-migration__footer,
+  .writing-tribunal__footer,
+  .trace-receipt__footer,
+  .chord-contract__footer,
+  .roman-ledger__footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .glyph-migration__actions,
+  .roman-ledger__actions {
+    width: 100%;
+  }
+
+  .glyph-migration__actions > *,
+  .roman-ledger__actions > * {
+    flex: 1;
+  }
+
+  .writing-tribunal__choices {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glyph-migration__glyph,
+  .writing-tribunal__content,
+  .chord-contract__keys kbd,
+  .chord-contract__document,
+  .roman-ledger__entries li,
+  .glyph-migration button,
+  .writing-tribunal button,
+  .trace-receipt button,
+  .chord-contract button,
+  .roman-ledger button {
+    animation: none;
+    transition: none;
+  }
+}
+
 .gra-ui.apportion-veil,
 .gra-ui.fate-panel,
 .gra-ui.drift-pin,

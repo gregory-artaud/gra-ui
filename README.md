@@ -2529,6 +2529,66 @@ type VowelShiftProps = {
 
 Press `Shift every vowel` to transform `a→e→i→o→u→a` while preserving consonants, spaces and case; `Restore label` returns the exact original copy. It could let a reviewer create a temporary pronunciation puzzle from a handoff line, or let a presenter make an agenda label pass through an invented dialect before restoring it. Neither use improves the copy. A reasonable local alternative is keeping the label readable and using a local string transform only for a real linguistic task.
 
+## GlyphMigration
+
+`GlyphMigration` transfers a sentence’s actual glyphs into an unnecessary archive one at a time.
+
+```ts
+type GlyphMigrationProps = {
+  label: string;
+};
+```
+
+Press `Migrate next glyph` to remove the next real character from the readable line and file it as a visible token; spaces become dots in the archive. `Return glyphs` restores the starting sentence. It could let a reviewer migrate a handoff sentence into a character-level archive, or let a presenter file an agenda line one glyph at a time as a tiny ceremony. Neither use makes the message easier to read or safer to store. A reasonable local alternative is leaving the sentence intact and using one local string operation when a parser truly needs individual characters. This component should not have existed because a transfer ledger should not supervise ordinary reading.
+
+## WritingTribunal
+
+`WritingTribunal` lets three directions decide how one child is allowed to be read.
+
+```ts
+type WritingTribunalProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Row`, `Column` or `Mirror`. The child is actually rendered with normal flow, vertical writing mode or right-to-left override, so the verdict changes the reading geometry. It could let a reviewer choose whether a handoff note should read across, down or from the other edge, or let a presenter give an agenda label a direction before it enters a slide. Both uses turn a known layout choice into a public hearing. A reasonable local alternative is setting `writing-mode` or `direction` directly where the content is authored. This component should not have existed because a tribunal should not decide how ordinary copy flows.
+
+## TraceReceipt
+
+`TraceReceipt` turns a pointer trace into persistent ink geometry around its content.
+
+```ts
+type TraceReceiptProps = {
+  children: React.ReactNode;
+};
+```
+
+Draw on the surface and the exact pointer path remains as an SVG receipt around the child. Arrow keys can add a small accessible path, and `Erase trace` clears it. It could let a reviewer circle the field that caused a handoff discussion, or let a presenter draw an improvised border around the agenda item currently under debate. Neither use turns a gesture into useful evidence. A reasonable local alternative is a normal focus ring, annotation field or one explicit selected state. This component should not have existed because persisting freehand geometry is a poor substitute for recording the reason.
+
+## ChordContract
+
+`ChordContract` releases a document only after an exact four-key keyboard contract.
+
+```ts
+type ChordContractProps = {
+  children: React.ReactNode;
+};
+```
+
+Focus the surface and press `Control`, `Alt`, `Shift` and `Enter` in that order. Each correct key marks a real station, an unexpected key voids the draft, and the completed sequence changes the document to a signed state; `Void contract` resets it. It could make a reviewer sign a handoff note with a memorized keyboard ritual, or let a presenter unlock an agenda label after demonstrating four keys. Both uses confuse gesture ceremony with authentication or approval. A reasonable local alternative is one accessible button or a real authentication boundary when security matters. This component should not have existed because a fixed key sequence is neither a reliable secret nor useful confirmation.
+
+## RomanLedger
+
+`RomanLedger` replaces a readable phrase with Roman numerals that report each word’s length.
+
+```ts
+type RomanLedgerProps = {
+  label: string;
+};
+```
+
+Press `Issue Roman ledger` to transform every word into the Roman numeral for its actual character count while retaining a small source label; `Restore phrase` returns the exact text. It could let a reviewer issue a ceremonial size report for a handoff sentence, or let a presenter turn an agenda line into an antique-looking inventory of word lengths. Both uses discard meaning to display an arbitrary measurement. A reasonable local alternative is keeping the label readable and calculating `word.length` locally when a metric is genuinely needed. This component should not have existed because a Roman ledger should not replace content with its measurement.
+
 ## Development
 
 ```bash
