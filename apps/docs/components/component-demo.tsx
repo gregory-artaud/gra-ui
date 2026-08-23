@@ -133,7 +133,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "fate-panel" ||
     kind === "drift-pin" ||
     kind === "alternating-intake" ||
-    kind === "vowel-shift"
+    kind === "vowel-shift" ||
+    kind === "citation-ladder" ||
+    kind === "prefix-referendum" ||
+    kind === "perimeter-escort" ||
+    kind === "checksum-order" ||
+    kind === "edge-exchange"
   ) {
     return <Playground kind={kind} />;
   }

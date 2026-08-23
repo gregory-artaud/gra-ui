@@ -140,7 +140,12 @@ export type DemoKind =
   | "writing-tribunal"
   | "trace-receipt"
   | "chord-contract"
-  | "roman-ledger";
+  | "roman-ledger"
+  | "citation-ladder"
+  | "prefix-referendum"
+  | "perimeter-escort"
+  | "checksum-order"
+  | "edge-exchange";
 
 export interface ApiRow {
   name: string;
@@ -3275,7 +3280,6 @@ export function MigratingNotice() {
       "It could let a reviewer migrate a handoff sentence into a character-level archive, or let a presenter file an agenda line one glyph at a time as a tiny ceremony. Neither use makes the message easier to read or safer to store.",
     alternative:
       "A reasonable local alternative is leaving the sentence intact and using one local string operation when a parser truly needs individual characters. A transfer ledger should not supervise ordinary reading.",
-    isNew: true,
   },
   {
     name: "WritingTribunal",
@@ -3297,7 +3301,6 @@ export function RuledNotice() {
       "It could let a reviewer choose whether a handoff note should read across, down or from the other edge, or let a presenter give an agenda label a direction before it enters a slide. Both uses turn a known layout choice into a public hearing.",
     alternative:
       "A reasonable local alternative is setting `writing-mode` or `direction` directly where the content is authored. A tribunal should not decide how ordinary copy flows.",
-    isNew: true,
   },
   {
     name: "TraceReceipt",
@@ -3319,7 +3322,6 @@ export function TracedNotice() {
       "It could let a reviewer circle the field that caused a handoff discussion, or let a presenter draw an improvised border around the agenda item currently under debate. Neither use turns a gesture into useful evidence.",
     alternative:
       "A reasonable local alternative is a normal focus ring, annotation field or one explicit selected state. Persisting freehand geometry around a child is a poor substitute for recording the reason.",
-    isNew: true,
   },
   {
     name: "ChordContract",
@@ -3341,7 +3343,6 @@ export function ContractedNotice() {
       "It could make a reviewer sign a handoff note with a memorized keyboard ritual, or let a presenter unlock an agenda label after demonstrating four keys. Both uses confuse gesture ceremony with authentication or approval.",
     alternative:
       "A reasonable local alternative is one accessible button or a real authentication boundary when security matters. A fixed key sequence is neither a reliable secret nor a useful confirmation.",
-    isNew: true,
   },
   {
     name: "RomanLedger",
@@ -3363,6 +3364,115 @@ export function CountedNotice() {
       "It could let a reviewer issue a ceremonial size report for a handoff sentence, or let a presenter turn an agenda line into an antique-looking inventory of word lengths. Both uses discard meaning to display an arbitrary measurement.",
     alternative:
       "A reasonable local alternative is keeping the label readable and calculating `word.length` locally when a metric is genuinely needed. A Roman ledger should not replace content with its measurement.",
+  },
+  {
+    name: "CitationLadder",
+    slug: "citation-ladder",
+    summary: "A note accumulates increasingly unnecessary citations until it becomes academically overqualified.",
+    description:
+      "Add four real citation marks one at a time. Each mark appears beside the child and adds a matching reference to the visible list, so a plain note gains a growing scholarly apparatus without gaining a source.",
+    usage: `import { CitationLadder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CitedNotice() {
+  return <CitationLadder><span>Ready for one more review</span></CitationLadder>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The note that receives an unnecessary citation ladder." },
+    ],
+    demo: "citation-ladder",
+    useCase:
+      "It could let a reviewer make a handoff note look increasingly researched, or let a presenter add one reference mark per audience question before moving on. Neither use creates a source or improves the note.",
+    alternative:
+      "A reasonable local alternative is one real citation list tied to actual sources. A click-powered ladder mistakes the appearance of scholarship for evidence.",
+    isNew: true,
+  },
+  {
+    name: "PrefixReferendum",
+    slug: "prefix-referendum",
+    summary: "Three tonal prefixes give the same label three genuinely different degrees of unnecessary authority.",
+    description:
+      "Choose Suggest, Declare or Escalate. The selected ruling changes the actual sentence, its explanation and its visual treatment by adding a materially different prefix to the supplied label.",
+    usage: `import { PrefixReferendum } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledLabel() {
+  return <PrefixReferendum label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The neutral label submitted to three competing tonal prefixes." },
+    ],
+    demo: "prefix-referendum",
+    useCase:
+      "It could let a reviewer decide whether a handoff note should sound tentative, official or urgent, or let a presenter vote a plain agenda line into a new tone. The vote supplies posture instead of information.",
+    alternative:
+      "A reasonable local alternative is writing the intended tone directly or using one explicit status. A referendum turns a copy edit into a governance ritual.",
+    isNew: true,
+  },
+  {
+    name: "PerimeterEscort",
+    slug: "perimeter-escort",
+    summary: "A draggable cargo note keeps the exact arbitrary place where its perimeter escort leaves it.",
+    description:
+      "Drag the cargo along its rail or use the arrow keys. The child remains at the chosen horizontal coordinate and reports the distance from center until it is explicitly returned, making movement change the actual layout.",
+    usage: `import { PerimeterEscort } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function EscortedNotice() {
+  return <PerimeterEscort><span>Park this note</span></PerimeterEscort>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cargo moved along the unnecessary escort rail." },
+    ],
+    demo: "perimeter-escort",
+    useCase:
+      "It could let a reviewer park a handoff field wherever a discussion happens to drift, or let a presenter slide an agenda note toward the speaker who claims it. Neither use benefits from preserving an arbitrary coordinate.",
+    alternative:
+      "A reasonable local alternative is normal flow with a deliberate alignment or one selected state. A movable rail spends direct manipulation on relocating readable content.",
+    isNew: true,
+  },
+  {
+    name: "ChecksumOrder",
+    slug: "checksum-order",
+    summary: "A label can be posted only after three actions arrive in the order dictated by its hidden word checksum.",
+    description:
+      "The component calculates a checksum from the supplied words and uses it to choose a required order for Count words, Read first and Read last. A wrong action clears the draft; the correct sequence posts the label.",
+    usage: `import { ChecksumOrder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CheckedNotice() {
+  return <ChecksumOrder label="File the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The words whose character lengths determine the required action order." },
+    ],
+    demo: "checksum-order",
+    useCase:
+      "It could make a reviewer perform a word-count ritual before filing a handoff note, or let a presenter require an agenda line to pass a miniature checksum gate. The checksum adds ceremony without protecting the content.",
+    alternative:
+      "A reasonable local alternative is one submit action with an explicit validation message. A hidden order is a poor substitute for a clear workflow.",
+    isNew: true,
+  },
+  {
+    name: "EdgeExchange",
+    slug: "edge-exchange",
+    summary: "One editorial ruling swaps the first and last character of every word and calls the sentence improved.",
+    description:
+      "Exchange edges to rotate each word’s outside characters while preserving its middle. The rendered label changes into a deterministic, reversible near-sentence; restoring it returns the exact original wording.",
+    usage: `import { EdgeExchange } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ExchangedNotice() {
+  return <EdgeExchange label="Keep the handoff readable" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The phrase whose word edges are exchanged." },
+    ],
+    demo: "edge-exchange",
+    useCase:
+      "It could let a reviewer scramble the edges of a handoff line to test whether its middle remains recognizable, or let a presenter create a temporary editorial artifact from an agenda phrase. Neither use makes the copy clearer.",
+    alternative:
+      "A reasonable local alternative is keeping the label intact and applying a one-off string transform only for an actual text experiment. A reusable edge exchange should not supervise ordinary wording.",
     isNew: true,
   },
 ] as const;

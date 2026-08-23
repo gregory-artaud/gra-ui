@@ -140,6 +140,11 @@ import {
   DriftPin,
   FatePanel,
   VowelShift,
+  CitationLadder,
+  PrefixReferendum,
+  PerimeterEscort,
+  ChecksumOrder,
+  EdgeExchange,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -293,7 +298,12 @@ export interface PlaygroundProps {
     | "writing-tribunal"
     | "trace-receipt"
     | "chord-contract"
-    | "roman-ledger";
+    | "roman-ledger"
+    | "citation-ladder"
+    | "prefix-referendum"
+    | "perimeter-escort"
+    | "checksum-order"
+    | "edge-exchange";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -4050,6 +4060,111 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Start with a sentence whose words still carry meaning.</dd></div>
             <div><dt>2</dt><dd>Issue a ledger that replaces every word with its letter-count numeral.</dd></div>
             <div><dt>3</dt><dd>Restore the phrase when Roman administration stops helping.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "citation-ladder") {
+    return (
+      <div className="playground-shell citation-ladder-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CitationLadder><span>Ready for one more review</span></CitationLadder>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary note and no sources.</dd></div>
+            <div><dt>2</dt><dd>Add citations one at a time; each one becomes a real reference mark.</dd></div>
+            <div><dt>3</dt><dd>Remove the citations when the note has become academically overprepared.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "prefix-referendum") {
+    return (
+      <div className="playground-shell prefix-referendum-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PrefixReferendum label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a label whose tone is still undecided.</dd></div>
+            <div><dt>2</dt><dd>Choose Suggest, Declare or Escalate.</dd></div>
+            <div><dt>3</dt><dd>The prefix and its explanation change the actual sentence.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "perimeter-escort") {
+    return (
+      <div className="playground-shell perimeter-escort-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PerimeterEscort><span>Park this note somewhere arbitrary</span></PerimeterEscort>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the cargo along its rail, or focus it and use the arrow keys.</dd></div>
+            <div><dt>2</dt><dd>The content keeps its exact new position instead of returning to flow.</dd></div>
+            <div><dt>3</dt><dd>Return it to center when the escort has served no purpose.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "checksum-order") {
+    return (
+      <div className="playground-shell checksum-order-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ChecksumOrder label="File the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Read the hidden word checksum in the header.</dd></div>
+            <div><dt>2</dt><dd>Submit Count, Read first and Read last in its calculated order.</dd></div>
+            <div><dt>3</dt><dd>A wrong step clears the draft; a correct sequence posts the label.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "edge-exchange") {
+    return (
+      <div className="playground-shell edge-exchange-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <EdgeExchange label="Keep the handoff readable" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a phrase whose word edges are behaving normally.</dd></div>
+            <div><dt>2</dt><dd>Exchange the first and last character of every word in one operation.</dd></div>
+            <div><dt>3</dt><dd>Restore the exact wording when the transformed sentence stops helping.</dd></div>
           </dl>
         </div>
       </div>

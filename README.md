@@ -2589,6 +2589,66 @@ type RomanLedgerProps = {
 
 Press `Issue Roman ledger` to transform every word into the Roman numeral for its actual character count while retaining a small source label; `Restore phrase` returns the exact text. It could let a reviewer issue a ceremonial size report for a handoff sentence, or let a presenter turn an agenda line into an antique-looking inventory of word lengths. Both uses discard meaning to display an arbitrary measurement. A reasonable local alternative is keeping the label readable and calculating `word.length` locally when a metric is genuinely needed. This component should not have existed because a Roman ledger should not replace content with its measurement.
 
+## CitationLadder
+
+`CitationLadder` adds four unnecessary citations to a child one at a time.
+
+```ts
+type CitationLadderProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Add citation` to add a real superscript mark and matching reference; `Remove citations` returns to the unfiled note. It could let a reviewer make a handoff note look increasingly researched, or let a presenter add one reference mark per audience question. Neither use creates a source. A reasonable local alternative is one real citation list tied to actual sources. This component should not have existed because a click-powered ladder mistakes scholarly appearance for evidence.
+
+## PrefixReferendum
+
+`PrefixReferendum` lets three tonal rulings change the actual beginning of a label.
+
+```ts
+type PrefixReferendumProps = {
+  label: string;
+};
+```
+
+Choose `Suggest`, `Declare` or `Escalate`; each choice adds a different prefix and explanation to the supplied label, and `Reopen the wording` clears it. It could let a reviewer decide how a handoff note should sound, or let a presenter vote a plain agenda line into a new tone. The vote supplies posture instead of information. A reasonable local alternative is writing the intended tone directly or using one explicit status. This component should not have existed because a copy edit does not need governance.
+
+## PerimeterEscort
+
+`PerimeterEscort` keeps a child at the exact arbitrary coordinate where its draggable escort leaves it.
+
+```ts
+type PerimeterEscortProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the cargo along its rail, use the arrow keys, or press `Return to center`. The content keeps its actual horizontal position and reports its distance from center. It could let a reviewer park a handoff field wherever a discussion drifts, or let a presenter slide an agenda note toward its speaker. Neither use benefits from preserving a coordinate. A reasonable local alternative is normal flow with deliberate alignment. This component should not have existed because a movable rail is an expensive way to relocate readable content.
+
+## ChecksumOrder
+
+`ChecksumOrder` posts a label only after three actions arrive in the order dictated by its hidden word checksum.
+
+```ts
+type ChecksumOrderProps = {
+  label: string;
+};
+```
+
+Press `Count words`, `Read first` and `Read last` in the order calculated from the label’s character lengths; a wrong action clears the draft and `Void draft` resets it. It could make a reviewer perform a checksum ritual before filing a handoff note, or let a presenter put an agenda line through a miniature gate. The checksum protects nothing. A reasonable local alternative is one submit action with explicit validation. This component should not have existed because a hidden order is not a clear workflow.
+
+## EdgeExchange
+
+`EdgeExchange` swaps the first and last character of every word in one sweeping editorial decision.
+
+```ts
+type EdgeExchangeProps = {
+  label: string;
+};
+```
+
+Press `Exchange edges` to transform the actual phrase while preserving its middle; `Restore wording` returns the exact label. It could let a reviewer test whether a handoff line remains recognizable after its edges move, or let a presenter create a temporary agenda artifact. Neither use makes the copy clearer. A reasonable local alternative is keeping the label intact and using a one-off string transform for a real experiment. This component should not have existed because ordinary wording has no edge-exchange requirement.
+
 ## Development
 
 ```bash
