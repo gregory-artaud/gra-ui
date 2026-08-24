@@ -138,7 +138,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "prefix-referendum" ||
     kind === "perimeter-escort" ||
     kind === "checksum-order" ||
-    kind === "edge-exchange"
+    kind === "edge-exchange" ||
+    kind === "parcel-audit" ||
+    kind === "format-fork" ||
+    kind === "indent-tether" ||
+    kind === "focus-parade" ||
+    kind === "slug-mangle"
   ) {
     return <Playground kind={kind} />;
   }

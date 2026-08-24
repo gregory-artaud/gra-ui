@@ -145,6 +145,11 @@ import {
   PerimeterEscort,
   ChecksumOrder,
   EdgeExchange,
+  ParcelAudit,
+  FormatFork,
+  IndentTether,
+  FocusParade,
+  SlugMangle,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -303,7 +308,12 @@ export interface PlaygroundProps {
     | "prefix-referendum"
     | "perimeter-escort"
     | "checksum-order"
-    | "edge-exchange";
+    | "edge-exchange"
+    | "parcel-audit"
+    | "format-fork"
+    | "indent-tether"
+    | "focus-parade"
+    | "slug-mangle";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -4165,6 +4175,111 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Start with a phrase whose word edges are behaving normally.</dd></div>
             <div><dt>2</dt><dd>Exchange the first and last character of every word in one operation.</dd></div>
             <div><dt>3</dt><dd>Restore the exact wording when the transformed sentence stops helping.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "parcel-audit") {
+    return (
+      <div className="playground-shell parcel-audit-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ParcelAudit label="Local file audit" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose a local file; nothing is uploaded.</dd></div>
+            <div><dt>2</dt><dd>Its byte size becomes a small queue of visible parcels.</dd></div>
+            <div><dt>3</dt><dd>Audit every parcel before releasing an unchanged file.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "format-fork") {
+    return (
+      <div className="playground-shell format-fork-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <FormatFork label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the same words in a numbered ledger.</dd></div>
+            <div><dt>2</dt><dd>Choose a table row or flowing ribbon from the native select.</dd></div>
+            <div><dt>3</dt><dd>The actual HTML structure and reading shape change together.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "indent-tether") {
+    return (
+      <div className="playground-shell indent-tether-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <IndentTether><span>Park this note in the margin</span></IndentTether>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the tether across the ruler, or use the arrow keys.</dd></div>
+            <div><dt>2</dt><dd>The notice receives the exact resulting indentation in flow.</dd></div>
+            <div><dt>3</dt><dd>Return it to the margin when the tether has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "focus-parade") {
+    return (
+      <div className="playground-shell focus-parade-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <FocusParade><span>Ready for ceremonial release</span></FocusParade>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Focus Intake, Review and Release in that order.</dd></div>
+            <div><dt>2</dt><dd>Each correct station advances the actual cargo lane.</dd></div>
+            <div><dt>3</dt><dd>Focus the wrong station to void the parade and start again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "slug-mangle") {
+    return (
+      <div className="playground-shell slug-mangle-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <SlugMangle label="Préparer l’ordinaire handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable phrase containing accents and spaces.</dd></div>
+            <div><dt>2</dt><dd>Mangle it into a lowercase hyphenated route token.</dd></div>
+            <div><dt>3</dt><dd>Restore the exact human wording when the URL boundary is over.</dd></div>
           </dl>
         </div>
       </div>

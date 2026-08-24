@@ -145,7 +145,12 @@ export type DemoKind =
   | "prefix-referendum"
   | "perimeter-escort"
   | "checksum-order"
-  | "edge-exchange";
+  | "edge-exchange"
+  | "parcel-audit"
+  | "format-fork"
+  | "indent-tether"
+  | "focus-parade"
+  | "slug-mangle";
 
 export interface ApiRow {
   name: string;
@@ -3385,7 +3390,6 @@ export function CitedNotice() {
       "It could let a reviewer make a handoff note look increasingly researched, or let a presenter add one reference mark per audience question before moving on. Neither use creates a source or improves the note.",
     alternative:
       "A reasonable local alternative is one real citation list tied to actual sources. A click-powered ladder mistakes the appearance of scholarship for evidence.",
-    isNew: true,
   },
   {
     name: "PrefixReferendum",
@@ -3407,7 +3411,6 @@ export function RuledLabel() {
       "It could let a reviewer decide whether a handoff note should sound tentative, official or urgent, or let a presenter vote a plain agenda line into a new tone. The vote supplies posture instead of information.",
     alternative:
       "A reasonable local alternative is writing the intended tone directly or using one explicit status. A referendum turns a copy edit into a governance ritual.",
-    isNew: true,
   },
   {
     name: "PerimeterEscort",
@@ -3429,7 +3432,6 @@ export function EscortedNotice() {
       "It could let a reviewer park a handoff field wherever a discussion happens to drift, or let a presenter slide an agenda note toward the speaker who claims it. Neither use benefits from preserving an arbitrary coordinate.",
     alternative:
       "A reasonable local alternative is normal flow with a deliberate alignment or one selected state. A movable rail spends direct manipulation on relocating readable content.",
-    isNew: true,
   },
   {
     name: "ChecksumOrder",
@@ -3451,7 +3453,6 @@ export function CheckedNotice() {
       "It could make a reviewer perform a word-count ritual before filing a handoff note, or let a presenter require an agenda line to pass a miniature checksum gate. The checksum adds ceremony without protecting the content.",
     alternative:
       "A reasonable local alternative is one submit action with an explicit validation message. A hidden order is a poor substitute for a clear workflow.",
-    isNew: true,
   },
   {
     name: "EdgeExchange",
@@ -3473,6 +3474,115 @@ export function ExchangedNotice() {
       "It could let a reviewer scramble the edges of a handoff line to test whether its middle remains recognizable, or let a presenter create a temporary editorial artifact from an agenda phrase. Neither use makes the copy clearer.",
     alternative:
       "A reasonable local alternative is keeping the label intact and applying a one-off string transform only for an actual text experiment. A reusable edge exchange should not supervise ordinary wording.",
+  },
+  {
+    name: "ParcelAudit",
+    slug: "parcel-audit",
+    summary: "A local file is divided into a ceremonial audit queue before it may be released.",
+    description:
+      "Choose one local file and its byte size becomes one to five visible audit parcels. Inspect each parcel in order; the file itself is never uploaded or changed, but the queue insists that it was.",
+    usage: `import { ParcelAudit } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AuditedFile() {
+  return <ParcelAudit label="Local file audit" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The heading shown above the local file audit." },
+    ],
+    demo: "parcel-audit",
+    useCase:
+      "It could let a reviewer ceremonially inspect a handoff attachment before releasing it, or let a presenter make a small local asset pass through a visible intake queue. Neither use learns more than the file picker already knows.",
+    alternative:
+      "A reasonable local alternative is a normal file input with one validation message. Dividing bytes into invented parcels adds ceremony without security, upload or review value.",
+    isNew: true,
+  },
+  {
+    name: "FormatFork",
+    slug: "format-fork",
+    summary: "One label must choose whether it becomes a numbered ledger, a table row or a flowing ribbon.",
+    description:
+      "Choose a filing destination from a native select. The same words are rendered as an ordered list, real table cells or individual flowing spans, so the choice changes the document structure and its reading shape.",
+    usage: `import { FormatFork } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ForkedLabel() {
+  return <FormatFork label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The words rendered in one of three materially different filing structures." },
+    ],
+    demo: "format-fork",
+    useCase:
+      "It could let a reviewer decide whether a handoff line belongs in a ledger, a table or a ribbon on a presentation. The format changes the ceremony, not the information in the line.",
+    alternative:
+      "A reasonable local alternative is authoring the intended semantic element once and keeping the content in normal flow. A select should not govern the ontology of a sentence.",
+    isNew: true,
+  },
+  {
+    name: "IndentTether",
+    slug: "indent-tether",
+    summary: "Drag a tether along a ruler and make a notice keep an arbitrary distance from its margin.",
+    description:
+      "Drag the tether, use the arrow keys, or jump to either end of the ruler. The child stays in flow but receives the exact chosen indentation, so direct manipulation changes the actual spacing rather than merely moving a marker.",
+    usage: `import { IndentTether } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TetheredNotice() {
+  return <IndentTether><span>Park this note in the margin</span></IndentTether>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice whose actual indentation follows the tether." },
+    ],
+    demo: "indent-tether",
+    useCase:
+      "It could let a reviewer drag a handoff note toward the margin where a discussion happens, or let a presenter park an agenda line at the exact distance from its slide edge that feels official. Neither use improves alignment beyond normal layout rules.",
+    alternative:
+      "A reasonable local alternative is normal flow with a deliberate padding value or one alignment class. A pointer-controlled ruler should not own a document’s margin.",
+    isNew: true,
+  },
+  {
+    name: "FocusParade",
+    slug: "focus-parade",
+    summary: "A notice travels through three stations only when keyboard focus arrives in the prescribed order.",
+    description:
+      "Focus Intake, then Review, then Release. Each correct focus moves the actual notice to the next lane; focusing the wrong station voids the parade and returns it to intake. The interaction is keyboard-native and does not need timers or global listeners.",
+    usage: `import { FocusParade } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ParadedNotice() {
+  return <FocusParade><span>Ready for ceremonial release</span></FocusParade>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice that travels as focus reaches each station." },
+    ],
+    demo: "focus-parade",
+    useCase:
+      "It could make a reviewer tab through an attachment’s intake, review and release stations, or let a presenter rehearse an agenda line through three focus checkpoints. The order demonstrates ceremony, not readiness.",
+    alternative:
+      "A reasonable local alternative is a normal focus order with one explicit submit or approval action. Focus should reveal affordances, not act as a hidden workflow engine.",
+    isNew: true,
+  },
+  {
+    name: "SlugMangle",
+    slug: "slug-mangle",
+    summary: "One click strips a readable label into the tiny route-shaped artifact it did not ask to become.",
+    description:
+      "Mangle a phrase into a deterministic URL slug by removing accents, case and punctuation and joining words with hyphens. The transformed copy replaces the original until Restore label returns the exact wording.",
+    usage: `import { SlugMangle } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MangledLabel() {
+  return <SlugMangle label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable phrase transformed into a URL-shaped slug." },
+    ],
+    demo: "slug-mangle",
+    useCase:
+      "It could let a reviewer inspect how a handoff title would behave in a route, or let a presenter temporarily turn an agenda line into a compact URL token. The result is useful only at the boundary where a route is actually needed.",
+    alternative:
+      "A reasonable local alternative is keeping the human label and deriving a slug at the routing boundary. A reusable mangle button should not make readable copy pay the URL tax.",
     isNew: true,
   },
 ] as const;

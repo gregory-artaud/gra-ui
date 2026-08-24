@@ -279,6 +279,26 @@ export {
   type EdgeExchangeProps,
 } from "./components/edge-exchange";
 export {
+  ParcelAudit,
+  type ParcelAuditProps,
+} from "./components/parcel-audit";
+export {
+  FormatFork,
+  type FormatForkProps,
+} from "./components/format-fork";
+export {
+  IndentTether,
+  type IndentTetherProps,
+} from "./components/indent-tether";
+export {
+  FocusParade,
+  type FocusParadeProps,
+} from "./components/focus-parade";
+export {
+  SlugMangle,
+  type SlugMangleProps,
+} from "./components/slug-mangle";
+export {
   WordRelay,
   type WordRelayProps,
 } from "./components/word-relay";

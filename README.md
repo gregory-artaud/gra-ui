@@ -2649,6 +2649,66 @@ type EdgeExchangeProps = {
 
 Press `Exchange edges` to transform the actual phrase while preserving its middle; `Restore wording` returns the exact label. It could let a reviewer test whether a handoff line remains recognizable after its edges move, or let a presenter create a temporary agenda artifact. Neither use makes the copy clearer. A reasonable local alternative is keeping the label intact and using a one-off string transform for a real experiment. This component should not have existed because ordinary wording has no edge-exchange requirement.
 
+## ParcelAudit
+
+`ParcelAudit` divides a local file into a ceremonial audit queue before it may be released.
+
+```ts
+type ParcelAuditProps = {
+  label: string;
+};
+```
+
+Choose one local file; its byte size becomes one to five visible parcels. Press `Audit next parcel` for each parcel, then `Clear audit` to remove the local metadata. Nothing is uploaded or changed. It could let a reviewer ceremonially inspect a handoff attachment, or let a presenter make a small local asset pass through an intake queue. Neither use learns more than the file picker already knows. A reasonable local alternative is a normal file input with one validation message.
+
+## FormatFork
+
+`FormatFork` makes one label choose between a numbered ledger, a table row and a flowing ribbon.
+
+```ts
+type FormatForkProps = {
+  label: string;
+};
+```
+
+Choose a destination from the native select. The same words become an actual ordered list, table row or set of flowing spans. It could let a reviewer decide how a handoff line belongs on a slide, or let a presenter vote a phrase into a filing shape. The format changes ceremony, not information. A reasonable local alternative is authoring the intended semantic element once and keeping the content in normal flow.
+
+## IndentTether
+
+`IndentTether` lets a ruler decide how far a notice should sit from its margin.
+
+```ts
+type IndentTetherProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the tether, use the arrow keys, or jump to either end. The child stays in flow but receives the exact chosen indentation; `Return to margin` restores zero. It could let a reviewer park a handoff note near a discussion, or let a presenter position an agenda line at an exact slide offset. Neither use improves normal alignment. A reasonable local alternative is normal flow with one intentional padding value.
+
+## FocusParade
+
+`FocusParade` moves a notice through three stations only when keyboard focus arrives in order.
+
+```ts
+type FocusParadeProps = {
+  children: React.ReactNode;
+};
+```
+
+Focus `Intake`, `Review` and `Release` in order. Each correct focus moves the notice to the next lane; focusing the wrong station voids the parade, and `Restart parade` returns it to the beginning. It could make a reviewer rehearse an attachment’s release path, or let a presenter run an agenda line through three checkpoints. The order demonstrates ceremony, not readiness. A reasonable local alternative is normal focus order with one explicit approval action.
+
+## SlugMangle
+
+`SlugMangle` strips a readable label into a tiny route-shaped artifact.
+
+```ts
+type SlugMangleProps = {
+  label: string;
+};
+```
+
+Press `Mangle into slug` to remove accents, case and punctuation and join words with hyphens; `Restore label` returns the exact wording. It could let a reviewer inspect a title at a routing boundary, or let a presenter turn an agenda phrase into a temporary URL token. The result is useful only where a route is actually needed. A reasonable local alternative is deriving a slug locally at the routing boundary while preserving the human label.
+
 ## Development
 
 ```bash
