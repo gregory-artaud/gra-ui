@@ -2709,6 +2709,66 @@ type SlugMangleProps = {
 
 Press `Mangle into slug` to remove accents, case and punctuation and join words with hyphens; `Restore label` returns the exact wording. It could let a reviewer inspect a title at a routing boundary, or let a presenter turn an agenda phrase into a temporary URL token. The result is useful only where a route is actually needed. A reasonable local alternative is deriving a slug locally at the routing boundary while preserving the human label.
 
+## CrestProgress
+
+`CrestProgress` raises a notice through four tide levels until an unnecessary beacon declares it complete.
+
+```ts
+type CrestProgressProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Raise one crest` and the actual notice travels upward through Low water, Rising, High tide and Beacon. `Lower tide` returns it to the first level. It could let a reviewer elevate a handoff note before release, or let a presenter raise an agenda line before closing a slide. Neither use needs a tide gauge. A reasonable local alternative is one progress value or an explicit approval button.
+
+## ShapeVerdict
+
+`ShapeVerdict` sentences one notice to become a coin, ticket or flag.
+
+```ts
+type ShapeVerdictProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose a verdict from the native select. The same words receive a genuinely different round, notched or pointed silhouette. It could let a reviewer give a handoff note an official shape, or let a presenter flag an agenda line geometrically. The shape adds posture without information. A reasonable local alternative is one intentional style class or a status label.
+
+## VanishingPoint
+
+`VanishingPoint` lets an imaginary camera point tilt a notice toward a perspective it does not need.
+
+```ts
+type VanishingPointProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the crosshair around the viewfinder, use the arrow keys, or return it to center. The notice stays in place while its actual 3D tilt follows the chosen point. It could let a reviewer angle a handoff note toward a conversation, or let a presenter lean an agenda line toward a speaker. Neither use improves legibility. A reasonable local alternative is flat flow with one deliberate emphasis style.
+
+## FoldOrder
+
+`FoldOrder` opens three native disclosure flaps only from left to right.
+
+```ts
+type FoldOrderProps = {
+  children: React.ReactNode;
+};
+```
+
+Open `Left flap`, `Middle flap` and `Right flap` in order. Each real `details` panel stays open after its turn; an early flap creases the draft closed. It could make a reviewer unfold a handoff brief in a preferred paper order, or let a presenter unfold an agenda line ceremonially. The order has no relation to the information. A reasonable local alternative is independent disclosures or one normal details element.
+
+## GlyphOffset
+
+`GlyphOffset` moves every printable character exactly one Unicode step forward.
+
+```ts
+type GlyphOffsetProps = {
+  label: string;
+};
+```
+
+Press `Offset glyphs` to replace each printable ASCII glyph with the next one, then `Restore label` to return the exact wording. It could let a reviewer produce a reversible glyph specimen from a handoff sentence, or let a presenter turn an agenda line into a typographic artifact. Neither use improves or protects the message. A reasonable local alternative is keeping the label readable and applying a one-off encoding function only for a real parser or experiment.
+
 ## Development
 
 ```bash

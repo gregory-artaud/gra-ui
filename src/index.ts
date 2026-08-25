@@ -611,6 +611,26 @@ export {
   type RomanLedgerProps,
 } from "./components/roman-ledger";
 export {
+  CrestProgress,
+  type CrestProgressProps,
+} from "./components/crest-progress";
+export {
+  ShapeVerdict,
+  type ShapeVerdictProps,
+} from "./components/shape-verdict";
+export {
+  VanishingPoint,
+  type VanishingPointProps,
+} from "./components/vanishing-point";
+export {
+  FoldOrder,
+  type FoldOrderProps,
+} from "./components/fold-order";
+export {
+  GlyphOffset,
+  type GlyphOffsetProps,
+} from "./components/glyph-offset";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

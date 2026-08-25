@@ -143,7 +143,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "format-fork" ||
     kind === "indent-tether" ||
     kind === "focus-parade" ||
-    kind === "slug-mangle"
+    kind === "slug-mangle" ||
+    kind === "crest-progress" ||
+    kind === "shape-verdict" ||
+    kind === "vanishing-point" ||
+    kind === "fold-order" ||
+    kind === "glyph-offset"
   ) {
     return <Playground kind={kind} />;
   }

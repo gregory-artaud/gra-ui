@@ -150,7 +150,12 @@ export type DemoKind =
   | "format-fork"
   | "indent-tether"
   | "focus-parade"
-  | "slug-mangle";
+  | "slug-mangle"
+  | "crest-progress"
+  | "shape-verdict"
+  | "vanishing-point"
+  | "fold-order"
+  | "glyph-offset";
 
 export interface ApiRow {
   name: string;
@@ -3495,7 +3500,6 @@ export function AuditedFile() {
       "It could let a reviewer ceremonially inspect a handoff attachment before releasing it, or let a presenter make a small local asset pass through a visible intake queue. Neither use learns more than the file picker already knows.",
     alternative:
       "A reasonable local alternative is a normal file input with one validation message. Dividing bytes into invented parcels adds ceremony without security, upload or review value.",
-    isNew: true,
   },
   {
     name: "FormatFork",
@@ -3517,7 +3521,6 @@ export function ForkedLabel() {
       "It could let a reviewer decide whether a handoff line belongs in a ledger, a table or a ribbon on a presentation. The format changes the ceremony, not the information in the line.",
     alternative:
       "A reasonable local alternative is authoring the intended semantic element once and keeping the content in normal flow. A select should not govern the ontology of a sentence.",
-    isNew: true,
   },
   {
     name: "IndentTether",
@@ -3539,7 +3542,6 @@ export function TetheredNotice() {
       "It could let a reviewer drag a handoff note toward the margin where a discussion happens, or let a presenter park an agenda line at the exact distance from its slide edge that feels official. Neither use improves alignment beyond normal layout rules.",
     alternative:
       "A reasonable local alternative is normal flow with a deliberate padding value or one alignment class. A pointer-controlled ruler should not own a document’s margin.",
-    isNew: true,
   },
   {
     name: "FocusParade",
@@ -3561,7 +3563,6 @@ export function ParadedNotice() {
       "It could make a reviewer tab through an attachment’s intake, review and release stations, or let a presenter rehearse an agenda line through three focus checkpoints. The order demonstrates ceremony, not readiness.",
     alternative:
       "A reasonable local alternative is a normal focus order with one explicit submit or approval action. Focus should reveal affordances, not act as a hidden workflow engine.",
-    isNew: true,
   },
   {
     name: "SlugMangle",
@@ -3583,6 +3584,115 @@ export function MangledLabel() {
       "It could let a reviewer inspect how a handoff title would behave in a route, or let a presenter temporarily turn an agenda line into a compact URL token. The result is useful only at the boundary where a route is actually needed.",
     alternative:
       "A reasonable local alternative is keeping the human label and deriving a slug at the routing boundary. A reusable mangle button should not make readable copy pay the URL tax.",
+  },
+  {
+    name: "CrestProgress",
+    slug: "crest-progress",
+    summary: "A notice rises through four tide levels until an unnecessary beacon declares it complete.",
+    description:
+      "Raise one crest at a time and the actual notice travels upward through a tide gauge. Each stage changes its position and status; the final beacon is a disproportionate reward for pressing one button four times.",
+    usage: `import { CrestProgress } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RisingNotice() {
+  return <CrestProgress><span>Ready for another review</span></CrestProgress>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice that rises through the four actual gauge levels." },
+    ],
+    demo: "crest-progress",
+    useCase:
+      "It could let a reviewer elevate a handoff note from low water to beacon status, or let a presenter raise an agenda line before allowing it to close a slide. Neither use needs a tide gauge to express progress.",
+    alternative:
+      "A reasonable local alternative is one progress value or an explicit approval button. A sequence of rising paper levels gives an ordinary status more ceremony than information.",
+    isNew: true,
+  },
+  {
+    name: "ShapeVerdict",
+    slug: "shape-verdict",
+    summary: "A native select sentences one notice to become a coin, ticket or flag.",
+    description:
+      "Choose one of three shape verdicts and the notice receives a genuinely different geometry: round, notched or pointed. The words remain unchanged while their silhouette pretends to carry a ruling.",
+    usage: `import { ShapeVerdict } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShapedNotice() {
+  return <ShapeVerdict><span>Needs a decision</span></ShapeVerdict>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice sentenced to one of three actual silhouettes." },
+    ],
+    demo: "shape-verdict",
+    useCase:
+      "It could let a reviewer choose whether a handoff note is a coin, a filing ticket or a directional flag, or let a presenter give an agenda line a silhouette before discussion. The shape adds posture without adding meaning.",
+    alternative:
+      "A reasonable local alternative is one intentional style class or a status label. A select should not decide whether readable content is round, notched or pointed.",
+    isNew: true,
+  },
+  {
+    name: "VanishingPoint",
+    slug: "vanishing-point",
+    summary: "Drag an imaginary camera point and make a notice lean toward a perspective it does not need.",
+    description:
+      "Move the point directly across a small viewfinder, or use its arrow keys. The notice stays in the same place but its actual 3D tilt follows the chosen camera, creating a precise perspective for content that was already flat.",
+    usage: `import { VanishingPoint } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PerspectiveNotice() {
+  return <VanishingPoint><span>Park this note in the ordinary plane</span></VanishingPoint>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice whose perspective responds to the directly manipulated point." },
+    ],
+    demo: "vanishing-point",
+    useCase:
+      "It could let a reviewer angle a handoff note toward the part of a room where a conversation happened, or let a presenter make an agenda line lean toward a speaker. Neither use improves the copy’s legibility.",
+    alternative:
+      "A reasonable local alternative is normal flat flow with one deliberate emphasis style. A pointer-controlled camera is an expensive way to apply a small transform.",
+    isNew: true,
+  },
+  {
+    name: "FoldOrder",
+    slug: "fold-order",
+    summary: "Three native disclosure flaps open only when unfolded from left to right.",
+    description:
+      "Open Left flap, Middle flap and Right flap in order. Each real details panel stays open after its turn, while an early flap creases the whole draft closed and sends the notice back to the first panel.",
+    usage: `import { FoldOrder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FoldedNotice() {
+  return <FoldOrder><span>Ready to be unnecessarily flat</span></FoldOrder>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice revealed inside the current folding panel." },
+    ],
+    demo: "fold-order",
+    useCase:
+      "It could make a reviewer open three sections of a handoff brief as if paper had a preferred folding direction, or let a presenter unfold an agenda line in a fixed ceremony. The order has no relation to the information.",
+    alternative:
+      "A reasonable local alternative is independent details elements or one normal disclosure. Native panels should expose content, not enforce a paper-folding ritual.",
+    isNew: true,
+  },
+  {
+    name: "GlyphOffset",
+    slug: "glyph-offset",
+    summary: "One click moves every printable character exactly one Unicode step forward.",
+    description:
+      "Offset glyphs replaces each printable ASCII character with the next one, wrapping the final tilde to an exclamation mark. The resulting copy remains deterministic and reversible, which makes the transformation technically tidy and completely unnecessary.",
+    usage: `import { GlyphOffset } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function OffsetNotice() {
+  return <GlyphOffset label="Keep the handoff readable" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The phrase whose printable glyphs are shifted by one code point." },
+    ],
+    demo: "glyph-offset",
+    useCase:
+      "It could let a reviewer produce a harmless glyph-level specimen from a handoff sentence, or let a presenter turn an agenda line into a reversible typographic artifact. Neither use improves the message or protects it.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and applying a one-off encoding function only for a real parser or experiment. A public glyph elevator should not supervise ordinary copy.",
     isNew: true,
   },
 ] as const;

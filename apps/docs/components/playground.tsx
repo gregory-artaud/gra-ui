@@ -150,6 +150,11 @@ import {
   IndentTether,
   FocusParade,
   SlugMangle,
+  CrestProgress,
+  ShapeVerdict,
+  VanishingPoint,
+  FoldOrder,
+  GlyphOffset,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -313,7 +318,12 @@ export interface PlaygroundProps {
     | "format-fork"
     | "indent-tether"
     | "focus-parade"
-    | "slug-mangle";
+    | "slug-mangle"
+    | "crest-progress"
+    | "shape-verdict"
+    | "vanishing-point"
+    | "fold-order"
+    | "glyph-offset";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -4280,6 +4290,111 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Start with a readable phrase containing accents and spaces.</dd></div>
             <div><dt>2</dt><dd>Mangle it into a lowercase hyphenated route token.</dd></div>
             <div><dt>3</dt><dd>Restore the exact human wording when the URL boundary is over.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "crest-progress") {
+    return (
+      <div className="playground-shell crest-progress-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CrestProgress><span>Ready for another review</span></CrestProgress>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Raise the notice one tide crest at a time.</dd></div>
+            <div><dt>2</dt><dd>Watch the actual cargo climb through four gauge levels.</dd></div>
+            <div><dt>3</dt><dd>Lower the tide when the beacon has become excessive.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "shape-verdict") {
+    return (
+      <div className="playground-shell shape-verdict-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ShapeVerdict><span>Needs a decision</span></ShapeVerdict>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose Coin, Ticket or Flag from the native select.</dd></div>
+            <div><dt>2</dt><dd>See the same notice receive a real silhouette and seal.</dd></div>
+            <div><dt>3</dt><dd>Pick another verdict when the geometry feels unjustified.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "vanishing-point") {
+    return (
+      <div className="playground-shell vanishing-point-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <VanishingPoint><span>Park this note in the ordinary plane</span></VanishingPoint>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the crosshair around the viewfinder.</dd></div>
+            <div><dt>2</dt><dd>The card stays put while its actual 3D tilt follows the camera.</dd></div>
+            <div><dt>3</dt><dd>Use arrow keys or return the imaginary point to center.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "fold-order") {
+    return (
+      <div className="playground-shell fold-order-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <FoldOrder><span>Ready to be unnecessarily flat</span></FoldOrder>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Open Left flap, then Middle flap, then Right flap.</dd></div>
+            <div><dt>2</dt><dd>Each real disclosure stays open after its turn.</dd></div>
+            <div><dt>3</dt><dd>Open a flap early to crease everything closed and restart.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "glyph-offset") {
+    return (
+      <div className="playground-shell glyph-offset-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <GlyphOffset label="Keep the handoff readable" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Offset every printable glyph by one code point.</dd></div>
+            <div><dt>2</dt><dd>Read the deterministic near-sentence that replaces the original.</dd></div>
+            <div><dt>3</dt><dd>Restore the exact label when Unicode has made its point.</dd></div>
           </dl>
         </div>
       </div>
