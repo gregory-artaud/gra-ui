@@ -155,7 +155,12 @@ export type DemoKind =
   | "shape-verdict"
   | "vanishing-point"
   | "fold-order"
-  | "glyph-offset";
+  | "glyph-offset"
+  | "decoration-toll"
+  | "case-ballot"
+  | "ratio-rail"
+  | "edit-sequence"
+  | "article-ejector";
 
 export interface ApiRow {
   name: string;
@@ -3605,7 +3610,6 @@ export function RisingNotice() {
       "It could let a reviewer elevate a handoff note from low water to beacon status, or let a presenter raise an agenda line before allowing it to close a slide. Neither use needs a tide gauge to express progress.",
     alternative:
       "A reasonable local alternative is one progress value or an explicit approval button. A sequence of rising paper levels gives an ordinary status more ceremony than information.",
-    isNew: true,
   },
   {
     name: "ShapeVerdict",
@@ -3627,7 +3631,6 @@ export function ShapedNotice() {
       "It could let a reviewer choose whether a handoff note is a coin, a filing ticket or a directional flag, or let a presenter give an agenda line a silhouette before discussion. The shape adds posture without adding meaning.",
     alternative:
       "A reasonable local alternative is one intentional style class or a status label. A select should not decide whether readable content is round, notched or pointed.",
-    isNew: true,
   },
   {
     name: "VanishingPoint",
@@ -3649,7 +3652,6 @@ export function PerspectiveNotice() {
       "It could let a reviewer angle a handoff note toward the part of a room where a conversation happened, or let a presenter make an agenda line lean toward a speaker. Neither use improves the copy’s legibility.",
     alternative:
       "A reasonable local alternative is normal flat flow with one deliberate emphasis style. A pointer-controlled camera is an expensive way to apply a small transform.",
-    isNew: true,
   },
   {
     name: "FoldOrder",
@@ -3671,7 +3673,6 @@ export function FoldedNotice() {
       "It could make a reviewer open three sections of a handoff brief as if paper had a preferred folding direction, or let a presenter unfold an agenda line in a fixed ceremony. The order has no relation to the information.",
     alternative:
       "A reasonable local alternative is independent details elements or one normal disclosure. Native panels should expose content, not enforce a paper-folding ritual.",
-    isNew: true,
   },
   {
     name: "GlyphOffset",
@@ -3693,6 +3694,122 @@ export function OffsetNotice() {
       "It could let a reviewer produce a harmless glyph-level specimen from a handoff sentence, or let a presenter turn an agenda line into a reversible typographic artifact. Neither use improves the message or protects it.",
     alternative:
       "A reasonable local alternative is keeping the label readable and applying a one-off encoding function only for a real parser or experiment. A public glyph elevator should not supervise ordinary copy.",
+  },
+  {
+    name: "DecorationToll",
+    slug: "decoration-toll",
+    summary: "A notice pays five typographic fees, collecting lines until decoration pretends to be approval.",
+    description:
+      "Add one actual ink pass at a time. Underline, double-line, cross out and stamp the same notice until the final stage is reached; Remove ink returns it to its unmarked state.",
+    usage: `import { DecorationToll } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TaxedNotice() {
+  return <DecorationToll><span>Ready for one more review</span></DecorationToll>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice that collects one real typographic decoration per toll payment." },
+    ],
+    demo: "decoration-toll",
+    useCase:
+      "It could let a reviewer make a handoff note earn progressively heavier marks, or let a presenter decorate an agenda line until it looks ceremonially settled. Neither use makes the wording more approved.",
+    alternative:
+      "A reasonable local alternative is one status badge or one deliberate emphasis style. A button that invoices a notice for four extra decorations is a poor substitute for a clear state.",
+    isNew: true,
+  },
+  {
+    name: "CaseBallot",
+    slug: "case-ballot",
+    summary: "Three case policies give one label genuinely different voices instead of merely changing its color.",
+    description:
+      "Vote for Quiet case, Headline case or Shout case. The rendered string itself changes to lowercase, title case or uppercase, and Withdraw the ballot returns to the quiet policy.",
+    usage: `import { CaseBallot } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RuledLabel() {
+  return <CaseBallot label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The phrase submitted to the three competing case policies." },
+    ],
+    demo: "case-ballot",
+    useCase:
+      "It could let a reviewer decide whether a handoff note whispers, reports or shouts, or let a presenter vote on the rhetorical volume of an agenda line. Casing changes posture, not importance.",
+    alternative:
+      "A reasonable local alternative is authoring the intended casing or applying one local text style. A ballot should not govern whether a sentence uses capital letters.",
+    isNew: true,
+  },
+  {
+    name: "RatioRail",
+    slug: "ratio-rail",
+    summary: "A draggable divider reallocates the room between two shelves of content.",
+    description:
+      "Drag the rail or use its arrow keys to change the actual left/right proportions. Children stay filed on their shelf while the available room, line wrapping and visual balance change in real time.",
+    usage: `import { RatioRail } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShelvedNotice() {
+  return (
+    <RatioRail>
+      <span>Request</span>
+      <span>Owner</span>
+      <span>Deadline</span>
+      <span>Reason</span>
+    </RatioRail>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content divided in order between the left and right shelves." },
+    ],
+    demo: "ratio-rail",
+    useCase:
+      "It could let a reviewer negotiate how much room a handoff field deserves, or let a presenter squeeze an agenda label beside its supporting detail. The pixels can move without improving the information architecture.",
+    alternative:
+      "A reasonable local alternative is a fixed grid or one responsive layout rule. A pointer-controlled proportion is an elaborate answer to choosing two column widths.",
+    isNew: true,
+  },
+  {
+    name: "EditSequence",
+    slug: "edit-sequence",
+    summary: "Trim, capitalize and punctuate a sentence in exactly the order a tiny editorial office demands.",
+    description:
+      "Choose the three real editing actions in order. A premature action reopens the draft, while the accepted actions transform the visible label step by step and finally file it.",
+    usage: `import { EditSequence } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledDraft() {
+  return <EditSequence label="  review the ordinary handoff  " />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The draft that must survive the trim, capitalization and punctuation sequence." },
+    ],
+    demo: "edit-sequence",
+    useCase:
+      "It could make a reviewer process a handoff draft through a miniature editorial checklist, or let a presenter stage an agenda line before revealing the final copy. The sentence does not need permission to be edited in a prescribed order.",
+    alternative:
+      "A reasonable local alternative is one string transformation at the boundary where it is needed, or three independent controls when order has meaning. A locked editorial queue adds ceremony to ordinary text cleanup.",
+    isNew: true,
+  },
+  {
+    name: "ArticleEjector",
+    slug: "article-ejector",
+    summary: "A label ejects every a, an and the into a small archive that does not improve the sentence.",
+    description:
+      "Eject articles to replace the visible sentence with the remaining words and file the removed tokens in a tray. Restore sentence brings the original label back exactly as supplied.",
+    usage: `import { ArticleEjector } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ArticleFreeLabel() {
+  return <ArticleEjector label="The team prepared an ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence whose English articles are separated from the visible copy." },
+    ],
+    demo: "article-ejector",
+    useCase:
+      "It could let a reviewer inspect how much connective furniture a handoff sentence carries, or let a presenter produce an article-free slide label for a linguistic exercise. Removing small words is not a communication strategy by itself.",
+    alternative:
+      "A reasonable local alternative is retaining the sentence or using a one-off text utility for analysis. A reusable ejector should not supervise the words that make a noun phrase readable.",
     isNew: true,
   },
 ] as const;

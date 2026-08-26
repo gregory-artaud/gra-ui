@@ -155,6 +155,11 @@ import {
   VanishingPoint,
   FoldOrder,
   GlyphOffset,
+  DecorationToll,
+  CaseBallot,
+  RatioRail,
+  EditSequence,
+  ArticleEjector,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -323,7 +328,12 @@ export interface PlaygroundProps {
     | "shape-verdict"
     | "vanishing-point"
     | "fold-order"
-    | "glyph-offset";
+    | "glyph-offset"
+    | "decoration-toll"
+    | "case-ballot"
+    | "ratio-rail"
+    | "edit-sequence"
+    | "article-ejector";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -4395,6 +4405,116 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Offset every printable glyph by one code point.</dd></div>
             <div><dt>2</dt><dd>Read the deterministic near-sentence that replaces the original.</dd></div>
             <div><dt>3</dt><dd>Restore the exact label when Unicode has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "decoration-toll") {
+    return (
+      <div className="playground-shell decoration-toll-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <DecorationToll><span>Ready for one more review</span></DecorationToll>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Pay one typographic fee at a time.</dd></div>
+            <div><dt>2</dt><dd>Watch the same notice collect actual lines and a final stamp.</dd></div>
+            <div><dt>3</dt><dd>Remove the ink when decoration has stopped helping.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "case-ballot") {
+    return (
+      <div className="playground-shell case-ballot-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CaseBallot label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Vote for Quiet, Headline or Shout case.</dd></div>
+            <div><dt>2</dt><dd>The actual characters change, not only the styling.</dd></div>
+            <div><dt>3</dt><dd>Withdraw the ballot when the sentence may speak normally.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "ratio-rail") {
+    return (
+      <div className="playground-shell ratio-rail-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <RatioRail>
+              <span>Request</span>
+              <span>Owner</span>
+              <span>Deadline</span>
+              <span>Reason</span>
+            </RatioRail>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the rail between the two shelves.</dd></div>
+            <div><dt>2</dt><dd>Watch wrapping and room allocation change in real time.</dd></div>
+            <div><dt>3</dt><dd>Use arrow keys or balance the shelves again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "edit-sequence") {
+    return (
+      <div className="playground-shell edit-sequence-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <EditSequence label="  review the ordinary handoff  " />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose Trim edges, then Raise first letter, then Issue full stop.</dd></div>
+            <div><dt>2</dt><dd>Every accepted edit changes the visible wording.</dd></div>
+            <div><dt>3</dt><dd>Choose early and the draft reopens from the beginning.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "article-ejector") {
+    return (
+      <div className="playground-shell article-ejector-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ArticleEjector label="The team prepared an ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Eject every a, an and the from the visible sentence.</dd></div>
+            <div><dt>2</dt><dd>Inspect the actual tokens in the little archive tray.</dd></div>
+            <div><dt>3</dt><dd>Restore the sentence when grammar has had enough.</dd></div>
           </dl>
         </div>
       </div>

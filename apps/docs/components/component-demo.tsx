@@ -148,7 +148,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "shape-verdict" ||
     kind === "vanishing-point" ||
     kind === "fold-order" ||
-    kind === "glyph-offset"
+    kind === "glyph-offset" ||
+    kind === "decoration-toll" ||
+    kind === "case-ballot" ||
+    kind === "ratio-rail" ||
+    kind === "edit-sequence" ||
+    kind === "article-ejector"
   ) {
     return <Playground kind={kind} />;
   }

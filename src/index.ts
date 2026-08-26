@@ -631,6 +631,26 @@ export {
   type GlyphOffsetProps,
 } from "./components/glyph-offset";
 export {
+  DecorationToll,
+  type DecorationTollProps,
+} from "./components/decoration-toll";
+export {
+  CaseBallot,
+  type CaseBallotProps,
+} from "./components/case-ballot";
+export {
+  RatioRail,
+  type RatioRailProps,
+} from "./components/ratio-rail";
+export {
+  EditSequence,
+  type EditSequenceProps,
+} from "./components/edit-sequence";
+export {
+  ArticleEjector,
+  type ArticleEjectorProps,
+} from "./components/article-ejector";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

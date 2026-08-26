@@ -2769,6 +2769,66 @@ type GlyphOffsetProps = {
 
 Press `Offset glyphs` to replace each printable ASCII glyph with the next one, then `Restore label` to return the exact wording. It could let a reviewer produce a reversible glyph specimen from a handoff sentence, or let a presenter turn an agenda line into a typographic artifact. Neither use improves or protects the message. A reasonable local alternative is keeping the label readable and applying a one-off encoding function only for a real parser or experiment.
 
+## DecorationToll
+
+`DecorationToll` makes a notice pay five typographic fees before it may look stamped.
+
+```ts
+type DecorationTollProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Add one ink pass` to collect an underline, double line, strike and final stamp one stage at a time; `Remove ink` returns the notice to its unmarked state. It could let a reviewer make a handoff note earn heavier marks, or let a presenter decorate an agenda line until it looks settled. Neither use makes the wording more approved. A reasonable local alternative is one status badge or one deliberate emphasis style.
+
+## CaseBallot
+
+`CaseBallot` lets three case policies give a label genuinely different voices.
+
+```ts
+type CaseBallotProps = {
+  label: string;
+};
+```
+
+Choose `Quiet case`, `Headline case` or `Shout case`. The actual string becomes lowercase, title case or uppercase; `Withdraw the ballot` returns to quiet case. It could let a reviewer decide whether a handoff note whispers, reports or shouts, or let a presenter vote on an agenda line’s rhetorical volume. Casing changes posture, not importance. A reasonable local alternative is authoring the intended casing directly.
+
+## RatioRail
+
+`RatioRail` uses a draggable divider to reallocate the room between two shelves of content.
+
+```ts
+type RatioRailProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the rail or focus it and use the arrow keys. Children stay on their actual shelf while the proportions, wrapping and balance change; `Balance the shelves` returns to 50 / 50. It could let a reviewer negotiate room for a handoff field, or let a presenter squeeze an agenda label beside its supporting detail. A reasonable local alternative is a fixed responsive grid.
+
+## EditSequence
+
+`EditSequence` requires a draft to be trimmed, capitalized and punctuated in that exact order.
+
+```ts
+type EditSequenceProps = {
+  label: string;
+};
+```
+
+Choose `Trim edges`, then `Raise first letter`, then `Issue full stop`. Each accepted action changes the visible wording; a premature choice reopens the draft and `Reopen draft` clears it. It could make a reviewer process a handoff draft through an editorial checklist, or let a presenter stage an agenda line before revealing it. The sentence does not need permission to be edited in sequence. A reasonable local alternative is one text transformation at the boundary where it is needed.
+
+## ArticleEjector
+
+`ArticleEjector` removes every `a`, `an` and `the` from a label and files the tokens in a tray.
+
+```ts
+type ArticleEjectorProps = {
+  label: string;
+};
+```
+
+Press `Eject articles` to replace the visible sentence with its remaining words and inspect the removed tokens in the archive; `Restore sentence` returns the original label. It could let a reviewer inspect connective furniture in a handoff sentence, or let a presenter create an article-free label for a language exercise. Removing small words is not a communication strategy. A reasonable local alternative is retaining the sentence or using a one-off text utility for analysis.
+
 ## Development
 
 ```bash
