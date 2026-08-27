@@ -153,7 +153,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "case-ballot" ||
     kind === "ratio-rail" ||
     kind === "edit-sequence" ||
-    kind === "article-ejector"
+    kind === "article-ejector" ||
+    kind === "prime-ledger" ||
+    kind === "caption-charter" ||
+    kind === "caret-split" ||
+    kind === "gate-sequence" ||
+    kind === "column-transpose"
   ) {
     return <Playground kind={kind} />;
   }

@@ -651,6 +651,26 @@ export {
   type ArticleEjectorProps,
 } from "./components/article-ejector";
 export {
+  PrimeLedger,
+  type PrimeLedgerProps,
+} from "./components/prime-ledger";
+export {
+  CaptionCharter,
+  type CaptionCharterProps,
+} from "./components/caption-charter";
+export {
+  CaretSplit,
+  type CaretSplitProps,
+} from "./components/caret-split";
+export {
+  GateSequence,
+  type GateSequenceProps,
+} from "./components/gate-sequence";
+export {
+  ColumnTranspose,
+  type ColumnTransposeProps,
+} from "./components/column-transpose";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

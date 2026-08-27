@@ -160,6 +160,11 @@ import {
   RatioRail,
   EditSequence,
   ArticleEjector,
+  PrimeLedger,
+  CaptionCharter,
+  CaretSplit,
+  GateSequence,
+  ColumnTranspose,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -333,7 +338,12 @@ export interface PlaygroundProps {
     | "case-ballot"
     | "ratio-rail"
     | "edit-sequence"
-    | "article-ejector";
+    | "article-ejector"
+    | "prime-ledger"
+    | "caption-charter"
+    | "caret-split"
+    | "gate-sequence"
+    | "column-transpose";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -4515,6 +4525,111 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Eject every a, an and the from the visible sentence.</dd></div>
             <div><dt>2</dt><dd>Inspect the actual tokens in the little archive tray.</dd></div>
             <div><dt>3</dt><dd>Restore the sentence when grammar has had enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "prime-ledger") {
+    return (
+      <div className="playground-shell prime-ledger-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PrimeLedger value={84} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with 84 and an empty factor ledger.</dd></div>
+            <div><dt>2</dt><dd>Extract the smallest divisor; the live number shrinks.</dd></div>
+            <div><dt>3</dt><dd>Reopen the ledger when manual arithmetic has gone far enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "caption-charter") {
+    return (
+      <div className="playground-shell caption-charter-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CaptionCharter label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose Brief, Ledger or Receipt.</dd></div>
+            <div><dt>2</dt><dd>The caption becomes a different real document shape.</dd></div>
+            <div><dt>3</dt><dd>Withdraw the policy to return it to ordinary reading.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "caret-split") {
+    return (
+      <div className="playground-shell caret-split-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CaretSplit label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the caret to a word boundary.</dd></div>
+            <div><dt>2</dt><dd>The sentence becomes two actual panels.</dd></div>
+            <div><dt>3</dt><dd>Use arrows, Home or End, then return to the start.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "gate-sequence") {
+    return (
+      <div className="playground-shell gate-sequence-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <GateSequence label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Read which gate is waiting for this caption.</dd></div>
+            <div><dt>2</dt><dd>Pass Scan, Stamp, File and Release in the demanded order.</dd></div>
+            <div><dt>3</dt><dd>Choose the wrong gate to send the cargo back to intake.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "column-transpose") {
+    return (
+      <div className="playground-shell column-transpose-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ColumnTranspose label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Write the words across a row in your head.</dd></div>
+            <div><dt>2</dt><dd>Transpose the actual word order by visiting columns.</dd></div>
+            <div><dt>3</dt><dd>Restore rows when the matrix has made its point.</dd></div>
           </dl>
         </div>
       </div>

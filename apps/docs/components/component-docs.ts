@@ -160,7 +160,12 @@ export type DemoKind =
   | "case-ballot"
   | "ratio-rail"
   | "edit-sequence"
-  | "article-ejector";
+  | "article-ejector"
+  | "prime-ledger"
+  | "caption-charter"
+  | "caret-split"
+  | "gate-sequence"
+  | "column-transpose";
 
 export interface ApiRow {
   name: string;
@@ -3715,7 +3720,6 @@ export function TaxedNotice() {
       "It could let a reviewer make a handoff note earn progressively heavier marks, or let a presenter decorate an agenda line until it looks ceremonially settled. Neither use makes the wording more approved.",
     alternative:
       "A reasonable local alternative is one status badge or one deliberate emphasis style. A button that invoices a notice for four extra decorations is a poor substitute for a clear state.",
-    isNew: true,
   },
   {
     name: "CaseBallot",
@@ -3737,7 +3741,6 @@ export function RuledLabel() {
       "It could let a reviewer decide whether a handoff note whispers, reports or shouts, or let a presenter vote on the rhetorical volume of an agenda line. Casing changes posture, not importance.",
     alternative:
       "A reasonable local alternative is authoring the intended casing or applying one local text style. A ballot should not govern whether a sentence uses capital letters.",
-    isNew: true,
   },
   {
     name: "RatioRail",
@@ -3766,7 +3769,6 @@ export function ShelvedNotice() {
       "It could let a reviewer negotiate how much room a handoff field deserves, or let a presenter squeeze an agenda label beside its supporting detail. The pixels can move without improving the information architecture.",
     alternative:
       "A reasonable local alternative is a fixed grid or one responsive layout rule. A pointer-controlled proportion is an elaborate answer to choosing two column widths.",
-    isNew: true,
   },
   {
     name: "EditSequence",
@@ -3788,7 +3790,6 @@ export function FiledDraft() {
       "It could make a reviewer process a handoff draft through a miniature editorial checklist, or let a presenter stage an agenda line before revealing the final copy. The sentence does not need permission to be edited in a prescribed order.",
     alternative:
       "A reasonable local alternative is one string transformation at the boundary where it is needed, or three independent controls when order has meaning. A locked editorial queue adds ceremony to ordinary text cleanup.",
-    isNew: true,
   },
   {
     name: "ArticleEjector",
@@ -3810,6 +3811,115 @@ export function ArticleFreeLabel() {
       "It could let a reviewer inspect how much connective furniture a handoff sentence carries, or let a presenter produce an article-free slide label for a linguistic exercise. Removing small words is not a communication strategy by itself.",
     alternative:
       "A reasonable local alternative is retaining the sentence or using a one-off text utility for analysis. A reusable ejector should not supervise the words that make a noun phrase readable.",
+  },
+  {
+    name: "PrimeLedger",
+    slug: "prime-ledger",
+    summary: "A number is factored one smallest divisor at a time until a pointless ledger reaches one.",
+    description:
+      "Extract factor files the smallest available divisor and reduces the live number. The number changes after every ruling, the factors remain visible as a ledger, and Reopen ledger restores the supplied value.",
+    usage: `import { PrimeLedger } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FactoredNotice() {
+  return <PrimeLedger value={84} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The positive integer submitted to the deliberately manual factor ledger." },
+    ],
+    demo: "prime-ledger",
+    useCase:
+      "It could let a reviewer factor a handoff estimate into a visible chain, or let a presenter turn an agenda number into a tiny arithmetic ceremony. The result is deterministic and the ceremony adds no insight.",
+    alternative:
+      "A reasonable local alternative is one calculation at the point where factors are actually needed, or simply displaying the original number. A ledger should not make division wait for a button.",
+    isNew: true,
+  },
+  {
+    name: "CaptionCharter",
+    slug: "caption-charter",
+    summary: "Three filing policies give one caption three materially different documents.",
+    description:
+      "Choose Brief, Ledger or Receipt. Brief keeps only the opening words, Ledger renders every word as a numbered filing and Receipt replaces the caption with its character count plus a source line. Withdraw policy returns to the unfiled caption.",
+    usage: `import { CaptionCharter } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function GovernedCaption() {
+  return <CaptionCharter label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The caption submitted to three incompatible filing policies." },
+    ],
+    demo: "caption-charter",
+    useCase:
+      "It could let a reviewer vote whether a handoff caption should be brief, itemized or counted, or let a presenter give an agenda line a temporary document status. The policy changes presentation without adding meaning.",
+    alternative:
+      "A reasonable local alternative is authoring the intended format at the call site and keeping the full caption nearby. A charter turns an obvious content decision into a ballot.",
+    isNew: true,
+  },
+  {
+    name: "CaretSplit",
+    slug: "caret-split",
+    summary: "A movable caret divides a caption into two real panels wherever the pointer leaves it.",
+    description:
+      "Drag the caret across the sentence or move it with the arrow keys. The words before and after the caret are rendered in separate panels, and Return to start removes the invented boundary.",
+    usage: `import { CaretSplit } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function DividedCaption() {
+  return <CaretSplit label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The caption divided at the caret's chosen word boundary." },
+    ],
+    demo: "caret-split",
+    useCase:
+      "It could let a reviewer park a handoff request on one side of a deadline, or let a presenter split an agenda line around the point where discussion keeps drifting. The pointer supplies geometry instead of editorial judgment.",
+    alternative:
+      "A reasonable local alternative is two authored fields or one ordinary line break. A movable caret is a polished way to discover that the sentence already had a natural structure.",
+    isNew: true,
+  },
+  {
+    name: "GateSequence",
+    slug: "gate-sequence",
+    summary: "A caption's word count secretly rotates four gates that must be clicked in order.",
+    description:
+      "The four visible gates are Scan, Stamp, File and Release, but the required starting gate rotates with the caption's word count. A wrong gate sends the cargo back to intake; the correct sequence releases it, and Reset route starts over.",
+    usage: `import { GateSequence } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RoutedCaption() {
+  return <GateSequence label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The caption whose word count determines the required gate order." },
+    ],
+    demo: "gate-sequence",
+    useCase:
+      "It could make a reviewer pass a handoff sentence through a miniature custody route, or let a presenter rehearse an agenda label before releasing it to a slide. The hidden route protects nothing and slows everything.",
+    alternative:
+      "A reasonable local alternative is one explicit release action with a visible status. A deterministic button order should not masquerade as a workflow.",
+    isNew: true,
+  },
+  {
+    name: "ColumnTranspose",
+    slug: "column-transpose",
+    summary: "One click writes a caption across rows and makes the reader visit its columns first.",
+    description:
+      "Transpose columns performs a real row-to-column word transposition, so the visible wording changes order while every word remains present. The numbered word grid shows the new traversal, and Restore rows returns the supplied phrase.",
+    usage: `import { ColumnTranspose } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TransposedCaption() {
+  return <ColumnTranspose label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The phrase rewritten by a reversible columnar word transposition." },
+    ],
+    demo: "column-transpose",
+    useCase:
+      "It could let a reviewer inspect a handoff sentence as a filing matrix, or let a presenter create a temporary agenda artifact that must be read by columns. The reversible rearrangement is technically clean and practically unhelpful.",
+    alternative:
+      "A reasonable local alternative is keeping the caption readable and using a local array transform for an actual data exercise. A display component should not make ordinary reading pay for a matrix.",
     isNew: true,
   },
 ] as const;

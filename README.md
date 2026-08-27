@@ -2829,6 +2829,66 @@ type ArticleEjectorProps = {
 
 Press `Eject articles` to replace the visible sentence with its remaining words and inspect the removed tokens in the archive; `Restore sentence` returns the original label. It could let a reviewer inspect connective furniture in a handoff sentence, or let a presenter create an article-free label for a language exercise. Removing small words is not a communication strategy. A reasonable local alternative is retaining the sentence or using a one-off text utility for analysis.
 
+## PrimeLedger
+
+`PrimeLedger` factors a number one smallest divisor at a time until a pointless ledger reaches one.
+
+```ts
+type PrimeLedgerProps = {
+  value: number;
+};
+```
+
+Press `Extract factor` to reduce the live number and add its smallest factor to the visible ledger; `Reopen ledger` restores the supplied value. It could let a reviewer factor a handoff estimate into a visible chain, or let a presenter turn an agenda number into a tiny arithmetic ceremony. The result is deterministic and the ceremony adds no insight. A reasonable local alternative is one calculation at the point where factors are actually needed, or simply displaying the original number. A ledger should not make division wait for a button.
+
+## CaptionCharter
+
+`CaptionCharter` gives one caption three materially different filing policies.
+
+```ts
+type CaptionCharterProps = {
+  label: string;
+};
+```
+
+Choose `Brief`, `Ledger` or `Receipt`. The caption becomes, respectively, an opening excerpt, a numbered word filing or a character-count receipt; `Withdraw policy` returns to the unfiled caption. It could let a reviewer vote whether a handoff caption should be brief, itemized or counted, or let a presenter give an agenda line a temporary document status. The policy changes presentation without adding meaning. A reasonable local alternative is authoring the intended format at the call site and keeping the full caption nearby. A charter turns an obvious content decision into a ballot.
+
+## CaretSplit
+
+`CaretSplit` divides a caption into two real panels wherever its movable caret is left.
+
+```ts
+type CaretSplitProps = {
+  label: string;
+};
+```
+
+Drag the caret across the sentence or use the arrow keys, `Home` and `End`. The words before and after it render in separate panels, and `Return to start` removes the invented boundary. It could let a reviewer park a handoff request on one side of a deadline, or let a presenter split an agenda line around the point where discussion keeps drifting. The pointer supplies geometry instead of editorial judgment. A reasonable local alternative is two authored fields or one ordinary line break. A movable caret is a polished way to discover that the sentence already had a natural structure.
+
+## GateSequence
+
+`GateSequence` makes a caption pass four filing gates in an order secretly determined by its word count.
+
+```ts
+type GateSequenceProps = {
+  label: string;
+};
+```
+
+Click `Scan`, `Stamp`, `File` and `Release` in the demanded order. The starting gate rotates with the caption's word count, a wrong gate returns the cargo to intake, and `Reset route` starts over. It could make a reviewer pass a handoff sentence through a miniature custody route, or let a presenter rehearse an agenda label before releasing it to a slide. The hidden route protects nothing and slows everything. A reasonable local alternative is one explicit release action with a visible status. A deterministic button order should not masquerade as a workflow.
+
+## ColumnTranspose
+
+`ColumnTranspose` rewrites a caption by making the reader visit its word columns first.
+
+```ts
+type ColumnTransposeProps = {
+  label: string;
+};
+```
+
+Press `Transpose columns` to perform a real row-to-column word transposition; the visible wording changes order while every word remains present, and the numbered grid shows the new traversal. `Restore rows` returns the supplied phrase. It could let a reviewer inspect a handoff sentence as a filing matrix, or let a presenter create a temporary agenda artifact that must be read by columns. The rearrangement is technically clean and practically unhelpful. A reasonable local alternative is keeping the caption readable and using a local array transform for an actual data exercise. A display component should not make ordinary reading pay for a matrix.
+
 ## Development
 
 ```bash

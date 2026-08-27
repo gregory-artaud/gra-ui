@@ -1412,3 +1412,11 @@ pre {
     transition-duration: 0.01ms !important;
   }
 }
+
+.prime-ledger-preview .gra-ui,
+.caption-charter-preview .gra-ui,
+.caret-split-preview .gra-ui,
+.gate-sequence-preview .gra-ui,
+.column-transpose-preview .gra-ui {
+  width: min(100%, 480px);
+}
