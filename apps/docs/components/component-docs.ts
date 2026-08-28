@@ -165,7 +165,12 @@ export type DemoKind =
   | "caption-charter"
   | "caret-split"
   | "gate-sequence"
-  | "column-transpose";
+  | "column-transpose"
+  | "decimal-erosion"
+  | "voice-ruling"
+  | "route-ink"
+  | "skip-ledger"
+  | "consonant-transfer";
 
 export interface ApiRow {
   name: string;
@@ -3832,7 +3837,6 @@ export function FactoredNotice() {
       "It could let a reviewer factor a handoff estimate into a visible chain, or let a presenter turn an agenda number into a tiny arithmetic ceremony. The result is deterministic and the ceremony adds no insight.",
     alternative:
       "A reasonable local alternative is one calculation at the point where factors are actually needed, or simply displaying the original number. A ledger should not make division wait for a button.",
-    isNew: true,
   },
   {
     name: "CaptionCharter",
@@ -3854,7 +3858,6 @@ export function GovernedCaption() {
       "It could let a reviewer vote whether a handoff caption should be brief, itemized or counted, or let a presenter give an agenda line a temporary document status. The policy changes presentation without adding meaning.",
     alternative:
       "A reasonable local alternative is authoring the intended format at the call site and keeping the full caption nearby. A charter turns an obvious content decision into a ballot.",
-    isNew: true,
   },
   {
     name: "CaretSplit",
@@ -3876,7 +3879,6 @@ export function DividedCaption() {
       "It could let a reviewer park a handoff request on one side of a deadline, or let a presenter split an agenda line around the point where discussion keeps drifting. The pointer supplies geometry instead of editorial judgment.",
     alternative:
       "A reasonable local alternative is two authored fields or one ordinary line break. A movable caret is a polished way to discover that the sentence already had a natural structure.",
-    isNew: true,
   },
   {
     name: "GateSequence",
@@ -3898,7 +3900,6 @@ export function RoutedCaption() {
       "It could make a reviewer pass a handoff sentence through a miniature custody route, or let a presenter rehearse an agenda label before releasing it to a slide. The hidden route protects nothing and slows everything.",
     alternative:
       "A reasonable local alternative is one explicit release action with a visible status. A deterministic button order should not masquerade as a workflow.",
-    isNew: true,
   },
   {
     name: "ColumnTranspose",
@@ -3920,6 +3921,122 @@ export function TransposedCaption() {
       "It could let a reviewer inspect a handoff sentence as a filing matrix, or let a presenter create a temporary agenda artifact that must be read by columns. The reversible rearrangement is technically clean and practically unhelpful.",
     alternative:
       "A reasonable local alternative is keeping the caption readable and using a local array transform for an actual data exercise. A display component should not make ordinary reading pay for a matrix.",
+  },
+  {
+    name: "DecimalErosion",
+    slug: "decimal-erosion",
+    summary: "A precise number loses one decimal place at a time and calls the loss progress.",
+    description:
+      "Erode one place rounds the live number from four decimal places down to an integer. The precision scale and native progress bar advance with every real change, while Restore precision returns the supplied value.",
+    usage: `import { DecimalErosion } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ErodingEstimate() {
+  return <DecimalErosion value={27.6384} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The finite number whose decimal precision is eroded one place at a time." },
+    ],
+    demo: "decimal-erosion",
+    useCase:
+      "It could let a reviewer simplify a handoff estimate one decimal place per objection, or let a presenter make an agenda score slowly surrender its precision before a decision. Both uses confuse rounding with an achievement.",
+    alternative:
+      "A reasonable local alternative is formatting the number once at the precision the task requires. A progress bar should not make a harmless rounding policy feel like a campaign.",
+    isNew: true,
+  },
+  {
+    name: "VoiceRuling",
+    slug: "voice-ruling",
+    summary: "Three voices claim, share or outsource responsibility for one sentence.",
+    description:
+      "Choose Solo, Chorus or Witness. The sentence is actually rewritten and rendered as a personal report, a collective statement or an attributed quotation, so the ruling changes its voice instead of merely its color.",
+    usage: `import { VoiceRuling } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AssignedStatement() {
+  return <VoiceRuling label="Prepare the remarkably ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The statement assigned to one of three incompatible speaking voices." },
+    ],
+    demo: "voice-ruling",
+    useCase:
+      "It could let a reviewer decide whether a handoff sentence belongs to one owner or the whole team, or let a presenter turn an agenda line into a statement that nobody quite has to own. The grammar changes while accountability remains imaginary.",
+    alternative:
+      "A reasonable local alternative is writing the intended subject directly in the sentence and keeping ownership in the surrounding data. A voice ballot should not arbitrate ordinary authorship.",
+    isNew: true,
+  },
+  {
+    name: "RouteInk",
+    slug: "route-ink",
+    summary: "Drag a route pen around a small map and make content keep the pointless path.",
+    description:
+      "The pen follows direct pointer movement and keyboard nudges, while an SVG trail records each position. The cargo moves to the pen's current coordinates and Erase route returns it to the center without leaving a global listener behind.",
+    usage: `import { RouteInk } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RoutedNotice() {
+  return <RouteInk><span>Park this note somewhere unnecessary</span></RouteInk>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cargo that follows the directly drawn route." },
+    ],
+    demo: "route-ink",
+    useCase:
+      "It could let a reviewer draw the path a handoff note took through a meeting, or let a presenter steer an agenda label toward the person currently speaking. The trail records motion without improving the destination.",
+    alternative:
+      "A reasonable local alternative is normal flow, one alignment rule or a real map interaction. A persistent ink trail is an elaborate receipt for moving a piece of content a few pixels.",
+    isNew: true,
+  },
+  {
+    name: "SkipLedger",
+    slug: "skip-ledger",
+    summary: "A ledger files children by removing one item and skipping the next available one.",
+    description:
+      "Choose the highlighted item, then skip the next remaining item after every filing. The available cargo shrinks, the manifest preserves the actual selection order and a wrong choice stays available until the route is corrected.",
+    usage: `import { SkipLedger } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SkippingFields() {
+  return (
+    <SkipLedger>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+      <span>Deadline</span>
+    </SkipLedger>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cargo filed by the component's circular skip-one route." },
+    ],
+    demo: "skip-ledger",
+    useCase:
+      "It could let a reviewer inspect every other handoff field before returning to the skipped ones, or let a presenter reveal agenda items with a mathematically tidy omission. The order is precise but unrelated to the content.",
+    alternative:
+      "A reasonable local alternative is the authored order, a normal checklist or an explicit priority rule. A skip ledger makes a list harder to read in order to celebrate its traversal algorithm.",
+    isNew: true,
+  },
+  {
+    name: "ConsonantTransfer",
+    slug: "consonant-transfer",
+    summary: "Every word sends its opening consonant cluster to the far end before it can be read.",
+    description:
+      "Transfer consonants applies a reversible Pig Latin-like transform to each ASCII word while preserving spaces and punctuation. The readable sentence is replaced by its genuinely rearranged version until Restore wording brings it back.",
+    usage: `import { ConsonantTransfer } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TransferredLabel() {
+  return <ConsonantTransfer label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The phrase whose opening consonant clusters are moved to each word's end." },
+    ],
+    demo: "consonant-transfer",
+    useCase:
+      "It could let a reviewer turn a handoff sentence into a temporary pronunciation puzzle, or let a presenter make an agenda label speak in a deliberately inconvenient dialect before restoring it. Neither use makes the words clearer.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and applying a local string transform only in a language exercise. A display component should not make ordinary copy travel through a word game.",
     isNew: true,
   },
 ] as const;

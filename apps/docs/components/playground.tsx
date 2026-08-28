@@ -26,6 +26,7 @@ import {
   Counterweight,
   CustodyChoice,
   CursorProof,
+  DecimalErosion,
   DisclosureSpill,
   DragDuplicate,
   DragThreshold,
@@ -65,12 +66,14 @@ import {
   QuotaProcession,
   ReorderBack,
   RedundancyCuller,
+  RouteInk,
   RotationTithe,
   ScaleSweep,
   SeparatorBallot,
   SeamFold,
   SelectionSeal,
   ShadowPair,
+  SkipLedger,
   ScrollRedact,
   SortMandate,
   SpaceStaple,
@@ -80,10 +83,12 @@ import {
   TimedRelease,
   TetherPull,
   TerminusChoice,
+  VoiceRuling,
   WeightVote,
   WeekdayLedger,
   WheelStamp,
   WitnessChoice,
+  ConsonantTransfer,
   ClarityDebt,
   RecessDepth,
   ReturnProtocol,
@@ -343,7 +348,12 @@ export interface PlaygroundProps {
     | "caption-charter"
     | "caret-split"
     | "gate-sequence"
-    | "column-transpose";
+    | "column-transpose"
+    | "decimal-erosion"
+    | "voice-ruling"
+    | "route-ink"
+    | "skip-ledger"
+    | "consonant-transfer";
 }
 
 export function Playground({ kind = "indecisive" }: PlaygroundProps) {
@@ -4630,6 +4640,116 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Write the words across a row in your head.</dd></div>
             <div><dt>2</dt><dd>Transpose the actual word order by visiting columns.</dd></div>
             <div><dt>3</dt><dd>Restore rows when the matrix has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "decimal-erosion") {
+    return (
+      <div className="playground-shell decimal-erosion-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <DecimalErosion value={27.6384} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four decimal places.</dd></div>
+            <div><dt>2</dt><dd>Erode one place; the actual number rounds.</dd></div>
+            <div><dt>3</dt><dd>Repeat until a whole number is declared progress.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "voice-ruling") {
+    return (
+      <div className="playground-shell voice-ruling-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <VoiceRuling label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose Solo, Chorus or Witness.</dd></div>
+            <div><dt>2</dt><dd>The sentence is rewritten with a different owner.</dd></div>
+            <div><dt>3</dt><dd>Withdraw the ruling to return to ordinary wording.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "route-ink") {
+    return (
+      <div className="playground-shell route-ink-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <RouteInk><span>Park this note somewhere unnecessary</span></RouteInk>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the route pen across the map.</dd></div>
+            <div><dt>2</dt><dd>The cargo follows and the SVG keeps every turn.</dd></div>
+            <div><dt>3</dt><dd>Use arrows or erase the route when the trail is long enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "skip-ledger") {
+    return (
+      <div className="playground-shell skip-ledger-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <SkipLedger>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Deadline</span>
+            </SkipLedger>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose the highlighted item.</dd></div>
+            <div><dt>2</dt><dd>The next available item is skipped.</dd></div>
+            <div><dt>3</dt><dd>File the remaining items in the computed route.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "consonant-transfer") {
+    return (
+      <div className="playground-shell consonant-transfer-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ConsonantTransfer label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Transfer each word&apos;s opening consonants.</dd></div>
+            <div><dt>2</dt><dd>Watch the actual sentence reorder its letters.</dd></div>
+            <div><dt>3</dt><dd>Restore wording when the language exercise is over.</dd></div>
           </dl>
         </div>
       </div>

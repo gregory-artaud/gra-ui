@@ -671,6 +671,26 @@ export {
   type ColumnTransposeProps,
 } from "./components/column-transpose";
 export {
+  DecimalErosion,
+  type DecimalErosionProps,
+} from "./components/decimal-erosion";
+export {
+  VoiceRuling,
+  type VoiceRulingProps,
+} from "./components/voice-ruling";
+export {
+  RouteInk,
+  type RouteInkProps,
+} from "./components/route-ink";
+export {
+  SkipLedger,
+  type SkipLedgerProps,
+} from "./components/skip-ledger";
+export {
+  ConsonantTransfer,
+  type ConsonantTransferProps,
+} from "./components/consonant-transfer";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

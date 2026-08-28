@@ -158,7 +158,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "caption-charter" ||
     kind === "caret-split" ||
     kind === "gate-sequence" ||
-    kind === "column-transpose"
+    kind === "column-transpose" ||
+    kind === "decimal-erosion" ||
+    kind === "voice-ruling" ||
+    kind === "route-ink" ||
+    kind === "skip-ledger" ||
+    kind === "consonant-transfer"
   ) {
     return <Playground kind={kind} />;
   }

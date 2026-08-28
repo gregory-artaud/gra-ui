@@ -2889,6 +2889,66 @@ type ColumnTransposeProps = {
 
 Press `Transpose columns` to perform a real row-to-column word transposition; the visible wording changes order while every word remains present, and the numbered grid shows the new traversal. `Restore rows` returns the supplied phrase. It could let a reviewer inspect a handoff sentence as a filing matrix, or let a presenter create a temporary agenda artifact that must be read by columns. The rearrangement is technically clean and practically unhelpful. A reasonable local alternative is keeping the caption readable and using a local array transform for an actual data exercise. A display component should not make ordinary reading pay for a matrix.
 
+## DecimalErosion
+
+`DecimalErosion` erodes a precise number one decimal place at a time.
+
+```ts
+type DecimalErosionProps = {
+  value: number;
+};
+```
+
+Press `Erode one place` to round the live number from four decimal places down to an integer; the precision scale and progress bar advance with each real loss. `Restore precision` returns the supplied value. It could let a reviewer simplify a handoff estimate one decimal place per objection, or let a presenter make an agenda score surrender its precision before a decision. Both uses confuse rounding with achievement. A reasonable local alternative is formatting the number once at the precision the task requires.
+
+## VoiceRuling
+
+`VoiceRuling` lets three voices claim, share or outsource responsibility for a sentence.
+
+```ts
+type VoiceRulingProps = {
+  label: string;
+};
+```
+
+Choose `Solo`, `Chorus` or `Witness`. The sentence is actually rewritten as a personal report, a collective statement or an attributed quotation; `Withdraw ruling` returns to the unclaimed wording. It could let a reviewer decide whether a handoff belongs to one owner or the whole team, or let a presenter turn an agenda line into a statement nobody has to own. The grammar changes while accountability remains imaginary. A reasonable local alternative is writing the intended subject directly and keeping ownership in surrounding data.
+
+## RouteInk
+
+`RouteInk` makes content keep a pointless path drawn by direct manipulation.
+
+```ts
+type RouteInkProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the route pen across the map, or focus it and use the arrow keys. The cargo follows the pen's coordinates while an SVG trail records every turn; `Erase route` returns it to the center. It could let a reviewer draw the path a handoff note took through a meeting, or let a presenter steer an agenda label toward the current speaker. The trail records motion without improving the destination. A reasonable local alternative is normal flow, one alignment rule or a real map interaction.
+
+## SkipLedger
+
+`SkipLedger` files children by removing one item and skipping the next available one.
+
+```ts
+type SkipLedgerProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose the highlighted item, then skip the next remaining item after every filing. The available cargo shrinks, the manifest preserves the actual selection order and a wrong choice stays available; `Empty ledger` restores the opening list. It could let a reviewer inspect every other handoff field before returning to the skipped ones, or let a presenter reveal agenda items with a mathematically tidy omission. The order is precise but unrelated to the content. A reasonable local alternative is the authored order, a normal checklist or an explicit priority rule.
+
+## ConsonantTransfer
+
+`ConsonantTransfer` sends each word's opening consonant cluster to its far end.
+
+```ts
+type ConsonantTransferProps = {
+  label: string;
+};
+```
+
+Press `Transfer consonants` to apply a reversible Pig Latin-like transformation while preserving spaces and punctuation; `Restore wording` brings back the readable sentence. It could let a reviewer turn a handoff into a temporary pronunciation puzzle, or let a presenter make an agenda label speak in an inconvenient dialect before restoring it. Neither use makes the words clearer. A reasonable local alternative is keeping the label readable and applying a local string transform only in a language exercise.
+
 ## Development
 
 ```bash

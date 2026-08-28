@@ -1420,3 +1420,11 @@ pre {
 .column-transpose-preview .gra-ui {
   width: min(100%, 480px);
 }
+
+.decimal-erosion-preview .gra-ui,
+.voice-ruling-preview .gra-ui,
+.route-ink-preview .gra-ui,
+.skip-ledger-preview .gra-ui,
+.consonant-transfer-preview .gra-ui {
+  width: min(100%, 480px);
+}
