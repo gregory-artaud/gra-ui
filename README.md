@@ -2949,6 +2949,66 @@ type ConsonantTransferProps = {
 
 Press `Transfer consonants` to apply a reversible Pig Latin-like transformation while preserving spaces and punctuation; `Restore wording` brings back the readable sentence. It could let a reviewer turn a handoff into a temporary pronunciation puzzle, or let a presenter make an agenda label speak in an inconvenient dialect before restoring it. Neither use makes the words clearer. A reasonable local alternative is keeping the label readable and applying a local string transform only in a language exercise.
 
+## PressureSeal
+
+`PressureSeal` builds a four-impression seal around one notice.
+
+```ts
+type PressureSealProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Press one impression` four times. Each press adds a real ring to the paper and advances the progress bar until the notice is sealed; `Flatten seal` restores the initial state. It could let a reviewer add one ceremonial mark per pass to a handoff note, or let a presenter over-certify an agenda line before showing it. Neither use makes the notice more correct. A reasonable local alternative is one approval status or one ordinary stamp rendered at the point of decision.
+
+## MosaicMandate
+
+`MosaicMandate` makes the same children obey one of three questionable geometries.
+
+```ts
+type MosaicMandateProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Shelf`, `Pyramid` or `Orbit`. The children render in three genuinely different structures and layouts; `Revoke mandate` returns them to the unarranged state. It could let a reviewer decide how a handoff belongs on a shelf, a ranking or an orbit, or let a presenter give agenda fields theatrical geometry. The information does not improve when its layout becomes ceremonial. A reasonable local alternative is one responsive layout selected in CSS.
+
+## ConvergenceMark
+
+`ConvergenceMark` records a coincidence only when two draggable pins nearly overlap.
+
+```ts
+type ConvergenceMarkProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the `Anchor` and `Witness` pins independently, or nudge them with arrow keys. When they come within ten units, the cargo changes to a recorded coincidence; `Separate pins` restores the disagreement. It could let a reviewer place two opinions on the same point before filing a handoff note, or let a presenter make an agenda label await two imaginary authorities. Proximity is not consensus. A reasonable local alternative is an explicit approval field or coordinate.
+
+## VectorRitual
+
+`VectorRitual` sends a parcel around four corners in one exact directional sequence.
+
+```ts
+type VectorRitualProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `East`, `South`, `West`, then `North`. Each accepted vector moves the cargo around a corner; a wrong direction returns it to origin, and `Reset vectors` clears the route. It could let a reviewer rehearse four handoff stages as a compass ritual, or let a presenter walk an agenda line around a slide before releasing it. The route is deterministic but unrelated to readiness. A reasonable local alternative is a visible checklist with one next action.
+
+## IndexCipher
+
+`IndexCipher` makes every word shift farther through the alphabet than the word before it.
+
+```ts
+type IndexCipherProps = {
+  label: string;
+};
+```
+
+Press `Apply index cipher`: word one shifts by one letter, word two by two, and so on. The actual label becomes a reversible position-dependent cipher; `Restore wording` returns the exact text. It could let a reviewer create a cipher specimen from a handoff sentence, or let a presenter progressively obscure an agenda label before restoring it. Neither use makes copy safer. A reasonable local alternative is keeping the label readable and encoding only at a real protocol boundary.
+
 ## Development
 
 ```bash

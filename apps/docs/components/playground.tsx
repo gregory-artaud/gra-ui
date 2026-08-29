@@ -170,6 +170,11 @@ import {
   CaretSplit,
   GateSequence,
   ColumnTranspose,
+  PressureSeal,
+  MosaicMandate,
+  ConvergenceMark,
+  VectorRitual,
+  IndexCipher,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -349,6 +354,11 @@ export interface PlaygroundProps {
     | "caret-split"
     | "gate-sequence"
     | "column-transpose"
+    | "pressure-seal"
+    | "mosaic-mandate"
+    | "convergence-mark"
+    | "vector-ritual"
+    | "index-cipher"
     | "decimal-erosion"
     | "voice-ruling"
     | "route-ink"
@@ -4750,6 +4760,116 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Transfer each word&apos;s opening consonants.</dd></div>
             <div><dt>2</dt><dd>Watch the actual sentence reorder its letters.</dd></div>
             <div><dt>3</dt><dd>Restore wording when the language exercise is over.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "pressure-seal") {
+    return (
+      <div className="playground-shell pressure-seal-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PressureSeal><span>Ready for one needless certification</span></PressureSeal>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a flat notice and no impressions.</dd></div>
+            <div><dt>2</dt><dd>Press one impression at a time until four rings accumulate.</dd></div>
+            <div><dt>3</dt><dd>The paper receives a real seal state; flatten it when the ceremony is over.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "mosaic-mandate") {
+    return (
+      <div className="playground-shell mosaic-mandate-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <MosaicMandate>
+              <span>Title</span>
+              <span>Status</span>
+              <span>Owner</span>
+              <span>Deadline</span>
+            </MosaicMandate>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose Shelf, Pyramid or Orbit.</dd></div>
+            <div><dt>2</dt><dd>The same four pieces move into three genuinely different geometries.</dd></div>
+            <div><dt>3</dt><dd>Revoke the mandate to return the pieces to waiting.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "convergence-mark") {
+    return (
+      <div className="playground-shell convergence-mark-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ConvergenceMark><span>Two approvals, one coordinate</span></ConvergenceMark>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Drag the Anchor and Witness pins independently.</dd></div>
+            <div><dt>2</dt><dd>Bring them within ten units to record a coincidence.</dd></div>
+            <div><dt>3</dt><dd>Arrow keys nudge either pin; separate them to begin again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "vector-ritual") {
+    return (
+      <div className="playground-shell vector-ritual-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <VectorRitual><span>Complete this tiny pilgrimage</span></VectorRitual>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Press East, South, West, then North.</dd></div>
+            <div><dt>2</dt><dd>Each accepted vector moves the cargo around one corner.</dd></div>
+            <div><dt>3</dt><dd>A wrong vector returns the route to origin; reset when the loop closes.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "index-cipher") {
+    return (
+      <div className="playground-shell index-cipher-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <IndexCipher label="Prepare the remarkably ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Apply the cipher to the readable sentence.</dd></div>
+            <div><dt>2</dt><dd>Word one shifts by one letter, word two by two, and so on.</dd></div>
+            <div><dt>3</dt><dd>Restore the exact wording when the index has over-explained itself.</dd></div>
           </dl>
         </div>
       </div>

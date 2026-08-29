@@ -170,7 +170,12 @@ export type DemoKind =
   | "voice-ruling"
   | "route-ink"
   | "skip-ledger"
-  | "consonant-transfer";
+  | "consonant-transfer"
+  | "pressure-seal"
+  | "mosaic-mandate"
+  | "convergence-mark"
+  | "vector-ritual"
+  | "index-cipher";
 
 export interface ApiRow {
   name: string;
@@ -3942,7 +3947,6 @@ export function ErodingEstimate() {
       "It could let a reviewer simplify a handoff estimate one decimal place per objection, or let a presenter make an agenda score slowly surrender its precision before a decision. Both uses confuse rounding with an achievement.",
     alternative:
       "A reasonable local alternative is formatting the number once at the precision the task requires. A progress bar should not make a harmless rounding policy feel like a campaign.",
-    isNew: true,
   },
   {
     name: "VoiceRuling",
@@ -3964,7 +3968,6 @@ export function AssignedStatement() {
       "It could let a reviewer decide whether a handoff sentence belongs to one owner or the whole team, or let a presenter turn an agenda line into a statement that nobody quite has to own. The grammar changes while accountability remains imaginary.",
     alternative:
       "A reasonable local alternative is writing the intended subject directly in the sentence and keeping ownership in the surrounding data. A voice ballot should not arbitrate ordinary authorship.",
-    isNew: true,
   },
   {
     name: "RouteInk",
@@ -3986,7 +3989,6 @@ export function RoutedNotice() {
       "It could let a reviewer draw the path a handoff note took through a meeting, or let a presenter steer an agenda label toward the person currently speaking. The trail records motion without improving the destination.",
     alternative:
       "A reasonable local alternative is normal flow, one alignment rule or a real map interaction. A persistent ink trail is an elaborate receipt for moving a piece of content a few pixels.",
-    isNew: true,
   },
   {
     name: "SkipLedger",
@@ -4015,7 +4017,6 @@ export function SkippingFields() {
       "It could let a reviewer inspect every other handoff field before returning to the skipped ones, or let a presenter reveal agenda items with a mathematically tidy omission. The order is precise but unrelated to the content.",
     alternative:
       "A reasonable local alternative is the authored order, a normal checklist or an explicit priority rule. A skip ledger makes a list harder to read in order to celebrate its traversal algorithm.",
-    isNew: true,
   },
   {
     name: "ConsonantTransfer",
@@ -4037,6 +4038,121 @@ export function TransferredLabel() {
       "It could let a reviewer turn a handoff sentence into a temporary pronunciation puzzle, or let a presenter make an agenda label speak in a deliberately inconvenient dialect before restoring it. Neither use makes the words clearer.",
     alternative:
       "A reasonable local alternative is keeping the label readable and applying a local string transform only in a language exercise. A display component should not make ordinary copy travel through a word game.",
+  },
+  {
+    name: "PressureSeal",
+    slug: "pressure-seal",
+    summary: "Four unnecessary impressions turn a plain notice into an officially over-pressed seal.",
+    description:
+      "Press one impression at a time. Each accepted press adds a real ring to the paper and advances the native progress bar; after four impressions the notice is sealed, and Flatten seal restores the unmarked state.",
+    usage: `import { PressureSeal } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CertifiedNotice() {
+  return <PressureSeal><span>Ready for one needless certification</span></PressureSeal>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice that receives four visible pressure impressions." },
+    ],
+    demo: "pressure-seal",
+    useCase:
+      "It could let a reviewer add one ceremonial mark per pass to a handoff note, or let a presenter over-certify an agenda line before showing it. Neither use makes the notice more correct.",
+    alternative:
+      "A reasonable local alternative is one approval status or one ordinary stamp rendered at the point of decision. A progress meter should not make ink feel like evidence.",
+    isNew: true,
+  },
+  {
+    name: "MosaicMandate",
+    slug: "mosaic-mandate",
+    summary: "Three arrangement mandates place the same children on a shelf, a pyramid or an orbit.",
+    description:
+      "Choose Shelf, Pyramid or Orbit. The children are rendered in three actual structures and geometries, not just recolored; Revoke mandate removes the imposed arrangement and returns them to waiting.",
+    usage: `import { MosaicMandate } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ArrangedFields() {
+  return (
+    <MosaicMandate>
+      <span>Title</span>
+      <span>Status</span>
+      <span>Owner</span>
+    </MosaicMandate>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces assigned to one of three materially different arrangements." },
+    ],
+    demo: "mosaic-mandate",
+    useCase:
+      "It could let a reviewer decide whether a handoff belongs in a vertical shelf, a ranked pyramid or a ceremonial orbit, or let a presenter give agenda fields an arrangement with theatrical consequences. The geometry changes while the information does not.",
+    alternative:
+      "A reasonable local alternative is choosing one responsive layout in CSS and keeping the authored order. A mandate should not hold ordinary children hostage to a geometry vote.",
+    isNew: true,
+  },
+  {
+    name: "ConvergenceMark",
+    slug: "convergence-mark",
+    summary: "Two draggable pins must agree on one coordinate before a notice records their coincidence.",
+    description:
+      "Drag Anchor and Witness independently, or nudge either pin with arrow keys. When they come within ten units, the actual cargo changes to a recorded coincidence; Separate pins restores the disagreement.",
+    usage: `import { ConvergenceMark } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function CoincidentNotice() {
+  return <ConvergenceMark><span>Two approvals, one coordinate</span></ConvergenceMark>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cargo that records a coincidence when two pins converge." },
+    ],
+    demo: "convergence-mark",
+    useCase:
+      "It could let a reviewer place two opinions on the same point before filing a handoff note, or let a presenter make an agenda label wait for two imaginary authorities to agree spatially. Proximity is not consensus.",
+    alternative:
+      "A reasonable local alternative is a boolean approval or an explicit coordinate field. Two draggable pins add ceremony without resolving what either authority means.",
+    isNew: true,
+  },
+  {
+    name: "VectorRitual",
+    slug: "vector-ritual",
+    summary: "A parcel completes a four-sided pilgrimage only when directions arrive East, South, West, North.",
+    description:
+      "Press the four directional controls in the prescribed order. Each accepted vector moves the cargo around a different corner; a wrong direction returns it to origin, and Reset vectors clears the route.",
+    usage: `import { VectorRitual } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PilgrimNotice() {
+  return <VectorRitual><span>Complete this tiny pilgrimage</span></VectorRitual>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The parcel moved through the directional sequence." },
+    ],
+    demo: "vector-ritual",
+    useCase:
+      "It could let a reviewer rehearse four handoff stages as a compass ritual, or let a presenter walk an agenda line around a slide before releasing it. The route is deterministic but unrelated to readiness.",
+    alternative:
+      "A reasonable local alternative is a visible checklist with one next action. A directional pilgrimage should not be the hidden workflow for a simple release.",
+    isNew: true,
+  },
+  {
+    name: "IndexCipher",
+    slug: "index-cipher",
+    summary: "Each word shifts its letters farther through the alphabet than the word before it.",
+    description:
+      "Apply index cipher to replace the readable label with a real reversible transformation: word one shifts by one letter, word two by two, and so on. Restore wording returns the supplied text exactly.",
+    usage: `import { IndexCipher } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function IndexedLabel() {
+  return <IndexCipher label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence whose words are shifted by their one-based position." },
+    ],
+    demo: "index-cipher",
+    useCase:
+      "It could let a reviewer turn a handoff sentence into a position-dependent cipher specimen, or let a presenter make an agenda label progressively less readable before restoring it. Neither use makes copy safer.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and applying a local encoding function only at a real protocol boundary. A display component should not encrypt a sentence for atmosphere.",
     isNew: true,
   },
 ] as const;

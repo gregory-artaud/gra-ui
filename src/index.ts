@@ -691,6 +691,26 @@ export {
   type ConsonantTransferProps,
 } from "./components/consonant-transfer";
 export {
+  PressureSeal,
+  type PressureSealProps,
+} from "./components/pressure-seal";
+export {
+  MosaicMandate,
+  type MosaicMandateProps,
+} from "./components/mosaic-mandate";
+export {
+  ConvergenceMark,
+  type ConvergenceMarkProps,
+} from "./components/convergence-mark";
+export {
+  VectorRitual,
+  type VectorRitualProps,
+} from "./components/vector-ritual";
+export {
+  IndexCipher,
+  type IndexCipherProps,
+} from "./components/index-cipher";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

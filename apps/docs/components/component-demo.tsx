@@ -163,7 +163,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "voice-ruling" ||
     kind === "route-ink" ||
     kind === "skip-ledger" ||
-    kind === "consonant-transfer"
+    kind === "consonant-transfer" ||
+    kind === "pressure-seal" ||
+    kind === "mosaic-mandate" ||
+    kind === "convergence-mark" ||
+    kind === "vector-ritual" ||
+    kind === "index-cipher"
   ) {
     return <Playground kind={kind} />;
   }
