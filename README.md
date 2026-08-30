@@ -3009,6 +3009,66 @@ type IndexCipherProps = {
 
 Press `Apply index cipher`: word one shifts by one letter, word two by two, and so on. The actual label becomes a reversible position-dependent cipher; `Restore wording` returns the exact text. It could let a reviewer create a cipher specimen from a handoff sentence, or let a presenter progressively obscure an agenda label before restoring it. Neither use makes copy safer. A reasonable local alternative is keeping the label readable and encoding only at a real protocol boundary.
 
+## PartitionRite
+
+`PartitionRite` bisects a notice into smaller actual sections until it occupies one tiny province.
+
+```ts
+type PartitionRiteProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Bisect again` three times. Each press doubles the real grid and moves the notice into its own section; `Reunite sections` returns the panel to one piece. It could let a reviewer subdivide a handoff note until one sentence receives its own administrative province, or let a presenter split an agenda label into increasingly precious territory. The borders do not clarify the message. A reasonable local alternative is one ordinary container with a deliberate max-width or border.
+
+## NormalizationReferendum
+
+`NormalizationReferendum` lets three Unicode policies vote on how a label should store its glyphs.
+
+```ts
+type NormalizationReferendumProps = {
+  label: string;
+};
+```
+
+Choose `Compose`, `Decompose` or `Flatten`. The label is actually normalized with the selected Unicode form and its resulting code points are displayed; `Withdraw policy` returns to the supplied wording. It could let a reviewer vote on how a handoff label stores accented names, or let a presenter give an agenda caption a Unicode constitutional crisis. The code points change, but no one needed a referendum to choose a representation. A reasonable local alternative is normalizing at the data boundary once and rendering the resulting string normally.
+
+## GapTether
+
+`GapTether` makes two shelves of content honor an arbitrary physical distance.
+
+```ts
+type GapTetherProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the tether across its rail, or focus it and use the arrow keys. The gap becomes a real CSS grid separation between the two shelves while a cable records the chosen distance; `Re-tether` restores the starting gap. It could let a reviewer negotiate how far a handoff field should sit from its owner, or let a presenter physically distance an agenda item from its supporting status. The measurement creates tension without creating hierarchy. A reasonable local alternative is normal flow with one responsive gap value chosen in CSS.
+
+## CeremonyQueue
+
+`CeremonyQueue` sends a notice through four filing rites in exactly the right order.
+
+```ts
+type CeremonyQueueProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Stamp`, `Fold`, `Weigh` and `File` in order. Each accepted rite moves the notice through a distinct station and changes its treatment; a wrong rite returns it to intake and `Empty queue` restores the opening state. It could let a reviewer stage a handoff note through four ceremonial offices, or let a presenter make an agenda line earn its way into an archive before moving on. The order is theater, not process control. A reasonable local alternative is one release button with a visible status or a real checklist when steps matter.
+
+## KeyboardCartography
+
+`KeyboardCartography` replaces a readable label with the keyboard coordinates of every character.
+
+```ts
+type KeyboardCartographyProps = {
+  label: string;
+};
+```
+
+Press `Map the keyboard` to turn each character into its actual QWERTY row and column address; spaces and punctuation become off-map terrain. `Restore wording` returns the supplied label. It could let a reviewer audit which keyboard terrain a handoff phrase crosses, or let a presenter turn an agenda caption into a miniature typing map before restoring it. The addresses describe the input device, not the meaning. A reasonable local alternative is leaving the label readable and using a local diagnostic utility when keyboard positions genuinely matter.
+
 ## Development
 
 ```bash

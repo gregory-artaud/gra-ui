@@ -168,7 +168,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "mosaic-mandate" ||
     kind === "convergence-mark" ||
     kind === "vector-ritual" ||
-    kind === "index-cipher"
+    kind === "index-cipher" ||
+    kind === "partition-rite" ||
+    kind === "normalization-referendum" ||
+    kind === "gap-tether" ||
+    kind === "ceremony-queue" ||
+    kind === "keyboard-cartography"
   ) {
     return <Playground kind={kind} />;
   }

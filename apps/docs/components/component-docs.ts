@@ -175,7 +175,12 @@ export type DemoKind =
   | "mosaic-mandate"
   | "convergence-mark"
   | "vector-ritual"
-  | "index-cipher";
+  | "index-cipher"
+  | "partition-rite"
+  | "normalization-referendum"
+  | "gap-tether"
+  | "ceremony-queue"
+  | "keyboard-cartography";
 
 export interface ApiRow {
   name: string;
@@ -4059,7 +4064,6 @@ export function CertifiedNotice() {
       "It could let a reviewer add one ceremonial mark per pass to a handoff note, or let a presenter over-certify an agenda line before showing it. Neither use makes the notice more correct.",
     alternative:
       "A reasonable local alternative is one approval status or one ordinary stamp rendered at the point of decision. A progress meter should not make ink feel like evidence.",
-    isNew: true,
   },
   {
     name: "MosaicMandate",
@@ -4087,7 +4091,6 @@ export function ArrangedFields() {
       "It could let a reviewer decide whether a handoff belongs in a vertical shelf, a ranked pyramid or a ceremonial orbit, or let a presenter give agenda fields an arrangement with theatrical consequences. The geometry changes while the information does not.",
     alternative:
       "A reasonable local alternative is choosing one responsive layout in CSS and keeping the authored order. A mandate should not hold ordinary children hostage to a geometry vote.",
-    isNew: true,
   },
   {
     name: "ConvergenceMark",
@@ -4109,7 +4112,6 @@ export function CoincidentNotice() {
       "It could let a reviewer place two opinions on the same point before filing a handoff note, or let a presenter make an agenda label wait for two imaginary authorities to agree spatially. Proximity is not consensus.",
     alternative:
       "A reasonable local alternative is a boolean approval or an explicit coordinate field. Two draggable pins add ceremony without resolving what either authority means.",
-    isNew: true,
   },
   {
     name: "VectorRitual",
@@ -4131,7 +4133,6 @@ export function PilgrimNotice() {
       "It could let a reviewer rehearse four handoff stages as a compass ritual, or let a presenter walk an agenda line around a slide before releasing it. The route is deterministic but unrelated to readiness.",
     alternative:
       "A reasonable local alternative is a visible checklist with one next action. A directional pilgrimage should not be the hidden workflow for a simple release.",
-    isNew: true,
   },
   {
     name: "IndexCipher",
@@ -4153,6 +4154,122 @@ export function IndexedLabel() {
       "It could let a reviewer turn a handoff sentence into a position-dependent cipher specimen, or let a presenter make an agenda label progressively less readable before restoring it. Neither use makes copy safer.",
     alternative:
       "A reasonable local alternative is keeping the label readable and applying a local encoding function only at a real protocol boundary. A display component should not encrypt a sentence for atmosphere.",
+  },
+  {
+    name: "PartitionRite",
+    slug: "partition-rite",
+    summary: "A notice is bisected into smaller actual sections until it occupies one tiny province.",
+    description:
+      "Bisect the panel three times. Each division doubles the real grid and moves the notice into its own final section; Reunite sections returns the panel to one piece.",
+    usage: `import { PartitionRite } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ProvincialNotice() {
+  return <PartitionRite><span>One notice, four unnecessary borders</span></PartitionRite>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice progressively isolated inside the growing partition grid." },
+    ],
+    demo: "partition-rite",
+    useCase:
+      "It could let a reviewer subdivide a handoff note until one sentence receives its own administrative province, or let a presenter split an agenda label into increasingly precious territory. The borders do not clarify the message.",
+    alternative:
+      "A reasonable local alternative is one ordinary container with a deliberate max-width or border. A notice should not need a progress ritual to find its own column.",
+    isNew: true,
+  },
+  {
+    name: "NormalizationReferendum",
+    slug: "normalization-referendum",
+    summary: "Three Unicode policies vote on whether a label should compose, decompose or flatten its glyphs.",
+    description:
+      "Choose Compose, Decompose or Flatten. The label is actually normalized with the selected Unicode form and its resulting code points are displayed, so the vote can change both the data and the visible spelling.",
+    usage: `import { NormalizationReferendum } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SettledLabel() {
+  return <NormalizationReferendum label="Café № 7" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text submitted to the three competing Unicode normalization forms." },
+    ],
+    demo: "normalization-referendum",
+    useCase:
+      "It could let a reviewer vote on how a handoff label stores accented names, or let a presenter make an agenda caption undergo a Unicode constitutional crisis. The code points change, but no one needed a referendum to choose a representation.",
+    alternative:
+      "A reasonable local alternative is normalizing at the data boundary once and rendering the resulting string normally. A display component should not make encoding policy a visible ballot.",
+    isNew: true,
+  },
+  {
+    name: "GapTether",
+    slug: "gap-tether",
+    summary: "Drag one tether to make two shelves of content honor an arbitrary physical distance.",
+    description:
+      "Drag the tether across its rail, or focus it and use the arrow keys. The gap becomes a real CSS grid separation between the two shelves while a cable records the chosen distance; Re-tether restores the starting gap.",
+    usage: `import { GapTether } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SeparatedFields() {
+  return (
+    <GapTether>
+      <span>Request</span>
+      <span>Owner</span>
+      <span>Deadline</span>
+      <span>Status</span>
+    </GapTether>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The pieces split across two shelves by the directly manipulated gap." },
+    ],
+    demo: "gap-tether",
+    useCase:
+      "It could let a reviewer negotiate how far a handoff field should sit from its owner, or let a presenter physically distance an agenda item from its supporting status. The measurement creates tension without creating hierarchy.",
+    alternative:
+      "A reasonable local alternative is normal flow with one responsive gap value chosen in CSS. A draggable ruler is excessive authority for whitespace.",
+    isNew: true,
+  },
+  {
+    name: "CeremonyQueue",
+    slug: "ceremony-queue",
+    summary: "A notice reaches the archive only after four named filing rites happen in exactly the right order.",
+    description:
+      "Press Stamp, Fold, Weigh and File in order. Each accepted rite moves the notice through a distinct station and changes its treatment; the wrong rite returns it to intake, and Empty queue restores the opening state.",
+    usage: `import { CeremonyQueue } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledNotice() {
+  return <CeremonyQueue><span>Ready for an unnecessary filing</span></CeremonyQueue>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice advanced through the ordered filing ceremony." },
+    ],
+    demo: "ceremony-queue",
+    useCase:
+      "It could let a reviewer stage a handoff note through four ceremonial offices, or let a presenter make an agenda line earn its way into an archive before moving on. The order is theater, not process control.",
+    alternative:
+      "A reasonable local alternative is one release button with a visible status or a real checklist when steps matter. Four decorative verbs should not guard a simple transition.",
+    isNew: true,
+  },
+  {
+    name: "KeyboardCartography",
+    slug: "keyboard-cartography",
+    summary: "One click replaces a readable label with the keyboard coordinates of every character.",
+    description:
+      "Apply the map to turn each character into its actual QWERTY row and column address; spaces and punctuation are marked as off-map terrain. Restore wording returns the supplied label.",
+    usage: `import { KeyboardCartography } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MappedLabel() {
+  return <KeyboardCartography label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text converted into per-character keyboard coordinates." },
+    ],
+    demo: "keyboard-cartography",
+    useCase:
+      "It could let a reviewer audit which keyboard terrain a handoff phrase crosses, or let a presenter turn an agenda caption into a miniature typing map before restoring it. The addresses describe the input device, not the meaning.",
+    alternative:
+      "A reasonable local alternative is leaving the label readable and using a local diagnostic utility when keyboard positions genuinely matter. A display component should not turn copy into a map legend.",
     isNew: true,
   },
 ] as const;

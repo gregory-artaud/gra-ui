@@ -175,6 +175,11 @@ import {
   ConvergenceMark,
   VectorRitual,
   IndexCipher,
+  PartitionRite,
+  NormalizationReferendum,
+  GapTether,
+  CeremonyQueue,
+  KeyboardCartography,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -359,6 +364,11 @@ export interface PlaygroundProps {
     | "convergence-mark"
     | "vector-ritual"
     | "index-cipher"
+    | "partition-rite"
+    | "normalization-referendum"
+    | "gap-tether"
+    | "ceremony-queue"
+    | "keyboard-cartography"
     | "decimal-erosion"
     | "voice-ruling"
     | "route-ink"
@@ -4870,6 +4880,121 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>1</dt><dd>Apply the cipher to the readable sentence.</dd></div>
             <div><dt>2</dt><dd>Word one shifts by one letter, word two by two, and so on.</dd></div>
             <div><dt>3</dt><dd>Restore the exact wording when the index has over-explained itself.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "partition-rite") {
+    return (
+      <div className="playground-shell partition-rite-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PartitionRite><span>One notice, four unnecessary borders</span></PartitionRite>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one notice in one generous section.</dd></div>
+            <div><dt>2</dt><dd>Press Bisect again to double the real grid.</dd></div>
+            <div><dt>3</dt><dd>After three divisions, the notice occupies one tiny province.</dd></div>
+            <div><dt>4</dt><dd>Reunite sections when the borders have become enough ceremony.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "normalization-referendum") {
+    return (
+      <div className="playground-shell normalization-referendum-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <NormalizationReferendum label="Café № 7" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a label whose glyphs have more than one possible representation.</dd></div>
+            <div><dt>2</dt><dd>Choose Compose, Decompose or Flatten.</dd></div>
+            <div><dt>3</dt><dd>The actual normalized text and code points change with the vote.</dd></div>
+            <div><dt>4</dt><dd>Withdraw policy to return the wording to its supplied form.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "gap-tether") {
+    return (
+      <div className="playground-shell gap-tether-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <GapTether>
+              <span>Request</span>
+              <span>Owner</span>
+              <span>Deadline</span>
+              <span>Status</span>
+            </GapTether>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four fields divided across two shelves.</dd></div>
+            <div><dt>2</dt><dd>Drag the tether, or focus it and use the arrow keys.</dd></div>
+            <div><dt>3</dt><dd>The real grid gap expands or contracts beneath the shelves.</dd></div>
+            <div><dt>4</dt><dd>Re-tether the shelves when their separation has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "ceremony-queue") {
+    return (
+      <div className="playground-shell ceremony-queue-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CeremonyQueue><span>Ready for an unnecessary filing</span></CeremonyQueue>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one notice waiting at intake.</dd></div>
+            <div><dt>2</dt><dd>Press Stamp, Fold, Weigh and File in that order.</dd></div>
+            <div><dt>3</dt><dd>Every accepted rite moves the notice and changes its treatment.</dd></div>
+            <div><dt>4</dt><dd>A wrong rite returns the cargo to intake; Empty queue clears the ceremony.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "keyboard-cartography") {
+    return (
+      <div className="playground-shell keyboard-cartography-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <KeyboardCartography label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable sentence.</dd></div>
+            <div><dt>2</dt><dd>Apply the keyboard map with one click.</dd></div>
+            <div><dt>3</dt><dd>Each character becomes its actual QWERTY row and column.</dd></div>
+            <div><dt>4</dt><dd>Restore wording when the map has outlived its usefulness.</dd></div>
           </dl>
         </div>
       </div>
