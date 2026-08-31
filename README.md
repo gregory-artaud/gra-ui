@@ -3069,6 +3069,68 @@ type KeyboardCartographyProps = {
 
 Press `Map the keyboard` to turn each character into its actual QWERTY row and column address; spaces and punctuation become off-map terrain. `Restore wording` returns the supplied label. It could let a reviewer audit which keyboard terrain a handoff phrase crosses, or let a presenter turn an agenda caption into a miniature typing map before restoring it. The addresses describe the input device, not the meaning. A reasonable local alternative is leaving the label readable and using a local diagnostic utility when keyboard positions genuinely matter.
 
+## LineHeightTribute
+
+`LineHeightTribute` makes a notice pay four installments of vertical space before its lines may rest.
+
+```ts
+type LineHeightTributeProps = {
+  children: React.ReactNode;
+};
+```
+
+Press `Pay one line` to increase the actual line height through four stages; `Reclaim spacing` returns the notice to its original rhythm. It could let a reviewer make a handoff note look more deliberate, or let a presenter give one agenda sentence progressively more room on a slide. Extra whitespace is not evidence of importance. A reasonable local alternative is one readable line-height value in CSS.
+
+## RadixPact
+
+`RadixPact` asks decimal, ternary and duodecimal to ratify the way a number should speak.
+
+```ts
+type RadixPactProps = {
+  value: number;
+};
+```
+
+Choose `Decimal`, `Ternary` or `Duodecimal`. The displayed value is actually converted to the selected base; `Void the pact` restores decimal. It could let a reviewer choose the counting constitution of a handoff estimate, or let a presenter make an agenda counter negotiate with a dozen-way calendar. The arithmetic stays correct while the governance adds nothing. A reasonable local alternative is formatting the number once where its representation matters.
+
+## SwipeShunt
+
+`SwipeShunt` sends the first or last word to the opposite end of a sentence with a horizontal swipe.
+
+```ts
+type SwipeShuntProps = {
+  label: string;
+};
+```
+
+Swipe left or right, or focus the surface and use the arrow keys. Each gesture really rotates the words by one place; `Restore order` returns the supplied label. It could let a reviewer move a handoff topic to the front, or let a presenter shift an agenda word to the end for theatrical emphasis. The sentence changes positionally without gaining meaning. A reasonable local alternative is writing the intended order directly or using one deliberate reorder action.
+
+## RoleAssembly
+
+`RoleAssembly` assembles a sentence only when subject, action and object arrive in that order.
+
+```ts
+type RoleAssemblyProps = {
+  subject: string;
+  action: string;
+  object: string;
+};
+```
+
+Press the three grammatical offices in order. Each accepted role adds its real word to the visible sentence; a wrong office returns the assembly to intake and `Disassemble sentence` resets it. It could let a reviewer construct a handoff statement through a miniature grammar office, or let a presenter make an agenda line earn its verb before revealing the object. The sentence was already grammatical. A reasonable local alternative is rendering the authored sentence or validating a real form field once.
+
+## PhoneticSpelling
+
+`PhoneticSpelling` expands every character into a full radio callsign and keeps punctuation on trial.
+
+```ts
+type PhoneticSpellingProps = {
+  label: string;
+};
+```
+
+Press `Spell it out` to replace each letter with its NATO phonetic code word and mark spaces or punctuation visibly; `Restore wording` returns the original label. It could let a reviewer broadcast a handoff code over a noisy channel, or let a presenter turn an agenda caption into an extravagant radio readout. Ordinary local copy rarely needs an alphabet exercise. A reasonable local alternative is showing the original label and using a phonetic helper only for the one value being communicated aloud.
+
 ## Development
 
 ```bash

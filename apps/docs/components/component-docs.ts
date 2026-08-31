@@ -180,7 +180,12 @@ export type DemoKind =
   | "normalization-referendum"
   | "gap-tether"
   | "ceremony-queue"
-  | "keyboard-cartography";
+  | "keyboard-cartography"
+  | "line-height-tribute"
+  | "radix-pact"
+  | "swipe-shunt"
+  | "role-assembly"
+  | "phonetic-spelling";
 
 export interface ApiRow {
   name: string;
@@ -4175,7 +4180,6 @@ export function ProvincialNotice() {
       "It could let a reviewer subdivide a handoff note until one sentence receives its own administrative province, or let a presenter split an agenda label into increasingly precious territory. The borders do not clarify the message.",
     alternative:
       "A reasonable local alternative is one ordinary container with a deliberate max-width or border. A notice should not need a progress ritual to find its own column.",
-    isNew: true,
   },
   {
     name: "NormalizationReferendum",
@@ -4197,7 +4201,6 @@ export function SettledLabel() {
       "It could let a reviewer vote on how a handoff label stores accented names, or let a presenter make an agenda caption undergo a Unicode constitutional crisis. The code points change, but no one needed a referendum to choose a representation.",
     alternative:
       "A reasonable local alternative is normalizing at the data boundary once and rendering the resulting string normally. A display component should not make encoding policy a visible ballot.",
-    isNew: true,
   },
   {
     name: "GapTether",
@@ -4226,7 +4229,6 @@ export function SeparatedFields() {
       "It could let a reviewer negotiate how far a handoff field should sit from its owner, or let a presenter physically distance an agenda item from its supporting status. The measurement creates tension without creating hierarchy.",
     alternative:
       "A reasonable local alternative is normal flow with one responsive gap value chosen in CSS. A draggable ruler is excessive authority for whitespace.",
-    isNew: true,
   },
   {
     name: "CeremonyQueue",
@@ -4248,7 +4250,6 @@ export function FiledNotice() {
       "It could let a reviewer stage a handoff note through four ceremonial offices, or let a presenter make an agenda line earn its way into an archive before moving on. The order is theater, not process control.",
     alternative:
       "A reasonable local alternative is one release button with a visible status or a real checklist when steps matter. Four decorative verbs should not guard a simple transition.",
-    isNew: true,
   },
   {
     name: "KeyboardCartography",
@@ -4270,6 +4271,127 @@ export function MappedLabel() {
       "It could let a reviewer audit which keyboard terrain a handoff phrase crosses, or let a presenter turn an agenda caption into a miniature typing map before restoring it. The addresses describe the input device, not the meaning.",
     alternative:
       "A reasonable local alternative is leaving the label readable and using a local diagnostic utility when keyboard positions genuinely matter. A display component should not turn copy into a map legend.",
+  },
+  {
+    name: "LineHeightTribute",
+    slug: "line-height-tribute",
+    summary: "A readable notice pays four installments of vertical space before its lines may rest.",
+    description:
+      "Pay one line at a time to increase the content's actual line height through four stages. The notice becomes visibly taller and Reclaim spacing returns it to its original rhythm.",
+    usage: `import { LineHeightTribute } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SpacedNotice() {
+  return (
+    <LineHeightTribute>
+      <span>A small notice that has somehow earned four vertical budgets.</span>
+    </LineHeightTribute>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice whose actual line height increases one payment at a time." },
+    ],
+    demo: "line-height-tribute",
+    useCase:
+      "It could let a reviewer make a handoff note look more deliberate before a meeting, or let a presenter give one agenda sentence progressively more room on a slide. Neither use makes extra whitespace evidence of importance.",
+    alternative:
+      "A reasonable local alternative is one readable line-height value in CSS, adjusted for the surrounding layout. A notice should not negotiate its breathing room through a payment ceremony.",
+    isNew: true,
+  },
+  {
+    name: "RadixPact",
+    slug: "radix-pact",
+    summary: "A number must ratify decimal, ternary or duodecimal before it is allowed to speak.",
+    description:
+      "Choose a counting system to replace the displayed value with its actual representation in base 10, base 3 or base 12. Void the pact restores the ordinary decimal display.",
+    usage: `import { RadixPact } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ContractValue() {
+  return <RadixPact value={144} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The integer value rendered in the selected numerical base." },
+    ],
+    demo: "radix-pact",
+    useCase:
+      "It could let a reviewer choose the counting constitution of a handoff estimate, or let a presenter make an agenda counter negotiate with a dozen-way calendar. The arithmetic stays correct while the choice adds needless governance.",
+    alternative:
+      "A reasonable local alternative is formatting a number once at the boundary where its representation matters. A value should not need a public treaty to remain legible.",
+    isNew: true,
+  },
+  {
+    name: "SwipeShunt",
+    slug: "swipe-shunt",
+    summary: "A horizontal swipe sends the first or last word to the opposite end of a sentence.",
+    description:
+      "Swipe the surface left or right, or focus it and use the arrow keys. Each gesture actually rotates the words by one place; Restore order returns the supplied label.",
+    usage: `import { SwipeShunt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShuntedLabel() {
+  return <SwipeShunt label="Review the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The whitespace-separated words moved by each horizontal shunt." },
+    ],
+    demo: "swipe-shunt",
+    useCase:
+      "It could let a reviewer swipe a handoff sentence until its topic lands at the front, or let a presenter move an agenda word to the end for theatrical emphasis. The sentence changes positionally without gaining meaning.",
+    alternative:
+      "A reasonable local alternative is writing the intended word order directly or using one deliberate reorder action. A sentence should not require a tiny conveyor belt.",
+    isNew: true,
+  },
+  {
+    name: "RoleAssembly",
+    slug: "role-assembly",
+    summary: "A sentence can be assembled only by reporting its subject, action and object in that order.",
+    description:
+      "Press the three grammatical offices in order. Each accepted role adds its real word to the visible sentence; a wrong office returns the assembly to intake and Disassemble sentence resets it.",
+    usage: `import { RoleAssembly } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ApprovedSentence() {
+  return (
+    <RoleAssembly
+      subject="The reviewer"
+      action="files"
+      object="the handoff"
+    />
+  );
+}`,
+    api: [
+      { name: "subject", type: "string", description: "The first word group admitted to the sentence." },
+      { name: "action", type: "string", description: "The second word group admitted to the sentence." },
+      { name: "object", type: "string", description: "The final word group admitted to the sentence." },
+    ],
+    demo: "role-assembly",
+    useCase:
+      "It could let a reviewer construct a handoff statement through a miniature grammar office, or let a presenter make an agenda line earn its verb before revealing the object. The sentence was already grammatical before the ceremony.",
+    alternative:
+      "A reasonable local alternative is rendering the authored sentence or validating a real form field once. Grammar should not become a three-button gate unless the application actually teaches grammar.",
+    isNew: true,
+  },
+  {
+    name: "PhoneticSpelling",
+    slug: "phonetic-spelling",
+    summary: "One click expands every character into a full radio callsign and keeps the punctuation on trial.",
+    description:
+      "Spell it out replaces each letter with its NATO phonetic code word and marks spaces or punctuation visibly. Restore wording returns the original label exactly.",
+    usage: `import { PhoneticSpelling } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function BroadcastLabel() {
+  return <PhoneticSpelling label="Meet at 10:30" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text expanded into one visible phonetic token per character." },
+    ],
+    demo: "phonetic-spelling",
+    useCase:
+      "It could let a reviewer broadcast a handoff code over a noisy channel, or let a presenter turn an agenda caption into an extravagant radio readout before restoring it. A local label rarely needs to become an entire alphabet exercise.",
+    alternative:
+      "A reasonable local alternative is showing the original label and using a phonetic helper only for the one value being communicated aloud. Expanding every character makes ordinary reading much harder.",
     isNew: true,
   },
 ] as const;

@@ -234,6 +234,519 @@
   }
 }
 
+.gra-ui.line-height-tribute,
+.gra-ui.radix-pact,
+.gra-ui.swipe-shunt,
+.gra-ui.role-assembly,
+.gra-ui.phonetic-spelling {
+  display: inline-flex;
+  width: min(100%, 480px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.line-height-tribute__header,
+.line-height-tribute__footer,
+.radix-pact__header,
+.radix-pact__footer,
+.swipe-shunt__header,
+.swipe-shunt__footer,
+.role-assembly__header,
+.role-assembly__footer,
+.phonetic-spelling__header,
+.phonetic-spelling__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.line-height-tribute__header,
+.radix-pact__header,
+.swipe-shunt__header,
+.role-assembly__header,
+.phonetic-spelling__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.line-height-tribute__header output,
+.radix-pact__header output,
+.swipe-shunt__header output,
+.role-assembly__header output,
+.phonetic-spelling__header output {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.line-height-tribute__paper,
+.radix-pact__display,
+.swipe-shunt__surface,
+.role-assembly__sentence,
+.phonetic-spelling__paper {
+  position: relative;
+  min-width: 0;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: color-mix(in srgb, var(--greact-background) 76%, var(--greact-ring));
+}
+
+.line-height-tribute__paper {
+  min-height: 126px;
+  padding: 28px 16px 16px;
+}
+
+.line-height-tribute__caption,
+.radix-pact__caption,
+.swipe-shunt__caption,
+.role-assembly__caption,
+.phonetic-spelling__caption {
+  display: block;
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.line-height-tribute__caption {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+}
+
+.line-height-tribute__content {
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.15;
+  transition: line-height 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.line-height-tribute[data-stage="1"] .line-height-tribute__content { line-height: 1.5; }
+.line-height-tribute[data-stage="2"] .line-height-tribute__content { line-height: 1.9; }
+.line-height-tribute[data-stage="3"] .line-height-tribute__content { line-height: 2.3; }
+.line-height-tribute[data-stage="4"] .line-height-tribute__content { line-height: 2.7; }
+
+.line-height-tribute > progress {
+  width: 100%;
+  height: 5px;
+  accent-color: var(--greact-foreground);
+}
+
+.line-height-tribute__footer,
+.radix-pact__footer,
+.swipe-shunt__footer,
+.role-assembly__footer,
+.phonetic-spelling__footer {
+  align-items: flex-end;
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.line-height-tribute__footer p,
+.radix-pact__footer p,
+.swipe-shunt__footer p,
+.role-assembly__footer p,
+.phonetic-spelling__footer p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+.line-height-tribute__actions,
+.phonetic-spelling__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 9px;
+}
+
+.line-height-tribute__actions button,
+.phonetic-spelling__actions button,
+.radix-pact__reset,
+.swipe-shunt__reset,
+.role-assembly__reset {
+  min-height: 29px;
+  padding: 5px 9px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 4px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.line-height-tribute__actions button:hover:not(:disabled),
+.line-height-tribute__actions button:focus-visible,
+.phonetic-spelling__actions button:hover:not(:disabled),
+.phonetic-spelling__actions button:focus-visible,
+.radix-pact__reset:hover:not(:disabled),
+.radix-pact__reset:focus-visible,
+.swipe-shunt__reset:hover:not(:disabled),
+.swipe-shunt__reset:focus-visible,
+.role-assembly__reset:hover:not(:disabled),
+.role-assembly__reset:focus-visible {
+  background: var(--greact-ring);
+  border-color: var(--greact-ring);
+}
+
+.line-height-tribute__actions button:focus-visible,
+.phonetic-spelling__actions button:focus-visible,
+.radix-pact__reset:focus-visible,
+.swipe-shunt__reset:focus-visible,
+.role-assembly__reset:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.line-height-tribute__actions button:disabled,
+.phonetic-spelling__actions button:disabled,
+.radix-pact__reset:disabled,
+.swipe-shunt__reset:disabled,
+.role-assembly__reset:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.radix-pact__display {
+  display: flex;
+  min-height: 142px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 24px 16px 16px;
+  text-align: center;
+}
+
+.radix-pact__caption {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+
+.radix-pact__display strong {
+  display: block;
+  color: var(--greact-foreground);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(28px, 8vw, 42px);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  animation: gra-ui-radix-pact-change 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.radix-pact__display small {
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.radix-pact__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.radix-pact__choice {
+  display: flex;
+  min-width: 0;
+  min-height: 57px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 7px;
+  border: 1px solid var(--greact-input);
+  border-radius: 5px;
+  background: var(--greact-secondary);
+  color: var(--greact-foreground);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.radix-pact__choice:hover,
+.radix-pact__choice:focus-visible {
+  border-color: var(--greact-ring);
+  transform: translateY(-2px);
+}
+
+.radix-pact__choice:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.radix-pact__choice[data-selected="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: translateY(-3px);
+}
+
+.radix-pact__choice strong {
+  font-size: 11px;
+}
+
+.radix-pact__choice small {
+  color: var(--greact-ring);
+  font-size: 9px;
+}
+
+.radix-pact__choice[data-selected="true"] small {
+  color: color-mix(in srgb, var(--greact-background) 65%, var(--greact-ring));
+}
+
+.swipe-shunt__surface {
+  display: flex;
+  min-height: 154px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 17px;
+  padding: 26px 16px 15px;
+  cursor: ew-resize;
+  touch-action: pan-y;
+}
+
+.swipe-shunt__surface:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.swipe-shunt__surface[data-dragging="true"] {
+  cursor: grabbing;
+}
+
+.swipe-shunt__caption {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+}
+
+.swipe-shunt__label {
+  display: flex;
+  min-height: 42px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin: 0;
+  transform: translateX(var(--swipe-offset));
+  transition: transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.swipe-shunt__word {
+  padding: 8px 9px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 4px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-size: 13px;
+  font-weight: 700;
+  animation: gra-ui-swipe-shunt-settle 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.swipe-shunt__hint {
+  color: var(--greact-ring);
+  font-size: 9px;
+  text-align: center;
+}
+
+.role-assembly__sentence {
+  min-height: 122px;
+  padding: 30px 16px 16px;
+}
+
+.role-assembly__caption {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+}
+
+.role-assembly__sentence p {
+  margin: 18px 0 0;
+  color: var(--greact-foreground);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.role-assembly__roles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.role-assembly__roles button {
+  display: flex;
+  min-width: 0;
+  min-height: 64px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px;
+  border: 1px solid var(--greact-input);
+  border-radius: 5px;
+  background: var(--greact-secondary);
+  color: var(--greact-foreground);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
+
+.role-assembly__roles button:hover:not(:disabled),
+.role-assembly__roles button:focus-visible {
+  border-color: var(--greact-ring);
+  transform: translateY(-2px);
+}
+
+.role-assembly__roles button:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.role-assembly__roles button[data-accepted="true"] {
+  border-color: var(--greact-ring);
+  background: color-mix(in srgb, var(--greact-background) 65%, var(--greact-ring));
+}
+
+.role-assembly__roles button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.role-assembly__roles strong {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.role-assembly__roles small {
+  color: var(--greact-ring);
+  font-size: 9px;
+  overflow-wrap: anywhere;
+}
+
+.phonetic-spelling__paper {
+  min-height: 154px;
+  padding: 28px 12px 12px;
+}
+
+.phonetic-spelling__caption {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+
+.phonetic-spelling__tokens {
+  display: flex;
+  min-height: 104px;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.phonetic-spelling__token {
+  padding: 6px 7px;
+  border: 1px solid var(--greact-input);
+  border-radius: 4px;
+  background: var(--greact-secondary);
+  color: var(--greact-foreground);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 10px;
+  animation: gra-ui-phonetic-spelling-arrive 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.phonetic-spelling[data-spelled="false"] .phonetic-spelling__token {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+}
+
+@keyframes gra-ui-radix-pact-change {
+  0% { opacity: 0; transform: scale(0.8) rotate(-4deg); }
+  70% { opacity: 1; transform: scale(1.06) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes gra-ui-swipe-shunt-settle {
+  0% { opacity: 0; transform: translateX(14px) rotate(3deg); }
+  100% { opacity: 1; transform: translateX(0) rotate(0); }
+}
+
+@keyframes gra-ui-phonetic-spelling-arrive {
+  0% { opacity: 0; transform: translateY(7px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 520px) {
+  .gra-ui.line-height-tribute,
+  .gra-ui.radix-pact,
+  .gra-ui.swipe-shunt,
+  .gra-ui.role-assembly,
+  .gra-ui.phonetic-spelling {
+    padding: 14px;
+  }
+
+  .line-height-tribute__footer,
+  .radix-pact__footer,
+  .swipe-shunt__footer,
+  .role-assembly__footer,
+  .phonetic-spelling__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .line-height-tribute__actions,
+  .phonetic-spelling__actions {
+    justify-content: flex-start;
+  }
+
+  .radix-pact__choices,
+  .role-assembly__roles {
+    gap: 5px;
+  }
+
+  .radix-pact__choice,
+  .role-assembly__roles button {
+    padding-inline: 5px;
+  }
+
+  .swipe-shunt__word {
+    padding-inline: 6px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line-height-tribute__content,
+  .radix-pact__choice,
+  .swipe-shunt__label,
+  .role-assembly__roles button {
+    transition: none;
+  }
+
+  .radix-pact__display strong,
+  .swipe-shunt__word,
+  .phonetic-spelling__token {
+    animation: none;
+  }
+}
+
 .gra-ui.pressure-seal,
 .gra-ui.mosaic-mandate,
 .gra-ui.convergence-mark,

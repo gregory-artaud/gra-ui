@@ -180,6 +180,11 @@ import {
   GapTether,
   CeremonyQueue,
   KeyboardCartography,
+  LineHeightTribute,
+  RadixPact,
+  SwipeShunt,
+  RoleAssembly,
+  PhoneticSpelling,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -369,6 +374,11 @@ export interface PlaygroundProps {
     | "gap-tether"
     | "ceremony-queue"
     | "keyboard-cartography"
+    | "line-height-tribute"
+    | "radix-pact"
+    | "swipe-shunt"
+    | "role-assembly"
+    | "phonetic-spelling"
     | "decimal-erosion"
     | "voice-ruling"
     | "route-ink"
@@ -4995,6 +5005,118 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Apply the keyboard map with one click.</dd></div>
             <div><dt>3</dt><dd>Each character becomes its actual QWERTY row and column.</dd></div>
             <div><dt>4</dt><dd>Restore wording when the map has outlived its usefulness.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "line-height-tribute") {
+    return (
+      <div className="playground-shell line-height-tribute-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <LineHeightTribute>
+              <span>One small notice now has four vertical budgets to spend before it can rest.</span>
+            </LineHeightTribute>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a compact notice in its normal rhythm.</dd></div>
+            <div><dt>2</dt><dd>Pay one line to increase the actual line height.</dd></div>
+            <div><dt>3</dt><dd>Repeat until four payments give the wording an absurd amount of air.</dd></div>
+            <div><dt>4</dt><dd>Reclaim spacing when the tribute has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "radix-pact") {
+    return (
+      <div className="playground-shell radix-pact-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <RadixPact value={144} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with one ordinary value: 144.</dd></div>
+            <div><dt>2</dt><dd>Choose Decimal, Ternary or Duodecimal.</dd></div>
+            <div><dt>3</dt><dd>Watch the actual representation change while the value stays equal.</dd></div>
+            <div><dt>4</dt><dd>Void the pact when the number wants to be ordinary again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "swipe-shunt") {
+    return (
+      <div className="playground-shell swipe-shunt-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <SwipeShunt label="Review the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with four words in their supplied order.</dd></div>
+            <div><dt>2</dt><dd>Swipe left or right across the surface.</dd></div>
+            <div><dt>3</dt><dd>The first or last word actually moves to the other end.</dd></div>
+            <div><dt>4</dt><dd>Use arrow keys or restore the original order.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "role-assembly") {
+    return (
+      <div className="playground-shell role-assembly-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <RoleAssembly subject="The reviewer" action="files" object="the handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a sentence that has not yet been admitted.</dd></div>
+            <div><dt>2</dt><dd>Press Subject, then Action, then Object.</dd></div>
+            <div><dt>3</dt><dd>Each accepted office adds its real word to the sentence.</dd></div>
+            <div><dt>4</dt><dd>Try an office out of order, then disassemble and begin again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "phonetic-spelling") {
+    return (
+      <div className="playground-shell phonetic-spelling-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PhoneticSpelling label="Meet at 10:30" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a short label containing letters and punctuation.</dd></div>
+            <div><dt>2</dt><dd>Spell it out to expand every character into a code word.</dd></div>
+            <div><dt>3</dt><dd>Inspect the actual radio callsigns and marked spaces.</dd></div>
+            <div><dt>4</dt><dd>Restore wording when the broadcast has become excessive.</dd></div>
           </dl>
         </div>
       </div>

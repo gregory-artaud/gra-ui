@@ -173,7 +173,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "normalization-referendum" ||
     kind === "gap-tether" ||
     kind === "ceremony-queue" ||
-    kind === "keyboard-cartography"
+    kind === "keyboard-cartography" ||
+    kind === "line-height-tribute" ||
+    kind === "radix-pact" ||
+    kind === "swipe-shunt" ||
+    kind === "role-assembly" ||
+    kind === "phonetic-spelling"
   ) {
     return <Playground kind={kind} />;
   }

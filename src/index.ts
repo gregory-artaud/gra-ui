@@ -731,6 +731,26 @@ export {
   type KeyboardCartographyProps,
 } from "./components/keyboard-cartography";
 export {
+  LineHeightTribute,
+  type LineHeightTributeProps,
+} from "./components/line-height-tribute";
+export {
+  RadixPact,
+  type RadixPactProps,
+} from "./components/radix-pact";
+export {
+  SwipeShunt,
+  type SwipeShuntProps,
+} from "./components/swipe-shunt";
+export {
+  RoleAssembly,
+  type RoleAssemblyProps,
+} from "./components/role-assembly";
+export {
+  PhoneticSpelling,
+  type PhoneticSpellingProps,
+} from "./components/phonetic-spelling";
+export {
   Button,
   buttonVariants,
   type ButtonProps,
