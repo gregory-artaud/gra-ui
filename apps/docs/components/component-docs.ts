@@ -185,7 +185,12 @@ export type DemoKind =
   | "radix-pact"
   | "swipe-shunt"
   | "role-assembly"
-  | "phonetic-spelling";
+  | "phonetic-spelling"
+  | "rolling-checksum"
+  | "unit-diplomacy"
+  | "stacking-appeal"
+  | "knight-tour"
+  | "base64-bureau";
 
 export interface ApiRow {
   name: string;
@@ -4296,7 +4301,6 @@ export function SpacedNotice() {
       "It could let a reviewer make a handoff note look more deliberate before a meeting, or let a presenter give one agenda sentence progressively more room on a slide. Neither use makes extra whitespace evidence of importance.",
     alternative:
       "A reasonable local alternative is one readable line-height value in CSS, adjusted for the surrounding layout. A notice should not negotiate its breathing room through a payment ceremony.",
-    isNew: true,
   },
   {
     name: "RadixPact",
@@ -4318,7 +4322,6 @@ export function ContractValue() {
       "It could let a reviewer choose the counting constitution of a handoff estimate, or let a presenter make an agenda counter negotiate with a dozen-way calendar. The arithmetic stays correct while the choice adds needless governance.",
     alternative:
       "A reasonable local alternative is formatting a number once at the boundary where its representation matters. A value should not need a public treaty to remain legible.",
-    isNew: true,
   },
   {
     name: "SwipeShunt",
@@ -4340,7 +4343,6 @@ export function ShuntedLabel() {
       "It could let a reviewer swipe a handoff sentence until its topic lands at the front, or let a presenter move an agenda word to the end for theatrical emphasis. The sentence changes positionally without gaining meaning.",
     alternative:
       "A reasonable local alternative is writing the intended word order directly or using one deliberate reorder action. A sentence should not require a tiny conveyor belt.",
-    isNew: true,
   },
   {
     name: "RoleAssembly",
@@ -4370,7 +4372,6 @@ export function ApprovedSentence() {
       "It could let a reviewer construct a handoff statement through a miniature grammar office, or let a presenter make an agenda line earn its verb before revealing the object. The sentence was already grammatical before the ceremony.",
     alternative:
       "A reasonable local alternative is rendering the authored sentence or validating a real form field once. Grammar should not become a three-button gate unless the application actually teaches grammar.",
-    isNew: true,
   },
   {
     name: "PhoneticSpelling",
@@ -4392,6 +4393,125 @@ export function BroadcastLabel() {
       "It could let a reviewer broadcast a handoff code over a noisy channel, or let a presenter turn an agenda caption into an extravagant radio readout before restoring it. A local label rarely needs to become an entire alphabet exercise.",
     alternative:
       "A reasonable local alternative is showing the original label and using a phonetic helper only for the one value being communicated aloud. Expanding every character makes ordinary reading much harder.",
+  },
+  {
+    name: "RollingChecksum",
+    slug: "rolling-checksum",
+    summary: "A label earns a rolling checksum one character at a time for no operational reason.",
+    description:
+      "Process the next character to extend the visible prefix and recalculate its actual rolling digest. The glyph ledger, progress bar and hexadecimal result all change with the real input; Clear ledger returns to the unprocessed label.",
+    usage: `import { RollingChecksum } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AuditedLabel() {
+  return <RollingChecksum label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text processed into a visible rolling checksum one character at a time." },
+    ],
+    demo: "rolling-checksum",
+    useCase:
+      "It could let a reviewer process a handoff title character by character before posting its digest, or let a presenter make an agenda caption earn a machine receipt in public. The digest says nothing useful until a real protocol needs it.",
+    alternative:
+      "A reasonable local alternative is hashing once at the data boundary and keeping the human label readable. A progress ceremony for a checksum makes computation look like approval.",
+    isNew: true,
+  },
+  {
+    name: "UnitDiplomacy",
+    slug: "unit-diplomacy",
+    summary: "One duration negotiates between minutes, hours and workdays before it can be reported.",
+    description:
+      "Choose a unit policy and the submitted value is actually recalculated into that representation. Minutes, hours and workdays produce different numbers and suffixes, while End negotiations returns to the unrepresented value.",
+    usage: `import { UnitDiplomacy } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function NegotiatedDuration() {
+  return <UnitDiplomacy value={90} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The duration, submitted in minutes, that must choose a reporting unit." },
+    ],
+    demo: "unit-diplomacy",
+    useCase:
+      "It could let a reviewer decide whether a handoff estimate should sound immediate, calm or bureaucratic, or let a presenter make an agenda duration negotiate with the calendar. The value is already measurable before its diplomatic hearing.",
+    alternative:
+      "A reasonable local alternative is formatting the duration once at its display boundary and preserving the source unit. Three buttons should not decide how urgent a number feels.",
+    isNew: true,
+  },
+  {
+    name: "StackingAppeal",
+    slug: "stacking-appeal",
+    summary: "Click a card to appeal its depth and give it the only persuasive z-index.",
+    description:
+      "Children begin as a slightly overlapping stack. Clicking or focusing a card raises it to the front and pushes the previous leader down, changing the actual stacking order and preserving the appeal until Restore stack is pressed.",
+    usage: `import { StackingAppeal } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AppealableNotes() {
+  return (
+    <StackingAppeal>
+      <span>Request</span>
+      <span>Evidence</span>
+      <span>Deadline</span>
+    </StackingAppeal>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cards that compete for the top layer of the stack." },
+    ],
+    demo: "stacking-appeal",
+    useCase:
+      "It could let a reviewer bring the most urgent handoff field to the front, or let a presenter give one agenda item temporary physical priority. A real priority value would be clearer than litigating z-index by clicking cards.",
+    alternative:
+      "A reasonable local alternative is an ordered list with an explicit priority field. Stacking depth should not be mistaken for importance when normal flow can state the order.",
+    isNew: true,
+  },
+  {
+    name: "KnightTour",
+    slug: "knight-tour",
+    summary: "A grid of content must complete a tiny chess knight’s tour before it may be considered visited.",
+    description:
+      "Choose any first cell, then visit every remaining cell by legal L-shaped moves without revisiting one. The board numbers the real route, rejects illegal jumps visibly and keeps the completed tour until Restart tour is pressed.",
+    usage: `import { KnightTour } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TouredNotes() {
+  return (
+    <KnightTour>
+      {Array.from({ length: 25 }, (_, index) => <span key={index}>Note {index + 1}</span>)}
+    </KnightTour>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The cells that must be visited in a legal knight-move route." },
+    ],
+    demo: "knight-tour",
+    useCase:
+      "It could let a reviewer route through handoff fields by an ornate L-shaped inspection path, or let a presenter make an agenda audience visit every item as if the slide were a chessboard. The route adds difficulty without adding coverage.",
+    alternative:
+      "A reasonable local alternative is normal reading order or a checklist that records actual review progress. A knight’s tour is a puzzle, not a document workflow.",
+    isNew: true,
+  },
+  {
+    name: "Base64Bureau",
+    slug: "base64-bureau",
+    summary: "One click sends readable copy through a transport bureau and returns a Base64 parcel.",
+    description:
+      "Seal the supplied label into its actual UTF-8 Base64 representation, replacing readable words with a machine parcel. Unpack wording reverses the visible transformation without a network, storage layer or extra dependency.",
+    usage: `import { Base64Bureau } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SealedLabel() {
+  return <Base64Bureau label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable text sealed into a reversible Base64 representation." },
+    ],
+    demo: "base64-bureau",
+    useCase:
+      "It could let a reviewer disguise a handoff title before passing a machine parcel around, or let a presenter turn an agenda caption into a route token for theatrical effect. Encoding does not make ordinary copy more private.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and encoding only at the actual transport boundary. A display component should not impose a protocol on human text.",
     isNew: true,
   },
 ] as const;

@@ -178,7 +178,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "radix-pact" ||
     kind === "swipe-shunt" ||
     kind === "role-assembly" ||
-    kind === "phonetic-spelling"
+    kind === "phonetic-spelling" ||
+    kind === "rolling-checksum" ||
+    kind === "unit-diplomacy" ||
+    kind === "stacking-appeal" ||
+    kind === "knight-tour" ||
+    kind === "base64-bureau"
   ) {
     return <Playground kind={kind} />;
   }

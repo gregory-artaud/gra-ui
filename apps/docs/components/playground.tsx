@@ -185,6 +185,11 @@ import {
   SwipeShunt,
   RoleAssembly,
   PhoneticSpelling,
+  RollingChecksum,
+  UnitDiplomacy,
+  StackingAppeal,
+  KnightTour,
+  Base64Bureau,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -379,6 +384,11 @@ export interface PlaygroundProps {
     | "swipe-shunt"
     | "role-assembly"
     | "phonetic-spelling"
+    | "rolling-checksum"
+    | "unit-diplomacy"
+    | "stacking-appeal"
+    | "knight-tour"
+    | "base64-bureau"
     | "decimal-erosion"
     | "voice-ruling"
     | "route-ink"
@@ -5117,6 +5127,122 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Spell it out to expand every character into a code word.</dd></div>
             <div><dt>3</dt><dd>Inspect the actual radio callsigns and marked spaces.</dd></div>
             <div><dt>4</dt><dd>Restore wording when the broadcast has become excessive.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "rolling-checksum") {
+    return (
+      <div className="playground-shell rolling-checksum-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <RollingChecksum label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with every character waiting behind a ledger dot.</dd></div>
+            <div><dt>2</dt><dd>Process the next character to extend the real prefix.</dd></div>
+            <div><dt>3</dt><dd>Watch the rolling hexadecimal digest change after each character.</dd></div>
+            <div><dt>4</dt><dd>Clear the ledger when the checksum has earned enough ceremony.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "unit-diplomacy") {
+    return (
+      <div className="playground-shell unit-diplomacy-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <UnitDiplomacy value={90} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with one duration reported as 90 minutes.</dd></div>
+            <div><dt>2</dt><dd>Choose minutes, hours or workdays as the official unit.</dd></div>
+            <div><dt>3</dt><dd>Each ruling recalculates the actual number and its suffix.</dd></div>
+            <div><dt>4</dt><dd>End negotiations when the value wants to be unrepresented again.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "stacking-appeal") {
+    return (
+      <div className="playground-shell stacking-appeal-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <StackingAppeal>
+              <span>Request</span>
+              <span>Evidence</span>
+              <span>Deadline</span>
+            </StackingAppeal>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with three notes sharing one slightly crowded stack.</dd></div>
+            <div><dt>2</dt><dd>Click or focus a card to appeal its depth.</dd></div>
+            <div><dt>3</dt><dd>The chosen card rises to the real front layer.</dd></div>
+            <div><dt>4</dt><dd>Restore the stack when z-index has made its argument.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "knight-tour") {
+    return (
+      <div className="playground-shell knight-tour-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <KnightTour>
+              {Array.from({ length: 25 }, (_, index) => <span key={index}>Note {index + 1}</span>)}
+            </KnightTour>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose any first square on the five-by-five board.</dd></div>
+            <div><dt>2</dt><dd>Continue only with an untouched cell one chess knight move away.</dd></div>
+            <div><dt>3</dt><dd>Watch each legal stop receive its real route number.</dd></div>
+            <div><dt>4</dt><dd>Restart the tour when the L-shaped inspection has concluded.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "base64-bureau") {
+    return (
+      <div className="playground-shell base64-bureau-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <Base64Bureau label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with readable wording in the bureau.</dd></div>
+            <div><dt>2</dt><dd>Seal it as Base64 to replace the words with a real parcel.</dd></div>
+            <div><dt>3</dt><dd>Inspect the transport-shaped result that now stands in for the label.</dd></div>
+            <div><dt>4</dt><dd>Unpack the wording when the protocol theater is over.</dd></div>
           </dl>
         </div>
       </div>

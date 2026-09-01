@@ -3131,6 +3131,66 @@ type PhoneticSpellingProps = {
 
 Press `Spell it out` to replace each letter with its NATO phonetic code word and mark spaces or punctuation visibly; `Restore wording` returns the original label. It could let a reviewer broadcast a handoff code over a noisy channel, or let a presenter turn an agenda caption into an extravagant radio readout. Ordinary local copy rarely needs an alphabet exercise. A reasonable local alternative is showing the original label and using a phonetic helper only for the one value being communicated aloud.
 
+## RollingChecksum
+
+`RollingChecksum` makes a label earn a rolling checksum one character at a time.
+
+```ts
+type RollingChecksumProps = {
+  label: string;
+};
+```
+
+Press `Process next` to extend the visible prefix and recalculate its actual rolling hexadecimal digest; `Clear ledger` returns to the unprocessed label. It could let a reviewer process a handoff title before posting its digest, or let a presenter make an agenda caption earn a machine receipt in public. The digest says nothing useful until a real protocol needs it. A reasonable local alternative is hashing once at the data boundary and keeping the human label readable.
+
+## UnitDiplomacy
+
+`UnitDiplomacy` asks one duration to negotiate between minutes, hours and workdays.
+
+```ts
+type UnitDiplomacyProps = {
+  value: number;
+};
+```
+
+Choose a unit policy to recalculate the submitted minute value into a genuinely different display; `End negotiations` restores the unrepresented value. It could let a reviewer decide whether a handoff estimate should sound immediate, calm or bureaucratic, or let a presenter make an agenda duration negotiate with the calendar. The value is already measurable before its hearing. A reasonable local alternative is formatting the duration once at its display boundary and preserving the source unit.
+
+## StackingAppeal
+
+`StackingAppeal` lets cards appeal their depth until one receives the only persuasive z-index.
+
+```ts
+type StackingAppealProps = {
+  children: React.ReactNode;
+};
+```
+
+Click or focus a card to raise it to the real front of the overlapping stack; `Restore stack` returns the original order. It could let a reviewer bring the most urgent handoff field forward, or let a presenter give one agenda item temporary physical priority. A real priority value would be clearer than litigating z-index by clicking cards. A reasonable local alternative is an ordered list with an explicit priority field.
+
+## KnightTour
+
+`KnightTour` makes a grid of content complete a tiny chess knight’s tour before it may be considered visited.
+
+```ts
+type KnightTourProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose any first cell, then visit every remaining cell by legal L-shaped moves without revisiting one; illegal jumps are rejected visibly and `Restart tour` clears the route. It could let a reviewer route through handoff fields by an ornate inspection path, or let a presenter make an agenda audience visit every item as if the slide were a chessboard. The route adds difficulty without adding coverage. A reasonable local alternative is normal reading order or a checklist that records actual review progress.
+
+## Base64Bureau
+
+`Base64Bureau` sends readable copy through a transport bureau and returns a Base64 parcel.
+
+```ts
+type Base64BureauProps = {
+  label: string;
+};
+```
+
+Press `Seal as Base64` to replace the supplied label with its actual UTF-8 Base64 representation; `Unpack wording` reverses the visible transformation. It could let a reviewer disguise a handoff title before passing a machine parcel around, or let a presenter turn an agenda caption into a route token for theatrical effect. Encoding does not make ordinary copy more private. A reasonable local alternative is keeping the label readable and encoding only at the actual transport boundary.
+
 ## Development
 
 ```bash

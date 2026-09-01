@@ -751,6 +751,26 @@ export {
   type PhoneticSpellingProps,
 } from "./components/phonetic-spelling";
 export {
+  RollingChecksum,
+  type RollingChecksumProps,
+} from "./components/rolling-checksum";
+export {
+  UnitDiplomacy,
+  type UnitDiplomacyProps,
+} from "./components/unit-diplomacy";
+export {
+  StackingAppeal,
+  type StackingAppealProps,
+} from "./components/stacking-appeal";
+export {
+  KnightTour,
+  type KnightTourProps,
+} from "./components/knight-tour";
+export {
+  Base64Bureau,
+  type Base64BureauProps,
+} from "./components/base64-bureau";
+export {
   Button,
   buttonVariants,
   type ButtonProps,
