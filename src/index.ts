@@ -771,6 +771,26 @@ export {
   type Base64BureauProps,
 } from "./components/base64-bureau";
 export {
+  WordLadder,
+  type WordLadderProps,
+} from "./components/word-ladder";
+export {
+  NumberAlibi,
+  type NumberAlibiProps,
+} from "./components/number-alibi";
+export {
+  PinchContract,
+  type PinchContractProps,
+} from "./components/pinch-contract";
+export {
+  CyclicPassage,
+  type CyclicPassageProps,
+} from "./components/cyclic-passage";
+export {
+  CaesarReceipt,
+  type CaesarReceiptProps,
+} from "./components/caesar-receipt";
+export {
   Button,
   buttonVariants,
   type ButtonProps,

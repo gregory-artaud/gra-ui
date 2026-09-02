@@ -190,6 +190,11 @@ import {
   StackingAppeal,
   KnightTour,
   Base64Bureau,
+  WordLadder,
+  NumberAlibi,
+  PinchContract,
+  CyclicPassage,
+  CaesarReceipt,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -389,6 +394,11 @@ export interface PlaygroundProps {
     | "stacking-appeal"
     | "knight-tour"
     | "base64-bureau"
+    | "word-ladder"
+    | "number-alibi"
+    | "pinch-contract"
+    | "cyclic-passage"
+    | "caesar-receipt"
     | "decimal-erosion"
     | "voice-ruling"
     | "route-ink"
@@ -5243,6 +5253,120 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Seal it as Base64 to replace the words with a real parcel.</dd></div>
             <div><dt>3</dt><dd>Inspect the transport-shaped result that now stands in for the label.</dd></div>
             <div><dt>4</dt><dd>Unpack the wording when the protocol theater is over.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "word-ladder") {
+    return (
+      <div className="playground-shell word-ladder-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <WordLadder start="cold" target="warm" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with “cold” and a target of “warm”.</dd></div>
+            <div><dt>2</dt><dd>Advance one rung to replace one actual character.</dd></div>
+            <div><dt>3</dt><dd>Watch the wording morph instead of merely revealing itself.</dd></div>
+            <div><dt>4</dt><dd>Return to start when the target has earned its unnecessary arrival.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "number-alibi") {
+    return (
+      <div className="playground-shell number-alibi-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <NumberAlibi value={42} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the number 42 awaiting a theory.</dd></div>
+            <div><dt>2</dt><dd>Choose Prime, Even or Triangle alibi.</dd></div>
+            <div><dt>3</dt><dd>Each choice runs a different mathematical test and ruling.</dd></div>
+            <div><dt>4</dt><dd>Dismiss the case to return to the unexamined number.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "pinch-contract") {
+    return (
+      <div className="playground-shell pinch-contract-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PinchContract><span>Fit the handoff inside this sentence-sized jurisdiction.</span></PinchContract>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a generous paper jurisdiction.</dd></div>
+            <div><dt>2</dt><dd>Drag either handle inward or outward to pinch the content.</dd></div>
+            <div><dt>3</dt><dd>The actual paper width changes and keeps the negotiated bounds.</dd></div>
+            <div><dt>4</dt><dd>Use arrow keys on a handle, then reopen the contract.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "cyclic-passage") {
+    return (
+      <div className="playground-shell cyclic-passage-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CyclicPassage>
+              <span>Draft</span>
+              <span>Witness</span>
+              <span>File</span>
+            </CyclicPassage>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Pass Draft, Witness, then File from left to right.</dd></div>
+            <div><dt>2</dt><dd>Begin the second lap at Witness and wrap back to Draft.</dd></div>
+            <div><dt>3</dt><dd>A wrong station is rejected while the manifest keeps the accepted route.</dd></div>
+            <div><dt>4</dt><dd>Restart passage when the two-lap filing route is complete.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "caesar-receipt") {
+    return (
+      <div className="playground-shell caesar-receipt-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CaesarReceipt label="Keep the ordinary wording" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable label and still punctuation.</dd></div>
+            <div><dt>2</dt><dd>Shift the alphabet by thirteen actual positions.</dd></div>
+            <div><dt>3</dt><dd>Inspect the transformed letters while punctuation stays in place.</dd></div>
+            <div><dt>4</dt><dd>Restore wording when the historical detour is over.</dd></div>
           </dl>
         </div>
       </div>

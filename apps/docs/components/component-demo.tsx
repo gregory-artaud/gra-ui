@@ -183,7 +183,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "unit-diplomacy" ||
     kind === "stacking-appeal" ||
     kind === "knight-tour" ||
-    kind === "base64-bureau"
+    kind === "base64-bureau" ||
+    kind === "word-ladder" ||
+    kind === "number-alibi" ||
+    kind === "pinch-contract" ||
+    kind === "cyclic-passage" ||
+    kind === "caesar-receipt"
   ) {
     return <Playground kind={kind} />;
   }

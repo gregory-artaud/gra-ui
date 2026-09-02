@@ -190,7 +190,12 @@ export type DemoKind =
   | "unit-diplomacy"
   | "stacking-appeal"
   | "knight-tour"
-  | "base64-bureau";
+  | "base64-bureau"
+  | "word-ladder"
+  | "number-alibi"
+  | "pinch-contract"
+  | "cyclic-passage"
+  | "caesar-receipt";
 
 export interface ApiRow {
   name: string;
@@ -4414,7 +4419,6 @@ export function AuditedLabel() {
       "It could let a reviewer process a handoff title character by character before posting its digest, or let a presenter make an agenda caption earn a machine receipt in public. The digest says nothing useful until a real protocol needs it.",
     alternative:
       "A reasonable local alternative is hashing once at the data boundary and keeping the human label readable. A progress ceremony for a checksum makes computation look like approval.",
-    isNew: true,
   },
   {
     name: "UnitDiplomacy",
@@ -4436,7 +4440,6 @@ export function NegotiatedDuration() {
       "It could let a reviewer decide whether a handoff estimate should sound immediate, calm or bureaucratic, or let a presenter make an agenda duration negotiate with the calendar. The value is already measurable before its diplomatic hearing.",
     alternative:
       "A reasonable local alternative is formatting the duration once at its display boundary and preserving the source unit. Three buttons should not decide how urgent a number feels.",
-    isNew: true,
   },
   {
     name: "StackingAppeal",
@@ -4464,7 +4467,6 @@ export function AppealableNotes() {
       "It could let a reviewer bring the most urgent handoff field to the front, or let a presenter give one agenda item temporary physical priority. A real priority value would be clearer than litigating z-index by clicking cards.",
     alternative:
       "A reasonable local alternative is an ordered list with an explicit priority field. Stacking depth should not be mistaken for importance when normal flow can state the order.",
-    isNew: true,
   },
   {
     name: "KnightTour",
@@ -4490,7 +4492,6 @@ export function TouredNotes() {
       "It could let a reviewer route through handoff fields by an ornate L-shaped inspection path, or let a presenter make an agenda audience visit every item as if the slide were a chessboard. The route adds difficulty without adding coverage.",
     alternative:
       "A reasonable local alternative is normal reading order or a checklist that records actual review progress. A knight’s tour is a puzzle, not a document workflow.",
-    isNew: true,
   },
   {
     name: "Base64Bureau",
@@ -4512,6 +4513,126 @@ export function SealedLabel() {
       "It could let a reviewer disguise a handoff title before passing a machine parcel around, or let a presenter turn an agenda caption into a route token for theatrical effect. Encoding does not make ordinary copy more private.",
     alternative:
       "A reasonable local alternative is keeping the label readable and encoding only at the actual transport boundary. A display component should not impose a protocol on human text.",
+  },
+  {
+    name: "WordLadder",
+    slug: "word-ladder",
+    summary: "A label changes one actual character per rung until it reaches a target it could have displayed directly.",
+    description:
+      "Advance through a real word morph: each rung replaces the next character from the supplied start with the corresponding character from the target. The displayed wording changes at every step and Return to start restores the opening label.",
+    usage: `import { WordLadder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RenovatedLabel() {
+  return <WordLadder start="cold" target="warm" />;
+}`,
+    api: [
+      { name: "start", type: "string", description: "The readable wording shown before the ladder begins." },
+      { name: "target", type: "string", description: "The wording reached by replacing one character position per rung." },
+    ],
+    demo: "word-ladder",
+    useCase:
+      "It could let a reviewer migrate a handoff status from draft language to approved language one character at a time, or let a presenter turn one agenda label into another through a tiny typographic ceremony. Neither use benefits from delaying a text replacement.",
+    alternative:
+      "A reasonable local alternative is rendering the target wording when it is ready and keeping the source in the data model. A character ladder turns a direct update into a progress track.",
+    isNew: true,
+  },
+  {
+    name: "NumberAlibi",
+    slug: "number-alibi",
+    summary: "Three mathematical theories interrogate one number and issue genuinely different rulings.",
+    description:
+      "Choose a prime, even or triangular alibi. The component runs the selected test against the supplied number, changes the visible verdict and keeps the chosen theory until Dismiss the case restores indecision.",
+    usage: `import { NumberAlibi } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function QuestionedNumber() {
+  return <NumberAlibi value={42} />;
+}`,
+    api: [
+      { name: "value", type: "number", description: "The number examined by the three independent mathematical criteria." },
+    ],
+    demo: "number-alibi",
+    useCase:
+      "It could let a reviewer decide whether a handoff identifier is sufficiently prime, pairable or stair-shaped, or let a presenter give an agenda number three incompatible credentials. A number does not become more appropriate because a panel chose its favorite property.",
+    alternative:
+      "A reasonable local alternative is one explicit calculation at the place where the result matters. A small status or validation message communicates a criterion without staging a trial.",
+    isNew: true,
+  },
+  {
+    name: "PinchContract",
+    slug: "pinch-contract",
+    summary: "Two draggable handles negotiate the exact amount of horizontal room a child is permitted to occupy.",
+    description:
+      "Drag either handle or use its arrow keys. The child sits inside a real paper region whose left edge and width change with the handles; the bounds remain until Reopen the contract restores the opening jurisdiction.",
+    usage: `import { PinchContract } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ContractedNote() {
+  return (
+    <PinchContract>
+      <span>Fit this note inside its jurisdiction.</span>
+    </PinchContract>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content physically squeezed between the two draggable jurisdiction handles." },
+    ],
+    demo: "pinch-contract",
+    useCase:
+      "It could let a reviewer negotiate how much width a handoff warning may consume, or let a presenter pinch an agenda label until it fits a deliberately narrow slide column. Both uses solve layout with a tiny bilateral treaty.",
+    alternative:
+      "A reasonable local alternative is responsive CSS with a max-width chosen from the surrounding layout. A normal container does not need two handles and a hearing to wrap text.",
+    isNew: true,
+  },
+  {
+    name: "CyclicPassage",
+    slug: "cyclic-passage",
+    summary: "A three-station route must complete a second lap from a different starting point before it can be filed.",
+    description:
+      "Click the stations left to right, then click from station two through the end and wrap back to station one. The actual visitation counts and route manifest update after each accepted station; a wrong station is rejected and Restart passage clears the route.",
+    usage: `import { CyclicPassage } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TwoLapNotice() {
+  return (
+    <CyclicPassage>
+      <span>Draft</span>
+      <span>Witness</span>
+      <span>File</span>
+    </CyclicPassage>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The stations visited in a left-to-right lap followed by a rotated lap." },
+    ],
+    demo: "cyclic-passage",
+    useCase:
+      "It could let a reviewer walk a handoff through its offices once, then repeat the route from the second office for reassurance, or let a presenter make an agenda audience revisit a slide in a rotated order. The second lap adds ceremony without adding coverage.",
+    alternative:
+      "A reasonable local alternative is a normal ordered list or a checklist when review order matters. A route manifest should not be required to remember a short sequence.",
+    isNew: true,
+  },
+  {
+    name: "CaesarReceipt",
+    slug: "caesar-receipt",
+    summary: "One click moves every Latin letter thirteen places and prints a receipt for the detour.",
+    description:
+      "Shift the supplied label through a reversible Caesar transformation. Letters change to their actual ROT13 counterparts while punctuation stays put; Restore wording returns the exact readable source.",
+    usage: `import { CaesarReceipt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShiftedLabel() {
+  return <CaesarReceipt label="Keep this wording readable" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable text whose Latin letters are rotated through a reversible Caesar shift." },
+    ],
+    demo: "caesar-receipt",
+    useCase:
+      "It could let a reviewer disguise a handoff title for a theatrical private channel, or let a presenter turn an agenda caption into a small historical cipher before revealing it again. ROT13 is not meaningful privacy for ordinary display copy.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and applying a real encoding or encryption boundary only when transport requires it. A display should not relocate an alphabet for atmosphere.",
     isNew: true,
   },
 ] as const;

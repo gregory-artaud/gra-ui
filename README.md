@@ -3191,6 +3191,122 @@ type Base64BureauProps = {
 
 Press `Seal as Base64` to replace the supplied label with its actual UTF-8 Base64 representation; `Unpack wording` reverses the visible transformation. It could let a reviewer disguise a handoff title before passing a machine parcel around, or let a presenter turn an agenda caption into a route token for theatrical effect. Encoding does not make ordinary copy more private. A reasonable local alternative is keeping the label readable and encoding only at the actual transport boundary.
 
+## WordLadder
+
+`WordLadder` changes one actual character per rung until a label reaches a target it could have displayed directly.
+
+```ts
+type WordLadderProps = {
+  start: string;
+  target: string;
+};
+```
+
+```tsx
+import { WordLadder } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RenovatedLabel() {
+  return <WordLadder start="cold" target="warm" />;
+}
+```
+
+Click `Next rung` to replace each character position with its target counterpart. The rendered wording morphs through real intermediate states and `Return to start` restores the opening label. It could let a reviewer migrate a handoff status from draft language to approved language one character at a time, or let a presenter turn one agenda label into another through a typographic ceremony. Neither use benefits from delaying a text replacement. A reasonable local alternative is rendering the target wording when it is ready and keeping the source in the data model. This component should not have existed because a direct update does not need a character ladder.
+
+## NumberAlibi
+
+`NumberAlibi` asks three mathematical theories to interrogate one number and issue genuinely different rulings.
+
+```ts
+type NumberAlibiProps = {
+  value: number;
+};
+```
+
+```tsx
+import { NumberAlibi } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function QuestionedNumber() {
+  return <NumberAlibi value={42} />;
+}
+```
+
+Choose `Prime alibi`, `Even alibi` or `Triangle alibi`. The selected criterion runs a different real calculation against the supplied value and changes the visible ruling; `Dismiss the case` returns to indecision. It could let a reviewer decide whether a handoff identifier is prime, pairable or stair-shaped, or let a presenter give an agenda number three incompatible credentials. A reasonable local alternative is one explicit calculation at the place where the result matters. This component should not have existed because a number gains nothing from a legal strategy.
+
+## PinchContract
+
+`PinchContract` lets two draggable handles negotiate the exact horizontal room a child is allowed to occupy.
+
+```ts
+type PinchContractProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { PinchContract } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ContractedNote() {
+  return (
+    <PinchContract>
+      <span>Fit this note inside its jurisdiction.</span>
+    </PinchContract>
+  );
+}
+```
+
+Drag either handle, or focus a handle and use its arrow keys. The child occupies a real paper region whose left edge and width change with the handles; `Reopen the contract` restores the initial bounds. It could let a reviewer negotiate how much width a handoff warning may consume, or let a presenter pinch an agenda label into a deliberately narrow slide column. A reasonable local alternative is responsive CSS with a max-width chosen from the surrounding layout. This component should not have existed because normal wrapping does not need a bilateral treaty.
+
+## CyclicPassage
+
+`CyclicPassage` requires a three-station route to complete a second lap from a different starting point before it can be filed.
+
+```ts
+type CyclicPassageProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { CyclicPassage } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TwoLapNotice() {
+  return (
+    <CyclicPassage>
+      <span>Draft</span>
+      <span>Witness</span>
+      <span>File</span>
+    </CyclicPassage>
+  );
+}
+```
+
+Click the children from left to right, then start the second lap at the middle child and wrap back to the first. The actual visitation counts and route manifest update after each accepted station; a wrong station is rejected and `Restart passage` clears the route. It could let a reviewer walk a handoff through its offices twice, or let a presenter revisit an agenda in a rotated order. A reasonable local alternative is an ordered list or checklist when review order matters. This component should not have existed because a second lap adds ceremony without adding coverage.
+
+## CaesarReceipt
+
+`CaesarReceipt` moves every Latin letter thirteen places and prints a receipt for the detour.
+
+```ts
+type CaesarReceiptProps = {
+  label: string;
+};
+```
+
+```tsx
+import { CaesarReceipt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ShiftedLabel() {
+  return <CaesarReceipt label="Keep this wording readable" />;
+}
+```
+
+Click `Shift the alphabet` to apply a real reversible ROT13 transformation; punctuation stays put while the letters change. `Restore wording` returns the exact readable source. It could let a reviewer disguise a handoff title for a theatrical private channel, or let a presenter turn an agenda caption into a historical cipher before revealing it again. A reasonable local alternative is keeping the label readable and applying a real encoding boundary only when transport requires it. This component should not have existed because display copy does not need to relocate an alphabet.
+
 ## Development
 
 ```bash
