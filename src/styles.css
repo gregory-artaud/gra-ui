@@ -23731,3 +23731,577 @@
     transition: none;
   }
 }
+
+.gra-ui.fibonacci-proof,
+.gra-ui.reading-axis,
+.gra-ui.spacing-winch,
+.gra-ui.domino-sequence,
+.gra-ui.pig-latin-parcel {
+  display: inline-flex;
+  width: min(100%, 480px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.fibonacci-proof__header,
+.fibonacci-proof__footer,
+.reading-axis__header,
+.reading-axis__footer,
+.spacing-winch__header,
+.spacing-winch__footer,
+.domino-sequence__header,
+.domino-sequence__footer,
+.pig-latin-parcel__header,
+.pig-latin-parcel__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fibonacci-proof__header,
+.reading-axis__header,
+.spacing-winch__header,
+.domino-sequence__header,
+.pig-latin-parcel__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.fibonacci-proof__header output,
+.reading-axis__header output,
+.spacing-winch__header output,
+.domino-sequence__header output,
+.pig-latin-parcel__header output {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.fibonacci-proof__paper,
+.reading-axis__stage,
+.spacing-winch__stage,
+.pig-latin-parcel__paper {
+  display: grid;
+  min-height: 142px;
+  place-items: center;
+  gap: 12px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid var(--greact-input);
+  border-radius: calc(var(--greact-radius) - 2px);
+  background: color-mix(in srgb, var(--greact-background) 72%, var(--greact-ring));
+  text-align: center;
+}
+
+.fibonacci-proof__paper,
+.pig-latin-parcel__paper {
+  margin: 0;
+}
+
+.fibonacci-proof__cargo {
+  display: grid;
+  min-height: 62px;
+  width: min(100%, 270px);
+  place-items: center;
+  padding: 12px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 5px;
+  background: var(--greact-background);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), border-radius 260ms ease;
+}
+
+.fibonacci-proof[data-stage="1"] .fibonacci-proof__cargo { transform: translateY(-3px); border-radius: 8px; }
+.fibonacci-proof[data-stage="2"] .fibonacci-proof__cargo { transform: translateY(-6px) rotate(-1deg); border-radius: 10px; }
+.fibonacci-proof[data-stage="3"] .fibonacci-proof__cargo { transform: translateY(-9px) rotate(1deg); border-radius: 13px; }
+.fibonacci-proof[data-stage="4"] .fibonacci-proof__cargo { transform: translateY(-12px) rotate(-2deg); border-radius: 17px; }
+.fibonacci-proof[data-stage="5"] .fibonacci-proof__cargo { transform: translateY(-15px) rotate(2deg); border-radius: 21px; }
+
+.fibonacci-proof__paper figcaption,
+.reading-axis__caption,
+.spacing-winch__caption,
+.pig-latin-parcel__caption {
+  color: var(--greact-ring);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.fibonacci-proof__steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fibonacci-proof__steps li {
+  display: grid;
+  min-height: 48px;
+  place-items: center;
+  gap: 2px;
+  border: 1px solid var(--greact-input);
+  border-radius: 5px;
+  background: var(--greact-secondary);
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease, transform 220ms ease;
+}
+
+.fibonacci-proof__steps li[data-seen="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  animation: gra-ui-fibonacci-step 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.fibonacci-proof__steps strong {
+  font-size: 13px;
+}
+
+.fibonacci-proof__form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.fibonacci-proof__form label,
+.spacing-winch__control {
+  display: grid;
+  gap: 7px;
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.fibonacci-proof__form input {
+  width: 100%;
+  min-height: 34px;
+  padding: 6px 8px;
+  border: 1px solid var(--greact-input);
+  border-radius: 4px;
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  outline: none;
+}
+
+.fibonacci-proof__form input:focus {
+  border-color: var(--greact-foreground);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--greact-ring) 35%, transparent);
+}
+
+.fibonacci-proof__form button,
+.fibonacci-proof__footer button,
+.reading-axis__footer button,
+.spacing-winch__footer button,
+.domino-sequence__footer button,
+.pig-latin-parcel__actions button {
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 7px 10px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 4px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+}
+
+.fibonacci-proof__form button:disabled,
+.fibonacci-proof__footer button:disabled,
+.reading-axis__footer button:disabled,
+.spacing-winch__footer button:disabled,
+.domino-sequence__footer button:disabled,
+.pig-latin-parcel__actions button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.fibonacci-proof__footer,
+.reading-axis__footer,
+.spacing-winch__footer,
+.domino-sequence__footer,
+.pig-latin-parcel__footer {
+  align-items: flex-start;
+  color: var(--greact-ring);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.fibonacci-proof__footer p,
+.reading-axis__footer p,
+.spacing-winch__footer p,
+.domino-sequence__footer p,
+.pig-latin-parcel__footer p {
+  margin: 0;
+}
+
+.reading-axis__stage {
+  min-height: 172px;
+}
+
+.reading-axis__content {
+  display: grid;
+  min-height: 92px;
+  max-width: 100%;
+  place-items: center;
+  padding: 12px 18px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 5px;
+  background: var(--greact-background);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  transition: min-height 260ms ease, max-height 260ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reading-axis__content[data-axis="column"],
+.reading-axis__content[data-axis="sideways"] {
+  min-height: 130px;
+  max-height: 142px;
+  padding-inline: 12px;
+  writing-mode: vertical-rl;
+}
+
+.reading-axis__content[data-axis="sideways"] {
+  text-orientation: sideways;
+}
+
+.reading-axis__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.reading-axis__choice {
+  display: flex;
+  min-width: 0;
+  min-height: 62px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 7px;
+  border: 1px solid var(--greact-input);
+  border-radius: 5px;
+  background: var(--greact-secondary);
+  color: var(--greact-foreground);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reading-axis__choice:hover,
+.reading-axis__choice:focus-visible {
+  border-color: var(--greact-ring);
+  transform: translateY(-2px);
+}
+
+.reading-axis__choice:focus-visible,
+.reading-axis__footer button:focus-visible,
+.spacing-winch__footer button:focus-visible,
+.domino-sequence__tile:focus-visible,
+.domino-sequence__footer button:focus-visible,
+.pig-latin-parcel__actions button:focus-visible,
+.fibonacci-proof__form button:focus-visible,
+.fibonacci-proof__footer button:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.reading-axis__choice[data-selected="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: translateY(-2px);
+}
+
+.reading-axis__choice strong {
+  font-size: 11px;
+}
+
+.reading-axis__choice small {
+  color: var(--greact-ring);
+  font-size: 9px;
+}
+
+.reading-axis__choice[data-selected="true"] small {
+  color: color-mix(in srgb, var(--greact-background) 65%, var(--greact-ring));
+}
+
+.spacing-winch__stage {
+  min-height: 158px;
+}
+
+.spacing-winch__paper {
+  display: grid;
+  min-height: 82px;
+  width: min(100%, 330px);
+  place-items: center;
+  padding: 18px 12px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 5px;
+  background: var(--greact-background);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  transition: letter-spacing 260ms cubic-bezier(0.22, 1, 0.36, 1), padding 260ms ease;
+}
+
+.spacing-winch__paper[data-spacing="1"] { letter-spacing: 0.04em; }
+.spacing-winch__paper[data-spacing="2"] { letter-spacing: 0.08em; padding-inline: 10px; }
+.spacing-winch__paper[data-spacing="3"] { letter-spacing: 0.13em; padding-inline: 8px; }
+.spacing-winch__paper[data-spacing="4"] { letter-spacing: 0.18em; padding-inline: 6px; }
+.spacing-winch__paper[data-spacing="5"] { letter-spacing: 0.23em; padding-inline: 4px; }
+.spacing-winch__paper[data-spacing="6"] { letter-spacing: 0.29em; padding-inline: 2px; }
+
+.spacing-winch__control input {
+  width: 100%;
+  accent-color: var(--greact-foreground);
+}
+
+.spacing-winch__ticks {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 2px;
+}
+
+.spacing-winch__ticks i {
+  width: 1px;
+  height: 5px;
+  background: var(--greact-input);
+}
+
+.domino-sequence__prompt {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--greact-foreground);
+  background: color-mix(in srgb, var(--greact-background) 74%, var(--greact-ring));
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.domino-sequence__prompt strong {
+  color: var(--greact-foreground);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.domino-sequence[data-state="rejected"] .domino-sequence__prompt {
+  animation: gra-ui-domino-reject 300ms ease both;
+}
+
+.domino-sequence__tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 7px;
+}
+
+.domino-sequence__tile {
+  display: flex;
+  min-width: 0;
+  min-height: 78px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 9px;
+  border: 1px solid var(--greact-input);
+  border-radius: 5px;
+  background: var(--greact-secondary);
+  color: var(--greact-foreground);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms ease, background-color 200ms ease, opacity 220ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.domino-sequence__tile:hover:not(:disabled),
+.domino-sequence__tile:focus-visible {
+  border-color: var(--greact-ring);
+  transform: translateY(-3px) rotate(-1deg);
+}
+
+.domino-sequence__tile > span,
+.domino-sequence__tile small {
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+}
+
+.domino-sequence__tile strong {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-size: 11px;
+}
+
+.domino-sequence__tile[data-used="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  opacity: 0.45;
+  transform: translateY(3px) rotate(1deg);
+}
+
+.domino-sequence__tile[data-used="true"] > span,
+.domino-sequence__tile[data-used="true"] small {
+  color: var(--greact-background);
+  opacity: 0.7;
+}
+
+.domino-sequence__chain {
+  display: flex;
+  min-height: 32px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.domino-sequence__chain li {
+  padding: 6px 8px;
+  border-radius: 3px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-size: 10px;
+  font-weight: 700;
+  animation: gra-ui-domino-arrive 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.domino-sequence__chain li.domino-sequence__empty {
+  padding: 0;
+  background: transparent;
+  color: var(--greact-ring);
+  font-weight: 400;
+  animation: none;
+}
+
+.pig-latin-parcel__paper {
+  min-height: 156px;
+}
+
+.pig-latin-parcel__paper strong {
+  max-width: 100%;
+  color: var(--greact-foreground);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(18px, 5vw, 27px);
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  animation: gra-ui-pig-latin-arrive 360ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.pig-latin-parcel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.pig-latin-parcel__actions button:last-child {
+  border-color: var(--greact-input);
+  background: transparent;
+  color: var(--greact-foreground);
+}
+
+@keyframes gra-ui-fibonacci-step {
+  0% { opacity: 0; transform: translateY(7px) scale(0.86); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gra-ui-domino-reject {
+  0%, 100% { transform: translateX(0); }
+  35% { transform: translateX(-5px); }
+  70% { transform: translateX(4px); }
+}
+
+@keyframes gra-ui-domino-arrive {
+  0% { opacity: 0; transform: translateY(6px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gra-ui-pig-latin-arrive {
+  0% { opacity: 0; transform: translateY(7px) rotateX(-35deg); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+@media (max-width: 520px) {
+  .gra-ui.fibonacci-proof,
+  .gra-ui.reading-axis,
+  .gra-ui.spacing-winch,
+  .gra-ui.domino-sequence,
+  .gra-ui.pig-latin-parcel {
+    padding: 14px;
+  }
+
+  .fibonacci-proof__form {
+    grid-template-columns: 1fr;
+  }
+
+  .fibonacci-proof__form button {
+    width: 100%;
+  }
+
+  .fibonacci-proof__footer,
+  .reading-axis__footer,
+  .spacing-winch__footer,
+  .domino-sequence__footer,
+  .pig-latin-parcel__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .reading-axis__choices {
+    gap: 5px;
+  }
+
+  .reading-axis__choice {
+    min-height: 58px;
+    padding-inline: 5px;
+  }
+
+  .reading-axis__choice small {
+    font-size: 8px;
+  }
+
+  .pig-latin-parcel__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fibonacci-proof__cargo,
+  .fibonacci-proof__steps li,
+  .reading-axis__content,
+  .reading-axis__choice,
+  .spacing-winch__paper,
+  .domino-sequence__prompt,
+  .domino-sequence__tile,
+  .domino-sequence__chain li,
+  .pig-latin-parcel__paper strong {
+    animation: none;
+    transition: none;
+  }
+}

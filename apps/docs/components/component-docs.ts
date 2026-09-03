@@ -195,7 +195,12 @@ export type DemoKind =
   | "number-alibi"
   | "pinch-contract"
   | "cyclic-passage"
-  | "caesar-receipt";
+  | "caesar-receipt"
+  | "fibonacci-proof"
+  | "reading-axis"
+  | "spacing-winch"
+  | "domino-sequence"
+  | "pig-latin-parcel";
 
 export interface ApiRow {
   name: string;
@@ -4535,7 +4540,6 @@ export function RenovatedLabel() {
       "It could let a reviewer migrate a handoff status from draft language to approved language one character at a time, or let a presenter turn one agenda label into another through a tiny typographic ceremony. Neither use benefits from delaying a text replacement.",
     alternative:
       "A reasonable local alternative is rendering the target wording when it is ready and keeping the source in the data model. A character ladder turns a direct update into a progress track.",
-    isNew: true,
   },
   {
     name: "NumberAlibi",
@@ -4557,7 +4561,6 @@ export function QuestionedNumber() {
       "It could let a reviewer decide whether a handoff identifier is sufficiently prime, pairable or stair-shaped, or let a presenter give an agenda number three incompatible credentials. A number does not become more appropriate because a panel chose its favorite property.",
     alternative:
       "A reasonable local alternative is one explicit calculation at the place where the result matters. A small status or validation message communicates a criterion without staging a trial.",
-    isNew: true,
   },
   {
     name: "PinchContract",
@@ -4583,7 +4586,6 @@ export function ContractedNote() {
       "It could let a reviewer negotiate how much width a handoff warning may consume, or let a presenter pinch an agenda label until it fits a deliberately narrow slide column. Both uses solve layout with a tiny bilateral treaty.",
     alternative:
       "A reasonable local alternative is responsive CSS with a max-width chosen from the surrounding layout. A normal container does not need two handles and a hearing to wrap text.",
-    isNew: true,
   },
   {
     name: "CyclicPassage",
@@ -4611,7 +4613,6 @@ export function TwoLapNotice() {
       "It could let a reviewer walk a handoff through its offices once, then repeat the route from the second office for reassurance, or let a presenter make an agenda audience revisit a slide in a rotated order. The second lap adds ceremony without adding coverage.",
     alternative:
       "A reasonable local alternative is a normal ordered list or a checklist when review order matters. A route manifest should not be required to remember a short sequence.",
-    isNew: true,
   },
   {
     name: "CaesarReceipt",
@@ -4633,6 +4634,115 @@ export function ShiftedLabel() {
       "It could let a reviewer disguise a handoff title for a theatrical private channel, or let a presenter turn an agenda caption into a small historical cipher before revealing it again. ROT13 is not meaningful privacy for ordinary display copy.",
     alternative:
       "A reasonable local alternative is keeping the label readable and applying a real encoding or encryption boundary only when transport requires it. A display should not relocate an alphabet for atmosphere.",
+  },
+  {
+    name: "FibonacciProof",
+    slug: "fibonacci-proof",
+    summary: "A readable notice must pass five Fibonacci checks before it is allowed to finish.",
+    description:
+      "Type the next number in the sequence 1, 2, 3, 5, 8. Each accepted answer adds a real proof row and lifts the notice slightly; a wrong answer is rejected without advancing the proof.",
+    usage: `import { FibonacciProof } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ProvenNotice() {
+  return <FibonacciProof><span>Ready for another review</span></FibonacciProof>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The notice that must survive the five-number Fibonacci proof." },
+    ],
+    demo: "fibonacci-proof",
+    useCase:
+      "It could let a reviewer make a handoff notice earn clearance by entering a ceremonial sequence, or let a presenter turn an agenda line into a tiny numerical initiation. Neither use gains evidence from correctly typing five predictable numbers.",
+    alternative:
+      "A reasonable local alternative is rendering the notice immediately and, if verification matters, showing one explicit validation result. A proof ladder makes a known sequence stand in for trust.",
+    isNew: true,
+  },
+  {
+    name: "ReadingAxis",
+    slug: "reading-axis",
+    summary: "Three reading axes make one notice horizontal, vertical or vertically sideways on demand.",
+    description:
+      "Choose the ordinary line, a vertical column or a sideways vertical axis. The same child is rendered with an actual CSS writing mode and text orientation, so the reading geometry changes rather than only its label.",
+    usage: `import { ReadingAxis } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RotatedNotice() {
+  return <ReadingAxis><span>Read this ordinary notice</span></ReadingAxis>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content forced to negotiate one of three actual reading axes." },
+    ],
+    demo: "reading-axis",
+    useCase:
+      "It could let a reviewer decide whether a handoff note deserves a line, a column or a sideways filing direction, or let a presenter rotate an agenda caption to match an imaginary wall. Both uses spend typography on a spatial decision that normal flow already solves.",
+    alternative:
+      "A reasonable local alternative is choosing the writing mode in the surrounding layout or keeping the text horizontal. An axis ballot should not be responsible for a readable sentence's orientation.",
+    isNew: true,
+  },
+  {
+    name: "SpacingWinch",
+    slug: "spacing-winch",
+    summary: "A range control winds literal distance between a notice's letters one turn at a time.",
+    description:
+      "Move the winch along its seven positions. The child keeps the same words but receives actual letter spacing and a roomier paper boundary; Release winch returns the text to its factory tension.",
+    usage: `import { SpacingWinch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TensionedNotice() {
+  return <SpacingWinch><span>Give this note some room</span></SpacingWinch>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content whose actual letter spacing is wound apart by the control." },
+    ],
+    demo: "spacing-winch",
+    useCase:
+      "It could let a reviewer meter how much typographic distance a handoff warning deserves, or let a presenter tighten an agenda caption until it fills a slide. Neither use needs a physical winch to set a CSS property.",
+    alternative:
+      "A reasonable local alternative is one deliberate `letter-spacing` value in local CSS or normal responsive wrapping. A range of tensions turns typography into a maintenance ritual.",
+    isNew: true,
+  },
+  {
+    name: "DominoSequence",
+    slug: "domino-sequence",
+    summary: "A row of words can fall only when each next word begins with the previous word's final letter.",
+    description:
+      "Start with any tile, then choose unused tiles whose first letter matches the last letter of the current tile. A wrong choice knocks the accepted chain down, while a complete chain files every word in the order actually chosen.",
+    usage: `import { DominoSequence } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ChainedFields() {
+  return <DominoSequence items={["Notice", "Echo", "Owner", "Review"]} />;
+}`,
+    api: [
+      { name: "items", type: "readonly string[]", description: "The word tiles that must form a last-letter-to-first-letter chain." },
+    ],
+    demo: "domino-sequence",
+    useCase:
+      "It could make a reviewer file handoff fields only when their words happen to connect, or let a presenter reveal agenda items through a tiny word game. The chain rule adds failure without improving the order of either document.",
+    alternative:
+      "A reasonable local alternative is rendering the intended order directly or using a checklist for real dependencies. A letter domino should not govern a workflow sequence.",
+    isNew: true,
+  },
+  {
+    name: "PigLatinParcel",
+    slug: "pig-latin-parcel",
+    summary: "One click repacks readable copy into Pig Latin and keeps the strange parcel reversible.",
+    description:
+      "Pack the supplied words by moving their initial consonant cluster to the end and adding `ay`, or add `way` to vowel-led words. The visible sentence changes character by character while punctuation and spacing stay in place.",
+    usage: `import { PigLatinParcel } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PlayfulNotice() {
+  return <PigLatinParcel label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable sentence transformed into and restored from a Pig Latin parcel." },
+    ],
+    demo: "pig-latin-parcel",
+    useCase:
+      "It could let a reviewer disguise a handoff title for a childish private channel, or let a presenter turn an agenda caption into a playful reveal before restoring it. The transformed sentence communicates less while pretending to be a transport format.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and applying a real transformation only at a playful, explicitly local boundary. A display component should not make ordinary copy speak Pig Latin by default.",
     isNew: true,
   },
 ] as const;

@@ -3307,6 +3307,111 @@ export function ShiftedLabel() {
 
 Click `Shift the alphabet` to apply a real reversible ROT13 transformation; punctuation stays put while the letters change. `Restore wording` returns the exact readable source. It could let a reviewer disguise a handoff title for a theatrical private channel, or let a presenter turn an agenda caption into a historical cipher before revealing it again. A reasonable local alternative is keeping the label readable and applying a real encoding boundary only when transport requires it. This component should not have existed because display copy does not need to relocate an alphabet.
 
+## FibonacciProof
+
+`FibonacciProof` makes a readable notice pass five predictable numerical checks before it is allowed to finish.
+
+```ts
+type FibonacciProofProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { FibonacciProof } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ProvenNotice() {
+  return <FibonacciProof><span>Ready for another review</span></FibonacciProof>;
+}
+```
+
+Enter `1`, then `2`, `3`, `5` and `8`. Each correct answer adds a real proof cell and lifts the notice; a wrong answer is rejected. `Restart proof` returns to the empty sequence. It could let a reviewer give a handoff notice numerical clearance, or let a presenter initiate an agenda line with a tiny Fibonacci ritual. Neither use gains evidence from typing five predictable numbers. A reasonable local alternative is rendering the notice immediately and showing one explicit validation result when verification matters.
+
+## ReadingAxis
+
+`ReadingAxis` lets three directions decide how one notice is actually written.
+
+```ts
+type ReadingAxisProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { ReadingAxis } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RotatedNotice() {
+  return <ReadingAxis><span>Read this ordinary notice</span></ReadingAxis>;
+}
+```
+
+Choose `Line`, `Column` or `Sideways`. The child receives a real CSS writing mode and text orientation, so the reading geometry changes; `Restore line` returns to normal flow. It could let a reviewer file a handoff note against an imaginary wall, or let a presenter rotate an agenda caption to match a stage. Both uses spend typography on a decision that normal layout already solves. A reasonable local alternative is choosing the writing mode in the surrounding layout and keeping ordinary copy horizontal.
+
+## SpacingWinch
+
+`SpacingWinch` winds actual letter distance into a child with a directly manipulated range.
+
+```ts
+type SpacingWinchProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { SpacingWinch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TensionedNotice() {
+  return <SpacingWinch><span>Give this note some room</span></SpacingWinch>;
+}
+```
+
+Move the seven-position slider, or use its arrow keys. The child receives a real `letter-spacing` value and a changing paper boundary; `Release winch` restores factory tension. It could let a reviewer meter typographic distance for a handoff warning, or let a presenter fill a slide by stretching an agenda caption. Neither use needs a physical winch to set one CSS property. A reasonable local alternative is one deliberate local `letter-spacing` value with normal responsive wrapping.
+
+## DominoSequence
+
+`DominoSequence` turns a word list into a last-letter-to-first-letter chain.
+
+```ts
+type DominoSequenceProps = {
+  items: readonly string[];
+};
+```
+
+```tsx
+import { DominoSequence } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ChainedFields() {
+  return <DominoSequence items={["Notice", "Echo", "Owner", "Review"]} />;
+}
+```
+
+Start with any tile, then choose an unused tile whose first letter matches the previous tile's final letter. A wrong choice knocks down the accepted chain, while a complete chain files every word in its chosen order; `Reset chain` clears it. It could make a reviewer file handoff fields only when their words happen to connect, or let a presenter reveal agenda items through a small word game. The letter rule adds failure without improving document order. A reasonable local alternative is rendering the intended order directly or using a checklist for real dependencies.
+
+## PigLatinParcel
+
+`PigLatinParcel` repacks readable copy into reversible Pig Latin.
+
+```ts
+type PigLatinParcelProps = {
+  label: string;
+};
+```
+
+```tsx
+import { PigLatinParcel } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PlayfulNotice() {
+  return <PigLatinParcel label="Prepare the ordinary handoff" />;
+}
+```
+
+Click `Pack wording` to move initial consonant clusters and add Pig Latin endings; punctuation and spacing remain in place, and `Restore label` reverses the display. It could let a reviewer disguise a handoff title for a childish private channel, or let a presenter turn an agenda caption into a playful reveal. The transformed sentence communicates less while pretending to be a transport format. A reasonable local alternative is keeping the label readable and transforming it only at an explicitly playful local boundary.
+
 ## Development
 
 ```bash

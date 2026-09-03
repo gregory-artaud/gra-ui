@@ -195,6 +195,11 @@ import {
   PinchContract,
   CyclicPassage,
   CaesarReceipt,
+  DominoSequence,
+  FibonacciProof,
+  PigLatinParcel,
+  ReadingAxis,
+  SpacingWinch,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -399,6 +404,11 @@ export interface PlaygroundProps {
     | "pinch-contract"
     | "cyclic-passage"
     | "caesar-receipt"
+    | "fibonacci-proof"
+    | "reading-axis"
+    | "spacing-winch"
+    | "domino-sequence"
+    | "pig-latin-parcel"
     | "decimal-erosion"
     | "voice-ruling"
     | "route-ink"
@@ -5367,6 +5377,116 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Shift the alphabet by thirteen actual positions.</dd></div>
             <div><dt>3</dt><dd>Inspect the transformed letters while punctuation stays in place.</dd></div>
             <div><dt>4</dt><dd>Restore wording when the historical detour is over.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "fibonacci-proof") {
+    return (
+      <div className="playground-shell fibonacci-proof-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <FibonacciProof><span>Ready for another review</span></FibonacciProof>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a readable notice and five empty proof cells.</dd></div>
+            <div><dt>2</dt><dd>Enter 1, then 2, 3, 5 and 8 in the field.</dd></div>
+            <div><dt>3</dt><dd>Each accepted answer adds a real proof row and lifts the notice.</dd></div>
+            <div><dt>4</dt><dd>Restart the proof when Fibonacci has become an unreasonable permission system.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "reading-axis") {
+    return (
+      <div className="playground-shell reading-axis-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ReadingAxis><span>Read this ordinary notice</span></ReadingAxis>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with the notice in the ordinary horizontal line.</dd></div>
+            <div><dt>2</dt><dd>Choose Line, Column or Sideways.</dd></div>
+            <div><dt>3</dt><dd>The actual writing mode changes the direction of the rendered content.</dd></div>
+            <div><dt>4</dt><dd>Restore line when the notice has finished facing the wrong way.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "spacing-winch") {
+    return (
+      <div className="playground-shell spacing-winch-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <SpacingWinch><span>Give this note some room</span></SpacingWinch>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with the letters at their factory distance.</dd></div>
+            <div><dt>2</dt><dd>Drag the seven-position winch or use the arrow keys.</dd></div>
+            <div><dt>3</dt><dd>The child receives actual letter spacing and a wider paper boundary.</dd></div>
+            <div><dt>4</dt><dd>Release the winch when typographic tension is no longer defensible.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "domino-sequence") {
+    return (
+      <div className="playground-shell domino-sequence-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <DominoSequence items={["Notice", "Echo", "Owner", "Review"]} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with any tile; the first one has no restriction.</dd></div>
+            <div><dt>2</dt><dd>Choose an unused tile whose first letter matches the previous tile&apos;s last letter.</dd></div>
+            <div><dt>3</dt><dd>A wrong tile knocks down the accepted chain instead of merely showing an error.</dd></div>
+            <div><dt>4</dt><dd>Reset the chain when every word has fallen into place.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "pig-latin-parcel") {
+    return (
+      <div className="playground-shell pig-latin-parcel-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PigLatinParcel label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary readable sentence.</dd></div>
+            <div><dt>2</dt><dd>Pack the wording to move consonant clusters and add the Pig Latin endings.</dd></div>
+            <div><dt>3</dt><dd>The actual words change while punctuation and spacing stay in place.</dd></div>
+            <div><dt>4</dt><dd>Restore the label when the parcel has said enough.</dd></div>
           </dl>
         </div>
       </div>

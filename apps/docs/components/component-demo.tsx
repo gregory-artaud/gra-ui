@@ -188,7 +188,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "number-alibi" ||
     kind === "pinch-contract" ||
     kind === "cyclic-passage" ||
-    kind === "caesar-receipt"
+    kind === "caesar-receipt" ||
+    kind === "fibonacci-proof" ||
+    kind === "reading-axis" ||
+    kind === "spacing-winch" ||
+    kind === "domino-sequence" ||
+    kind === "pig-latin-parcel"
   ) {
     return <Playground kind={kind} />;
   }

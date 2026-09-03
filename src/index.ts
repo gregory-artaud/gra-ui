@@ -791,6 +791,26 @@ export {
   type CaesarReceiptProps,
 } from "./components/caesar-receipt";
 export {
+  FibonacciProof,
+  type FibonacciProofProps,
+} from "./components/fibonacci-proof";
+export {
+  ReadingAxis,
+  type ReadingAxisProps,
+} from "./components/reading-axis";
+export {
+  SpacingWinch,
+  type SpacingWinchProps,
+} from "./components/spacing-winch";
+export {
+  DominoSequence,
+  type DominoSequenceProps,
+} from "./components/domino-sequence";
+export {
+  PigLatinParcel,
+  type PigLatinParcelProps,
+} from "./components/pig-latin-parcel";
+export {
   Button,
   buttonVariants,
   type ButtonProps,
