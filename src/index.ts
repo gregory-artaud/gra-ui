@@ -1,6 +1,27 @@
 import "./styles.css";
 
 export {
+  PasteAccreditation,
+  type PasteAccreditationProps,
+} from "./components/paste-accreditation";
+export {
+  DataDialect,
+  type DataDialectProps,
+} from "./components/data-dialect";
+export {
+  RadiusDial,
+  type RadiusDialProps,
+} from "./components/radius-dial";
+export {
+  ClipboardCustody,
+  type ClipboardCustodyProps,
+} from "./components/clipboard-custody";
+export {
+  FullwidthNotice,
+  type FullwidthNoticeProps,
+} from "./components/fullwidth-notice";
+
+export {
   MarkupPromotion,
   type MarkupPromotionProps,
 } from "./components/markup-promotion";

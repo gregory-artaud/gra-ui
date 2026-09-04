@@ -3412,6 +3412,66 @@ export function PlayfulNotice() {
 
 Click `Pack wording` to move initial consonant clusters and add Pig Latin endings; punctuation and spacing remain in place, and `Restore label` reverses the display. It could let a reviewer disguise a handoff title for a childish private channel, or let a presenter turn an agenda caption into a playful reveal. The transformed sentence communicates less while pretending to be a transport format. A reasonable local alternative is keeping the label readable and transforming it only at an explicitly playful local boundary.
 
+## PasteAccreditation
+
+`PasteAccreditation` advances four filing stages when the user pastes a packet.
+
+```ts
+type PasteAccreditationProps = {
+  children: React.ReactNode;
+};
+```
+
+Paste any short text into the inbox. Each paste reveals one real child piece and advances the stage from `Unsubmitted` to `Accredited`; `Clear accreditation` restores the initial state. A reviewer could paste one field of a handoff packet at a time before a board admits it, or a presenter could paste agenda fragments one by one to make a slide feel procedurally approved. Both use cases treat clipboard events as evidence of content quality, so the abstraction is difficult to defend. A reasonable local alternative is rendering the fields directly with one explicit submit or approval action.
+
+## DataDialect
+
+`DataDialect` makes a readable sentence choose a data serialization.
+
+```ts
+type DataDialectProps = {
+  label: string;
+};
+```
+
+Choose `Array JSON`, `CSV` or `Query string`. The actual payload changes, including quoting and URL encoding, and `Restore sentence` returns the original text. A reviewer could force a handoff sentence to look like a payload before passing it between teams, or a presenter could turn an agenda line into CSV as a visual joke about interoperability. Both use cases confuse a display costume with a data boundary. A reasonable local alternative is keeping the sentence readable and serializing only at the application boundary.
+
+## RadiusDial
+
+`RadiusDial` lets a directly manipulated handle decide how round a notice should be.
+
+```ts
+type RadiusDialProps = {
+  children: React.ReactNode;
+};
+```
+
+Drag the crosshair toward the center of the surface, or focus it and use the arrow keys. The child receives an actual `border-radius` derived from the handle position; `Restore corners` returns to the factory radius. A reviewer could round a handoff note until it looks friendly enough to circulate, or a presenter could tune an agenda card to match an imaginary piece of furniture. Both use cases ask a corner radius to carry a decision it cannot explain. A reasonable local alternative is one local CSS radius chosen with the surrounding layout.
+
+## ClipboardCustody
+
+`ClipboardCustody` requires a label to leave and return through the clipboard in order.
+
+```ts
+type ClipboardCustodyProps = {
+  label: string;
+};
+```
+
+Press `Cut the label` then `Paste it back`, or use Ctrl/Cmd+X and Ctrl/Cmd+V in that order. The document disappears from its case, the second step unlocks, and the returned wording receives a visible custody stamp; `Reset custody` restores the opening state. A reviewer could make a handoff notice prove it was moved before accepting it back, or a presenter could rehearse taking an agenda line off a slide and returning it with a stamp. Both use cases record movement rather than correctness, which makes the component an unreasonable abstraction. A reasonable local alternative is one visible status change or an ordinary edit action.
+
+## FullwidthNotice
+
+`FullwidthNotice` replaces basic glyphs with wider Unicode forms.
+
+```ts
+type FullwidthNoticeProps = {
+  label: string;
+};
+```
+
+Press `Expand glyphs` to replace ASCII letters, numbers, punctuation and spaces with their actual Unicode fullwidth counterparts; `Restore ASCII` reverses the transformation. A reviewer could widen a handoff heading until it occupies a more ceremonial amount of room, or a presenter could expand an agenda caption to make a small point look typographically important. Both use cases add visual gravitas without adding information. A reasonable local alternative is adjusting local CSS while preserving the source text, reserving Unicode width forms for real compatibility needs.
+
 ## Development
 
 ```bash

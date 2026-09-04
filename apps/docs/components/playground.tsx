@@ -23,10 +23,12 @@ import {
   ClickOrder,
   CornerFold,
   CopyEcho,
+  ClipboardCustody,
   Counterweight,
   CustodyChoice,
   CursorProof,
   DecimalErosion,
+  DataDialect,
   DisclosureSpill,
   DragDuplicate,
   DragThreshold,
@@ -36,6 +38,7 @@ import {
   FocusFade,
   FocusReceipt,
   FocusUnpack,
+  FullwidthNotice,
   FilingFork,
   HoldPosition,
   HoverRoute,
@@ -59,11 +62,13 @@ import {
   NotchProgress,
   OperationParade,
   PairwiseMerge,
+  PasteAccreditation,
   ParityPurge,
   PressEscape,
   PointerPlot,
   PunchProof,
   QuotaProcession,
+  RadiusDial,
   ReorderBack,
   RedundancyCuller,
   RouteInk,
@@ -216,6 +221,11 @@ type Variant = (typeof variants)[number];
 export interface PlaygroundProps {
   kind?:
     | "markup-promotion"
+    | "paste-accreditation"
+    | "data-dialect"
+    | "radius-dial"
+    | "clipboard-custody"
+    | "fullwidth-notice"
     | "separator-ballot"
     | "belt-collector"
     | "operation-parade"
@@ -432,6 +442,121 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
     .split(",")
     .map((choice) => choice.trim())
     .filter(Boolean);
+
+  if (kind === "paste-accreditation") {
+    return (
+      <div className="playground-shell paste-accreditation-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PasteAccreditation>
+              <span>Title</span>
+              <span>Owner</span>
+              <span>Deadline</span>
+              <span>Decision</span>
+            </PasteAccreditation>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Paste any short packet into the inbox.</dd></div>
+            <div><dt>2</dt><dd>Each paste files one more child piece and advances the stage.</dd></div>
+            <div><dt>3</dt><dd>After four pastes, the complete notice is accredited.</dd></div>
+            <div><dt>4</dt><dd>Clear accreditation when paste events have become a policy.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "data-dialect") {
+    return (
+      <div className="playground-shell data-dialect-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <DataDialect label="Prepare the ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with readable words that have no data format.</dd></div>
+            <div><dt>2</dt><dd>Choose Array JSON, CSV or Query string.</dd></div>
+            <div><dt>3</dt><dd>The payload becomes a genuinely different serialization.</dd></div>
+            <div><dt>4</dt><dd>Restore the sentence when the data costume is no longer useful.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "radius-dial") {
+    return (
+      <div className="playground-shell radius-dial-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <RadiusDial><span>Needs a softer corner</span></RadiusDial>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Grab the crosshair at the lower-right corner.</dd></div>
+            <div><dt>2</dt><dd>Drag it toward the center to increase the actual border radius.</dd></div>
+            <div><dt>3</dt><dd>Use arrow keys on the handle for small geometric arguments.</dd></div>
+            <div><dt>4</dt><dd>Restore the factory corner when the notice becomes too round.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "clipboard-custody") {
+    return (
+      <div className="playground-shell clipboard-custody-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ClipboardCustody label="Return this notice by Friday" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Cut the label first, with the button or Ctrl/Cmd+X.</dd></div>
+            <div><dt>2</dt><dd>The document leaves its case and the paste step unlocks.</dd></div>
+            <div><dt>3</dt><dd>Paste it back, with the button or Ctrl/Cmd+V.</dd></div>
+            <div><dt>4</dt><dd>Reset custody when the order has been theatrically observed.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "fullwidth-notice") {
+    return (
+      <div className="playground-shell fullwidth-notice-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <FullwidthNotice label="Please keep this wording readable" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with ordinary ASCII characters.</dd></div>
+            <div><dt>2</dt><dd>Expand glyphs to their real Unicode fullwidth forms.</dd></div>
+            <div><dt>3</dt><dd>Watch the text occupy different measured space without new meaning.</dd></div>
+            <div><dt>4</dt><dd>Restore ASCII when the wider alphabet has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
 
   if (kind === "markup-promotion") {
     return (

@@ -7,6 +7,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "paste-accreditation" ||
+    kind === "data-dialect" ||
+    kind === "radius-dial" ||
+    kind === "clipboard-custody" ||
+    kind === "fullwidth-notice" ||
     kind === "markup-promotion" ||
     kind === "separator-ballot" ||
     kind === "belt-collector" ||

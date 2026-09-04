@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "paste-accreditation"
+  | "data-dialect"
+  | "radius-dial"
+  | "clipboard-custody"
+  | "fullwidth-notice"
   | "markup-promotion"
   | "separator-ballot"
   | "belt-collector"
@@ -4655,7 +4660,6 @@ export function ProvenNotice() {
       "It could let a reviewer make a handoff notice earn clearance by entering a ceremonial sequence, or let a presenter turn an agenda line into a tiny numerical initiation. Neither use gains evidence from correctly typing five predictable numbers.",
     alternative:
       "A reasonable local alternative is rendering the notice immediately and, if verification matters, showing one explicit validation result. A proof ladder makes a known sequence stand in for trust.",
-    isNew: true,
   },
   {
     name: "ReadingAxis",
@@ -4677,7 +4681,6 @@ export function RotatedNotice() {
       "It could let a reviewer decide whether a handoff note deserves a line, a column or a sideways filing direction, or let a presenter rotate an agenda caption to match an imaginary wall. Both uses spend typography on a spatial decision that normal flow already solves.",
     alternative:
       "A reasonable local alternative is choosing the writing mode in the surrounding layout or keeping the text horizontal. An axis ballot should not be responsible for a readable sentence's orientation.",
-    isNew: true,
   },
   {
     name: "SpacingWinch",
@@ -4699,7 +4702,6 @@ export function TensionedNotice() {
       "It could let a reviewer meter how much typographic distance a handoff warning deserves, or let a presenter tighten an agenda caption until it fills a slide. Neither use needs a physical winch to set a CSS property.",
     alternative:
       "A reasonable local alternative is one deliberate `letter-spacing` value in local CSS or normal responsive wrapping. A range of tensions turns typography into a maintenance ritual.",
-    isNew: true,
   },
   {
     name: "DominoSequence",
@@ -4721,7 +4723,6 @@ export function ChainedFields() {
       "It could make a reviewer file handoff fields only when their words happen to connect, or let a presenter reveal agenda items through a tiny word game. The chain rule adds failure without improving the order of either document.",
     alternative:
       "A reasonable local alternative is rendering the intended order directly or using a checklist for real dependencies. A letter domino should not govern a workflow sequence.",
-    isNew: true,
   },
   {
     name: "PigLatinParcel",
@@ -4743,6 +4744,122 @@ export function PlayfulNotice() {
       "It could let a reviewer disguise a handoff title for a childish private channel, or let a presenter turn an agenda caption into a playful reveal before restoring it. The transformed sentence communicates less while pretending to be a transport format.",
     alternative:
       "A reasonable local alternative is keeping the label readable and applying a real transformation only at a playful, explicitly local boundary. A display component should not make ordinary copy speak Pig Latin by default.",
+  },
+  {
+    name: "PasteAccreditation",
+    slug: "paste-accreditation",
+    summary: "Four paste events move child pieces through a needlessly official accreditation desk.",
+    description:
+      "Paste any short packet into the inbox. Each accepted paste files one more child piece and advances the visible stage; after four pastes, the ordinary content receives accreditation that proves nothing.",
+    usage: `import { PasteAccreditation } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function AccreditedBrief() {
+  return (
+    <PasteAccreditation>
+      <span>Title</span>
+      <span>Owner</span>
+      <span>Deadline</span>
+      <span>Decision</span>
+    </PasteAccreditation>
+  );
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "Up to four child pieces revealed as paste events clear the accreditation desk." },
+    ],
+    demo: "paste-accreditation",
+    useCase:
+      "A reviewer could paste a handoff packet once per field before a board admits it. A presenter could paste agenda fragments one at a time to make a slide feel procedurally approved. Both uses treat clipboard events as evidence of content quality.",
+    alternative:
+      "A reasonable local alternative is rendering the fields directly and using one explicit submit or approval action. A paste counter should not be the gatekeeper for content that is already on screen.",
+    isNew: true,
+  },
+  {
+    name: "DataDialect",
+    slug: "data-dialect",
+    summary: "Three buttons serialize one readable sentence into three incompatible data costumes.",
+    description:
+      "Choose Array JSON, CSV or a repeated query string. The words become genuinely different serialized payloads, complete with quoting or URL encoding; restoring the sentence removes the invented data contract.",
+    usage: `import { DataDialect } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SerializedBrief() {
+  return <DataDialect label="Prepare the ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable sentence split into words and serialized by the selected dialect." },
+    ],
+    demo: "data-dialect",
+    useCase:
+      "A reviewer could force a handoff sentence to look like a payload before passing it between teams. A presenter could turn an agenda line into CSV or a query string as a visual joke about interoperability. Neither use needs to pretend prose has become data.",
+    alternative:
+      "A reasonable local alternative is keeping the sentence readable and serializing only at the actual application boundary. A local utility is clearer than making a display component arbitrate data formats.",
+    isNew: true,
+  },
+  {
+    name: "RadiusDial",
+    slug: "radius-dial",
+    summary: "A draggable corner handle rounds a notice until geometry becomes its only credential.",
+    description:
+      "Drag the crosshair toward the center of the surface, or use its arrow keys. The content receives an actual border radius from the handle's position, turning one ordinary notice into a softer shape with no semantic benefit.",
+    usage: `import { RadiusDial } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SoftBrief() {
+  return <RadiusDial><span>Needs a softer corner</span></RadiusDial>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content molded by the directly manipulated corner radius." },
+    ],
+    demo: "radius-dial",
+    useCase:
+      "A reviewer could round a handoff note until it looks friendly enough to circulate. A presenter could tune an agenda card live to match an imaginary piece of furniture. Both uses ask a corner radius to carry a decision it cannot explain.",
+    alternative:
+      "A reasonable local alternative is one local CSS radius chosen with the surrounding layout. A draggable geometry handle adds a physical argument to a static style value.",
+    isNew: true,
+  },
+  {
+    name: "ClipboardCustody",
+    slug: "clipboard-custody",
+    summary: "A label must leave and return through the clipboard in the correct two-step order.",
+    description:
+      "Cut the label first, then paste it back. The document visibly leaves its case, the second action stays locked until the first has happened, and the returned wording receives a custody stamp despite being unchanged.",
+    usage: `import { ClipboardCustody } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ReturnedNotice() {
+  return <ClipboardCustody label="Return this notice by Friday" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The wording that must make an ordered cut-and-paste journey." },
+    ],
+    demo: "clipboard-custody",
+    useCase:
+      "A reviewer could make a handoff notice prove it was moved before accepting it back. A presenter could rehearse taking an agenda line off a slide and returning it with a ceremonial stamp. The sequence records movement, not correctness.",
+    alternative:
+      "A reasonable local alternative is one visible status change or an ordinary edit action. Clipboard custody should not manufacture a workflow around a reversible text operation.",
+    isNew: true,
+  },
+  {
+    name: "FullwidthNotice",
+    slug: "fullwidth-notice",
+    summary: "One click replaces basic glyphs with their wider Unicode counterparts.",
+    description:
+      "Expand ASCII letters, numbers, punctuation and spaces into Unicode fullwidth forms. The actual code points and measured width change while the message remains identical; restoring ASCII reverses the detour.",
+    usage: `import { FullwidthNotice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ExpandedNotice() {
+  return <FullwidthNotice label="Please keep this wording readable" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable text whose basic characters can be replaced by fullwidth Unicode forms." },
+    ],
+    demo: "fullwidth-notice",
+    useCase:
+      "A reviewer could widen a handoff heading until it occupies a more ceremonial amount of room. A presenter could expand an agenda caption to make a small point look typographically important. Neither use adds information to the sentence.",
+    alternative:
+      "A reasonable local alternative is adjusting local CSS width or font styling while preserving the source text. Unicode width forms should be used for actual text-compatibility needs, not visual gravitas.",
     isNew: true,
   },
 ] as const;
