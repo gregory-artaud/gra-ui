@@ -1,4 +1,9 @@
 export type DemoKind =
+  | "bracket-escalation"
+  | "blend-choice"
+  | "excerpt-shunt"
+  | "baseline-tug"
+  | "checkbox-procession"
   | "paste-accreditation"
   | "data-dialect"
   | "radius-dial"
@@ -4772,7 +4777,6 @@ export function AccreditedBrief() {
       "A reviewer could paste a handoff packet once per field before a board admits it. A presenter could paste agenda fragments one at a time to make a slide feel procedurally approved. Both uses treat clipboard events as evidence of content quality.",
     alternative:
       "A reasonable local alternative is rendering the fields directly and using one explicit submit or approval action. A paste counter should not be the gatekeeper for content that is already on screen.",
-    isNew: true,
   },
   {
     name: "DataDialect",
@@ -4794,7 +4798,6 @@ export function SerializedBrief() {
       "A reviewer could force a handoff sentence to look like a payload before passing it between teams. A presenter could turn an agenda line into CSV or a query string as a visual joke about interoperability. Neither use needs to pretend prose has become data.",
     alternative:
       "A reasonable local alternative is keeping the sentence readable and serializing only at the actual application boundary. A local utility is clearer than making a display component arbitrate data formats.",
-    isNew: true,
   },
   {
     name: "RadiusDial",
@@ -4816,7 +4819,6 @@ export function SoftBrief() {
       "A reviewer could round a handoff note until it looks friendly enough to circulate. A presenter could tune an agenda card live to match an imaginary piece of furniture. Both uses ask a corner radius to carry a decision it cannot explain.",
     alternative:
       "A reasonable local alternative is one local CSS radius chosen with the surrounding layout. A draggable geometry handle adds a physical argument to a static style value.",
-    isNew: true,
   },
   {
     name: "ClipboardCustody",
@@ -4838,7 +4840,6 @@ export function ReturnedNotice() {
       "A reviewer could make a handoff notice prove it was moved before accepting it back. A presenter could rehearse taking an agenda line off a slide and returning it with a ceremonial stamp. The sequence records movement, not correctness.",
     alternative:
       "A reasonable local alternative is one visible status change or an ordinary edit action. Clipboard custody should not manufacture a workflow around a reversible text operation.",
-    isNew: true,
   },
   {
     name: "FullwidthNotice",
@@ -4860,6 +4861,115 @@ export function ExpandedNotice() {
       "A reviewer could widen a handoff heading until it occupies a more ceremonial amount of room. A presenter could expand an agenda caption to make a small point look typographically important. Neither use adds information to the sentence.",
     alternative:
       "A reasonable local alternative is adjusting local CSS width or font styling while preserving the source text. Unicode width forms should be used for actual text-compatibility needs, not visual gravitas.",
+  },
+  {
+    name: "BracketEscalation",
+    slug: "bracket-escalation",
+    summary: "A label climbs through five actual bracket boundaries until containment becomes its only credential.",
+    description:
+      "Escalate the supplied label from plain text through parentheses, square brackets, braces and double brackets. Each stage changes the rendered characters and remains reversible with Return to plain.",
+    usage: `import { BracketEscalation } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ContainedNotice() {
+  return <BracketEscalation label="Keep this notice in bounds" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The text progressively enclosed by five increasingly emphatic bracket pairs." },
+    ],
+    demo: "bracket-escalation",
+    useCase:
+      "It could let a reviewer make a handoff notice earn more containment before filing it, or let a presenter wrap an agenda caption in increasingly formal punctuation. Neither use gives the sentence more authority by surrounding it.",
+    alternative:
+      "A reasonable local alternative is writing the intended punctuation once or placing the label in a normal container. A click-powered bracket ladder turns containment into a permission system.",
+    isNew: true,
+  },
+  {
+    name: "BlendChoice",
+    slug: "blend-choice",
+    summary: "Three compositing rulings make one notice cooperate with, wash through or argue against an imaginary stamp.",
+    description:
+      "Choose Ink, Light or Inversion. The child is composed with a real CSS blend mode against the stamp and patterned surface, so each ruling changes the pixels rather than only changing its label.",
+    usage: `import { BlendChoice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function StampedNotice() {
+  return <BlendChoice><span>Needs an official-looking layer</span></BlendChoice>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content composed against the component's imaginary official stamp." },
+    ],
+    demo: "blend-choice",
+    useCase:
+      "It could let a reviewer decide whether a handoff note should darken, glow through or invert beneath a department stamp, or let a presenter pick a compositing mood for an agenda card. The pixels change, but the stamp still proves nothing.",
+    alternative:
+      "A reasonable local alternative is one deliberate local color and layering rule chosen by the surrounding design. A public vote over blend modes is not a meaningful content decision.",
+    isNew: true,
+  },
+  {
+    name: "ExcerptShunt",
+    slug: "excerpt-shunt",
+    summary: "Select one phrase and physically remove it from the sentence into a separate filing tray.",
+    description:
+      "Select a contiguous excerpt with the pointer or keyboard, then shunt it aside. The chosen characters leave the source sentence and appear in a separate tray; Restore sentence returns the original wording.",
+    usage: `import { ExcerptShunt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledExcerpt() {
+  return <ExcerptShunt label="Move only the questionable clause" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The sentence from which one selected contiguous excerpt can be moved." },
+    ],
+    demo: "excerpt-shunt",
+    useCase:
+      "It could let a reviewer pull a debatable clause out of a handoff before discussing it, or let a presenter remove one agenda phrase into a side tray while the room decides. Selection already identifies the phrase; moving it adds theatrical paperwork.",
+    alternative:
+      "A reasonable local alternative is a normal text selection, inline editing or one annotation beside the sentence. A component should not relocate content merely because it was highlighted.",
+    isNew: true,
+  },
+  {
+    name: "BaselineTug",
+    slug: "baseline-tug",
+    summary: "A vertical handle drags a notice away from the typographic line it was given.",
+    description:
+      "Drag the baseline handle up or down, or focus it and use the arrow keys. The child keeps an actual vertical offset inside a ruled surface until Rejoin baseline restores zero displacement.",
+    usage: `import { BaselineTug } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MisalignedNotice() {
+  return <BaselineTug><span>This note has a baseline dispute.</span></BaselineTug>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content vertically displaced from its ordinary typographic baseline." },
+    ],
+    demo: "baseline-tug",
+    useCase:
+      "It could let a reviewer raise a handoff note above a crowded line or let a presenter tune an agenda caption to an imaginary ruler. Both uses preserve an arbitrary offset where normal alignment already exists.",
+    alternative:
+      "A reasonable local alternative is normal document flow with local alignment or margin CSS. A draggable baseline is an expensive argument about a few pixels.",
+    isNew: true,
+  },
+  {
+    name: "CheckboxProcession",
+    slug: "checkbox-procession",
+    summary: "A checklist accepts its boxes only in the order of their opening letters.",
+    description:
+      "Check the named next label in opening-letter order. Accepted boxes remain checked and appear with their filing number; a premature box stays empty until the procession is reset or the correct item is chosen.",
+    usage: `import { CheckboxProcession } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledFields() {
+  return <CheckboxProcession items={["Owner", "Deadline", "Status", "Decision"]} />;
+}`,
+    api: [
+      { name: "items", type: "readonly string[]", description: "The labels that must be checked in the component's opening-letter order." },
+    ],
+    demo: "checkbox-procession",
+    useCase:
+      "It could make a reviewer complete handoff fields only when their opening letters permit it, or let a presenter reveal agenda checks in a secretarial procession. The sequence creates ceremony without changing what a checklist means.",
+    alternative:
+      "A reasonable local alternative is an ordinary independent checklist or an explicit dependency model when order genuinely matters. A checkbox should not become a queue by surprise.",
     isNew: true,
   },
 ] as const;

@@ -7,6 +7,11 @@ import { Playground } from "@/components/playground";
 
 export function ComponentDemo({ kind }: { kind: DemoKind }) {
   if (
+    kind === "bracket-escalation" ||
+    kind === "blend-choice" ||
+    kind === "excerpt-shunt" ||
+    kind === "baseline-tug" ||
+    kind === "checkbox-procession" ||
     kind === "paste-accreditation" ||
     kind === "data-dialect" ||
     kind === "radius-dial" ||

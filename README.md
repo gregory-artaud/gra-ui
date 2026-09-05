@@ -3472,6 +3472,111 @@ type FullwidthNoticeProps = {
 
 Press `Expand glyphs` to replace ASCII letters, numbers, punctuation and spaces with their actual Unicode fullwidth counterparts; `Restore ASCII` reverses the transformation. A reviewer could widen a handoff heading until it occupies a more ceremonial amount of room, or a presenter could expand an agenda caption to make a small point look typographically important. Both use cases add visual gravitas without adding information. A reasonable local alternative is adjusting local CSS while preserving the source text, reserving Unicode width forms for real compatibility needs.
 
+## BracketEscalation
+
+`BracketEscalation` progressively encloses a label in increasingly emphatic bracket pairs.
+
+```ts
+type BracketEscalationProps = {
+  label: string;
+};
+```
+
+```tsx
+import { BracketEscalation } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function ContainedNotice() {
+  return <BracketEscalation label="Keep this notice in bounds" />;
+}
+```
+
+Click `Escalate bracket` to move through plain text, parentheses, square brackets, braces and double brackets; each stage changes the actual displayed characters, and `Return to plain` restores them. It could let a reviewer make a handoff notice earn more containment, or let a presenter wrap an agenda caption in increasingly formal punctuation. Neither use gives the sentence more authority by surrounding it. A reasonable local alternative is writing the intended punctuation once or placing the label in a normal container.
+
+## BlendChoice
+
+`BlendChoice` lets an imaginary stamp decide how its child should composite.
+
+```ts
+type BlendChoiceProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { BlendChoice } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function StampedNotice() {
+  return <BlendChoice><span>Needs an official-looking layer</span></BlendChoice>;
+}
+```
+
+Choose `Ink`, `Light` or `Inversion`. The child uses a real CSS blend mode against the stamp and patterned surface, producing materially different pixels; `Withdraw choice` returns to the undecided composition. It could let a reviewer darken, wash or invert a handoff note beneath a department stamp, or let a presenter pick a compositing mood for an agenda card. The pixels change, but the stamp still proves nothing. A reasonable local alternative is one deliberate local color and layering rule chosen by the surrounding design.
+
+## ExcerptShunt
+
+`ExcerptShunt` moves a selected phrase out of a sentence and into a filing tray.
+
+```ts
+type ExcerptShuntProps = {
+  label: string;
+};
+```
+
+```tsx
+import { ExcerptShunt } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledExcerpt() {
+  return <ExcerptShunt label="Move only the questionable clause" />;
+}
+```
+
+Select a contiguous excerpt with the pointer or keyboard, then click `Shunt excerpt`. The selected characters leave the source sentence and appear in a separate tray; `Restore sentence` returns the exact wording. It could let a reviewer pull a debatable clause out of a handoff before discussing it, or let a presenter remove one agenda phrase into a side tray while the room decides. Selection already identifies the phrase; moving it adds theatrical paperwork. A reasonable local alternative is normal text selection, inline editing or one annotation beside the sentence.
+
+## BaselineTug
+
+`BaselineTug` drags a child vertically away from the typographic line it was given.
+
+```ts
+type BaselineTugProps = {
+  children: React.ReactNode;
+};
+```
+
+```tsx
+import { BaselineTug } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function MisalignedNotice() {
+  return <BaselineTug><span>This note has a baseline dispute.</span></BaselineTug>;
+}
+```
+
+Drag the handle up or down, or focus it and use the arrow keys. The child keeps an actual vertical offset inside the ruled surface until `Rejoin baseline` returns it to zero. It could let a reviewer raise a handoff note above a crowded line, or let a presenter tune an agenda caption to an imaginary ruler. Both uses preserve an arbitrary offset where normal alignment already exists. A reasonable local alternative is normal document flow with local alignment or margin CSS.
+
+## CheckboxProcession
+
+`CheckboxProcession` turns a checklist into a procession governed by opening letters.
+
+```ts
+type CheckboxProcessionProps = {
+  items: readonly string[];
+};
+```
+
+```tsx
+import { CheckboxProcession } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function FiledFields() {
+  return <CheckboxProcession items={["Owner", "Deadline", "Status", "Decision"]} />;
+}
+```
+
+Check the label announced as `Next` in opening-letter order. Accepted boxes stay checked and receive their filing number, while a premature box stays empty; `Empty procession` restores the start. It could make a reviewer complete handoff fields only when their opening letters permit it, or let a presenter reveal agenda checks in a secretarial procession. The sequence creates ceremony without changing what a checklist means. A reasonable local alternative is an ordinary independent checklist or an explicit dependency model when order genuinely matters.
+
 ## Development
 
 ```bash

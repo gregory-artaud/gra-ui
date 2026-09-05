@@ -4,6 +4,8 @@ import {
   AcronymForge,
   AlphabetizeWords,
   AlphabeticalQueue,
+  BaselineTug,
+  BlendChoice,
   BinaryMarch,
   ArithmeticCouncil,
   AlphabetTreadmill,
@@ -13,7 +15,9 @@ import {
   BackspaceArchive,
   BeltCollector,
   BlankFiling,
+  BracketEscalation,
   CaseGate,
+  CheckboxProcession,
   CenterOut,
   ChildGravity,
   ClauseAudit,
@@ -35,6 +39,7 @@ import {
   DropSilo,
   DurationScale,
   EqualChoice,
+  ExcerptShunt,
   FocusFade,
   FocusReceipt,
   FocusUnpack,
@@ -220,6 +225,11 @@ type Variant = (typeof variants)[number];
 
 export interface PlaygroundProps {
   kind?:
+    | "bracket-escalation"
+    | "blend-choice"
+    | "excerpt-shunt"
+    | "baseline-tug"
+    | "checkbox-procession"
     | "markup-promotion"
     | "paste-accreditation"
     | "data-dialect"
@@ -5612,6 +5622,116 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Pack the wording to move consonant clusters and add the Pig Latin endings.</dd></div>
             <div><dt>3</dt><dd>The actual words change while punctuation and spacing stay in place.</dd></div>
             <div><dt>4</dt><dd>Restore the label when the parcel has said enough.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "bracket-escalation") {
+    return (
+      <div className="playground-shell bracket-escalation-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <BracketEscalation label="Keep this notice in bounds" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with ordinary text and no containment.</dd></div>
+            <div><dt>2</dt><dd>Escalate the label through five actual bracket pairs.</dd></div>
+            <div><dt>3</dt><dd>Each stage changes the rendered characters and its visible weight.</dd></div>
+            <div><dt>4</dt><dd>Return to plain when punctuation has become an authority system.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "blend-choice") {
+    return (
+      <div className="playground-shell blend-choice-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <BlendChoice><span>Needs an official-looking layer</span></BlendChoice>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with a notice beneath an imaginary stamp.</dd></div>
+            <div><dt>2</dt><dd>Choose Ink, Light or Inversion.</dd></div>
+            <div><dt>3</dt><dd>The actual CSS blend mode changes how the two layers compose.</dd></div>
+            <div><dt>4</dt><dd>Withdraw the choice when pixel politics has outlived the notice.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "excerpt-shunt") {
+    return (
+      <div className="playground-shell excerpt-shunt-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ExcerptShunt label="Move only the questionable clause" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Select a contiguous phrase with the pointer or keyboard.</dd></div>
+            <div><dt>2</dt><dd>Shunt the selected characters into the filing tray.</dd></div>
+            <div><dt>3</dt><dd>The phrase leaves the source sentence for real.</dd></div>
+            <div><dt>4</dt><dd>Restore the sentence when the excerpt has been sufficiently discussed.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "baseline-tug") {
+    return (
+      <div className="playground-shell baseline-tug-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <BaselineTug><span>This note has a baseline dispute.</span></BaselineTug>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Find the handle beside the ruled surface.</dd></div>
+            <div><dt>2</dt><dd>Drag it up or down to tug the notice away from its line.</dd></div>
+            <div><dt>3</dt><dd>Use Arrow Up and Arrow Down for a keyboard-sized dispute.</dd></div>
+            <div><dt>4</dt><dd>Rejoin the baseline when the offset has made its point.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "checkbox-procession") {
+    return (
+      <div className="playground-shell checkbox-procession-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CheckboxProcession items={["Owner", "Deadline", "Status", "Decision"]} />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Read the next label announced above the checklist.</dd></div>
+            <div><dt>2</dt><dd>Check labels in their opening-letter order.</dd></div>
+            <div><dt>3</dt><dd>A premature box stays empty while accepted boxes keep their filing number.</dd></div>
+            <div><dt>4</dt><dd>Empty the procession when the checklist has become a queue.</dd></div>
           </dl>
         </div>
       </div>
