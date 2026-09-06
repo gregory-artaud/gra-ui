@@ -3577,6 +3577,64 @@ export function FiledFields() {
 
 Check the label announced as `Next` in opening-letter order. Accepted boxes stay checked and receive their filing number, while a premature box stays empty; `Empty procession` restores the start. It could make a reviewer complete handoff fields only when their opening letters permit it, or let a presenter reveal agenda checks in a secretarial procession. The sequence creates ceremony without changing what a checklist means. A reasonable local alternative is an ordinary independent checklist or an explicit dependency model when order genuinely matters.
 
+## PrimeReveal
+
+`PrimeReveal` makes a label pass a prime-numbered readability inspection.
+
+```ts
+type PrimeRevealProps = {
+  label: string;
+};
+```
+
+Press `Apply next prime` through the four rulings. Position one and prime-numbered glyphs appear through 5, 11 and 17 before the final action admits every composite position; `Clear ruling` returns to dots. It could let a reviewer admit only prime-positioned words from a handoff, or let a presenter give an agenda line a numerical clearance ritual. Neither use makes character position evidence. A reasonable local alternative is showing the label immediately and using one explicit status when content really needs review.
+
+## ElementTriage
+
+`ElementTriage` asks three actual HTML destinations to house one notice.
+
+```ts
+type ElementTriageProps = {
+  children: React.ReactNode;
+};
+```
+
+Choose `Heading`, `Aside` or `Footnote`. The child is rendered as an actual `h3`, `aside` or small footnote with distinct structure and emphasis; `Return to intake` restores ordinary paragraph flow. It could let a reviewer rank a handoff note or give an agenda line a temporary editorial place. The markup changes, but the decision has no evidence. A reasonable local alternative is authoring the correct semantic element at the call site and styling it locally.
+
+## MosaicDab
+
+`MosaicDab` files a readable label into a grid one pointer-painted glyph at a time.
+
+```ts
+type MosaicDabProps = {
+  label: string;
+};
+```
+
+Drag across empty cells, or focus the grid and use arrow keys plus Enter. Each unique cell claims the next actual character in paint order, spaces become visible dots, and `Erase mosaic` clears the board. It could let a reviewer paint a handoff title onto a board or turn an agenda caption into a tactile filing exercise. Painting coordinates does not improve the copy. A reasonable local alternative is rendering the label and using a normal text field or a real drawing surface only when coordinates matter.
+
+## CalendarSequence
+
+`CalendarSequence` accepts a date only after month, day and year arrive in order.
+
+```ts
+type CalendarSequenceProps = Record<string, never>;
+```
+
+Choose a month, then a day, then a year from the dependent native selects. The completed values become a real date card; changing the month sends the later fields back to intake, and `Reset order` clears the sequence. It could make a reviewer assemble a handoff deadline ceremonially, or give an agenda date a tiny filing ritual. The order records ceremony, not correctness. A reasonable local alternative is one date input or a normal date picker with validation.
+
+## MorseDispatch
+
+`MorseDispatch` sends a readable label nowhere as visible Morse code.
+
+```ts
+type MorseDispatchProps = {
+  label: string;
+};
+```
+
+Press `Encode dispatch` to replace supported characters with their dots and dashes while showing each original glyph beside its code; word boundaries become slash marks. `Restore wording` removes the invented radio protocol. It could let a reviewer dispatch a handoff title to an imaginary radio desk, or let a presenter stage a silent transmission of an agenda line. No receiver is waiting and the message gains no secrecy. A reasonable local alternative is keeping the label readable and using a local encoder only at a real communications boundary.
+
 ## Development
 
 ```bash

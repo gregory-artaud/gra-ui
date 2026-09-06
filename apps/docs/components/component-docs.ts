@@ -210,7 +210,12 @@ export type DemoKind =
   | "reading-axis"
   | "spacing-winch"
   | "domino-sequence"
-  | "pig-latin-parcel";
+  | "pig-latin-parcel"
+  | "prime-reveal"
+  | "element-triage"
+  | "mosaic-dab"
+  | "calendar-sequence"
+  | "morse-dispatch";
 
 export interface ApiRow {
   name: string;
@@ -4882,7 +4887,6 @@ export function ContainedNotice() {
       "It could let a reviewer make a handoff notice earn more containment before filing it, or let a presenter wrap an agenda caption in increasingly formal punctuation. Neither use gives the sentence more authority by surrounding it.",
     alternative:
       "A reasonable local alternative is writing the intended punctuation once or placing the label in a normal container. A click-powered bracket ladder turns containment into a permission system.",
-    isNew: true,
   },
   {
     name: "BlendChoice",
@@ -4904,7 +4908,6 @@ export function StampedNotice() {
       "It could let a reviewer decide whether a handoff note should darken, glow through or invert beneath a department stamp, or let a presenter pick a compositing mood for an agenda card. The pixels change, but the stamp still proves nothing.",
     alternative:
       "A reasonable local alternative is one deliberate local color and layering rule chosen by the surrounding design. A public vote over blend modes is not a meaningful content decision.",
-    isNew: true,
   },
   {
     name: "ExcerptShunt",
@@ -4926,7 +4929,6 @@ export function FiledExcerpt() {
       "It could let a reviewer pull a debatable clause out of a handoff before discussing it, or let a presenter remove one agenda phrase into a side tray while the room decides. Selection already identifies the phrase; moving it adds theatrical paperwork.",
     alternative:
       "A reasonable local alternative is a normal text selection, inline editing or one annotation beside the sentence. A component should not relocate content merely because it was highlighted.",
-    isNew: true,
   },
   {
     name: "BaselineTug",
@@ -4948,7 +4950,6 @@ export function MisalignedNotice() {
       "It could let a reviewer raise a handoff note above a crowded line or let a presenter tune an agenda caption to an imaginary ruler. Both uses preserve an arbitrary offset where normal alignment already exists.",
     alternative:
       "A reasonable local alternative is normal document flow with local alignment or margin CSS. A draggable baseline is an expensive argument about a few pixels.",
-    isNew: true,
   },
   {
     name: "CheckboxProcession",
@@ -4970,6 +4971,115 @@ export function FiledFields() {
       "It could make a reviewer complete handoff fields only when their opening letters permit it, or let a presenter reveal agenda checks in a secretarial procession. The sequence creates ceremony without changing what a checklist means.",
     alternative:
       "A reasonable local alternative is an ordinary independent checklist or an explicit dependency model when order genuinely matters. A checkbox should not become a queue by surprise.",
+  },
+  {
+    name: "PrimeReveal",
+    slug: "prime-reveal",
+    summary: "A label becomes legible only at positions an unnecessarily strict prime sieve approves.",
+    description:
+      "Advance through four rulings that reveal position one and then prime-numbered glyphs through 5, 11 and 17 before finally admitting every composite position. The actual characters appear in a discontinuous progression and the full wording remains restorable.",
+    usage: `import { PrimeReveal } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SievedNotice() {
+  return <PrimeReveal label="Park this ordinary handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The wording revealed according to prime-numbered character positions." },
+    ],
+    demo: "prime-reveal",
+    useCase:
+      "It could let a reviewer admit only prime-positioned words from a handoff before reluctantly accepting the rest, or let a presenter make an agenda line pass a numerical clearance ritual. Neither use makes character position evidence.",
+    alternative:
+      "A reasonable local alternative is showing the label immediately and using one explicit status when content really needs review. A prime sieve is an elaborate way to postpone readable text.",
+    isNew: true,
+  },
+  {
+    name: "ElementTriage",
+    slug: "element-triage",
+    summary: "Three HTML destinies compete to house one notice that already knows what it is.",
+    description:
+      "Choose Heading, Aside or Footnote. The child is actually rendered as an h3, aside or small footnote with different structure and emphasis, so the ruling changes the document rather than merely its color.",
+    usage: `import { ElementTriage } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function TriagedNotice() {
+  return <ElementTriage><span>Needs an official place</span></ElementTriage>;
+}`,
+    api: [
+      { name: "children", type: "ReactNode", description: "The content assigned to one of three materially different HTML destinations." },
+    ],
+    demo: "element-triage",
+    useCase:
+      "It could let a reviewer decide whether a handoff note deserves a headline, a margin or a footnote, or let a presenter give one agenda line a temporary editorial rank. The markup changes, but the decision still has no evidence.",
+    alternative:
+      "A reasonable local alternative is authoring the correct semantic element at the call site and styling it locally. A triage desk makes HTML vocabulary look like a voting system.",
+    isNew: true,
+  },
+  {
+    name: "MosaicDab",
+    slug: "mosaic-dab",
+    summary: "Drag a brush across empty cells until a readable label has been filed as a tiny mosaic.",
+    description:
+      "Each unique pointer stroke claims one grid cell and files the next actual character there. The cells preserve the paint order, spaces become visible dots, and keyboard arrows plus Enter provide the same brush for accessible use.",
+    usage: `import { MosaicDab } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function PaintedNotice() {
+  return <MosaicDab label="Park this handoff" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The wording filed one character at a time into the paintable mosaic." },
+    ],
+    demo: "mosaic-dab",
+    useCase:
+      "It could let a reviewer paint a handoff title into a board one glyph at a time, or let a presenter turn an agenda caption into a tactile filing exercise. Painting coordinates does not improve the copy.",
+    alternative:
+      "A reasonable local alternative is rendering the label and using a normal text field or a real drawing surface only when coordinates matter. A brush-powered sentence is paperwork with pixels.",
+    isNew: true,
+  },
+  {
+    name: "CalendarSequence",
+    slug: "calendar-sequence",
+    summary: "A date is accepted only after month, day and year arrive in ceremonial order.",
+    description:
+      "The three native selects unlock one another in month–day–year order. Once the sequence is complete, the chosen values become a real date card; changing the month sends the later fields back to intake.",
+    usage: `import { CalendarSequence } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function SequencedDate() {
+  return <CalendarSequence />;
+}`,
+    api: [
+      { name: "(none)", type: "Record<string, never>", description: "CalendarSequence is self-contained and accepts no conceptual props." },
+    ],
+    demo: "calendar-sequence",
+    useCase:
+      "It could make a reviewer assemble a handoff deadline in the only order a calendar can tolerate, or let a presenter give an agenda date a tiny filing ritual. The order records ceremony, not correctness.",
+    alternative:
+      "A reasonable local alternative is one date input or a normal date picker with validation. Three dependent selects should not turn a date into a custody sequence.",
+    isNew: true,
+  },
+  {
+    name: "MorseDispatch",
+    slug: "morse-dispatch",
+    summary: "A readable label is sent nowhere as a real string of dots and dashes.",
+    description:
+      "Encode dispatch replaces each supported character with its Morse representation, preserves word boundaries as slash marks and displays the original glyph beside every code token. Restore wording removes the invented radio protocol.",
+    usage: `import { MorseDispatch } from "gra-ui";
+import "gra-ui/styles.css";
+
+export function RadioNotice() {
+  return <MorseDispatch label="Meet at ten" />;
+}`,
+    api: [
+      { name: "label", type: "string", description: "The readable text encoded into visible Morse tokens and restored on demand." },
+    ],
+    demo: "morse-dispatch",
+    useCase:
+      "It could let a reviewer dispatch a handoff title to an imaginary radio desk, or let a presenter turn an agenda line into a silent transmission before revealing it again. No receiver is waiting and the message gains no secrecy.",
+    alternative:
+      "A reasonable local alternative is keeping the label readable and using a local encoder only at a real communications boundary. A display component should not make ordinary copy broadcast itself.",
     isNew: true,
   },
 ] as const;

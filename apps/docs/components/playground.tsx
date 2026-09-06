@@ -210,6 +210,11 @@ import {
   PigLatinParcel,
   ReadingAxis,
   SpacingWinch,
+  PrimeReveal,
+  ElementTriage,
+  MosaicDab,
+  CalendarSequence,
+  MorseDispatch,
 } from "gra-ui";
 import { useState } from "react";
 
@@ -429,6 +434,11 @@ export interface PlaygroundProps {
     | "spacing-winch"
     | "domino-sequence"
     | "pig-latin-parcel"
+    | "prime-reveal"
+    | "element-triage"
+    | "mosaic-dab"
+    | "calendar-sequence"
+    | "morse-dispatch"
     | "decimal-erosion"
     | "voice-ruling"
     | "route-ink"
@@ -5732,6 +5742,116 @@ export function Playground({ kind = "indecisive" }: PlaygroundProps) {
             <div><dt>2</dt><dd>Check labels in their opening-letter order.</dd></div>
             <div><dt>3</dt><dd>A premature box stays empty while accepted boxes keep their filing number.</dd></div>
             <div><dt>4</dt><dd>Empty the procession when the checklist has become a queue.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "prime-reveal") {
+    return (
+      <div className="playground-shell prime-reveal-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <PrimeReveal label="Park this ordinary handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Begin with a label whose glyphs are waiting behind dots.</dd></div>
+            <div><dt>2</dt><dd>Apply the next prime ruling four times.</dd></div>
+            <div><dt>3</dt><dd>Prime positions appear first; composite positions wait for the final admission.</dd></div>
+            <div><dt>4</dt><dd>Clear the ruling when arithmetic has taken over the sentence.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "element-triage") {
+    return (
+      <div className="playground-shell element-triage-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <ElementTriage><span>Needs an official place</span></ElementTriage>
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with one notice in ordinary paragraph flow.</dd></div>
+            <div><dt>2</dt><dd>Choose Heading, Aside or Footnote.</dd></div>
+            <div><dt>3</dt><dd>The component renders a genuinely different HTML destination.</dd></div>
+            <div><dt>4</dt><dd>Return to intake when the markup has made its argument.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "mosaic-dab") {
+    return (
+      <div className="playground-shell mosaic-dab-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <MosaicDab label="Park this handoff" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with every character waiting outside the grid.</dd></div>
+            <div><dt>2</dt><dd>Drag a brush across empty cells, or use arrows and Enter.</dd></div>
+            <div><dt>3</dt><dd>Each unique cell files the next real character in paint order.</dd></div>
+            <div><dt>4</dt><dd>Erase the mosaic when a sentence no longer needs coordinates.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "calendar-sequence") {
+    return (
+      <div className="playground-shell calendar-sequence-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <CalendarSequence />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Choose a month from the first native select.</dd></div>
+            <div><dt>2</dt><dd>The day field unlocks only after the month has been filed.</dd></div>
+            <div><dt>3</dt><dd>Choose a year last to produce the actual date card.</dd></div>
+            <div><dt>4</dt><dd>Reset order to make the calendar forget its ceremony.</dd></div>
+          </dl>
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "morse-dispatch") {
+    return (
+      <div className="playground-shell morse-dispatch-playground">
+        <div className="preview-panel">
+          <div className="preview-toolbar"><span>Preview</span><span className="preview-status"><i /> Interactive</span></div>
+          <div className="preview-stage">
+            <MorseDispatch label="Meet at ten" />
+          </div>
+        </div>
+        <div className="controls-panel equal-choice-notes">
+          <div className="controls-header"><span>Mechanism</span></div>
+          <dl>
+            <div><dt>1</dt><dd>Start with an ordinary readable label.</dd></div>
+            <div><dt>2</dt><dd>Encode dispatch to replace every supported glyph with Morse.</dd></div>
+            <div><dt>3</dt><dd>Inspect the original character beside its dots or dashes.</dd></div>
+            <div><dt>4</dt><dd>Restore wording when the imaginary radio desk is done.</dd></div>
           </dl>
         </div>
       </div>

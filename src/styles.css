@@ -25471,3 +25471,609 @@
     transition: none;
   }
 }
+
+.gra-ui.prime-reveal,
+.gra-ui.element-triage,
+.gra-ui.mosaic-dab,
+.gra-ui.calendar-sequence,
+.gra-ui.morse-dispatch {
+  display: inline-flex;
+  width: min(100%, 480px);
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: var(--greact-radius);
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+}
+
+.prime-reveal__header,
+.element-triage__header,
+.mosaic-dab__header,
+.calendar-sequence__header,
+.morse-dispatch__header,
+.prime-reveal__footer,
+.element-triage__footer,
+.mosaic-dab__footer,
+.calendar-sequence__footer,
+.morse-dispatch__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.prime-reveal__header,
+.element-triage__header,
+.mosaic-dab__header,
+.calendar-sequence__header,
+.morse-dispatch__header {
+  color: var(--greact-ring);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.prime-reveal__header output,
+.element-triage__header output,
+.mosaic-dab__header output,
+.calendar-sequence__header output,
+.morse-dispatch__header output {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.prime-reveal__paper,
+.element-triage__stage,
+.calendar-sequence__date,
+.morse-dispatch__paper {
+  position: relative;
+  display: grid;
+  min-height: 158px;
+  align-content: center;
+  padding: 22px 18px;
+  border: 1px solid var(--greact-input);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--greact-background) 78%, var(--greact-secondary));
+}
+
+.prime-reveal__paper {
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--greact-ring) 10%, transparent) 1px, transparent 1px) 0 0 / 18px 100%,
+    color-mix(in srgb, var(--greact-background) 78%, var(--greact-secondary));
+}
+
+.prime-reveal__rule {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 22px;
+  width: 1px;
+  background: var(--greact-ring);
+  opacity: 0.6;
+}
+
+.prime-reveal__paper p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding-left: 16px;
+  overflow-wrap: anywhere;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(17px, 4.8vw, 25px);
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.prime-reveal__glyph {
+  display: inline-block;
+  min-width: 0.56em;
+  color: var(--greact-foreground);
+  opacity: 0.18;
+  transform: translateY(3px) scale(0.82);
+  transition: opacity 240ms ease, transform 300ms cubic-bezier(0.22, 1, 0.36, 1), color 180ms ease;
+}
+
+.prime-reveal__glyph[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.prime-reveal__steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 5px;
+}
+
+.prime-reveal__steps span {
+  padding: 7px 4px;
+  border: 1px solid var(--greact-input);
+  border-radius: 4px;
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+  text-align: center;
+  transition: border-color 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.prime-reveal__steps span[data-active="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+}
+
+.prime-reveal__steps span[data-current="true"] {
+  border-color: var(--greact-ring);
+  color: var(--greact-foreground);
+}
+
+.prime-reveal__footer,
+.element-triage__footer,
+.mosaic-dab__footer,
+.calendar-sequence__footer,
+.morse-dispatch__footer {
+  align-items: flex-end;
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.prime-reveal__footer p,
+.element-triage__footer p,
+.mosaic-dab__footer p,
+.calendar-sequence__footer p,
+.morse-dispatch__footer p {
+  max-width: 260px;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.prime-reveal__actions,
+.morse-dispatch__actions {
+  display: grid;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.prime-reveal__actions button,
+.morse-dispatch__actions button,
+.element-triage__reset,
+.mosaic-dab__reset,
+.calendar-sequence__footer button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prime-reveal__actions button:first-child,
+.morse-dispatch__actions button:first-child {
+  padding: 8px 9px;
+  border: 1px solid var(--greact-foreground);
+  border-radius: 5px;
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  text-decoration: none;
+}
+
+.prime-reveal__actions button:hover:not(:disabled),
+.prime-reveal__actions button:focus-visible,
+.element-triage__reset:hover:not(:disabled),
+.element-triage__reset:focus-visible,
+.mosaic-dab__reset:hover:not(:disabled),
+.mosaic-dab__reset:focus-visible,
+.calendar-sequence__footer button:hover:not(:disabled),
+.calendar-sequence__footer button:focus-visible,
+.morse-dispatch__actions button:hover:not(:disabled),
+.morse-dispatch__actions button:focus-visible {
+  color: var(--greact-ring);
+}
+
+.prime-reveal__actions button:focus-visible,
+.element-triage__reset:focus-visible,
+.mosaic-dab__reset:focus-visible,
+.calendar-sequence__footer button:focus-visible,
+.morse-dispatch__actions button:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.prime-reveal__actions button:disabled,
+.element-triage__reset:disabled,
+.mosaic-dab__reset:disabled,
+.calendar-sequence__footer button:disabled,
+.morse-dispatch__actions button:disabled {
+  cursor: default;
+  opacity: 0.4;
+  text-decoration: none;
+}
+
+.element-triage__stage {
+  min-height: 164px;
+}
+
+.element-triage__stage > * {
+  width: 100%;
+  margin: 0;
+  overflow-wrap: anywhere;
+  animation: gra-ui-element-triage-arrive 320ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.element-triage__plain {
+  color: var(--greact-ring);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.element-triage__heading {
+  padding: 22px 16px;
+  border-left: 4px solid var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  font-size: clamp(20px, 5vw, 28px);
+  line-height: 1.1;
+}
+
+.element-triage__heading span,
+.element-triage__aside span {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.element-triage__heading span {
+  color: color-mix(in srgb, var(--greact-background) 65%, var(--greact-ring));
+}
+
+.element-triage__aside {
+  padding: 18px 15px 18px 20px;
+  border-left: 3px solid var(--greact-ring);
+  background: color-mix(in srgb, var(--greact-ring) 9%, transparent);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.element-triage__footnote {
+  padding: 30px 15px;
+  border-top: 1px dotted var(--greact-ring);
+  border-bottom: 1px dotted var(--greact-ring);
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.element-triage__footnote sup {
+  margin-right: 8px;
+  color: var(--greact-foreground);
+  font-size: 16px;
+}
+
+.element-triage__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.element-triage__choice {
+  display: grid;
+  min-height: 62px;
+  align-content: center;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid var(--greact-input);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--greact-foreground);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.element-triage__choice:hover,
+.element-triage__choice:focus-visible {
+  border-color: var(--greact-ring);
+  transform: translateY(-2px);
+}
+
+.element-triage__choice:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.element-triage__choice[data-selected="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+}
+
+.element-triage__choice strong {
+  font-size: 10px;
+}
+
+.element-triage__choice small {
+  color: var(--greact-ring);
+  font-size: 9px;
+  line-height: 1.25;
+}
+
+.element-triage__choice[data-selected="true"] small {
+  color: color-mix(in srgb, var(--greact-background) 68%, var(--greact-ring));
+}
+
+.mosaic-dab__grid {
+  display: grid;
+  min-height: 158px;
+  gap: 4px;
+  align-content: center;
+  padding: 13px;
+  border: 1px dashed var(--greact-input);
+  border-radius: 7px;
+  background:
+    linear-gradient(45deg, color-mix(in srgb, var(--greact-ring) 8%, transparent) 25%, transparent 25%, transparent 75%, color-mix(in srgb, var(--greact-ring) 8%, transparent) 75%) 0 0 / 18px 18px,
+    linear-gradient(45deg, transparent 25%, color-mix(in srgb, var(--greact-ring) 8%, transparent) 25%, color-mix(in srgb, var(--greact-ring) 8%, transparent) 75%, transparent 75%) 9px 9px / 18px 18px,
+    var(--greact-secondary);
+  cursor: crosshair;
+  outline: none;
+  touch-action: none;
+}
+
+.mosaic-dab__grid:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 3px;
+}
+
+.mosaic-dab__cell {
+  display: grid;
+  min-width: 0;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--greact-ring) 45%, transparent);
+  border-radius: 3px;
+  color: var(--greact-background);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: clamp(9px, 2.8vw, 14px);
+  font-weight: 700;
+  line-height: 1;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mosaic-dab__cell[data-painted="true"] {
+  border-color: var(--greact-foreground);
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: scale(0.94);
+}
+
+.mosaic-dab__cell[data-cursor="true"] {
+  border-color: var(--greact-ring);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--greact-ring) 28%, transparent);
+}
+
+.mosaic-dab__empty {
+  grid-column: 1 / -1;
+  justify-self: center;
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+.calendar-sequence__date {
+  min-height: 132px;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.calendar-sequence__date-mark {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid var(--greact-ring);
+  border-radius: 50%;
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1), background-color 180ms ease;
+}
+
+.calendar-sequence[data-phase="complete"] .calendar-sequence__date-mark {
+  background: var(--greact-foreground);
+  color: var(--greact-background);
+  transform: rotate(180deg);
+}
+
+.calendar-sequence__date strong {
+  font-size: clamp(19px, 5vw, 28px);
+  line-height: 1.15;
+}
+
+.calendar-sequence__date small {
+  color: var(--greact-ring);
+  font-size: 10px;
+}
+
+.calendar-sequence__fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.calendar-sequence__fields label {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+
+.calendar-sequence__fields label > span {
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.calendar-sequence__fields label[data-current="true"] > span {
+  color: var(--greact-foreground);
+}
+
+.calendar-sequence__fields select {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 5px;
+  border: 1px solid var(--greact-input);
+  border-radius: 4px;
+  background: var(--greact-background);
+  color: var(--greact-foreground);
+  font: inherit;
+  font-size: 11px;
+}
+
+.calendar-sequence__fields select:focus-visible {
+  outline: 2px solid var(--greact-ring);
+  outline-offset: 2px;
+}
+
+.calendar-sequence__fields select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.morse-dispatch__paper {
+  min-height: 178px;
+  overflow: auto;
+}
+
+.morse-dispatch__label {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.morse-dispatch__code {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 5px;
+}
+
+.morse-dispatch__token {
+  display: grid;
+  min-width: 36px;
+  gap: 3px;
+  padding: 6px 5px;
+  border-bottom: 2px solid var(--greact-foreground);
+  animation: gra-ui-morse-dispatch-arrive 300ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  text-align: center;
+}
+
+.morse-dispatch__token b {
+  font-size: 11px;
+}
+
+.morse-dispatch__token code {
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.morse-dispatch__gap {
+  color: var(--greact-ring);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 12px;
+}
+
+@keyframes gra-ui-element-triage-arrive {
+  from { opacity: 0; transform: translateY(8px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gra-ui-morse-dispatch-arrive {
+  from { opacity: 0; transform: translateY(7px) rotate(-3deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+@media (max-width: 520px) {
+  .gra-ui.prime-reveal,
+  .gra-ui.element-triage,
+  .gra-ui.mosaic-dab,
+  .gra-ui.calendar-sequence,
+  .gra-ui.morse-dispatch {
+    padding: 14px;
+  }
+
+  .prime-reveal__footer,
+  .element-triage__footer,
+  .mosaic-dab__footer,
+  .calendar-sequence__footer,
+  .morse-dispatch__footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .prime-reveal__footer p,
+  .element-triage__footer p,
+  .mosaic-dab__footer p,
+  .calendar-sequence__footer p,
+  .morse-dispatch__footer p {
+    max-width: none;
+  }
+
+  .prime-reveal__actions,
+  .morse-dispatch__actions {
+    width: 100%;
+  }
+
+  .prime-reveal__actions button:first-child,
+  .morse-dispatch__actions button:first-child {
+    width: 100%;
+  }
+
+  .calendar-sequence__fields {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-sequence__fields label {
+    grid-template-columns: 72px minmax(0, 1fr);
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prime-reveal__glyph,
+  .prime-reveal__steps span,
+  .element-triage__stage > *,
+  .element-triage__choice,
+  .mosaic-dab__cell,
+  .calendar-sequence__date-mark,
+  .morse-dispatch__token {
+    animation: none;
+    transition: none;
+  }
+}

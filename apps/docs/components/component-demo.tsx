@@ -203,7 +203,12 @@ export function ComponentDemo({ kind }: { kind: DemoKind }) {
     kind === "reading-axis" ||
     kind === "spacing-winch" ||
     kind === "domino-sequence" ||
-    kind === "pig-latin-parcel"
+    kind === "pig-latin-parcel" ||
+    kind === "prime-reveal" ||
+    kind === "element-triage" ||
+    kind === "mosaic-dab" ||
+    kind === "calendar-sequence" ||
+    kind === "morse-dispatch"
   ) {
     return <Playground kind={kind} />;
   }
